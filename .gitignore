@@ -1,0 +1,8 @@
+.quarto/
+/.quarto/
+/secret/
+**/*.quarto_ipynb
+_freeze/
+.venv/
+*_files/
+.DS_Store
