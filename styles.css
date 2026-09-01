@@ -11,3 +11,15 @@
   font-size: 1.0em !important;
 }
 
+/* 강의노트 목록 — 표를 조금 넓게 */
+.quarto-listing table {
+  font-size: 0.95em;
+}
+
+/* 정의·정리 박스 (callout) — 테두리만 남기고 배경을 죽인다 */
+div.callout {
+  border-left-width: 3px;
+}
+div.callout .callout-body {
+  background-color: transparent;
+}

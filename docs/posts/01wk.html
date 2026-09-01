@@ -2,15 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2026-09-01">
 
-<title>01wk: 이 강의가 답할 물음 – BS2026</title>
+<title>01wk: 강의소개 – BS2026</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -34,15 +37,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de63f62b328812d8e578a4d74e282472.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3bbbbd466991e281563892c5dce73c3d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-3f45afad82f6f61b8e9a9dbccecbbb9f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,35 +73,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -142,35 +115,15 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#강의-소개" id="toc-강의-소개" class="nav-link active" data-scroll-target="#강의-소개">1. 강의 소개</a>
-  <ul class="collapse">
-  <li><a href="#a.-이-강의는-무엇을-하는가" id="toc-a.-이-강의는-무엇을-하는가" class="nav-link" data-scroll-target="#a.-이-강의는-무엇을-하는가">A. 이 강의는 무엇을 하는가</a></li>
-  <li><a href="#b.-확률이라는-말이-두-번-쓰인다" id="toc-b.-확률이라는-말이-두-번-쓰인다" class="nav-link" data-scroll-target="#b.-확률이라는-말이-두-번-쓰인다">B. 확률이라는 말이 두 번 쓰인다</a></li>
-  <li><a href="#c.-이-물음은-실제로-싸움이었다" id="toc-c.-이-물음은-실제로-싸움이었다" class="nav-link" data-scroll-target="#c.-이-물음은-실제로-싸움이었다">C. 이 물음은 실제로 싸움이었다</a></li>
-  <li><a href="#d.-그런데-확률의-정의가-바뀌었다" id="toc-d.-그런데-확률의-정의가-바뀌었다" class="nav-link" data-scroll-target="#d.-그런데-확률의-정의가-바뀌었다">D. 그런데 「확률」의 정의가 바뀌었다</a></li>
-  <li><a href="#e.-그래서-무엇이-좋아지는가" id="toc-e.-그래서-무엇이-좋아지는가" class="nav-link" data-scroll-target="#e.-그래서-무엇이-좋아지는가">E. 그래서 무엇이 좋아지는가</a></li>
-  </ul></li>
-  <li><a href="#강의-운영" id="toc-강의-운영" class="nav-link" data-scroll-target="#강의-운영">2. 강의 운영</a>
-  <ul class="collapse">
-  <li><a href="#a.-선수-과목" id="toc-a.-선수-과목" class="nav-link" data-scroll-target="#a.-선수-과목">A. 선수 과목</a></li>
-  <li><a href="#b.-평가" id="toc-b.-평가" class="nav-link" data-scroll-target="#b.-평가">B. 평가</a></li>
-  <li><a href="#c.-교재" id="toc-c.-교재" class="nav-link" data-scroll-target="#c.-교재">C. 교재</a></li>
-  </ul></li>
-  <li><a href="#다음-시간" id="toc-다음-시간" class="nav-link" data-scroll-target="#다음-시간">3. 다음 시간</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><strong>01wk: 이 강의가 답할 물음</strong></h1>
+<h1 class="title"><strong>01wk: 강의소개</strong></h1>
 </div>
 
 
@@ -199,160 +152,8 @@ window.Quarto = {
 </header>
 
 
-<section id="강의-소개" class="level1">
-<h1>1. 강의 소개</h1>
-<section id="a.-이-강의는-무엇을-하는가" class="level2">
-<h2 class="anchored" data-anchor-id="a.-이-강의는-무엇을-하는가">A. 이 강의는 무엇을 하는가</h2>
-<p>이 강의는 베이지안 통계의 기법을 나열하는 강의가 아닙니다. <strong>하나의 물음</strong>을 한 학기에 걸쳐 팝니다.</p>
-<blockquote class="blockquote">
-<p><strong>주관적인 믿음도 「확률」이라고 부를 수 있는가? 그렇게 부르면 무엇이 좋아지는가?</strong></p>
-</blockquote>
-<p>이 물음이 왜 물음인지부터 봅시다.</p>
-</section>
-<section id="b.-확률이라는-말이-두-번-쓰인다" class="level2">
-<h2 class="anchored" data-anchor-id="b.-확률이라는-말이-두-번-쓰인다">B. 확률이라는 말이 두 번 쓰인다</h2>
-<p>동전을 던져 앞면이 나올 확률이 <span class="math inline">\(1/2\)</span> 이라고 할 때, 우리는 대체로 이런 뜻으로 말합니다.</p>
-<blockquote class="blockquote">
-<p>이 동전을 아주 여러 번 던지면 앞면의 비율이 <span class="math inline">\(1/2\)</span> 에 가까워진다.</p>
-</blockquote>
-<p>확률을 <strong>반복했을 때의 비율의 극한</strong>으로 보는 것입니다. 이것을 <strong>빈도(frequency) 해석</strong>이라고 부릅니다.</p>
-<p>그런데 우리는 이런 말도 합니다.</p>
-<blockquote class="blockquote">
-<p>내일 비가 올 확률이 <span class="math inline">\(70\%\)</span> 이다. 이 환자가 그 병일 확률이 <span class="math inline">\(3\%\)</span> 이다. 그 이론이 맞을 확률이 <span class="math inline">\(90\%\)</span> 이다.</p>
-</blockquote>
-<p><strong>내일은 한 번뿐입니다.</strong> 반복이 없습니다. 그러면 이 <span class="math inline">\(70\%\)</span> 는 무엇일까요? 비율의 극한이 아닙니다. 말하는 사람의 <strong>믿음의 정도</strong>입니다. 이것을 <strong>주관(subjective) 해석</strong>이라고 부릅니다.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>물음이 여기서 생긴다
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>같은 「확률」이라는 낱말이 <strong>서로 다른 두 가지</strong>를 가리키고 있습니다. 둘 다 확률이라고 불러도 되는 걸까요? 아니면 하나는 확률이 아닌 걸까요?</p>
-</div>
-</div>
-</section>
-<section id="c.-이-물음은-실제로-싸움이었다" class="level2">
-<h2 class="anchored" data-anchor-id="c.-이-물음은-실제로-싸움이었다">C. 이 물음은 실제로 싸움이었다</h2>
-<p>이것은 말장난이 아니라 20세기 통계학의 실제 논쟁이었고, 지금 여러분이 배우는 통계학의 모양을 그 논쟁이 결정했습니다. <span class="math inline">\(p\)</span>-값, 신뢰구간, 최대가능도추정 — 여러분이 이미 배운 이 도구들은 <strong>한쪽 편이 이겨서 남은 것들</strong>입니다.</p>
-<p>그 싸움의 한복판에 <strong>R. A. Fisher</strong> 가 있습니다. 그는 「역확률(inverse probability)」, 즉 자료를 보고 모수에 확률을 매기는 방식을 강하게 비판했고, 그 대신 <strong>가능도(likelihood)</strong> 라는 것을 내놓았습니다.</p>
-<blockquote class="blockquote">
-<p>가능도는 확률처럼 생겼지만 확률이 아니다 — 이것이 Fisher 의 주장이었습니다.</p>
-</blockquote>
-<p><strong>왜 확률이 아닌가?</strong> 무엇이 다른가? 이것이 강의의 첫 구획입니다.</p>
-</section>
-<section id="d.-그런데-확률의-정의가-바뀌었다" class="level2">
-<h2 class="anchored" data-anchor-id="d.-그런데-확률의-정의가-바뀌었다">D. 그런데 「확률」의 정의가 바뀌었다</h2>
-<p>Fisher 가 역확률을 비판하던 무렵, <strong>Kolmogorov</strong> 가 확률을 <strong>공리</strong>로 정의합니다(1933). 놀라운 것은 그 공리에 <strong>빈도라는 말이 한 번도 나오지 않는다</strong>는 점입니다.</p>
-<p>공리는 확률이 <strong>무엇을 뜻하는지 말하지 않습니다.</strong> 어떤 규칙을 지켜야 하는지만 말합니다.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>그러면 이렇게 된다
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>「비율의 극한」은 확률의 <strong>정의</strong>가 아니라 <strong>하나의 해석</strong>일 뿐이었습니다. 그렇다면 <strong>주관적 믿음도 그 규칙만 지키면 확률</strong>이 아닐까요?</p>
-</div>
-</div>
-<p>이것이 강의의 둘째 구획입니다. 확률을 <strong>측도(measure)</strong> 로 다시 정의하고, 거기서 무엇이 요구되고 무엇이 요구되지 않는지를 봅니다.</p>
-</section>
-<section id="e.-그래서-무엇이-좋아지는가" class="level2">
-<h2 class="anchored" data-anchor-id="e.-그래서-무엇이-좋아지는가">E. 그래서 무엇이 좋아지는가</h2>
-<p>주관적 믿음을 확률이라고 부를 수 있게 되면, <strong>모수에도 확률분포를 줄 수 있습니다.</strong> 그러면 이런 문장이 가능해집니다.</p>
-<blockquote class="blockquote">
-<p><span class="math inline">\(\theta\)</span> 가 <span class="math inline">\([0.3,\ 0.5]\)</span> 안에 있을 확률이 <span class="math inline">\(95\%\)</span> 이다.</p>
-</blockquote>
-<p>여러분이 배운 신뢰구간은 <strong>이렇게 말하면 안 되는</strong> 것이었습니다. 왜 안 되는지, 그리고 베이지안에서는 왜 되는지 — 이것이 셋째 구획입니다.</p>
-<p>그리고 마지막으로, 그렇게 얻은 것이 <strong>실제로 쓸모가 있는지</strong>를 봅니다. 말로만 좋은 것이 아니라 <strong>빈도론으로는 아예 할 수 없는 일</strong>이 있습니다.</p>
-</section>
-</section>
-<section id="강의-운영" class="level1">
-<h1>2. 강의 운영</h1>
-<section id="a.-선수-과목" class="level2">
-<h2 class="anchored" data-anchor-id="a.-선수-과목">A. 선수 과목</h2>
-<p><strong>수리통계학</strong>을 들었다고 가정합니다. 구체적으로는 다음을 알고 있다고 봅니다.</p>
-<ul>
-<li>확률변수, 확률밀도함수, 결합·주변·조건부 분포</li>
-<li>가능도함수와 <strong>최대가능도추정(MLE)</strong></li>
-<li>신뢰구간과 가설검정의 정의</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>MLE 를 모르면
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>이 강의는 <strong>MLE 를 아는 사람에게 베이즈를 얹는</strong> 구성입니다. MLE 가 흐릿하면 2주차에서 다시 정리하니 그때 확실히 잡고 가면 됩니다.</p>
-</div>
-</div>
-</section>
-<section id="b.-평가" class="level2">
-<h2 class="anchored" data-anchor-id="b.-평가">B. 평가</h2>
-<table class="caption-top table">
-<tbody>
-<tr class="odd">
-<td>중간고사</td>
-<td>8주차</td>
-</tr>
-<tr class="even">
-<td>기말고사</td>
-<td>15주차</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="c.-교재" class="level2">
-<h2 class="anchored" data-anchor-id="c.-교재">C. 교재</h2>
-<p>지정 교재는 없고, 공개된 표준 문헌에서 필요한 부분을 씁니다. 주차마다 해당 절을 밝힙니다.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>약칭</th>
-<th>문헌</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>CASI</strong></td>
-<td>Efron &amp; Hastie, <em>Computer Age Statistical Inference</em> (2016)</td>
-</tr>
-<tr class="even">
-<td><strong>BDA3</strong></td>
-<td>Gelman et al., <em>Bayesian Data Analysis</em> (3판, 2013)</td>
-</tr>
-<tr class="odd">
-<td><strong>PRML</strong></td>
-<td>Bishop, <em>Pattern Recognition and Machine Learning</em> (2006)</td>
-</tr>
-<tr class="even">
-<td><strong>MacKay</strong></td>
-<td>MacKay, <em>Information Theory, Inference, and Learning Algorithms</em> (2003)</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="다음-시간" class="level1">
-<h1>3. 다음 시간</h1>
-<p><strong>Fisher 가 왜 역확률을 버렸는지</strong>부터 봅니다. 그리고 그가 그 자리에 놓은 <strong>가능도</strong>가 확률과 정확히 무엇이 다른지를 봅니다.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
