@@ -1,0 +1,9 @@
+---
+title: "**01wk-1**: 강의소개"
+author: 최규빈
+date: "09/01/2026 13:00"
+---
+
+# 1. 강의영상
+
+{{< video https://youtu.be/XptUpvhPFxw?si=MHdWJgYfwWsisMbv >}}
