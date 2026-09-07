@@ -225,33 +225,33 @@ window.Quarto = {
 
 <section id="강의영상" class="level1">
 <h1>1. 강의영상</h1>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLYGQN4qsAnjU&amp;si=3_IBdeoWH47yj2XT" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="확률-잘-아세요" class="level1">
 <h1>2. 확률 잘 아세요?</h1>
 <p><code>-</code> “확률”이라는 단어를 우리는 일상적으로 어떻게 쓰는가?</p>
 <ul>
-<li>내일 전주에 비가 올 확률은?</li>
+<li>내일 비가 올 확률은?</li>
 <li>우리나라가 다음 월드컵 결승에서 우승할 확률은?</li>
-<li>이 강의에서 내가 A를 받을 확률은?</li>
+<li>이 강의에서 내가 A+를 받을 확률은?</li>
 </ul>
 <p><code>-</code> 이러한 확률은 합리적인가? 아니면 좀 어색하다고 느껴지는가? 어색하다면 왜 그런가?</p>
 <p><strong>합리적이라고 볼 만한 쪽</strong></p>
 <ul>
-<li>사람들이 실제로 그렇게 쓰고, 그렇게 써서 소통이 된다. 70퍼센트라고 하면 상대가 우산을 챙긴다.</li>
-<li>숫자가 클수록 더 그럴 법하다는 뜻이라는 데 아무도 이견이 없다.</li>
-<li>보험료도 투자 판단도 이런 숫자 위에서 정해진다. 쓰지 않고는 결정을 내릴 수가 없다.</li>
+<li>사람들이 실제로 그렇게 쓰고, 그렇게 써서 소통이 된다. 내일 비올 확률이 70퍼센트라고 하면 상대가 우산을 챙긴다.</li>
+<li>숫자가 클수록 더 그럴 법하다는 뜻이라는 데 대부분의 사람들이 동의한다.</li>
 </ul>
 <p><strong>어색하다고 볼 만한 쪽</strong></p>
 <ul>
-<li>반복이 없다. 같은 내일이 여러 번 오지 않는다. 여섯 번 던지는 주사위와 다르다.</li>
+<li>반복이 없다. “내일 비가 올 확률”이라는 문장에서, 같은 내일이 여러 번 오지 않는다.</li>
 <li>사람마다 값이 다르다. 갑은 0.7 이라 하고 을은 0.4 라 하는데 누가 맞는지 정할 길이 없다.</li>
 <li>맞았는지 확인이 안 된다. 내일 비가 와도, 안 와도, 어제 말한 70퍼센트가 맞았는지 틀렸는지 갈리지 않는다.</li>
 <li>아예 잴 수가 없는 것 아닌가 하는 느낌도 있다.</li>
 </ul>
-<p><code># 예제1</code> – 엑스노트 (가만히 생각해 보니까 좀 이상하네?)</p>
+<p><code># 가짜예제1</code> – 엑스노트 (가만히 생각해 보니까 좀 이상하네?)</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="attachments/08wk-1-1.png" class="img-fluid figure-img"></p>
+<p><img src="attachments/08wk-1-1.png" class="img-fluid figure-img" style="width:75.0%"></p>
 <figcaption>그림1: 엑스노트 X300의 광고</figcaption>
 </figure>
 </div>
@@ -266,11 +266,11 @@ window.Quarto = {
 </ol>
 <p>질문2: 위의 진술이 맞을 “확률”을 생각해보자. 1, 2, 3 가운데 어느 것이 참일 확률이 가장 높은가?</p>
 <p><code>#</code></p>
-<p><code># 예제2</code> – 예제1의 미러링</p>
+<p><code># 가짜예제2</code> – 가짜예제1의 미러링</p>
 <p>아래의 그림을 관찰하자.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="attachments/260907-강민-예제2산점도.png" class="img-fluid figure-img"></p>
+<p><img src="attachments/260907-강민-예제2산점도.png" class="img-fluid figure-img" style="width:55.0%"></p>
 <figcaption>그림2: 3000개의 점으로 구성된 산점도</figcaption>
 </figure>
 </div>
@@ -283,7 +283,6 @@ window.Quarto = {
 </ol>
 <p>질문2: 진술 1-4가 맞을 확률은?</p>
 <p><code>#</code></p>
-<hr>
 </section>
 <section id="평균과-평균" class="level1">
 <h1>3. 평균과 평균</h1>
@@ -294,7 +293,7 @@ window.Quarto = {
 <li>질문2: 그 동전을 5번 던져 <span class="math inline">\((0,1,0,0,1)\)</span>을 얻었다고 하자. 평균은 얼마인가?</li>
 </ul>
 <p><code>#</code></p>
-<p><code>-</code> 피셔(1922): 사람들은 알고 싶지만 오직 추정만 할 수 있는 참값(모수)과, 추정 방법을 통해 도출된 값(추정치)에 같은 이름을 붙이는 관습이 있다.</p>
+<p><code>-</code> 피셔(1922): 사람들은 추정의 대상인 참값(모수)과, 추정 방법을 통해 도출된 값(추정치)에 같은 이름을 붙이는 관습이 있다.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -311,7 +310,7 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td>성격</td>
-<td>알고 싶지만 오직 추정만 할 수 있는 참값 (true value)</td>
+<td>추정의 대상인 참값 (true value)</td>
 <td>추정 방법을 통해 우연히 도달한 특정 값 (particular value at which we happen to arrive)</td>
 </tr>
 <tr class="even">
@@ -357,10 +356,9 @@ window.Quarto = {
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">mean</span>(x), <span class="fu">sd</span>(x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>[1] -0.002371702  0.998636635</code></pre>
-<p><span class="math display">\[n=10 \;:\; \bar{x} = 0.0746,\quad s = 0.9538 \qquad\longrightarrow\qquad n=10000 \;:\; \bar{x} = -0.0024,\quad s = 0.9986\]</span></p>
+<p><span class="math display">\[n=10 \;:\; \bar{x} = 0.0746,~ s = 0.9538 \quad \longrightarrow \quad n=10000 \;:\; \bar{x} = -0.0024,~ s = 0.9986\]</span></p>
 <p>평균은 점점 평균에 가까워지고, 표준편차는 점점 표준편차에 가까워진다. (뭐라는 거야..??)</p>
-<p><code>#</code></p>
-<p><code>-</code> 해보기! 아래 표에서 ???의 값을 채워 보자.</p>
+<p><strong>해보기!</strong> 아래 표에서 ???의 값을 채워 보자.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -387,7 +385,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p><code>-</code> 답</p>
+<p><strong>답</strong></p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -414,6 +412,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+<p><code>#</code></p>
 <p><code># 예제6</code> – 베르누이</p>
 <p>아래의 상황을 가정하자.</p>
 <p><span class="math display">\[X_1,X_2,X_3 \overset{i.i.d.}{\sim} B(0.5)\]</span></p>
@@ -455,16 +454,28 @@ window.Quarto = {
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="attachments/260907-강민-예제2산점도.png" class="img-fluid figure-img"></p>
-<figcaption>어??! 이 그림은??</figcaption>
+<p><img src="attachments/260907-강민-예제2산점도.png" class="img-fluid figure-img" style="width:55.0%"></p>
+<figcaption>그림2: 어??! 이 그림은?? 아까본 그림2임</figcaption>
 </figure>
 </div>
 <p>이 경우 진실의 세계와 데이터의 세계는 아래와 같이 생각할 수 있다.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="attachments/260907-강민-두세계.png" class="img-fluid figure-img"></p>
-<figcaption>그림3: 진실의 세계와 데이터의 세계</figcaption>
-</figure>
+<div style="display:flex; gap:0; border-top:2px solid #333; border-bottom:2px solid #333; margin:1.2em 0;">
+<div style="flex:1 1 50%; padding:1.2em 1em; border-right:2px solid #333;">
+<div style="text-align:center; font-size:1.25em; margin-bottom:1em;">
+True World
+</div>
+<ul>
+<li><span class="math inline">\(X_1,\dots,X_n \overset{i.i.d.}{\sim} N(2,1)\)</span></li>
+<li><span class="math inline">\(Y_1,\dots,Y_n \overset{i.i.d.}{\sim} N(3,1)\)</span></li>
+<li><span class="math inline">\(X_i \perp Y_j, \quad \forall i,j \in \{1,2,\dots,n\}\)</span></li>
+</ul>
+</div>
+<div style="flex:1 1 50%; padding:1.2em 1em;">
+<div style="text-align:center; font-size:1.25em; margin-bottom:1em;">
+Data World
+</div>
+<p><img src="attachments/260907-강민-예제2산점도.png" class="img-fluid" style="width:95.0%"></p>
+</div>
 </div>
 <p><code>#</code></p>
 <p><code>-</code> 중요한 통찰</p>
@@ -473,7 +484,7 @@ window.Quarto = {
 <li>통찰2: 진실의 세계에서 데이터의 세계로 넘어갈 때만 “확률”이라는 개념이 적용된다. 즉 확률은 반드시 아래와 같은 개념으로만 사용되어야 한다.</li>
 </ul>
 <p><span class="math display">\[
-\text{진실의 세계} \overset{\mathbb{P}}{\Longrightarrow} \text{데이터의 세계}
+\text{진실의 세계} \overset{\text{관측, 확률}}{\Longrightarrow} \text{데이터의 세계}
 \]</span></p>
 <ul>
 <li>통찰3: 데이터의 세계는 반복 관찰이 가능하다.</li>
@@ -486,10 +497,11 @@ window.Quarto = {
 <p>어떤 후보의 지지율을 <span class="math inline">\(p\)</span> 라고 하자. 유권자 100명에게 물어 40명이 지지한다고 답했다.</p>
 <p><span class="math display">\[X_1,\dots,X_{100} \overset{i.i.d.}{\sim} B(p), \qquad \sum_{i=1}^{100} x_i = 40\]</span></p>
 <p>이때 표본에서 계산한 지지율은 <span class="math inline">\(\bar{x}=0.40\)</span> 이다.</p>
-<p>질문1: “지지율이 0.35와 0.45 사이일 확률은 얼마인가?” 라는 물음은 자연스러운가?</p>
-<p>질문2: 그 물음에서 “지지율”은 <span class="math inline">\(p\)</span> 인가 <span class="math inline">\(\bar{x}\)</span> 인가?</p>
-<p><code>#</code></p>
-<p><code>-</code> 질문1은 누구나 자연스럽게 받아들인다. 신문에도 그렇게 실린다. 문제는 질문2다. 두 세계가 한 낱말에 겹쳐 있다.</p>
+<ul>
+<li>질문1: 이 예제에서, “지지율이 0.35와 0.45 사이일 확률은 얼마인가?” 라는 물음은 자연스러운가?</li>
+<li>질문2: 이 예제에서, “지지율”은 <span class="math inline">\(p\)</span> 인가 <span class="math inline">\(\bar{x}\)</span> 인가?</li>
+</ul>
+<p>두 세계가 한 낱말에 겹쳐 있다.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -523,13 +535,10 @@ window.Quarto = {
 </table>
 <ul>
 <li><span class="math inline">\(\bar{x}\)</span> 는 표본을 다시 뽑으면 값이 바뀐다. 그러니 “<span class="math inline">\(\bar{x}\)</span> 가 0.35와 0.45 사이일 확률” 은 말이 된다.</li>
-<li><span class="math inline">\(p\)</span> 는 고정된 하나다. 반복이 없으니 도수가 없고, 도수가 없으니 확률이 아니다.</li>
+<li><span class="math inline">\(p\)</span> 는 고정된 하나다. 반복해서 관찰하는 대상이 아니다. 그래서 “확률”이라는 말은 어색하다.</li>
 </ul>
-<p><code>-</code> 그런데 둘 다 “지지율”이다.</p>
-<ul>
-<li>그래서 “지지율이 이 구간에 있을 확률” 이라는 문장은 어느 쪽을 가리키는지 문장 안에서 갈리지 않는다.</li>
-<li><span class="math inline">\(\bar{x}\)</span> 를 가리키면 참인 진술이고, <span class="math inline">\(p\)</span> 를 가리키면 역확률이다. 같은 문장이 두 뜻을 갖는다.</li>
-</ul>
+<p>요약: “지지율이 이 구간에 있을 확률” 이라는 문장이 말이되는지 안되는지는 지지율이 <span class="math inline">\(p\)</span>를 의미하는 <span class="math inline">\(\bar{x}\)</span>를 의미하는지 판단해야 가능함 <span class="math inline">\(\Rightarrow\)</span> 그런데 일반인은 그런말을 판단하기 어렵고, 따라서 지지율이 <span class="math inline">\(p\)</span>를 의미할때에도 확률이라는 용어를 잘못사용하는 경우가 많은 <span class="math inline">\(\Rightarrow\)</span> 그러나 많은 문헌에서 등장하는 이러한 확률이라는 용어는 사실 역확률을 의미함. 확률/역확률을 대부분의 문헌에서 섞어 쓰기 때문에 통계의 발전이 어려움 (평균이 평균으로 수렴한다는 식의 진술을 해야하니까)</p>
+<p><code>#</code></p>
 
 
 </section>
