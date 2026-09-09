@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2026-09-07">
 
-<title>01wk-2: 확률, 평균과 평균 – BS2026</title>
+<title>01wk-2: 진실의 세계와 데이터의 세계 – BS2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -194,7 +194,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><strong>01wk-2</strong>: 확률, 평균과 평균</h1>
+<h1 class="title"><strong>01wk-2</strong>: 진실의 세계와 데이터의 세계</h1>
 </div>
 
 
@@ -544,6 +544,140 @@ Data World
 </section>
 
 </main> <!-- /main -->
+<style>
+#replBtn {
+  position: fixed; right: 20px; bottom: 20px; z-index: 1000;
+  padding: 8px 14px; border: 1px solid #d7dce3; border-radius: 999px;
+  background: #fff; color: #1b1f24; font-size: 14px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+#replBtn:hover { background: #f4f6f9; }
+#replBox {
+  position: fixed; right: 20px; bottom: 68px; z-index: 1000;
+  width: 460px; height: 320px;
+  display: flex; flex-direction: column;
+  border: 1px solid #d7dce3; border-radius: 10px; overflow: hidden;
+  background: #fff; box-shadow: 0 6px 24px rgba(0,0,0,.18);
+}
+/* ★ 왼쪽 위 모서리 손잡이 — CSS resize 는 오른쪽 아래만 되고 그 자리가 화면 밖이라 직접 만든다 */
+#replGrip {
+  position: absolute; left: 0; top: 0; width: 18px; height: 18px;
+  cursor: nwse-resize; z-index: 2;
+  background: linear-gradient(135deg, #b9c2cc 0 2px, transparent 2px 5px,
+                              #b9c2cc 5px 7px, transparent 7px 10px,
+                              #b9c2cc 10px 12px, transparent 12px);
+  border-top-left-radius: 10px;
+}
+#replBox iframe { flex: 1 1 auto; width: 100%; border: 0; display: block; min-height: 0; }
+#replBar {
+  flex: 0 0 auto;
+  display: flex; gap: 6px; align-items: center; justify-content: flex-end;
+  padding: 4px 8px; border-bottom: 1px solid #e7ebf2; background: #fafbfc;
+  font-size: 12px; color: #6b7480;
+}
+#replBar .grow { margin-right: auto; }
+#replBar button {
+  border: 1px solid #d7dce3; border-radius: 6px; background: #fff;
+  padding: 2px 8px; font-size: 12px; cursor: pointer; color: #1b1f24;
+}
+@media (max-width: 820px) {
+  #replBox { right: 10px; left: 10px; width: auto; height: 70vh; }
+}
+</style>
+
+<!-- 떠 있는 실행창 — BS2026-Play (JupyterLite · R webR / Python Pyodide) -->
+<button id="replBtn" type="button">▶ 실행창</button>
+
+<div id="replBox" hidden="">
+  <div id="replGrip" title="끌어서 크기 조절"></div>
+  <div id="replBar">
+    <span class="grow">실행창</span>
+    <button type="button" data-kernel="R" title="R (webR)">R</button>
+    <button type="button" data-kernel="python">Python</button>
+    <button type="button" id="replLab" title="노트북(JupyterLab) 새 창">↗ Lab</button>
+    <button type="button" id="replClose" title="닫기">✕</button>
+  </div>
+  <iframe id="replFrame" title="BS2026 실행창" loading="lazy"></iframe>
+</div>
+
+<script>
+(function () {
+  var BASE = "https://guebin.github.io/BS2026-Play/repl/index.html";
+  var btn = document.getElementById("replBtn");
+  var box = document.getElementById("replBox");
+  var frame = document.getElementById("replFrame");
+  if (!btn || !box || !frame) return;
+
+  // ★ 커널 이름은 대소문자를 가린다 — R 은 "webR" (실측 2026-09-08)
+  var KERNEL = { R: "webR", python: "python" };
+  var current = localStorage.getItem("bs2026-repl-kernel") || "R";
+
+  function kernelParam(which) { return KERNEL[which] || KERNEL.R; }
+
+  function load(which) {
+    current = which;
+    try { localStorage.setItem("bs2026-repl-kernel", which); } catch (e) {}
+    var want = BASE + "?kernel=" + kernelParam(which) + "&toolbar=1";
+    frame.setAttribute("src", want);
+    box.querySelectorAll("[data-kernel]").forEach(function (b) {
+      b.style.fontWeight = (b.dataset.kernel === which) ? "700" : "400";
+    });
+  }
+
+  btn.addEventListener("click", function () {
+    box.hidden = !box.hidden;                       // 접어도 iframe 은 살아 있다 (변수 유지)
+    btn.textContent = box.hidden ? "▶ 실행창" : "▼ 실행창";
+    if (!box.hidden && !frame.getAttribute("src")) load(current);
+  });
+
+  box.querySelectorAll("[data-kernel]").forEach(function (b) {
+    b.addEventListener("click", function () { load(b.dataset.kernel); });
+  });
+
+  // ★ 왼쪽 위를 끌면 오른쪽·아래는 고정한 채 폭·높이가 는다
+  (function () {
+    var grip = document.getElementById("replGrip");
+    var start = null;
+    grip.addEventListener("pointerdown", function (e) {
+      start = { x: e.clientX, y: e.clientY, w: box.offsetWidth, h: box.offsetHeight };
+      grip.setPointerCapture(e.pointerId);
+      e.preventDefault();
+    });
+    grip.addEventListener("pointermove", function (e) {
+      if (!start) return;
+      var w = start.w - (e.clientX - start.x);
+      var h = start.h - (e.clientY - start.y);
+      // ★ 위로는 네비바(상단 배너) 아래까지만 — 그 위로 올라가면 가려서 못 쓴다
+      var nav = document.querySelector(".navbar, header#quarto-header, #quarto-header");
+      var top = nav ? nav.getBoundingClientRect().bottom + 8 : 8;
+      var maxH = window.innerHeight - top - 76;      // 76 = 아래 버튼 자리
+      box.style.width  = Math.max(320, Math.min(w, window.innerWidth - 40)) + "px";
+      box.style.height = Math.max(240, Math.min(h, maxH)) + "px";
+    });
+    function end(e) { if (start) { start = null; try { grip.releasePointerCapture(e.pointerId); } catch (_) {} } }
+    grip.addEventListener("pointerup", end);
+    grip.addEventListener("pointercancel", end);
+  })();
+
+  document.getElementById("replClose").addEventListener("click", function () {
+    box.hidden = true; btn.textContent = "▶ 실행창";
+  });
+
+  document.getElementById("replLab").addEventListener("click", function () {
+    // ★ 크기를 주면 브라우저가 «별도 창»으로 연다 (탭이 아니라)
+    var w = Math.min(1200, Math.round(screen.availWidth  * 0.8));
+    var h = Math.min(860,  Math.round(screen.availHeight * 0.85));
+    var x = Math.round((screen.availWidth  - w) / 2);
+    var y = Math.round((screen.availHeight - h) / 2);
+    window.open(
+      "https://guebin.github.io/BS2026-Play/lab/index.html",
+      "bs2026lab",
+      "popup=yes,width=" + w + ",height=" + h + ",left=" + x + ",top=" + y +
+      ",noopener,resizable=yes,scrollbars=yes"
+    );
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

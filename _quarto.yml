@@ -22,6 +22,7 @@ format:
     theme: cosmo
     number-sections: false
     css: styles.css
+    include-after-body: _repl.html
     toc: true
     toc-location: right
     highlight-style: github
