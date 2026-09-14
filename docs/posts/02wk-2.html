@@ -744,6 +744,7 @@ employed = (      0,       0,       0,       0,       0,       0,       0,      
 <li>연속형 확률변수: <span class="math inline">\(L(\theta|x) = f_X(x|\theta)\)</span></li>
 </ul>
 <p>여기에서 <span class="math inline">\(L(\theta|x)\)</span>는 간단히 <span class="math inline">\(L(\theta)\)</span>라고 표현하기도 하며 이를 <span class="math inline">\(\theta\)</span>에 대한 가능도함수라고 한다.</p>
+<p><code>-</code> 개인적의견: 흔히들 “가능도는 확률이 아니다” 라고 이야기하는데, 이게 어떤 의미로는 맞지만 어떤의미로는 맞지 않음. 가능도도 확률이다. 단지 “<span class="math inline">\(\theta\)</span>일 확률” 이 아니라 “<span class="math inline">\(\text{data}| \theta\)</span>” 일 확률일 뿐. (연속형인 경우는 확률이 아니라 확률밀도로 바꿔 읽으면 된다.)</p>
 <p><code># 예제8</code>– <span class="math inline">\(X_1,X_2 \overset{iid}{\sim} Ber(\theta)\)</span> 라고 하자.</p>
 <ol type="1">
 <li><span class="math inline">\(L(0.5 | x_1=0, x_2=1)=???\)</span></li>
@@ -758,7 +759,7 @@ employed = (      0,       0,       0,       0,       0,       0,       0,      
 </ol>
 <p><code>-</code> 가능도와 확률의 차이</p>
 <ol type="1">
-<li>가능도는 총합이 1이라는 보장이 없다.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>가능도는 총합이 1이라는 보장이 없다.(즉 <span class="math inline">\(\int L(\theta|x) d\theta \neq 1\)</span>)</li>
 <li>가능도는 서로소인 집합 <span class="math inline">\(A,B\)</span>에 대한 확률의 공리 <span class="math display">\[P(A \cup B)=P(A)+P(B)\]</span>가 성립하지 않는다. (가능도는 점 단위로만 정의가능하다)</li>
 </ol>
 <p><code>-</code> <span class="math inline">\(X_1,X_2 \overset{iid}{\sim} Ber(\theta)\)</span> 에서 관측치 <span class="math inline">\(x_1=0, x_2=1\)</span>을 얻었다고 하자. 아래와 같은 표현은 불가능하다.</p>
@@ -795,13 +796,7 @@ employed = (      0,       0,       0,       0,       0,       0,       0,      
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p><span class="math inline">\(\int L(\theta|x) d\theta \neq 1\)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <style>
 #replBtn {
   position: fixed; right: 20px; bottom: 20px; z-index: 1000;
