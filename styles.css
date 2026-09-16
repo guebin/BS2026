@@ -23,3 +23,34 @@ div.callout {
 div.callout .callout-body {
   background-color: transparent;
 }
+
+/* 풀이·필기 접기 — 흑백으로 조용히 (접히는 콜아웃에만 건다) */
+div.callout.callout-style-default:has(.callout-btn-toggle) {
+  border: none !important;
+  border-left: 2px solid #e5e5e5 !important;
+  background: none !important;
+  box-shadow: none !important;
+  margin: 0.4em 0 1.3em 0 !important;
+  padding: 0 !important;
+}
+div.callout.callout-style-default:has(.callout-btn-toggle) > .callout-header {
+  background: none !important;
+  border: none !important;
+  padding: 0 0 0 0.8em !important;
+  margin: 0 !important;
+}
+div.callout:has(.callout-btn-toggle) .callout-icon-container,
+div.callout:has(.callout-btn-toggle) .callout-btn-toggle,
+div.callout:has(.callout-btn-toggle) .screen-reader-only { display: none !important; }
+div.callout:has(.callout-btn-toggle) .callout-title-container {
+  font-size: 0.88rem; font-weight: 400; color: #8a8a8a;
+  background: none !important; padding: 0 !important; flex-grow: 0; cursor: pointer;
+}
+div.callout:has(.callout-btn-toggle) .callout-title-container::before { content: "\25BE  "; color: #c4c4c4; }
+div.callout:has(.callout-btn-toggle) .callout-header.collapsed .callout-title-container::before { content: "\25B8  "; }
+div.callout.callout-style-default:has(.callout-btn-toggle) > .callout-body-container {
+  border: none !important; background: none !important;
+  padding: 0.2em 0 0 0.8em !important;
+}
+div.callout:has(.callout-btn-toggle) .callout-body > *:first-child { margin-top: 0; }
+div.callout:has(.callout-btn-toggle) .callout-body > *:last-child  { margin-bottom: 0; }
