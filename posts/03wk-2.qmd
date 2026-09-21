@@ -5,7 +5,6 @@ date: "09/21/2026 09:00"
 draft: false
 format:
   html:
-    toc: false
     header-includes: |
       <style>
       table { width: auto !important; margin-left: auto !important; margin-right: auto !important; }
@@ -14,6 +13,8 @@ format:
 
 # 1. 강의영상
 
+{{<video https://youtu.be/playlist?list=PLHp6ZXQdsKH4&si=3MS-y832XyseQyWi>}}
+
 # 2. 가능도는 그냥 말장난 아닌가? 
 
 `-` 역확률이라는 개념이 싫어서 만들어진 가능도. 
@@ -21,7 +22,7 @@ format:
 - 그렇지만 가능도를 정의할때도 사실상 확률의 개념을 쓰고 만든다. 
 - 결국 우리 머리속에 남은건 $L(\theta| data) = P(data| \theta)$ 임. 
 
-`-` 굳이 가능도라는 새로운 이름을 줄 필요까지 있었나? 
+`-` 가능도라는 개념이 뭔지는 알겠음. 다만, 가능도라는 새로운 이름을 줄 필요까지 있었나? 하는 생각이 듦. 
 
 ---
 
@@ -426,5 +427,5 @@ A의 승리입니다.
 
 `-` 놀라운점 
 
-1. 차이가 왜 이렇게 많이남? (빨간색의 압승)
-2. 근데 빨간색은 모양이 왜저래? 
+1. 차이가 많이 난다 (빨간색의 압승)
+2. 빨간색은 모양이 이상하다
