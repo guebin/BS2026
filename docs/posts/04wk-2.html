@@ -321,7 +321,7 @@ window.Quarto = {
 </figure>
 </div>
 <p>그림으로 보니 <span class="math inline">\(L(\theta)\)</span>는 대략 <span class="math inline">\(\theta=0.5\)</span>쯤에서 최대값을 가지는 듯 보인다.</p>
-<p>(마지막 질문에 답하는 방법2) – 해석적 풀이</p>
+<p>(마지막 질문에 답하는 방법2) – 컴퓨터 없이 손으로만 풀이</p>
 <p><span class="math inline">\(L(\theta)=(1-\theta)^5\theta^5\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>는 0.5이다. (왜?)</p>
 <div class="callout callout-style-default callout-note callout-titled" title="보충설명">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -335,7 +335,7 @@ window.Quarto = {
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>5명은 <span class="math inline">\(\theta=0\)</span> 이었음 하고.. 5명은 <span class="math inline">\(\theta=1\)</span> 이었음 하니까 <span class="math inline">\(\theta\)</span>는 <span class="math inline">\(0.5\)</span>로 추정하는게 좋음.</p>
+<p>5명은 <span class="math inline">\(\theta=0\)</span> 이었음 하고.. 5명은 <span class="math inline">\(\theta=1\)</span> 이었음 하니까 <span class="math inline">\(\theta\)</span>는 <span class="math inline">\(0.5\)</span>로 추정해야함.</p>
 </div>
 </div>
 </div>
@@ -354,7 +354,7 @@ window.Quarto = {
 <hr>
 <p><code># 기호약속</code> – 모수에 대한 추정치는 모수 그 자체 (흔히 <span class="math inline">\(\theta\)</span>로 표기하는)와 구분 짓기 위해서 <span class="math inline">\(\hat{\theta}\)</span> 같은 기호를 사용한다.</p>
 <p><code># note</code> – <span class="math inline">\(\hat{\theta}\)</span>는 추정량으로 쓰이기도 하고, 추정치로 쓰이기도 한다.</p>
-<p><code># 최대가능도 추정</code> – <span class="math inline">\(\underset{\theta}{\text{argmin}} ~L(\theta)\)</span>로 <span class="math inline">\(\theta\)</span>를 추정하는 방식을 MLE라고 한다.</p>
+<p><code># 최대가능도 추정</code> – <span class="math inline">\(\underset{\theta}{\text{argmax}} ~L(\theta)\)</span>로 <span class="math inline">\(\theta\)</span>를 추정하는 방식을 MLE라고 한다.</p>
 </section>
 <section id="베르누이" class="level1">
 <h1>3. 베르누이</h1>
@@ -365,7 +365,7 @@ window.Quarto = {
 </ul>
 <p>가능도함수 <span class="math inline">\(L(\theta)=\theta^4 (1-\theta)^3\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 이론적으로 계산하라.</p>
 <p>(풀이)</p>
-<p><span class="math inline">\(L(\theta)=\theta \times \{\theta(1-\theta)\}^3\)</span>로 표현할 수 있다. 여기에서 편의상</p>
+<p><span class="math inline">\(L(\theta)=\theta^4 \times (1-\theta)^3\)</span>에서 편의상</p>
 <ul>
 <li><span class="math inline">\(A = \theta^4\)</span></li>
 <li><span class="math inline">\(B = (1-\theta)^3\)</span></li>
@@ -569,9 +569,9 @@ window.Quarto = {
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>             <span class="sc">-</span><span class="fl">0.2722960</span>, <span class="sc">-</span><span class="fl">0.3153487</span>, <span class="sc">-</span><span class="fl">0.6282552</span>, <span class="sc">-</span><span class="fl">0.1064639</span>, <span class="fl">0.4280148</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>[1] -0.4672139</code></pre>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x) <span class="co"># 이게 약간 달라보이는 것은 기분탓일까?? 0.9쯤 나올 것 같았는데 아니네??</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x) <span class="co"># 이게 약간 달라보이는 것은 기분탓일까?? 0.95쯤(=sqrt(0.9)) 나올 것 같았는데 아니네??</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>[1] 1.000657</code></pre>
-<p>(해석적 풀이로 마무리)</p>
+<p>(컴퓨터없이 손으로만 하는 풀이로 마무리)</p>
 <p>우리가 최대화하고자 하는 함수는 아래와 같다.</p>
 <p><span class="math display">\[L(\mu,\sigma^2)=\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(-1.4805676-\mu)^2}{2\sigma^2}}\times\dots\times\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(0.4280148-\mu)^2}{2\sigma^2}}\]</span></p>
 <p>위 식의 양변에 <span class="math inline">\((\sqrt{\pi})^{10}\)</span>을 곱하면 아래와 같이 된다.</p>
