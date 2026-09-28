@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="최규빈">
+<meta name="dcterms.date" content="2026-09-28">
+
+<title>04wk-1: 최대가능도추정 – BS2026</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3bbbbd466991e281563892c5dce73c3d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+table { width: auto !important; margin-left: auto !important; margin-right: auto !important; }
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">BS2026</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/guebin/BS2026"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"> <i class="bi bi-youtube" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">1. 강의영상</a></li>
+  <li><a href="#최대가능도-추정법" id="toc-최대가능도-추정법" class="nav-link" data-scroll-target="#최대가능도-추정법">2. 최대가능도 추정법</a></li>
+  <li><a href="#베르누이" id="toc-베르누이" class="nav-link" data-scroll-target="#베르누이">3. 베르누이</a></li>
+  <li><a href="#정규분포" id="toc-정규분포" class="nav-link" data-scroll-target="#정규분포">4. 정규분포</a></li>
+  <li><a href="#플러그인-불변성" id="toc-플러그인-불변성" class="nav-link" data-scroll-target="#플러그인-불변성">5. 플러그인 (불변성)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>04wk-1</strong>: 최대가능도추정</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>최규빈 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 28, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="강의영상" class="level1">
+<h1>1. 강의영상</h1>
+</section>
+<section id="최대가능도-추정법" class="level1">
+<h1>2. 최대가능도 추정법</h1>
+<p><code># 예제1</code></p>
+<p>앞면이 확률이 <span class="math inline">\(\theta\)</span>인 동전을 10번 던져서 아래와 같이 나왔다고 하자.</p>
+<ul>
+<li><span class="math inline">\(data\)</span>: 0, 1, 0, 0, 1, 1, 1, 0, 1, 0</li>
+</ul>
+<p>이때 가능도함수는 아래와 같이 정의된다.</p>
+<p><span class="math display">\[L(\theta|data) = \mathbb{P}(data|\theta)\]</span></p>
+<ul>
+<li>만약에 <span class="math inline">\(\theta=0.1\)</span> 이었다면 가능도는 <span class="math inline">\(L(\theta|data) = 0.9^5 \times 0.1^5\)</span> 이다.</li>
+<li>만약에 <span class="math inline">\(\theta=\star\)</span> 이었다면 가능도는 <span class="math inline">\(L(\theta|data) = (1-\star)^5 \times \star^5\)</span>와 같이 계산될 것이다.</li>
+</ul>
+<p>따라서 위와 같이 <span class="math inline">\(data\)</span>가 주어졌다면 가능도함수 <span class="math inline">\(L(\theta)=L(\theta|data)\)</span>는 아래와 일반화 할 수 있다.</p>
+<p><span class="math display">\[L(\theta) = (1-\theta)^5 \theta^5\]</span></p>
+<p>몇개의 점에서 가능도함수값을 계산하면 아래와 같다.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(\theta\)</span></th>
+<th style="text-align: center;">0.1</th>
+<th style="text-align: center;">0.2</th>
+<th style="text-align: center;">0.3</th>
+<th style="text-align: center;">0.4</th>
+<th style="text-align: center;">0.5</th>
+<th style="text-align: center;">0.6</th>
+<th style="text-align: center;">0.7</th>
+<th style="text-align: center;">0.8</th>
+<th style="text-align: center;">0.9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(L(\theta)\)</span></td>
+<td style="text-align: center;">0.0001</td>
+<td style="text-align: center;">0.0003</td>
+<td style="text-align: center;">0.0010</td>
+<td style="text-align: center;">0.0082</td>
+<td style="text-align: center;">0.0098</td>
+<td style="text-align: center;">0.0082</td>
+<td style="text-align: center;">0.0010</td>
+<td style="text-align: center;">0.0003</td>
+<td style="text-align: center;">0.0001</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>(<span class="math inline">\(\theta=0.1\)</span> vs <span class="math inline">\(\theta=0.2\)</span>): 어떠한 사람의 주장이 더 그럴듯하게 들리는가?</li>
+<li>(<span class="math inline">\(\theta=0.2\)</span> vs <span class="math inline">\(\theta=0.5\)</span>): 어떠한 사람의 주장이 더 그럴듯하게 들리는가?</li>
+<li><span class="math inline">\(\theta=0.5\)</span> 라고 주장하는 사람보다 더 그럴듯한 주장할 하는 사람이 있을까?</li>
+</ul>
+<p>(마지막 질문에 답하는 방법1) – 시뮬레이션으로 감잡기</p>
+<p>처음 두 질문을 통해서 <span class="math inline">\(L(\theta)\)</span>값을 크게 만드는 <span class="math inline">\(\theta\)</span>가 가장 그럴듯하게 들린다는 것은 눈치챘다. 마지막 질문에 답하기 위해서는 <span class="math inline">\(\theta=0.5\)</span>보다 <span class="math inline">\(L(\theta)\)</span>를 크게할수는 없음을 보이면 된다. 더 많은 가능도함수 값을 조사하여 그림을 그려보자.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span><span class="sc">/</span><span class="dv">100</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>likelihood <span class="ot">=</span> (<span class="dv">1</span><span class="sc">-</span>theta)<span class="sc">^</span><span class="dv">5</span> <span class="sc">*</span> theta<span class="sc">^</span><span class="dv">5</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(theta,likelihood)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/260927-강민-04wk-그림1-예제1가능도.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>그림1: 예제1의 <span class="math inline">\(L(\theta)\)</span>를 나타내는 산점도. 육안으로 파악하였을 경우는 대충 <span class="math inline">\(\theta=0.5\)</span> 근처에서 최대값을 가지는 것 처럼 보인다.</figcaption>
+</figure>
+</div>
+<p>그림으로 보니 <span class="math inline">\(L(\theta)\)</span>는 대략 <span class="math inline">\(\theta=0.5\)</span>쯤에서 최대값을 가지는듯 보인다.</p>
+<p>(마지막 질문에 답하는 방법2) – 해석적 풀이</p>
+<p><span class="math inline">\(L(\theta)=(1-\theta)^5\theta^5\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>는 0.5이다. (왜?)</p>
+<p>(결론)</p>
+<p>동전을 던져서 결과가 아래와 같이 나왔다면</p>
+<ul>
+<li><span class="math inline">\(data\)</span>: 0, 1, 0, 0, 1, 1, 1, 0, 1, 0</li>
+</ul>
+<p>일때</p>
+<ol type="1">
+<li>주어진 <span class="math inline">\(data\)</span>를 가장 잘 생성할법한 <span class="math inline">\(\theta\)</span>는 (대략) 0.5이다.</li>
+<li>주어진 <span class="math inline">\(data\)</span>는 <span class="math inline">\(\theta\)</span>가 0.5라고 상상해야 가장 그럴듯하게 설명된다.</li>
+</ol>
+<p>따라서 이 예제에서 동전을 던져서 앞면이 나올 확률 <span class="math inline">\(\theta\)</span>는 0.5 라고 추정하는게 합리적이다. 즉 이 문제의 경우 <span class="math inline">\(\theta\)</span>에 대한 추정치는 <span class="math inline">\(\hat{\theta}=0.5\)</span>라고 볼 수 있다.</p>
+<p><code>#</code></p>
+<hr>
+<p><code># 기호약속</code> – 모수에 대한 추정치는 모수 그 자체 (흔히 <span class="math inline">\(\theta\)</span>로 표기하는)와 구분짓기 위해서 <span class="math inline">\(\hat{\theta}\)</span> 같은 기호로 사용한다.</p>
+<p><code># note</code> – <span class="math inline">\(\hat{\theta}\)</span>은 추정량으로 쓰이기도 하고, 추정치로 쓰이기도 한다.</p>
+<p><code># 최대가능도 추정</code> – <span class="math inline">\(\underset{\theta}{\text{argmin}} ~L(\theta)\)</span>로 <span class="math inline">\(\theta\)</span>를 추정하는 방식을 MLE라고 한다.</p>
+</section>
+<section id="베르누이" class="level1">
+<h1>3. 베르누이</h1>
+<p><code># 예제2</code></p>
+<p>앞면이 나올 확률이 <span class="math inline">\(\theta\)</span>인 동전을 7번 던져서 아래와 같이 나왔다고 하자.</p>
+<ul>
+<li><span class="math inline">\(data\)</span>: 0, 1, 0, 0, 1, 1, 1</li>
+</ul>
+<p>가능도함수 <span class="math inline">\(L(\theta)=\theta^4 (1-\theta)^3\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 이론적으로 계산하라.</p>
+<p>(풀이)</p>
+<p><span class="math inline">\(L(\theta)=\theta \times \{\theta(1-\theta)\}^3\)</span>로 표현할 수 있다. 여기에서 편의상</p>
+<ul>
+<li><span class="math inline">\(A = \theta^4\)</span></li>
+<li><span class="math inline">\(B = (1-\theta)^3\)</span></li>
+</ul>
+<p>이라고 놓자. <span class="math inline">\(L(\theta)\)</span>를 최대화하기 위해서 <span class="math inline">\(A\)</span>입장에서는 <span class="math inline">\(\theta=1\)</span>이었으면 좋겠는데 <span class="math inline">\(B\)</span>입장에서는 <span class="math inline">\(\theta=0\)</span>이었으면 좋겠다. 의견이 일치하지 않아서 투표를 하고 싶은데 <span class="math inline">\(A\)</span>는 비유적으로 말하면 네명의 의견이 반영된것이고 <span class="math inline">\(B\)</span>는 세명의 의견이 반영된 것이라 해석할 수 있다. 따라서 아래와 같이 해석해야 적당하다.</p>
+<p><span class="math display">\[\frac{4}{7} \times 1 + \frac{3}{7} \times 0 = \frac{4}{7}\]</span></p>
+<p><code>#</code></p>
+<hr>
+<p><code># 예제3</code></p>
+<p>앞면이 나올 확률이 <span class="math inline">\(\theta\)</span>인 동전을 4번 던져서 아래와 같이 나왔다고 하자.</p>
+<ul>
+<li><span class="math inline">\(data\)</span>: 0, 1, 0, 0</li>
+</ul>
+<p>가능도함수 <span class="math inline">\(L(\theta)=\theta (1-\theta)^3\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 이론적으로 계산하라.</p>
+<p>(풀이)</p>
+<p>하나의 데이터는 <span class="math inline">\(\theta=1\)</span>이 합리적이라 생각하지만 세개의 데이터는 <span class="math inline">\(\theta=0\)</span>이 합리적이라 생각한다. 따라서 <span class="math inline">\(\hat{\theta}=\frac{1}{4}\)</span>이 되어야겠다.</p>
+<p>(풀이2) – 미분좋아하면 미분을 써도된다.</p>
+<ul>
+<li><span class="math inline">\(L(\theta)=\theta (1-\theta)^3= \theta - 3\theta^2 + 3\theta^3 - \theta^4\)</span></li>
+<li><span class="math inline">\(L'(\theta)=1-6\theta+9\theta^2-4\theta^3\)</span></li>
+</ul>
+<p><span class="math inline">\(L'(\theta)=0\)</span>을 풀면, <span class="math inline">\(L'(\theta)=-(4\theta^3-9\theta^2+6\theta-1)=-(\theta-1)^2(4\theta-1)\)</span>. 따라서 <span class="math inline">\(L'(\theta)\)</span>는 <span class="math inline">\(\theta=\frac{1}{4}, 1\)</span>에서 극값을 가진다. 개형을 그려보면 <span class="math inline">\(\theta=\frac{1}{4}\)</span>에서 함수가 최대화된다.</p>
+<p>(풀이3) – 통계학과에서는 보통 풀이2보다는 로그+미분을 쓴다.</p>
+<ul>
+<li><span class="math inline">\(\log L(\theta)=l(\theta) = \log\theta + 3\log(1-\theta)\)</span></li>
+<li><span class="math inline">\(l'(\theta)=\frac{1}{\theta}-\frac{3}{1-\theta}\)</span></li>
+<li><span class="math inline">\(l''(\theta) = -\frac{1}{\theta^2} - \frac{3}{(1-\theta)^2} &lt; 0\)</span></li>
+</ul>
+<p>그래프의 개형 따질 필요 없이 <span class="math inline">\(l''(\theta)&lt;0\)</span>이면 concave함수이고 따라서 극값=최대값이다. 이제 <span class="math inline">\(l'(\theta)=0\)</span>을 풀어보자. 풀어보면 <span class="math inline">\(\theta=\frac{1}{4}\)</span>이 정리된다.</p>
+<p><code>#</code></p>
+<p><code>-</code> 요약: <span class="math inline">\(X_1,\dots,X_{n} \overset{iid}{\sim} Ber(\theta)\)</span> 이라면</p>
+<ol type="1">
+<li>가능도함수는 항상 <span class="math inline">\(L(\theta)=(1-\theta)^{(0\text{이 나온 횟수})} \times \theta^{(1\text{이 나온 횟수})}=(1-\theta)^{n-\sum x_i} \times \theta^{\sum x_i}\)</span> 이런 모양을 가지고,</li>
+<li>가능도함수는 <span class="math inline">\(\theta=\bar{x}\)</span>에서 최대값을 가진다.</li>
+</ol>
+<p>따라서 <span class="math inline">\(X_1,\dots,X_{n} \overset{iid}{\sim} Ber(\theta)\)</span> 에서 <span class="math inline">\(\theta\)</span>를 최대가능도 기법으로 추정하기 위해서는 <span class="math inline">\(\bar{x}\)</span>를 쓰면 된다.</p>
+</section>
+<section id="정규분포" class="level1">
+<h1>4. 정규분포</h1>
+<p><code># 예제4</code></p>
+<p>정규분포에서 아래와 같은 데이터를 관측하였다고 하자.</p>
+<ul>
+<li><span class="math inline">\(data\)</span>: -1.4805676, 1.5771695, -0.9567445, -0.9200052, -1.9976421, -0.2722960, -0.3153487, -0.6282552, -0.1064639, 0.4280148</li>
+</ul>
+<p>정규분포의 평균과 분산을 최대가능도방법으로 추정하라.</p>
+<p><code>(풀이)</code></p>
+<p>정규분포의 pdf는 아래와 같다.</p>
+<p><span class="math display">\[f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]</span></p>
+<p>가능도함수는 아래와 같이 정의된다. <span class="math display">\[L(\theta|data) = f(data|\theta)\]</span></p>
+<p>여기에서 <span class="math inline">\(\theta = \mu,\sigma^2\)</span> 이므로 가능도함수는 아래와 같이 된다.</p>
+<p><span class="math display">\[L(\mu,\sigma^2|data) = f(data|\mu,\sigma^2)\]</span></p>
+<p><span class="math inline">\(data\)</span>가 아래와 같을 때</p>
+<ul>
+<li><span class="math inline">\(data\)</span>: -1.4805676, 1.5771695, -0.9567445, -0.9200052, -1.9976421, -0.2722960, -0.3153487, -0.6282552, -0.1064639, 0.4280148</li>
+</ul>
+<p>가능도함수를 정리하면 아래와 같다.</p>
+<p><span class="math display">\[L(\mu,\sigma^2)=\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(-1.4805676-\mu)^2}{2\sigma^2}}\times\dots\times\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(0.4280148-\mu)^2}{2\sigma^2}}\]</span></p>
+<p>이제 <span class="math inline">\(L(\mu,\sigma^2)\)</span>을 최대화하는 <span class="math inline">\(\mu,\sigma^2\)</span>의 값이 무엇인지 알아보자.</p>
+<p>(시뮬레이션으로 감잡기)</p>
+<p>몇개의 <span class="math inline">\(\mu\)</span>와 몇개의 <span class="math inline">\(\sigma^2\)</span> 에 대한 가능도값을 구하면 아래와 같다.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=0.8\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=0.9\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=1.0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=1.1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=1.2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.7\)</span></td>
+<td style="text-align: center;">8.0e-07</td>
+<td style="text-align: center;">8.6e-07</td>
+<td style="text-align: center;">8.6e-07</td>
+<td style="text-align: center;">8.2e-07</td>
+<td style="text-align: center;">7.7e-07</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.6\)</span></td>
+<td style="text-align: center;">1.0e-06</td>
+<td style="text-align: center;">1.0e-06</td>
+<td style="text-align: center;">1.0e-06</td>
+<td style="text-align: center;">9.7e-07</td>
+<td style="text-align: center;">8.9e-07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.5\)</span></td>
+<td style="text-align: center;">1.1e-06</td>
+<td style="text-align: center;">1.2e-06</td>
+<td style="text-align: center;">1.1e-06</td>
+<td style="text-align: center;">1.0e-06</td>
+<td style="text-align: center;">9.6e-07</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.4\)</span></td>
+<td style="text-align: center;">1.1e-06</td>
+<td style="text-align: center;">1.1e-06</td>
+<td style="text-align: center;">1.1e-06</td>
+<td style="text-align: center;">1.0e-06</td>
+<td style="text-align: center;">9.4e-07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.3\)</span></td>
+<td style="text-align: center;">9.4e-07</td>
+<td style="text-align: center;">9.9e-07</td>
+<td style="text-align: center;">9.8e-07</td>
+<td style="text-align: center;">9.3e-07</td>
+<td style="text-align: center;">8.5e-07</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.2\)</span></td>
+<td style="text-align: center;">7.1e-07</td>
+<td style="text-align: center;">7.8e-07</td>
+<td style="text-align: center;">7.9e-07</td>
+<td style="text-align: center;">7.6e-07</td>
+<td style="text-align: center;">7.1e-07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.1\)</span></td>
+<td style="text-align: center;">4.8e-07</td>
+<td style="text-align: center;">5.5e-07</td>
+<td style="text-align: center;">5.7e-07</td>
+<td style="text-align: center;">5.7e-07</td>
+<td style="text-align: center;">5.5e-07</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mu=0.0\)</span></td>
+<td style="text-align: center;">2.9e-07</td>
+<td style="text-align: center;">3.4e-07</td>
+<td style="text-align: center;">3.8e-07</td>
+<td style="text-align: center;">3.9e-07</td>
+<td style="text-align: center;">3.9e-07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=0.1\)</span></td>
+<td style="text-align: center;">1.5e-07</td>
+<td style="text-align: center;">1.9e-07</td>
+<td style="text-align: center;">2.3e-07</td>
+<td style="text-align: center;">2.4e-07</td>
+<td style="text-align: center;">2.5e-07</td>
+</tr>
+</tbody>
+</table>
+<p>대략적으로 <span class="math inline">\(\sigma^2=0.9\)</span> <span class="math inline">\(\mu=-0.5\)</span> 근처에서 최대값을 가지는 듯 하다. 이를 그림으로 그려보자.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/260927-강민-04wk-그림3-예제3곡면.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>그림2: 예제4의 가능도함수 <span class="math inline">\(L(\mu, \sigma^2)\)</span>의 곡면</figcaption>
+</figure>
+</div>
+<p>역시 표로 얻은 직관과 비슷하다. 따라서 <span class="math inline">\(\mu\)</span>와 <span class="math inline">\(\sigma^2\)</span>을 대략적으로 <span class="math inline">\(-0.5\)</span>, <span class="math inline">\(0.9\)</span>로 추정하는 것이 바람직해보인다. 이는 우리의 직관과 대략적으로 일치한다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> data <span class="ot">=</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.4805676</span>, <span class="fl">1.5771695</span>, <span class="sc">-</span><span class="fl">0.9567445</span>, <span class="sc">-</span><span class="fl">0.9200052</span>, <span class="sc">-</span><span class="fl">1.9976421</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>             <span class="sc">-</span><span class="fl">0.2722960</span>, <span class="sc">-</span><span class="fl">0.3153487</span>, <span class="sc">-</span><span class="fl">0.6282552</span>, <span class="sc">-</span><span class="fl">0.1064639</span>, <span class="fl">0.4280148</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>[1] -0.4672139</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x) <span class="co"># 이게 약간 달라보이는 것은 기분탓일까?? 0.9쯤 나올것 같았는데 아니네??</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>[1] 1.000657</code></pre>
+<p>(해석적으로 풀이로 마무리)</p>
+<p>우리가 최대화하고자 하는 함수는 아래와 같다.</p>
+<p><span class="math display">\[L(\mu,\sigma^2)=\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(-1.4805676-\mu)^2}{2\sigma^2}}\times\dots\times\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(0.4280148-\mu)^2}{2\sigma^2}}\]</span></p>
+<p>위의 식이 양변에 <span class="math inline">\((\sqrt{\pi})^{10}\)</span>를 곱하면 아래와 같이 된다.</p>
+<p><span class="math display">\[(\sqrt{\pi})^{10}\times L(\mu,\sigma^2)=\frac{1}{\sigma\sqrt{2}} e^{-\frac{(-1.4805676-\mu)^2}{2\sigma^2}}\times\dots\times\frac{1}{\sigma\sqrt{2}} e^{-\frac{(0.4280148-\mu)^2}{2\sigma^2}}\]</span></p>
+<p>데이터 1개당 “<span class="math inline">\((\sqrt{\pi})^{10} \times 가능도\)</span>”를 정리하면 아래와 같이 된다.</p>
+<p><span class="math display">\[\frac{1}{\sqrt{2}\sigma} \times e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}\]</span></p>
+<p><code>*</code> <span class="math inline">\(\mu\)</span>가 …였음 좋겠다.</p>
+<p><span class="math inline">\(\sigma^2\)</span>가 정해진 상수라고 생각하면 “<span class="math inline">\((\sqrt{\pi})^{10} \times 가능도\)</span>”는 <span class="math inline">\(x_i=\mu\)</span>에서 최대화된다.</p>
+<p><code>*</code> <span class="math inline">\(\sigma^2\)</span>가 …였음 좋겠다.</p>
+<p>이번에는 <span class="math inline">\(\mu\)</span>가 정해진 상수라고 생각하자. “<span class="math inline">\((\sqrt{\pi})^{10} \times 가능도\)</span>”를 정리하면 <span class="math inline">\(\exp\left(\log \frac{1}{\sqrt{2}\sigma} - \frac{(x_i-\mu)^2}{2\sigma^2}\right)\)</span>와 같이 된다. 그런데 <span class="math inline">\(\exp\left(\log \frac{1}{\sqrt{2}\sigma} - \frac{(x_i-\mu)^2}{2\sigma^2}\right)\)</span>은 <span class="math inline">\(\log \frac{1}{\sqrt{2}\sigma} - \frac{(x_i-\mu)^2}{2\sigma^2}\)</span>의 값이 클수록 최대화된다. (수학천재가 와서) 수식을 살짝 바꿔주면</p>
+<p><span class="math display">\[\log \frac{1}{\sqrt{2}\sigma} - \frac{(x_i-\mu)^2}{2\sigma^2}=-\frac{1}{2}\log2 -\frac{1}{2}\log \sigma^2-\frac{1}{2}\frac{(x_i-\mu)^2}{\sigma^2}\]</span></p>
+<p>이 된다. 따라서 결국에는 아래를 최소화하는 <span class="math inline">\(\sigma^2\)</span>를 찾아 주면 된다.</p>
+<p><span class="math display">\[\log \sigma^2 + \frac{(x_i-\mu)^2}{\sigma^2}\]</span></p>
+<p><span class="math inline">\(\sigma^2=(x_i-\mu)^2\times t\)</span> 로 놓으면 위 식은 <span class="math display">\[\log (x_i-\mu)^2 + \left(\log t + \frac{1}{t}\right)\]</span> 가 된다. 그런데 <span class="math inline">\(\log t + \frac{1}{t} \geq 1\)</span> 이므로 (왜냐하면 부등식 <span class="math inline">\(\log x \leq x-1\)</span> 이니까 성립하니까) 준 식은 <span class="math inline">\(t=1\)</span> 일 때 최소화된다. 따라서 <span class="math inline">\(i\)</span>번째 데이터는 <span class="math inline">\(\sigma^2=(x_i-\mu)^2\)</span> 이었으면 좋겠다고 주장한다.</p>
+<blockquote class="blockquote">
+<p>여기를 참고하면 좋아요: <a href="https://www.desmos.com/calculator?lang=ko" class="uri">https://www.desmos.com/calculator?lang=ko</a></p>
+</blockquote>
+<p><code>*</code> 투표</p>
+<p>각각의 <span class="math inline">\(x_i\)</span>는 모두</p>
+<ul>
+<li>(<span class="math inline">\(\sigma^2\)</span>이 정해진 값이라면) <span class="math inline">\(\mu=x_i\)</span> 로 추정하고 싶음.</li>
+<li>(<span class="math inline">\(\mu\)</span>가 정해진 값이라면) <span class="math inline">\(\sigma^2=(x_i-\mu)^2\)</span> 로 추정하고 싶음.</li>
+</ul>
+<p>와 같이 생각한다. 이게 무슨 의미인가? 앞의 가능도 표를 다시 보자.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=0.8\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=0.9\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=1.0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=1.1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=1.2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.7\)</span></td>
+<td style="text-align: center;">7.95e-07</td>
+<td style="text-align: center;">8.57e-07</td>
+<td style="text-align: center;"><span class="math inline">\(\color{blue}{\text{8.60e-07}}\)</span></td>
+<td style="text-align: center;">8.24e-07</td>
+<td style="text-align: center;">7.66e-07</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.6\)</span></td>
+<td style="text-align: center;">9.99e-07</td>
+<td style="text-align: center;"><span class="math inline">\(\color{blue}{\text{1.05e-06}}\)</span></td>
+<td style="text-align: center;">1.03e-06</td>
+<td style="text-align: center;">9.74e-07</td>
+<td style="text-align: center;">8.92e-07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{red}{\text{1.11e-06}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{purple}{\text{1.15e-06}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{red}{\text{1.12e-06}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{red}{\text{1.05e-06}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{red}{\text{9.56e-07}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.4\)</span></td>
+<td style="text-align: center;">1.08e-06</td>
+<td style="text-align: center;"><span class="math inline">\(\color{blue}{\text{1.13e-06}}\)</span></td>
+<td style="text-align: center;">1.10e-06</td>
+<td style="text-align: center;">1.03e-06</td>
+<td style="text-align: center;">9.42e-07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.3\)</span></td>
+<td style="text-align: center;">9.37e-07</td>
+<td style="text-align: center;"><span class="math inline">\(\color{blue}{\text{9.91e-07}}\)</span></td>
+<td style="text-align: center;">9.81e-07</td>
+<td style="text-align: center;">9.29e-07</td>
+<td style="text-align: center;">8.55e-07</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.2\)</span></td>
+<td style="text-align: center;">7.14e-07</td>
+<td style="text-align: center;">7.79e-07</td>
+<td style="text-align: center;"><span class="math inline">\(\color{blue}{\text{7.89e-07}}\)</span></td>
+<td style="text-align: center;">7.62e-07</td>
+<td style="text-align: center;">7.13e-07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.1\)</span></td>
+<td style="text-align: center;">4.80e-07</td>
+<td style="text-align: center;">5.47e-07</td>
+<td style="text-align: center;"><span class="math inline">\(\color{blue}{\text{5.75e-07}}\)</span></td>
+<td style="text-align: center;">5.71e-07</td>
+<td style="text-align: center;">5.48e-07</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mu=0.0\)</span></td>
+<td style="text-align: center;">2.85e-07</td>
+<td style="text-align: center;">3.44e-07</td>
+<td style="text-align: center;">3.79e-07</td>
+<td style="text-align: center;"><span class="math inline">\(\color{blue}{\text{3.91e-07}}\)</span></td>
+<td style="text-align: center;">3.87e-07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=0.1\)</span></td>
+<td style="text-align: center;">1.49e-07</td>
+<td style="text-align: center;">1.94e-07</td>
+<td style="text-align: center;">2.26e-07</td>
+<td style="text-align: center;">2.44e-07</td>
+<td style="text-align: center;"><span class="math inline">\(\color{blue}{\text{2.51e-07}}\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><span class="math inline">\(\color{red}{\text{빨간 글씨}}\)</span> (각 열에서 가장 큰 값): <span class="math inline">\(\sigma^2\)</span>이 얼마이든 항상 <span class="math inline">\(\mu=-0.5\)</span> 에서 최대이다. <span class="math inline">\(\mu\)</span>에 대한 의견은 <span class="math inline">\(\sigma^2\)</span>과 상관이 없다.</li>
+<li><span class="math inline">\(\color{blue}{\text{파란 글씨}}\)</span> (각 행에서 가장 큰 값): <span class="math inline">\(\mu\)</span>에 따라 최대가 되는 <span class="math inline">\(\sigma^2\)</span>의 위치가 <span class="math inline">\(0.9 \sim 1.2\)</span> 로 움직인다. <span class="math inline">\(\sigma^2\)</span>에 대한 의견은 <span class="math inline">\(\mu\)</span>에 달려 있다.</li>
+<li><span class="math inline">\(\color{purple}{\text{보라 글씨}}\)</span>: 둘이 겹치는 칸 (<span class="math inline">\(\mu=-0.5\)</span>, <span class="math inline">\(\sigma^2=0.9\)</span>).</li>
+</ul>
+<p>보라색 글씨를 찾는 것이 목표이다. 이를 위해서는 (1) 빨간글씨들이 포함된 행을 먼저 찾고 (2) 그 다음 그 행에서 파란글씨를 찾으면 된다. 즉 <span class="math inline">\(\mu\)</span>를 먼저 최적화하고 그 다음 <span class="math inline">\(\sigma^2\)</span>를 최적화하면 된다.</p>
+<ol type="1">
+<li>데이터들은 먼저 <span class="math inline">\(\mu\)</span>의 추정값에 대해 투표한다. 각 데이터들은 <span class="math inline">\(\hat\mu=x_i\)</span> 이었으면 좋겠다고 생각하므로 투표 결과는 <span class="math inline">\(\hat{\mu}=\bar{x}=-0.4672139\)</span> 이다.</li>
+<li>다음으로 데이터들은 <span class="math inline">\(\sigma^2\)</span>에 대해 투표한다. 각 데이터들은 <span class="math inline">\(\hat{\sigma^2}=(x_i-\mu)^2\)</span> 이면 좋겠다고 생각한다. (각 데이터들은 모수 <span class="math inline">\(\mu\)</span>가 무엇인지는 모르겠지만 그 값에 따라서 <span class="math inline">\(\sigma^2\)</span>를 추정하는 구체적인 값은 달라질 수 있다고 생각함) 이 문제는 언뜻 생각해서는 풀 수 없어 보인다. 왜냐하면 <span class="math inline">\(\mu\)</span>를 모르므로 <span class="math inline">\(\sigma^2\)</span>의 추정치을 정하는 것이 불가능하기 때문이다. 하지만 <span class="math inline">\(\sigma^2\)</span>의 추정치는 몰라도 추정하는 방식은 알 수 있다. (구체적인 값은 모르지만 그 방식은 합의되어 있음) 어떤 식이냐면 “<span class="math inline">\(\mu\)</span>가 <span class="math inline">\(m\)</span>이라면 <span class="math inline">\(\hat{\sigma}^2=(x_i-m)^2\)</span> 이었으면 좋겠다”는 꼴이다. 즉 <span class="math inline">\(\sigma^2\)</span>에 대한 의견은 하나의 값이 아니라 <span class="math inline">\(\mu\)</span>에 따라 달라지는 규칙이다. (표에서 파란 글씨의 위치가 행마다 다른 것이 이 뜻이다.) 그런데 1번에서 데이터본인들이 <span class="math inline">\(\mu\)</span>는 이미 <span class="math inline">\(\bar{x}\)</span>로 정했으므로, 각 데이터는 <span class="math inline">\(\hat{\sigma}^2=(x_i-\bar{x})^2\)</span> 에 투표한다. 따라서 투표 결과는 <span class="math inline">\(\hat{\sigma}^2=\frac{1}{n}\sum_{i=1}^{n}(x_i-\bar{x})^2\)</span> 이다.</li>
+</ol>
+<blockquote class="blockquote">
+<p>위의 논리는 사실 “<span class="math inline">\(-\log L(\mu,\sigma^2)\)</span>를 <span class="math inline">\(\mu\)</span>와 <span class="math inline">\(\sigma^2\)</span>로 각각 편미분한 식을 0으로 놓고, 두 식을 연립해서 푼다”는 논리와 같은 거예요.</p>
+</blockquote>
+<p><code>#</code></p>
+<p><code>-</code> 요약: <span class="math inline">\(X_1,\dots,X_{n} \overset{iid}{\sim} N(\mu,\sigma^2)\)</span> 이라면</p>
+<ol type="1">
+<li>가능도함수는 항상 <span class="math inline">\(L(\mu,\sigma^2)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x_1-\mu)^2}{2\sigma^2}}\times\dots\times\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x_n-\mu)^2}{2\sigma^2}}\)</span> 이런 모양을 가지고,</li>
+<li>가능도함수는 <span class="math inline">\(\mu=\bar{x}\)</span>, <span class="math inline">\(\sigma^2=\frac{1}{n}\sum_{i=1}^{n}(x_i-\bar{x})^2\)</span> 에서 최대값을 가진다.</li>
+</ol>
+<p>따라서 <span class="math inline">\(X_1,\dots,X_{n} \overset{iid}{\sim} N(\mu,\sigma^2)\)</span> 에서 <span class="math inline">\(\mu\)</span>와 <span class="math inline">\(\sigma^2\)</span>를 최대가능도 기법으로 추정하기 위해서는 <span class="math inline">\(\bar{x}\)</span>와 <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}(x_i-\bar{x})^2\)</span>를 쓰면 된다.</p>
+<p><code>-</code> 위에서 <code>sd(x)</code>가 약간 달라보였던 것은 기분탓이 아니다. <code>R</code>에서 <code>sd(x)</code>는 <span class="math inline">\(n\)</span>이 아니라 <span class="math inline">\(n-1\)</span>로 나눈 값이기 때문이다.</p>
+</section>
+<section id="플러그인-불변성" class="level1">
+<h1>5. 플러그인 (불변성)</h1>
+<p><code>-</code> MLE는 <span class="math inline">\(\theta\)</span>만 추정할 수 있을까? 만약에 우리가 <span class="math inline">\(\theta\)</span>이외의 정보에 관심이 있다고 하자. 그러면 그것은 MLE로 추정할 수 없을까?</p>
+<ul>
+<li><span class="math inline">\(\theta\)</span>만 추정할 수 있는게 아님. 진실세계의 모든 정보를 다 추정할 수 있다.</li>
+<li>최대가능도추정의 논리전개: 진실 세계의 모든 정보는 <span class="math inline">\(\theta\)</span>로 압축된다 (모수적 모델링). 그런데 우리는 그 <span class="math inline">\(\theta\)</span>를 추정할 수 있다. 따라서 진실세계의 모든 정보를 추정할 수 있다. (신만 아는 답을 <span class="math inline">\(\hat{\theta}\)</span>로 흉내 낼 수 있는 셈)</li>
+</ul>
+<p><code># 예제5</code></p>
+<p>공평한 동전을 5회 던져서 아래와 같은 결과를 얻었다고 하자.</p>
+<ul>
+<li><span class="math inline">\(data\)</span>: 0, 1, 0, 0, 1</li>
+</ul>
+<p>실패확률을 추정하라.</p>
+<p><code>(풀이)</code> – MLE에 기초한풀이</p>
+<p><span class="math inline">\(X_1,X_2,\dots,X_n \sim Ber(\theta)\)</span> 에서 MLE에 의한 <span class="math inline">\(\theta\)</span>의 추정값은 <span class="math inline">\(\frac{2}{5}\)</span>이므로 (왜?) 성공확률 <span class="math inline">\(\theta\)</span>는 <span class="math inline">\(\frac{2}{5}\)</span>로 추정할 수 있다. 실패할확률은 <span class="math inline">\(1-\theta\)</span>인데, <span class="math inline">\(\theta\)</span>의 값을 이미 <span class="math inline">\(\frac{2}{5}\)</span>로 추정했으므로 실패할확률의 추정값은 <span class="math inline">\(1-\frac{2}{5}=\frac{3}{5}\)</span>이라고 할 수 있다.</p>
+<p><code>#</code></p>
+<hr>
+<p><code>-</code> 개념: MLE에 기반한 추정법은 아래와 같다.</p>
+<ol type="1">
+<li>모수를 MLE로 추정한다</li>
+<li>추정의 대상과 모수와의 함수관계를 파악한다.</li>
+<li>1에서 얻은 추정값을 2에서 얻은 함수관계에 대입한다.</li>
+</ol>
+<p><code>-</code> 이 논리로 위의 예제를 다시 해석하면 아래와 같다.</p>
+<ol type="1">
+<li>모수를 추정한다: 베르누이 분포 <span class="math inline">\(Ber(\theta)\)</span>의 모수는 성공확률 <span class="math inline">\(\theta\)</span>이며, <span class="math inline">\(\theta\)</span>의 추정값은 <span class="math inline">\(\frac{2}{5}\)</span> 이다.</li>
+<li>추정의 대상과 모수와의 함수관계를 파악한다: 추정의 대상은 실패확률이다. 그런데 “<span class="math inline">\(실패확률=1-\theta\)</span>”라는 관계가 있는데 이것이 추정의 대상과 모수와의 함수관계이다.</li>
+<li>1에서 얻은 추정값을 2에서 얻은 함수관계에 대입한다 (플러그인): 우리가 1에서 얻은 추정값은 <span class="math inline">\(\frac{2}{5}\)</span>이다. 2에서 얻은 함수관계는 <span class="math display">\[추정의대상=실패확률=1-\theta\]</span>이다. 1에서 얻은 <span class="math inline">\(\theta\)</span>에 대한 추정값 <span class="math inline">\(\frac{2}{5}\)</span>를 위의 <span class="math inline">\(\theta\)</span>자리에 plugin하면 <span class="math inline">\(실패확률=\frac{3}{5}\)</span>를 얻는다.</li>
+</ol>
+<p><code>-</code> 주의(고급내용): 3의 과정을 수식으로 표현하면 아래와 같다.</p>
+<p><span class="math display">\[\widehat{실패확률}^{MLE}=\widehat{1-\theta}^{MLE}=1-\hat{\theta}^{MLE}\]</span></p>
+<p>이러한 논리전개는 언뜻 당연해보이지만 사실 당연한건 아니다. 아래와 같은 사실은</p>
+<p><span class="math display">\[\widehat{1-\theta}^{MLE}=1-\hat{\theta}^{MLE}\]</span></p>
+<p>일반적인 추정법에는 성립하지 않는다.</p>
+<hr>
+<p><code># 예제6</code></p>
+<p>아래에서</p>
+<p><span class="math display">\[X \sim N(\mu,1)\]</span></p>
+<p>얻은 10개의 샘플이 다음과 같다고 하자.</p>
+<ul>
+<li><span class="math inline">\(data\)</span>: -0.56047565, -0.23017749, 1.55870831, 0.07050839, 0.12928774, 1.71506499, 0.46091621, -1.26506123, -0.68685285, -0.44566197</li>
+</ul>
+<p><span class="math inline">\(\mathbb{E}(X^2)\)</span>을 추정하라.</p>
+<p><code>(참고)</code></p>
+<ul>
+<li>진실세계의정보: <span class="math inline">\(\mathbb{E}(X), \mathbb{E}(X^2)\)</span></li>
+<li>데이터세계의정보: <span class="math inline">\(\bar{x}\)</span></li>
+</ul>
+<p><code>(풀이)</code></p>
+<p>언뜻 생각하면 아래와 같이 추정해야 할 것 같다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> data <span class="ot">=</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.56047565</span>, <span class="sc">-</span><span class="fl">0.23017749</span>, <span class="fl">1.55870831</span>, <span class="fl">0.07050839</span>, <span class="fl">0.12928774</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1.71506499</span>, <span class="fl">0.46091621</span>, <span class="sc">-</span><span class="fl">1.26506123</span>, <span class="sc">-</span><span class="fl">0.68685285</span>, <span class="sc">-</span><span class="fl">0.44566197</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>[1] 0.8243026</code></pre>
+<p>그런데 <span class="math display">\[\mathbb{E}(X^2)=\big\{\mathbb{E}(X)\big\}^2+\mathbb{V}(X)\]</span></p>
+<p>임을 고려하면 아래와 같이 추정하는것도 말이 되는 것 같다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>[1] 1.005569</code></pre>
+<p>두 값은 얼추 비슷하지만 완전히 같지는 않다. 둘 다 타당한 추정법인것 같은데 무엇이 더 올바른 추정일까?</p>
+<p>(분석)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    A[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(x<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    B[i] <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">+</span><span class="fu">mean</span>(x)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(A,<span class="at">col=</span><span class="st">'red'</span>,<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(B,<span class="at">col=</span><span class="st">'blue'</span>,<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/260927-강민-04wk-그림5-예제12추정비교.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>그림3: 예제6의 추정의 비교. 빨간색은 <span class="math inline">\(\text{mean}(x^2)\)</span>, 파란색은 <span class="math inline">\(1+\text{mean}(x)^2\)</span>.</figcaption>
+</figure>
+</div>
+<p>비교한 결과 방법A와 방법B중에서는 방법B가 더 우수하다는 생각이 든다.</p>
+<ul>
+<li>방법A: <span class="math inline">\(\text{mean}(x^2)=\bar{x^2}\)</span></li>
+<li>방법B: <span class="math inline">\(1+\text{mean}(x)^2=1+\bar{x}^2\)</span></li>
+</ul>
+<p>사실 방법B는 최대가능도방법의 원리로 추정된 값이다.</p>
+<ol type="1">
+<li>모수를 MLE로 추정한다: 정규분포 <span class="math inline">\(N(\mu,\sigma^2)\)</span>의 모수는 <span class="math inline">\(\mu\)</span>와 <span class="math inline">\(\sigma^2\)</span>인데, <span class="math inline">\(\sigma^2=1\)</span>로 주어졌으므로 추정할 필요가 없고, <span class="math inline">\(\mu\)</span>를 추정하면 <span class="math inline">\(\bar{x}\)</span>이다.</li>
+<li>추정의 대상과 모수와의 함수관계를 파악한다: <span class="math inline">\(\mathbb{V}(X)=\mathbb{E}(X^2)-\{\mathbb{E}(X)\}^2\)</span>의 관계가 있으므로 추정의 대상은 <span class="math inline">\(\mathbb{E}(X^2)=\sigma^2+\mu^2\)</span>와 같이 표현할 수 있음. 그런데 <span class="math inline">\(\sigma^2=1\)</span>이 주어졌으므로 “<span class="math inline">\(추정의대상=\mathbb{E}(X^2)=1+\mu^2\)</span>” 의 관계가 있음.</li>
+<li>1에서 얻은 추정값을 2에서 얻은 함수관계에 대입한다: 따라서 <span class="math display">\[\widehat{\mathbb{E}(X^2)}=1+\bar{x}^2\]</span> 이 예제에서도 최대가능도추정이 더 정확한 추정을 준다. (다만 방법B는 평균적으로 조금 크게 추정한다)</li>
+</ol>
+<p><code>#</code></p>
+<p><code>-</code> 결론</p>
+<ul>
+<li>MLE는 데이터분석에서 가장 유용한 추정방법이라 할 수는 없지만 (사람마다 취향이 있으니까요?)</li>
+<li>꽤 유용하고 많은 분야에서 의미있게 사용된다.</li>
+<li>특히 기존에 사용되었던 MME (평균으로 해결하자는 주의) 와 비교해서는 성능이 좋다고 알려져있다.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+</ul>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>불편성에서만 조금 밀리고, 일치성/최소분산성등의 성질에서 동등하거나 우의에 있음<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<style>
+#replBtn {
+  position: fixed; right: 20px; bottom: 20px; z-index: 1000;
+  padding: 8px 14px; border: 1px solid #d7dce3; border-radius: 999px;
+  background: #fff; color: #1b1f24; font-size: 14px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+#replBtn:hover { background: #f4f6f9; }
+#replBox {
+  position: fixed; right: 20px; bottom: 68px; z-index: 1000;
+  width: 460px; height: 320px;
+  display: flex; flex-direction: column;
+  border: 1px solid #d7dce3; border-radius: 10px; overflow: hidden;
+  background: #fff; box-shadow: 0 6px 24px rgba(0,0,0,.18);
+}
+/* ★ 왼쪽 위 모서리 손잡이 — CSS resize 는 오른쪽 아래만 되고 그 자리가 화면 밖이라 직접 만든다 */
+#replGrip {
+  position: absolute; left: 0; top: 0; width: 18px; height: 18px;
+  cursor: nwse-resize; z-index: 2;
+  background: linear-gradient(135deg, #b9c2cc 0 2px, transparent 2px 5px,
+                              #b9c2cc 5px 7px, transparent 7px 10px,
+                              #b9c2cc 10px 12px, transparent 12px);
+  border-top-left-radius: 10px;
+}
+#replBox iframe { flex: 1 1 auto; width: 100%; border: 0; display: block; min-height: 0; }
+#replBar {
+  flex: 0 0 auto;
+  display: flex; gap: 6px; align-items: center; justify-content: flex-end;
+  padding: 4px 8px; border-bottom: 1px solid #e7ebf2; background: #fafbfc;
+  font-size: 12px; color: #6b7480;
+}
+#replBar .grow { margin-right: auto; }
+#replBar button {
+  border: 1px solid #d7dce3; border-radius: 6px; background: #fff;
+  padding: 2px 8px; font-size: 12px; cursor: pointer; color: #1b1f24;
+}
+@media (max-width: 820px) {
+  #replBox { right: 10px; left: 10px; width: auto; height: 70vh; }
+}
+</style>
+
+<!-- 떠 있는 실행창 — BS2026-Play (JupyterLite · R webR / Python Pyodide) -->
+<button id="replBtn" type="button">▶ 실행창</button>
+
+<div id="replBox" hidden="">
+  <div id="replGrip" title="끌어서 크기 조절"></div>
+  <div id="replBar">
+    <span class="grow">실행창</span>
+    <button type="button" data-kernel="R" title="R (webR)">R</button>
+    <button type="button" data-kernel="python">Python</button>
+    <button type="button" id="replLab" title="노트북(JupyterLab) 새 창">↗ Lab</button>
+    <button type="button" id="replClose" title="닫기">✕</button>
+  </div>
+  <iframe id="replFrame" title="BS2026 실행창" loading="lazy"></iframe>
+</div>
+
+<script>
+(function () {
+  var BASE = "https://guebin.github.io/BS2026-Play/repl/index.html";
+  var btn = document.getElementById("replBtn");
+  var box = document.getElementById("replBox");
+  var frame = document.getElementById("replFrame");
+  if (!btn || !box || !frame) return;
+
+  // ★ 커널 이름은 대소문자를 가린다 — R 은 "webR" (실측 2026-09-08)
+  var KERNEL = { R: "webR", python: "python" };
+  var current = localStorage.getItem("bs2026-repl-kernel") || "R";
+
+  function kernelParam(which) { return KERNEL[which] || KERNEL.R; }
+
+  function load(which) {
+    current = which;
+    try { localStorage.setItem("bs2026-repl-kernel", which); } catch (e) {}
+    var want = BASE + "?kernel=" + kernelParam(which) + "&toolbar=1";
+    frame.setAttribute("src", want);
+    box.querySelectorAll("[data-kernel]").forEach(function (b) {
+      b.style.fontWeight = (b.dataset.kernel === which) ? "700" : "400";
+    });
+  }
+
+  btn.addEventListener("click", function () {
+    box.hidden = !box.hidden;                       // 접어도 iframe 은 살아 있다 (변수 유지)
+    btn.textContent = box.hidden ? "▶ 실행창" : "▼ 실행창";
+    if (!box.hidden && !frame.getAttribute("src")) load(current);
+  });
+
+  box.querySelectorAll("[data-kernel]").forEach(function (b) {
+    b.addEventListener("click", function () { load(b.dataset.kernel); });
+  });
+
+  // ★ 왼쪽 위를 끌면 오른쪽·아래는 고정한 채 폭·높이가 는다
+  (function () {
+    var grip = document.getElementById("replGrip");
+    var start = null;
+    grip.addEventListener("pointerdown", function (e) {
+      start = { x: e.clientX, y: e.clientY, w: box.offsetWidth, h: box.offsetHeight };
+      grip.setPointerCapture(e.pointerId);
+      e.preventDefault();
+    });
+    grip.addEventListener("pointermove", function (e) {
+      if (!start) return;
+      var w = start.w - (e.clientX - start.x);
+      var h = start.h - (e.clientY - start.y);
+      // ★ 위로는 네비바(상단 배너) 아래까지만 — 그 위로 올라가면 가려서 못 쓴다
+      var nav = document.querySelector(".navbar, header#quarto-header, #quarto-header");
+      var top = nav ? nav.getBoundingClientRect().bottom + 8 : 8;
+      var maxH = window.innerHeight - top - 76;      // 76 = 아래 버튼 자리
+      box.style.width  = Math.max(320, Math.min(w, window.innerWidth - 40)) + "px";
+      box.style.height = Math.max(240, Math.min(h, maxH)) + "px";
+    });
+    function end(e) { if (start) { start = null; try { grip.releasePointerCapture(e.pointerId); } catch (_) {} } }
+    grip.addEventListener("pointerup", end);
+    grip.addEventListener("pointercancel", end);
+  })();
+
+  document.getElementById("replClose").addEventListener("click", function () {
+    box.hidden = true; btn.textContent = "▶ 실행창";
+  });
+
+  document.getElementById("replLab").addEventListener("click", function () {
+    // ★ 크기를 주면 브라우저가 «별도 창»으로 연다 (탭이 아니라)
+    var w = Math.min(1200, Math.round(screen.availWidth  * 0.8));
+    var h = Math.min(860,  Math.round(screen.availHeight * 0.85));
+    var x = Math.round((screen.availWidth  - w) / 2);
+    var y = Math.round((screen.availHeight - h) / 2);
+    window.open(
+      "https://guebin.github.io/BS2026-Play/lab/index.html",
+      "bs2026lab",
+      "popup=yes,width=" + w + ",height=" + h + ",left=" + x + ",top=" + y +
+      ",noopener,resizable=yes,scrollbars=yes"
+    );
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
