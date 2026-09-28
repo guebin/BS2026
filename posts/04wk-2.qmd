@@ -254,11 +254,11 @@ $$(\sqrt{\pi})^{10}\times L(\mu,\sigma^2)=\frac{1}{\sigma\sqrt{2}} e^{-\frac{(-1
 
 $$\frac{1}{\sqrt{2}\sigma} \times e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}$$
 
-`*` $\mu$가 ...였음 좋겠다.`*`
+`*` $x_i$는 $\frac{1}{\sqrt{2}\sigma} \times e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}$를 최대화하고 싶어하니 $\mu$가 ...였음 좋겠다고 생각한다.`*`
 
-$\sigma^2$가 정해진 상수라고 생각하면 "$(\sqrt{\pi})^{10} \times 가능도$"는 $x_i=\mu$에서 최대화된다. 
+$\sigma^2$가 정해진 상수라고 생각하면 "$(\sqrt{\pi})^{10} \times 가능도$"는 $\mu=x_i$에서 최대화된다. 따라서 $x_i$입장에서는 $\mu$를 $x_i$로 추정하고 싶어한다. 
 
-`*` $\sigma^2$가 ...였음 좋겠다. `*`
+`*` $x_i$는 $\frac{1}{\sqrt{2}\sigma} \times e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}$를 최대화하고 싶어하니 $\sigma^2$가 ...였음 좋겠다고 생각한다. `*`
 
 이번에는 $\mu$가 정해진 상수라고 생각하자. "$(\sqrt{\pi})^{10} \times 가능도$"를 정리하면 $\exp\left(\log \frac{1}{\sqrt{2}\sigma} - \frac{(x_i-\mu)^2}{2\sigma^2}\right)$와 같이 된다. 그런데 $\exp\left(\log \frac{1}{\sqrt{2}\sigma} - \frac{(x_i-\mu)^2}{2\sigma^2}\right)$은 $\log \frac{1}{\sqrt{2}\sigma} - \frac{(x_i-\mu)^2}{2\sigma^2}$의 값이 클수록 최대화된다. (수학천재가 와서) 수식을 살짝 바꿔주면 
 
@@ -268,7 +268,7 @@ $$\log \frac{1}{\sqrt{2}\sigma} - \frac{(x_i-\mu)^2}{2\sigma^2}=-\frac{1}{2}\log
 
 $$\log \sigma^2 + \frac{(x_i-\mu)^2}{\sigma^2}$$
 
-$\frac{\sigma^2}{(x_i-\mu)^2}=t$ 로 치환하면 위 식은 $$\log (x_i-\mu)^2 + \left(\log t + \frac{1}{t}\right)$$ 가 된다. 그런데 $\log t + \frac{1}{t} \geq 1$ 이므로 (왜냐하면 부등식 $\log x \leq x-1$ 이 성립하니까) 주어진 식은 $t=1$ 일 때 최소화된다. 따라서 $i$번째 데이터는 $\sigma^2=(x_i-\mu)^2$ 이었으면 좋겠다고 주장한다.
+$\frac{\sigma^2}{(x_i-\mu)^2}=t$ 로 치환하면 위 식은 $$\log (x_i-\mu)^2 + \left(\log t + \frac{1}{t}\right)$$ 가 된다. 그런데 $\log t + \frac{1}{t} \geq 1$ 이므로 (왜냐하면 부등식 $\log x \leq x-1$ 이 성립하니까) 주어진 식은 $t=1$ 일 때 최소화된다. 따라서 $x_i$는 $\sigma^2=(x_i-\mu)^2$ 이었으면 좋겠다고 생각한다. 즉 $\sigma^2$을 $(x_i-\mu)^2$으로 추정하고 싶어한다. 
 
 ::: {.callout-note collapse="true" title="보충설명"}
 부등식 $\log x \leq x-1$ ($x>0$, 등호는 $x=1$일 때만 성립)의 $x$ 자리에 $\frac{1}{t}$을 넣으면
