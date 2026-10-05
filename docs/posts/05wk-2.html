@@ -246,10 +246,10 @@ window.Quarto = {
 <p><span class="math inline">\(X_1,X_2,\dots,X_n \sim Ber(\theta)\)</span> 에서 MLE에 의한 <span class="math inline">\(\theta\)</span>의 추정값은 <span class="math inline">\(\frac{2}{5}\)</span>이므로 (왜?) 성공확률 <span class="math inline">\(\theta\)</span>는 <span class="math inline">\(\frac{2}{5}\)</span>로 추정할 수 있다. 실패할 확률은 <span class="math inline">\(1-\theta\)</span>인데, <span class="math inline">\(\theta\)</span>의 값을 이미 <span class="math inline">\(\frac{2}{5}\)</span>로 추정했으므로 실패할 확률의 추정값은 <span class="math inline">\(1-\frac{2}{5}=\frac{3}{5}\)</span>이라고 할 수 있다.</p>
 <p><code>#</code></p>
 <hr>
-<p><code>-</code> 개념: MLE에 기반한 추정법은 아래와 같다.</p>
+<p><code>-</code> 개념</p>
 <ol type="1">
-<li>모수를 MLE로 추정한다.</li>
-<li>추정의 대상과 모수와의 함수관계를 파악한다.</li>
+<li>모수를 최대가능도방법으로 추정한다.</li>
+<li>추정의 대상과 모수와의 함수관계를 파악한다. (함수관계는 반드시 존재함)</li>
 <li>1에서 얻은 추정값을 2에서 얻은 함수관계에 대입한다.</li>
 </ol>
 <p><code>-</code> 이 논리로 위의 예제를 다시 해석하면 아래와 같다.</p>
@@ -313,7 +313,7 @@ window.Quarto = {
 </ul>
 <p>사실 방법B는 최대가능도방법의 원리로 추정된 값이다.</p>
 <ol type="1">
-<li>모수를 MLE로 추정한다: 정규분포 <span class="math inline">\(N(\mu,\sigma^2)\)</span>의 모수는 <span class="math inline">\(\mu\)</span>와 <span class="math inline">\(\sigma^2\)</span>인데, <span class="math inline">\(\sigma^2=1\)</span>로 주어졌으므로 추정할 필요가 없고, <span class="math inline">\(\mu\)</span>를 추정하면 <span class="math inline">\(\bar{x}\)</span>이다.</li>
+<li>모수를 최대가능도방법으로 추정한다: 정규분포 <span class="math inline">\(N(\mu,\sigma^2)\)</span>의 모수는 <span class="math inline">\(\mu\)</span>와 <span class="math inline">\(\sigma^2\)</span>인데, <span class="math inline">\(\sigma^2=1\)</span>로 주어졌으므로 추정할 필요가 없고, <span class="math inline">\(\mu\)</span>를 추정하면 <span class="math inline">\(\bar{x}\)</span>이다.</li>
 <li>추정의 대상과 모수와의 함수관계를 파악한다: <span class="math inline">\(\mathbb{V}(X)=\mathbb{E}(X^2)-\{\mathbb{E}(X)\}^2\)</span>의 관계가 있으므로 추정의 대상은 <span class="math inline">\(\mathbb{E}(X^2)=\sigma^2+\mu^2\)</span>와 같이 표현할 수 있음. 그런데 <span class="math inline">\(\sigma^2=1\)</span>이 주어졌으므로 “<span class="math inline">\(추정의대상=\mathbb{E}(X^2)=1+\mu^2\)</span>” 의 관계가 있음.</li>
 <li>1에서 얻은 추정값을 2에서 얻은 함수관계에 대입한다: 따라서 <span class="math display">\[\widehat{\mathbb{E}(X^2)}=1+\bar{x}^2\]</span> 이 예제에서도 최대가능도추정이 더 정확한 추정을 준다. (다만 방법B는 평균적으로 조금 크게 추정한다)</li>
 </ol>
