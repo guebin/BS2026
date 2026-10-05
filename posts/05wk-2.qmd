@@ -490,7 +490,7 @@ $$L(a,b)=\frac{1}{(b-a)^n} \times I(a \leq \min(x_1,\dots,x_n)) \times I(\max(x_
 1. 재석: "$a > \min(x_1,\dots,x_n)$ 이면 가능도는 0이야."
 2. 동엽: "$b < \max(x_1,\dots,x_n)$ 이면 가능도는 0이지."
 3. 호동: "$(b-a)$ 가 클수록 가능도가 커져."
-4. 효리: "그래서 $a=\min(x_1,\dots,x_n)$, $b=\max(x_1,\dots,x_n)$ 일 때 가능도가 최대야."
+4. 효리: "$a=\min(x_1,\dots,x_n)$, $b=\max(x_1,\dots,x_n)$ 일 때 가능도가 최대야."
 
 
 `#`
