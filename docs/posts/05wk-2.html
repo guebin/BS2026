@@ -188,7 +188,7 @@ window.Quarto = {
   <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">1. 강의영상</a></li>
   <li><a href="#mle의-불변성" id="toc-mle의-불변성" class="nav-link" data-scroll-target="#mle의-불변성">2. MLE의 불변성</a></li>
   <li><a href="#균등분포" id="toc-균등분포" class="nav-link" data-scroll-target="#균등분포">3. 균등분포</a></li>
-  <li><a href="#연습문제" id="toc-연습문제" class="nav-link" data-scroll-target="#연습문제">4. 연습문제</a></li>
+  <li><a href="#연습문제-과제1" id="toc-연습문제-과제1" class="nav-link" data-scroll-target="#연습문제-과제1">4. 연습문제 (과제1)</a></li>
   </ul>
 </nav>
     </div>
@@ -708,8 +708,8 @@ L(a,b) &amp;= \frac{1}{b-a}I(a \leq x_1 \leq b) \times \dots \times \frac{1}{b-a
 <p>피셔(Fisher, 1922)는 끝점이 뚜렷한 분포에서는 적률법(MME)의 효율이 크게 떨어진다는 것을 보였다. 이런 분포에서는 최대가능도방법(MLE)이 훨씬 낫다.</p>
 <p><code>#</code></p>
 </section>
-<section id="연습문제" class="level1">
-<h1>4. 연습문제</h1>
+<section id="연습문제-과제1" class="level1">
+<h1>4. 연습문제 (과제1)</h1>
 <p><code># 문제1</code></p>
 <p>1이 나올 확률이 <span class="math inline">\(\theta\)</span>인 동전을 3번 던져서 아래와 같이 나왔다고 하자.</p>
 <ul>
@@ -817,10 +817,10 @@ L(a,b) &amp;= \frac{1}{b-a}I(a \leq x_1 \leq b) \times \dots \times \frac{1}{b-a
 <li><span class="math inline">\(data\)</span>: 2.1, 2.5</li>
 </ul>
 <p><code>(1)</code> <span class="math inline">\(L(\theta)\)</span>를 <span class="math inline">\(\theta\)</span>와 관련된 수식으로 표현하라.</p>
-<p><code>(2)</code> <span class="math inline">\(L(2.1)\)</span>, <span class="math inline">\(L(2.3)\)</span>, <span class="math inline">\(L(2.5)\)</span>의 값을 구하라.</p>
 <blockquote class="blockquote">
-<p>힌트: <span class="math inline">\(X \sim N(\mu, 1)\)</span>일 때, <span class="math inline">\(f(x) = \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{(x-\mu)^2}{2}\right)\)</span></p>
+<p>힌트: <span class="math inline">\(X \sim N(\theta, 1)\)</span>일 때, <span class="math inline">\(f(x) = \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{(x-\theta)^2}{2}\right)\)</span></p>
 </blockquote>
+<p><code>(2)</code> <span class="math inline">\(L(2.1)\)</span>, <span class="math inline">\(L(2.3)\)</span>, <span class="math inline">\(L(2.5)\)</span>의 값을 구하라.</p>
 <p><code>(3)</code> (2)의 결과로 판단하면 최대가능도방법의 관점에서 <span class="math inline">\(\theta\)</span>가 2.1, 2.3, 2.5 중 어떠한 값이라고 추정하는 것이 가장 타당한가? (이유도 쓸 것)</p>
 <p><code>(4)</code> <span class="math inline">\(L(\theta)\)</span>의 값을 최대화하는 <span class="math inline">\(\theta\)</span>를 이론적으로 구하라.</p>
 <p><code>(5)</code> <span class="math inline">\(\mathbb{E}(X^2)\)</span>을 최대가능도방법으로 추정하라.</p>
@@ -834,7 +834,7 @@ L(a,b) &amp;= \frac{1}{b-a}I(a \leq x_1 \leq b) \times \dots \times \frac{1}{b-a
 <p><code>#</code></p>
 <p><code># 문제4</code></p>
 <p>아래와 같은 가능도함수가 주어졌다.</p>
-<p><span class="math display">\[L(\mu) = \exp\left[-\frac{1}{2}\left\{(\mu-1.5)^2 + (\mu-3.2)^2 + (\mu-4.8)^2 + (\mu-6.5)^2\right\}\right]\]</span></p>
+<p><span class="math display">\[L(\mu) = \left(\frac{1}{\sqrt{2\pi}}\right)^4\exp\left[-\frac{1}{2}\left\{(\mu-1.5)^2 + (\mu-3.2)^2 + (\mu-4.8)^2 + (\mu-6.5)^2\right\}\right]\]</span></p>
 <p><span class="math inline">\(\mu\)</span>의 최대가능도추정값 <span class="math inline">\(\hat{\mu}\)</span>를 구하라.</p>
 <p><code>#</code></p>
 <p><code># 문제5</code></p>
