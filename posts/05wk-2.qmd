@@ -486,6 +486,3 @@ $$L(a,b)=\frac{1}{(b-a)^n} \times I(a \leq \min(x_1,\dots,x_n)) \times I(\max(x_
 
 
 `#`
-
-
-[^iverson]: Knuth, D. E. (1992). Two notes on notation. *The American Mathematical Monthly*, 99(5), 403–422. 이 논문에서 Knuth 는 Garsia 의 정의 $\chi({\cal A})$ 를 소개한다. 여기서는 $\chi$ 대신 $I$ 로 쓴다.
