@@ -285,8 +285,23 @@ window.Quarto = {
 <p>임을 고려하면 아래와 같이 추정하는 것도 말이 되는 것 같다.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>[1] 1.005569</code></pre>
-<p>두 값은 얼추 비슷하지만 완전히 같지는 않다. 둘 다 타당한 추정법인 것 같은데 무엇이 더 올바른 추정일까?</p>
-<p>(분석)</p>
+<p>두 값은 얼추 비슷하지만 완전히 같지는 않다.</p>
+<ul>
+<li>방법A: <span class="math inline">\(\text{mean}(x^2)=\overline{x^2}\)</span></li>
+<li>방법B: <span class="math inline">\(1+\text{mean}(x)^2=1+\bar{x}^2\)</span></li>
+</ul>
+<p>둘 다 타당한 추정법인 것 같은데 무엇이 더 올바른 추정일까?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="진실의세계">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>진실의세계
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><em>(속닥속닥) 이건 비밀인데요, 사실 진짜 <span class="math inline">\(\mu\)</span>는 <span class="math inline">\(0\)</span>이에요. 그러니까 참값은 <span class="math inline">\(\mathbb{E}(X^2)=1\)</span>이죠. 방법A와 방법B한테는 비밀로 하고 우리끼리 “무한 총 쏘기 시각화” 기법으로 비교해보죠</em></strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
@@ -306,18 +321,16 @@ window.Quarto = {
 <figcaption>그림2: 예제2를 1000번 반복한 결과. 그림1과 같은 축이다.</figcaption>
 </figure>
 </div>
-<p>비교한 결과 방법A와 방법B 중에서는 방법B가 더 우수하다는 생각이 든다.</p>
-<ul>
-<li>방법A: <span class="math inline">\(\text{mean}(x^2)=\overline{x^2}\)</span></li>
-<li>방법B: <span class="math inline">\(1+\text{mean}(x)^2=1+\bar{x}^2\)</span></li>
-</ul>
-<p>사실 방법B는 최대가능도방법의 원리로 추정된 값이다.</p>
+</div>
+</div>
+<p>진실비교한 결과 방법A와 방법B 중에서는 방법B가 더 우수하다는 생각이 든다.</p>
+<p><code>#</code></p>
+<p><code>-</code> 사실 방법B는 최대가능도방법의 원리로 추정된 값이다.</p>
 <ol type="1">
 <li>모수를 최대가능도방법으로 추정한다: 정규분포 <span class="math inline">\(N(\mu,\sigma^2)\)</span>의 모수는 <span class="math inline">\(\mu\)</span>와 <span class="math inline">\(\sigma^2\)</span>인데, <span class="math inline">\(\sigma^2=1\)</span>로 주어졌으므로 추정할 필요가 없고, <span class="math inline">\(\mu\)</span>를 추정하면 <span class="math inline">\(\bar{x}\)</span>이다.</li>
 <li>추정의 대상과 모수와의 함수관계를 파악한다: <span class="math inline">\(\mathbb{V}(X)=\mathbb{E}(X^2)-\{\mathbb{E}(X)\}^2\)</span>의 관계가 있으므로 추정의 대상은 <span class="math inline">\(\mathbb{E}(X^2)=\sigma^2+\mu^2\)</span>와 같이 표현할 수 있음. 그런데 <span class="math inline">\(\sigma^2=1\)</span>이 주어졌으므로 “<span class="math inline">\(추정의대상=\mathbb{E}(X^2)=1+\mu^2\)</span>” 의 관계가 있음.</li>
 <li>1에서 얻은 추정값을 2에서 얻은 함수관계에 대입한다: 따라서 <span class="math display">\[\widehat{\mathbb{E}(X^2)}=1+\bar{x}^2\]</span> 이 예제에서도 최대가능도추정이 더 정확한 추정을 준다. (다만 방법B는 평균적으로 조금 크게 추정한다)</li>
 </ol>
-<p><code>#</code></p>
 </section>
 <section id="균등분포" class="level1">
 <h1>3. 균등분포</h1>
@@ -634,7 +647,7 @@ L(a,b) &amp;= \frac{1}{b-a}I(a \leq x_1 \leq b) \times \dots \times \frac{1}{b-a
 <p><span class="math display">\[\mathbb{E}(X)=\frac{a+b}{2}\]</span></p>
 <p>와 같이 계산할 수 있다.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="엄밀한 유도">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -643,7 +656,7 @@ L(a,b) &amp;= \frac{1}{b-a}I(a \leq x_1 \leq b) \times \dots \times \frac{1}{b-a
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="math inline">\(X \sim U(a,b)\)</span>의 pdf는 <span class="math inline">\(f_X(x)=\frac{1}{b-a}I(a \leq x \leq b)\)</span> 이므로</p>
 <p><span class="math display">\[
