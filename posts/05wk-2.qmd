@@ -449,7 +449,7 @@ $$X \sim N(\theta, 1)$$
 
 아래와 같은 가능도함수가 주어졌다.
 
-$$L(\mu) = \left(\frac{1}{\sqrt{2\pi}}\right)^4\exp\left[-\frac{1}{2}\left\{(\mu-1.5)^2 + (\mu-3.2)^2 + (\mu-4.8)^2 + (\mu-6.5)^2\right\}\right]$$
+$$L(\mu) = \left(\frac{1}{\sqrt{2\pi}}\right)^4\exp\left[-\frac{(\mu-1.5)^2 + (\mu-3.2)^2 + (\mu-4.8)^2 + (\mu-6.5)^2}{2}\right]$$
 
 $\mu$의 최대가능도추정값 $\hat{\mu}$를 구하라.
 
