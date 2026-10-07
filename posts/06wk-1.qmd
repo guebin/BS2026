@@ -13,6 +13,7 @@ format:
 
 # 1. 강의영상
 
+{{<video https://youtu.be/playlist?list=PLU2mHqL7__cA&si=bqjJTsTJcY68zjdd>}}
 
 # 2. 동전던지기 예제
 
