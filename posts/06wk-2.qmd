@@ -1,0 +1,408 @@
+---
+title: "**06wk-2**: 카디널리티"
+author: 최규빈
+date: "10/07/2026 09:00"
+draft: false
+format:
+  html:
+    header-includes: |
+      <style>
+      table { width: auto !important; margin-left: auto !important; margin-right: auto !important; }
+      </style>
+---
+
+# 1. 강의영상
+
+# 2. 수학과에서 자주 쓰는 
+
+## A. 수학과에서 자주 쓰는 기호
+
+`-` 아래와 같은 기호들의 의미를 알고 있는가? 
+
+- $\because$
+- $\therefore$
+
+`-` 이처럼 수학에서는 특별한 의미를 가지는 몇 가지 기호가 있다. 
+
+`-` 아래는 특별한 의미를 가지는 수학기호들의 모음이다.
+
+| 언어                  | 기호                                |
+|-----------------------|-------------------------------------|
+| for all               | ∀                                   |
+| exists                | ∃                                   |
+| such that, satisfying | s.t., st                            |
+| if-then, implies      | ⇒                                   |
+| if and only if        | ⇔                                   |
+| quod erat demonstrandum | □, ■                                |
+
+`# 예시1`: 아래의 문장
+
+> "모든 실수 $x$에 대하여, $x^2$은 0 이상이다."
+
+을 다양하게 표현하여 보자.
+
+(언어)
+
+- for any $x$ in $\mathbb{R}$, $x^2 \geq 0$. 
+- for arbitrary $x \in \mathbb{R}$, $x^2 \geq 0$. 
+- if $x \in \mathbb{R}$, then $x^2 \geq 0$. 
+
+(기호)
+
+- $\forall x \in \mathbb{R}$: $x^2\geq 0$. 
+- $\forall x \in \mathbb{R}$, $x^2\geq 0$. 
+- $x^2 \geq 0$, for all $x \in \mathbb{R}$. 
+- $x^2 \geq 0$, $\forall x \in \mathbb{R}$. 
+- $x \in \mathbb{R} \Rightarrow x^2 \geq 0$. 
+
+> 어떻게 쓰느냐에 대한 규칙은 없음. 거의 쓰는 사람 마음임. (그런데 뉘앙스는 조금씩 다름)
+
+`#`
+
+`# 예시2`: 이번에는
+
+> "$\Omega$의 임의의 부분집합 $A$,$B$에 대하여, $A=B$ 일 필요충분조건은 $A\subset B$ 이고 $B \subset A$ 이어야 한다."
+
+라는 문장을 다양하게 표현하여 보자. 
+
+(언어)
+
+- For all $A,B \subset \Omega$, $A=B$ if and only if (1) $A \subset B$ and (2) $B \subset A$. 
+- Consider $A,B \subset \Omega$. $A=B$ if and only if (1) $A \subset B$ and (2) $B \subset A$. 
+
+(기호)
+
+- $A = B \Leftrightarrow A \subset B \text{ and } B \subset A, \forall A,B \subset \Omega$. 
+- $A = B \Leftrightarrow \big(A \subset B \text{ and } B \subset A\big), \forall A,B \subset \Omega$. 
+- $\forall A,B \subset \Omega$: $A = B \Leftrightarrow \big(A \subset B \text{ and } B \subset A\big)$
+
+> 의미가 좀 모호해질 수도 있는데, "눈치껏" 알아 먹어야 한다. 
+
+`#`
+
+`# 예시3`: 이번에는 
+
+> "임의의 양수 $\epsilon>0$ 에 대하여 $|x| \leq \epsilon$ 이라면 $x=0$ 일 수밖에 없다."
+
+라는 문장을 표현해보자. 
+
+(언어)
+
+- If $|x|< \epsilon$ for all $\epsilon>0$, then $x=0$. 
+- If $|x|< \epsilon$, $\forall \epsilon>0$, then $x=0$.
+- For all $\epsilon>0$, $|x|< \epsilon$ implies $x=0$. -- 틀린표현
+
+(기호)
+
+- $|x| < \epsilon,~ \forall \epsilon>0 \Rightarrow x=0$
+- $\forall \epsilon>0: |x| < \epsilon \Rightarrow x=0$ -- 애매하다?
+- $\big(\forall \epsilon>0:|x| < \epsilon\big) \Rightarrow x=0$
+- $\big(\forall \epsilon>0\big)\big(|x| < \epsilon \Rightarrow x=0\big)$ -- 틀린표현
+
+`#`
+
+## B. 귀류법
+
+`-` 귀류법: **니 논리대로면...** <- 인터넷 댓글에 많음.. 
+
+:::{.callout-note}
+님 논리대로면.. (ref: [하이브레인넷](https://m.hibrain.net/braincafe/cafes/38/posts/205/articles/466461?pagekey=466461&listType=TOTAL&pagesize=5&sortType=RDT&limit=30&displayType=TIT&siteid=1&page=1))
+
+- XXX가 문제 없으면 서울 전체가 문제가 없고 (애초에 서울은 문제도 아니라는데 왜 이소리는 하고 계신지 모르겠지만)
+- 수도권 모 대학이 문제가 없으면 전체가 문제가 없겠네요?
+- 지방도 1개 대학이 문제가 없으니 전체가 문제 없겠네요?
+와우! 모든 문제가 해결되었습니다! 출산율 감소로 인한 한국대학의 위기가 해결되었.. 아니 애초에 위기가 없었군요!.
+어휴.. ㅠㅠ
+
+:::
+
+`-` 섀도복싱 
+
+- 상대가 없는 허공에 대고 샌드백 없이 권투 연습을 하는 것. <https://www.youtube.com/embed/dvzTKtMHsJw>
+- 인터넷 상에서는 혼자서 허공에 대고 공격한다는 의미로 사용되고 있음. 어휘의 원래 뜻과 마찬가지로 아무도 뭐라 하지 않았는데 혼자 가상의 공격 상대를 만들어 놓고 비판하거나 욕하는 모습을 표현할 때 많이 쓰임. (출처: 나무위키)
+
+`# 기습질문` -- (지난시간의 난제) 바늘이 하나 있는 시계에서, 바늘을 랜덤으로 돌려서 딱 6시에 멈출 확률이 0이어야 하는 이유? 
+
+(풀이)
+
+## C. 추상화(일반화)
+
+`-` 연필이란? 필기도구의 하나. 흑연과 점토의 혼합물을 구워 만든 가느다란 심을 속에 넣고, 겉은 나무로 둘러싸서 만든다. 1565년에 영국에서 처음으로 만들었다. (출처: 네이버국어사전)
+
+`# 질문`: 아래는 연필인가? 
+
+![Figure: 애플펜슬..](figs/02wk-1-1.png)
+
+- 새로운 개념을 적용해야 하는 어떠한 일이 있을 때, 사람들은 익숙한 정의에서 확장을 하기를 원한다. 확장을 하는 방식은 익숙한 정의에 의해 파생되는 성질을 이용하여 (혹은 성질들을 조합하여), "마치 정의처럼" 쓰는 것이다. 
+- 수학에서는 약속에 의하여 성질이 생기고, 그 성질로부터 확장된 약속이 생기는 것은 매우 흔한 일이다. 
+
+`-` 리처드 파인만: "수학자들은 가급적 일반적인 추론을 선호합니다." (2:28부터)
+
+{{< video https://www.youtube.com/watch?v=z-BSIzNLjfk start="148" >}}
+
+- 일반화된 이론의 특징1: 더 많은 걸 설명한다. 
+- 일반화된 이론의 특징2: 특수한 상황을 안아(?)준다. 
+
+# 3. Size와 Cardinality
+
+`-` 집합 $A$의 cardinality는 집합에 들어있는 "원소의 수"를 좀 더 일반화한 개념이다. 집합 $A$가 유한집합일 경우는 우리에게 익숙한 `size`의 개념을 그대로 사용하면 된다. 예를 들어 집합 $A = \{2,3,4\}$ 일 경우는 
+
+$$\text{cardinal number of } A := |A| = 3$$
+
+와 같이 사용하면 된다. 만약에 집합 $A$가 무한집합이라면 그 동작원리가 조금 복잡하다. 
+
+`-` 오늘의 목표: 집합의 `size`개념을 일반화하자! (그래서 카디널리티라는 개념을 만들자)
+
+- 익숙한 개념: 두 집합 $A$,$B$의 size 비교 (단, $A$와 $B$는 유한집합)
+- 파생되는 성질: 두 집합 $A$, $B$사이에 전사, 단사, 전단사 함수가 존재할 때 size 비교?
+- 개념의 확장: 두 집합 $A$,$B$의 cardinality 비교 (이때 $A$와 $B$는 무한집합일 수도 있음)
+
+## A. 전사/단사/전단사
+
+`-` 용어 정리 
+
+- injective = one-to-one = 단사 = 일대일 함수
+- surjective = onto = 전사 = 위로의 함수 
+- bijective = one-to-one and onto, one-to-one correspondence = 전단사 = 일대일 대응 
+
+`-` ref: <https://en.wikipedia.org/wiki/Bijection,_injection_and_surjection>
+
+![Figure: 위키에 있는 단사,전사,전단사함수의 그림](figs/02wk-2-1.png)
+
+`-` 따지는 방법
+    
+- 단사: 함수 $f$는 $X$에서 $Y$로 향하는 단사함수이다. $\Leftrightarrow$ $\forall x_1,x_2 \in X$: $x_1\neq x_2 \Rightarrow f(x_1)\neq f(x_2)$
+- 전사: 함수 $f$는 $X$에서 $Y$로 향하는 전사함수이다. $\Leftrightarrow$ $\forall y \in Y ~\exists x \in X$ such that $f(x)=y$. 
+
+`-` 성질1: 어떤 함수가 전사함수 & 단사함수 $\Leftrightarrow$ 전단사함수 
+
+`-` 성질2: 
+
+- 집합 $X$에서 집합 $Y$로 가는 단사함수 $f$가 존재한다. $\Rightarrow$ $|X| \leq |Y|$
+- 집합 $X$에서 집합 $Y$로 가는 전사함수 $f$가 존재한다. $\Rightarrow$ $|X| \geq |Y|$
+
+`-` 성질1~2로 유추하면 아래와 같은 사실을 주장할 수 있지 않을까? 
+
+- 집합 $X$에서 집합 $Y$로 향하는 전단사함수가 존재한다 $\Rightarrow$ $|X|=|Y|$
+
+`-` 확장된 정의: 두 집합 $X$, $Y$를 고려하자. 
+
+- $|X|\leq |Y|$ $\Leftrightarrow$ $X$에서 $Y$로 향하는 단사함수가 존재한다. 
+- $|X|\geq |Y|$ $\Leftrightarrow$ $X$에서 $Y$로 향하는 전사함수가 존재한다. 
+- $|X|=|Y|$ $\Leftrightarrow$ $X$에서 $Y$로 향하는 전단사함수가 존재한다. 
+
+## B.  두 집합의 카디널리티 비교
+
+`# 예제1` 
+
+집합 $X=\{1,2,3\}$, $Y=\{2,4,6\}$을 생각하자. 적당한 함수 $f$를 아래와 같이 정의하자. 
+
+- $f(1)=2$
+- $f(2)=4$
+- $f(3)=6$
+
+함수 $f$의 성질을 체크해보자. 
+
+1. (단사) $\forall x_1,x_2 \in X$: $x_1\neq x_2$ $\Rightarrow$ $f(x_1)\neq f(x_2)$.
+2. (전사) $\forall y \in Y~ \exists x \in X$ such that $f(x)=y$.
+
+함수 $f$는 전단사 함수이다. 집합 $X$에서 집합 $Y$로 가는 전단사 함수가 존재하므로 집합 $X$와 집합 $Y$의 카디널리티는 동일하다. 
+
+`#`
+
+`# 예제2` 
+
+집합 $X=\{1,2,3,\dots \}$, $Y=\{0,1,2,\dots \}$을 생각하자. 함수 $f$를 아래와 같이 정의하자. 
+
+- $f(1)=0$
+- $f(2)=1$
+- $f(3)=2$
+- $\dots$
+
+함수 $f$의 성질을 체크해보자. 
+
+1. (단사) $\forall x_1,x_2 \in X$: $x_1\neq x_2$ $\Rightarrow$ $f(x_1)\neq f(x_2)$
+2. (전사) $\forall y \in Y~ \exists x \in X$ such that $f(x)=y$. 
+
+함수 $f$는 전단사함수이다. 집합 $X$에서 집합 $Y$로 가는 전단사 함수가 존재하므로 집합 $X$와 집합 $Y$의 카디널리티는 동일하다.^[살짝 어질어질하죠?]
+
+`#`
+
+`-`  $\aleph_0$의 정의: 자연수 집합의 카디널리티 (최소의 무한 기수)를 $\aleph_0$이라고 정의한다. 즉 
+
+$$|\mathbb{N}|=\aleph_0$$
+
+이다. 
+
+`-` 놀라운 사실1: 
+
+- 음이 아닌 정수의 집합 $\mathbb{N} \cup \{0\}$의 카디널리티 역시 $\aleph_0$이다. 
+
+`-` 놀라운 사실2: 
+
+- 자연수집합은 음이 아닌 정수집합의 진 부분집합인데, 카디널리티가 같다. 즉 $A \subsetneq B$ 인데, $|A|=|B|$ 인 상황. 
+- 즉 무한집합의 경우, 본인과 카디널넘버가 같은 진 부분집합이 존재할 수 있다. (유한집합에서는 불가능하겠지) 
+
+:::{.callout-note}
+
+깨알같이 소개하는 무한집합의 정의: 
+
+집합 $A$가 무한집합이다. $\Leftrightarrow$ $A$와 동일한 카디널리티를 가지는 $A$의 진 부분집합이 존재한다. 
+
+:::
+
+`# 예제3` 
+
+집합 $X=\{1,2,3,\dots \}$, $Y=\{2,4,6,\dots \}$을 생각하자. 함수 $f$를 아래와 같이 정의하자. 
+
+- $f(1)=2$
+- $f(2)=4$
+- $f(3)=6$
+- $\dots$
+
+함수 $f$의 성질을 체크해보자. 
+
+1. (단사) $\forall x_1,x_2 \in X$, $x_1\neq x_2$ $\Rightarrow$ $f(x_1)\neq f(x_2)$? 
+2. (전사) $\forall y \in Y~ \exists x \in X$ such that $f(x)=y$. 
+
+1의 질문과 2의 질문이 모두 맞으므로 함수 $f$는 전단사함수이다. 집합 $X$에서 집합 $Y$로 가는 전단사 함수가 존재하므로 집합 $X$와 집합 $Y$의 카디널리티는 동일하다. 
+
+`#`
+
+`-` 인간의 천재적인 직관능력으로 우리는 (엄밀한 증명과정없이) "$\aleph_0$에 1,2,3을 더해도.. 그리고 $\aleph_0$를 2배,3배,4배 하여도 $\aleph_0$이다" 란 사실을 알 수 있다. 
+
+- $\aleph_0 + 1  = \aleph_0$ 
+- $\aleph_0 + 2  = \aleph_0$ 
+- $...$
+- $\aleph_0 \times 2 = \aleph_0$ 
+- $\aleph_0 \times 3 = \aleph_0$ 
+- $...$
+
+`-` 자연수/홀수/짝수/정수의 카디널리티
+
+- 자연수집합 $\mathbb{N}$의 카디널리티는 $\aleph_0$이다.
+- 짝수인 자연수 집합의 카디널리티는 $\aleph_0$이고, 홀수인 자연수 집합의 카디널리티도 $\aleph_0$이다. 
+- 정수집합 $\mathbb{Z}$의 카디널리티 역시 $\aleph_0$이다. 
+
+## C. 카디널리티의 유용한 개념
+
+`# 개념1` -- $A \subset B$ 라면, 항상 $A$에서 $B$로 가는 단사함수가 존재한다. 즉 $|A| \leq |B|$ 가 성립한다. 
+
+`# 개념2` -- 어떠한 집합 $A$의 cardinality가 $\aleph_0$ 이라면, 집합 $A$를 아래와 같이 쓸 수 있다. 
+
+$$ A = \{a_1,a_2,a_3,\dots \} =\bigcup_{n \in \mathbb{N}} \{a_n\}$$
+
+즉 어떠한 집합 $A$의 cardinality가 $\aleph_0$ 이라면 그 집합은 "셀 수 있다." 
+
+`#`
+
+`-` 이 개념을 이용하여 아래를 풀어보자. 
+
+- $\{0\} \cup \mathbb{N}$의 카디널리티는?
+- 짝수집합의 카디널리티는?
+- 홀수집합의 카디널리티는? 
+- 정수집합의 카디널리티는?
+- $\{3n-2: n=1,2,3,\dots\}$의 카디널리티는?
+
+`-` 요령? (제가 속으로 생각하는 감각) 
+
+- 원소나열법으로 표현가능한 무한집합은 "셀 수 있는 무한집합" 이다. 
+
+
+## D. 유리수의 카디널리티
+
+`# 예제4` -- $|\mathbb{N}| = |\mathbb{Q}|$ 임을 보여라. (<https://en.wikipedia.org/wiki/Rational_number>)
+
+`-` 전략: 자연수집합 $\mathbb{N}$에서 양의유리수 $\mathbb{Q}^+$로 가는 전단사함수가 존재함을 보이자. (그러면 아래의 2-4가 자동으로 보여진다.)
+
+1. $|\mathbb{N}| = |\mathbb{Q}^+|$
+2. $|\mathbb{Q}^+| = |\mathbb{Q}^-| \Rightarrow |\mathbb{N}| = |\mathbb{Q}^-|$
+3. $|\mathbb{N}| = |\mathbb{Q}^+ \cup \mathbb{Q}^-|$
+4. $|\mathbb{N}| = |\mathbb{Q}|$
+
+`-` 아래의 그림을 보면 직관적으로 $\mathbb{N} \to \mathbb{Q}^+$인 전단사함수가 존재함을 알 수 있음. 
+
+![Figure: 자연수와 양의유리수의 카디널넘버가 동일함을 보여주는 그림 (출처: 위키)](figs/Diagonal_argument.png)
+
+`-` 외우세요: 유리수집합 $\mathbb{Q}$의 카디널넘버는 $\aleph_0$이다. 좀 더 자극적으로 말하면 "자연수의 개수와 유리수의 개수는 같다" 라고 말할 수 있다. 
+
+`-` 아래와 같이 쓸 수 있다. 
+
+- $\aleph_0 \times \aleph_0 = \aleph_0^2 =  \aleph_0$ 
+
+## E. 실수의 카디널리티
+
+`# 예제5` -- $|\mathbb{Q}| < |\mathbb{R}|$ 임을 보여라. 
+
+(증명)
+
+ $|\mathbb{N}| < |[0,1]|$ 임을 보여도 충분하다. (왜냐하면  $|\mathbb{N}|=|\mathbb{Q}|$임은 이미 알고 있고 $|[0,1]| \leq |\mathbb{R}|$일테니까) 따라서 $\mathbb{N} \to [0,1]$ 인 단사는 존재하지만 전사가 존재할 수 없음을 보이면 된다. 단사가 존재함은 $f(x)=\frac{1}{x}$로 보일 수 있다. 전사가 존재하지 않음은 귀류법을 이용하여 (즉 전사가 존재한다고 가정 $\to$ 사실상 전단사가 존재한다고 가정하는 셈) 
+
+`1`. 아래와 같은 주장을 하는 가상의 인물을 세움: 
+
+> $\mathbb{N} \to [0,1]$인 전사함수 $a(n)$ 이 존재한다. 
+
+(부연설명)
+
+함수 $a:\mathbb{N} \to [0,1]$의 예시 중 하나는 아래와 같은 형태일 것임. 
+
+- $a(1)=a_1= 0.1$ (유리수)
+- $a(2)=a_2= 0.3141592\cdots$ (무리수, $\frac{\pi}{10}$)
+- $a(3)=a_3=0.14142135\cdots$ (무리수, $\frac{\sqrt{2}}{10}$)
+- $\dots$
+
+그 가상의 인물의 주장이 맞다면 모든 $y \in [0,1]$에 대하여, $a(n)=y$를 만족하는 적당한 $n \in \mathbb{N}$이 존재한다는 의미이므로 
+
+$$[0,1]=\{a_1,a_2,a_3,\dots\}$$
+
+꼴로 표현가능하다는 의미임. 다시 말하면 $[0,1]$ 사이의 모든 실수는 "셀 수 있다"는 의미. 
+
+`2`. 전사함수의 정의에 의하여 아래가 성립해야 함
+
+> $\forall y\in [0,1] ~\exists x \in \mathbb{N}$ such that $a(x)=y$
+
+아래의 원리에 따라서 $y=0.x_1x_2x_3\cdots$를 뽑는다면? 
+
+- $y$의 첫번째 소수점의 값 $x_1$은 $a(1)=a_1$의 첫번째 소수점과 다르게 한다. $\Rightarrow$ $y\neq a(1)$ $\Rightarrow$ $y \notin \{a_1\}$
+- $y$의 두번째 소수점의 값 $x_2$은 $a(2)=a_2$의 두번째 소수점과 다르게 한다. $\Rightarrow$ $y\neq a(1)$ and $y\neq a(2)$ $\Rightarrow$ $y \notin \{a_1, a_2\}$
+- $\dots$
+
+$y$는 분명히 실수이지만 $y \notin \{a_1,a_2,a_3,\dots\}$ 이다. (모순)
+
+`#`
+
+## F. 무리수의 카디널리티
+
+`# 예제6` -- $|\mathbb{R}-\mathbb{Q}| > |\mathbb{Q}|$ 임을 보여라. 
+
+`-` 유리수의 집합 $\mathbb{Q}$ 에서 무리수의 집합 $\mathbb{R}-\mathbb{Q}$ 로의 단사함수가 존재하므로 $|\mathbb{Q}| \leq |\mathbb{R}-\mathbb{Q}|$ 가 성립함은 자명하다. (왜?)
+
+`-` 이제 $|\mathbb{Q}| \neq |\mathbb{R}-\mathbb{Q}|$ 임을 귀류법을 이용하여 보이자.
+
+(증명)
+
+...
+
+`#`
+
+`# 예제7` -- $|\mathbb{R} - \mathbb{Q}| = |\mathbb{R}|$ 임을 보여라. 
+
+(증명) -- 연속체가설을 쓰는 버전
+
+> 연속체가설: $\aleph_0$과 $|\mathbb{R}|$사이에 다른 카디널리티는 없다. 
+
+예제6과 연속체가설을 이용하면 바로 증명이 끝난다. 
+
+`#` 
+
+`-` 정리하면 $|\mathbb{N}|:=\aleph_0 =|\mathbb{Q}| < |\mathbb{R}-\mathbb{Q}| = |\mathbb{R}|:=\aleph_1$ 와 같이 된다. 
+
+
+## G. 르벡메저
+
+이제 누군가가 아래와 같은 방식으로 길이를 잰다고 해도 비웃을 수 없다. 
+
+- 한 점의 길이는 $0$이다. 
+- $[0,2\pi)$의 모든 유리수의 길이는 $0$이다. 
+- $[0,2\pi)$의 모든 무리수의 길이는 $2\pi$이다. 
+
