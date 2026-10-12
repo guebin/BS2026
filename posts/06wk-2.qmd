@@ -143,7 +143,7 @@ $$P(\{\pi\}\cup \{\pi / 2\} \cup \dots)=P(\{\pi\})+P(\{\pi / 2\})+\dots=\infty \
 
 `-` 리처드 파인만: "수학자들은 가급적 일반적인 추론을 선호합니다." (2:28부터)
 
-> ref: <https://www.youtube.com/watch?v=z-BSIzNLjfk start="148">
+> ref: <https://www.youtube.com/watch?v=z-BSIzNLjfk>
 
 - 일반화된 이론의 특징1: 더 많은 걸 설명한다. 
 - 일반화된 이론의 특징2: 특수한 상황을 안아(?)준다. 
