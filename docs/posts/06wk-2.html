@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2026-10-12">
 
-<title>06wk-2: 카디널리티 – BS2026</title>
+<title>06wk-2: 카디널리티 (1) – BS2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -161,11 +161,6 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#a.-전사단사전단사" id="toc-a.-전사단사전단사" class="nav-link" data-scroll-target="#a.-전사단사전단사">A. 전사/단사/전단사</a></li>
   <li><a href="#b.-두-집합의-카디널리티-비교" id="toc-b.-두-집합의-카디널리티-비교" class="nav-link" data-scroll-target="#b.-두-집합의-카디널리티-비교">B. 두 집합의 카디널리티 비교</a></li>
-  <li><a href="#c.-카디널리티의-유용한-개념" id="toc-c.-카디널리티의-유용한-개념" class="nav-link" data-scroll-target="#c.-카디널리티의-유용한-개념">C. 카디널리티의 유용한 개념</a></li>
-  <li><a href="#d.-유리수의-카디널리티" id="toc-d.-유리수의-카디널리티" class="nav-link" data-scroll-target="#d.-유리수의-카디널리티">D. 유리수의 카디널리티</a></li>
-  <li><a href="#e.-실수의-카디널리티" id="toc-e.-실수의-카디널리티" class="nav-link" data-scroll-target="#e.-실수의-카디널리티">E. 실수의 카디널리티</a></li>
-  <li><a href="#f.-무리수의-카디널리티" id="toc-f.-무리수의-카디널리티" class="nav-link" data-scroll-target="#f.-무리수의-카디널리티">F. 무리수의 카디널리티</a></li>
-  <li><a href="#g.-르벡메저" id="toc-g.-르벡메저" class="nav-link" data-scroll-target="#g.-르벡메저">G. 르벡메저</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -175,7 +170,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><strong>06wk-2</strong>: 카디널리티</h1>
+<h1 class="title"><strong>06wk-2</strong>: 카디널리티 (1)</h1>
 </div>
 
 
@@ -206,6 +201,7 @@ window.Quarto = {
 
 <section id="강의영상" class="level1">
 <h1>1. 강의영상</h1>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLMNHN-MoYwkg&amp;si=CXKqhsYEGVgJlLiW" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="수학과에서-자주-쓰는" class="level1">
 <h1>2. 수학과에서 자주 쓰는</h1>
@@ -295,25 +291,6 @@ window.Quarto = {
 <p>의미가 좀 모호해질 수도 있는데, “눈치껏” 알아 먹어야 한다.</p>
 </blockquote>
 <p><code>#</code></p>
-<p><code># 예시3</code>: 이번에는</p>
-<blockquote class="blockquote">
-<p>“임의의 양수 <span class="math inline">\(\epsilon&gt;0\)</span> 에 대하여 <span class="math inline">\(|x| \leq \epsilon\)</span> 이라면 <span class="math inline">\(x=0\)</span> 일 수밖에 없다.”</p>
-</blockquote>
-<p>라는 문장을 표현해보자.</p>
-<p>(언어)</p>
-<ul>
-<li>If <span class="math inline">\(|x|&lt; \epsilon\)</span> for all <span class="math inline">\(\epsilon&gt;0\)</span>, then <span class="math inline">\(x=0\)</span>.</li>
-<li>If <span class="math inline">\(|x|&lt; \epsilon\)</span>, <span class="math inline">\(\forall \epsilon&gt;0\)</span>, then <span class="math inline">\(x=0\)</span>.</li>
-<li>For all <span class="math inline">\(\epsilon&gt;0\)</span>, <span class="math inline">\(|x|&lt; \epsilon\)</span> implies <span class="math inline">\(x=0\)</span>. – 틀린표현</li>
-</ul>
-<p>(기호)</p>
-<ul>
-<li><span class="math inline">\(|x| &lt; \epsilon,~ \forall \epsilon&gt;0 \Rightarrow x=0\)</span></li>
-<li><span class="math inline">\(\forall \epsilon&gt;0: |x| &lt; \epsilon \Rightarrow x=0\)</span> – 애매하다?</li>
-<li><span class="math inline">\(\big(\forall \epsilon&gt;0:|x| &lt; \epsilon\big) \Rightarrow x=0\)</span></li>
-<li><span class="math inline">\(\big(\forall \epsilon&gt;0\big)\big(|x| &lt; \epsilon \Rightarrow x=0\big)\)</span> – 틀린표현</li>
-</ul>
-<p><code>#</code></p>
 </section>
 <section id="b.-귀류법" class="level2">
 <h2 class="anchored" data-anchor-id="b.-귀류법">B. 귀류법</h2>
@@ -338,11 +315,44 @@ Note
 </div>
 <p><code>-</code> 섀도복싱</p>
 <ul>
-<li>상대가 없는 허공에 대고 샌드백 없이 권투 연습을 하는 것. <a href="https://www.youtube.com/embed/dvzTKtMHsJw" class="uri">https://www.youtube.com/embed/dvzTKtMHsJw</a></li>
+<li>상대가 없는 허공에 대고 샌드백 없이 권투 연습을 하는 것.</li>
 <li>인터넷 상에서는 혼자서 허공에 대고 공격한다는 의미로 사용되고 있음. 어휘의 원래 뜻과 마찬가지로 아무도 뭐라 하지 않았는데 혼자 가상의 공격 상대를 만들어 놓고 비판하거나 욕하는 모습을 표현할 때 많이 쓰임. (출처: 나무위키)</li>
 </ul>
 <p><code># 기습질문</code> – (지난시간의 난제) 바늘이 하나 있는 시계에서, 바늘을 랜덤으로 돌려서 딱 6시에 멈출 확률이 0이어야 하는 이유?</p>
 <p>(풀이)</p>
+<div class="callout callout-style-default callout-note callout-titled" title="수업시간설명">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>수업시간설명
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>아래와 같이 주장하는 상대가 있다고 가정하자. (섀도복싱을 위한 가상의 상대 설정)</p>
+<blockquote class="blockquote">
+<p>어떤사람: <span class="math inline">\(P(\{\pi\})\)</span>는 0이 아니에요.</p>
+</blockquote>
+<p>이 사람의 주장이 맞다고 생각하자. 이 주장은 아래와 같이 볼 수 있다.</p>
+<blockquote class="blockquote">
+<p>어떤사람: <span class="math inline">\(P(\{\pi\})=a\)</span>이다. 단 <span class="math inline">\(0&lt;a&lt;1\)</span>.</p>
+</blockquote>
+<p>그 사람의 주장대로라면 아래가 성립한다.</p>
+<ul>
+<li><span class="math inline">\(P(\{\pi\})=a\)</span></li>
+<li><span class="math inline">\(P(\{\pi/2\})=a\)</span> // 6시에 바늘이 정확하게 설 확률이 <span class="math inline">\(a\)</span>이면 3시에 바늘이 정확하게 설 확률도 <span class="math inline">\(a\)</span>니까</li>
+<li><span class="math inline">\(P(\{\pi/3\})=a\)</span></li>
+<li><span class="math inline">\(P(\{\pi/4\})=a\)</span></li>
+<li>…</li>
+</ul>
+<p>그러면 아래가 성립한다.</p>
+<p><span class="math display">\[P(\{\pi\}\cup \{\pi / 2\} \cup \dots)=P(\{\pi\})+P(\{\pi / 2\})+\dots=\infty \times a &gt; 1\]</span> 따라서 그 어떤사람은 사실 확률이 1보다 크다는 사실을 주장한 셈이다. 이는 모순이다. 따라서 <span class="math inline">\(P(\{\pi\})=0\)</span>이다.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="c.-추상화일반화" class="level2">
 <h2 class="anchored" data-anchor-id="c.-추상화일반화">C. 추상화(일반화)</h2>
@@ -407,7 +417,7 @@ Note
 <ul>
 <li>집합 <span class="math inline">\(X\)</span>에서 집합 <span class="math inline">\(Y\)</span>로 향하는 전단사함수가 존재한다 <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(|X|=|Y|\)</span></li>
 </ul>
-<p><code>-</code> 확장된 정의: 두 집합 <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>를 고려하자.</p>
+<p><code>-</code> 확장된 정의: 두 집합 <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>를 고려하자. <span class="math inline">\((\star\star\star\star\star)\)</span></p>
 <ul>
 <li><span class="math inline">\(|X|\leq |Y|\)</span> <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(X\)</span>에서 <span class="math inline">\(Y\)</span>로 향하는 단사함수가 존재한다.</li>
 <li><span class="math inline">\(|X|\geq |Y|\)</span> <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(X\)</span>에서 <span class="math inline">\(Y\)</span>로 향하는 전사함수가 존재한다.</li>
@@ -429,6 +439,145 @@ Note
 <li>(전사) <span class="math inline">\(\forall y \in Y~ \exists x \in X\)</span> such that <span class="math inline">\(f(x)=y\)</span>.</li>
 </ol>
 <p>함수 <span class="math inline">\(f\)</span>는 전단사 함수이다. 집합 <span class="math inline">\(X\)</span>에서 집합 <span class="math inline">\(Y\)</span>로 가는 전단사 함수가 존재하므로 집합 <span class="math inline">\(X\)</span>와 집합 <span class="math inline">\(Y\)</span>의 카디널리티는 동일하다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="수업시간설명">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>수업시간설명
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>사실 직관적으로 <span class="math inline">\(f\)</span>는 전단사임을 알 수 있는데, 좀 더 기호에 익숙해지기 위해서 아래의 조건을 엄밀하게 따져보자.</p>
+<ol type="1">
+<li>(단사) <span class="math inline">\(\forall x_1,x_2 \in X\)</span>: <span class="math inline">\(x_1\neq x_2\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(f(x_1)\neq f(x_2)\)</span>.</li>
+<li>(전사) <span class="math inline">\(\forall y \in Y~ \exists x \in X\)</span> such that <span class="math inline">\(f(x)=y\)</span>.</li>
+</ol>
+<p>단사를 체크하자.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">case</th>
+<th style="text-align: center;"><span class="math inline">\(x_1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(x_2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(f(x_1)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(f(x_2)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{1}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{1}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{1}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{2}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{5}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{4}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{4}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{9}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{3}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{3}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{6}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\color{gray}{6}\)</span></td>
+</tr>
+</tbody>
+</table>
+<!-- colwidths: 4 4 4 4.2 4.2 -->
+<p><span class="math inline">\(x_1 \neq x_2\)</span> 라는 조건이 있으므로, 위에서 case 1,5,9 는 고려하지 않아도된다. case 2,3,4,6,7,8 에서는 (즉 <span class="math inline">\(x_1\neq x_2\)</span>에서는) 항상 두 함수값 <span class="math inline">\(f(x_1),f(x_2)\)</span>이 다르므로 <span class="math inline">\(\forall x_1,x_2 \in X\)</span>: <span class="math inline">\(x_1\neq x_2\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(f(x_1)\neq f(x_2)\)</span>.</p>
+<p>전사를 체크하자. (아래 표에서 <span class="math inline">\(\exists x?\)</span> 는 <span class="math inline">\(f(x)=y\)</span>를 만족하는 <span class="math inline">\(x\)</span>가 존재하는가를 뜻한다.)</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">case</th>
+<th style="text-align: center;"><span class="math inline">\(y\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(f(x)=y\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\exists x?\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(x)=2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(x=1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(x)=4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(x=2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(x)=6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(x=3\)</span></td>
+</tr>
+</tbody>
+</table>
+<!-- colwidths: 4 4 4 4.2 -->
+<p>따라서 <span class="math inline">\(\forall y \in Y~ \exists x \in X\)</span> such that <span class="math inline">\(f(x)=y\)</span>.</p>
+</div>
+</div>
+</div>
 <p><code>#</code></p>
 <p><code># 예제2</code></p>
 <p>집합 <span class="math inline">\(X=\{1,2,3,\dots \}\)</span>, <span class="math inline">\(Y=\{0,1,2,\dots \}\)</span>을 생각하자. 함수 <span class="math inline">\(f\)</span>를 아래와 같이 정의하자.</p>
@@ -484,125 +633,36 @@ Note
 <li>(단사) <span class="math inline">\(\forall x_1,x_2 \in X\)</span>, <span class="math inline">\(x_1\neq x_2\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(f(x_1)\neq f(x_2)\)</span>?</li>
 <li>(전사) <span class="math inline">\(\forall y \in Y~ \exists x \in X\)</span> such that <span class="math inline">\(f(x)=y\)</span>.</li>
 </ol>
-<p>1의 질문과 2의 질문이 모두 맞으므로 함수 <span class="math inline">\(f\)</span>는 전단사함수이다. 집합 <span class="math inline">\(X\)</span>에서 집합 <span class="math inline">\(Y\)</span>로 가는 전단사 함수가 존재하므로 집합 <span class="math inline">\(X\)</span>와 집합 <span class="math inline">\(Y\)</span>의 카디널리티는 동일하다.</p>
-<p><code>#</code></p>
-<p><code>-</code> 인간의 천재적인 직관능력으로 우리는 (엄밀한 증명과정없이) “<span class="math inline">\(\aleph_0\)</span>에 1,2,3을 더해도.. 그리고 <span class="math inline">\(\aleph_0\)</span>를 2배,3배,4배 하여도 <span class="math inline">\(\aleph_0\)</span>이다” 란 사실을 알 수 있다.</p>
-<ul>
-<li><span class="math inline">\(\aleph_0 + 1  = \aleph_0\)</span></li>
-<li><span class="math inline">\(\aleph_0 + 2  = \aleph_0\)</span></li>
-<li><span class="math inline">\(...\)</span></li>
-<li><span class="math inline">\(\aleph_0 \times 2 = \aleph_0\)</span></li>
-<li><span class="math inline">\(\aleph_0 \times 3 = \aleph_0\)</span></li>
-<li><span class="math inline">\(...\)</span></li>
-</ul>
-<p><code>-</code> 자연수/홀수/짝수/정수의 카디널리티</p>
-<ul>
-<li>자연수집합 <span class="math inline">\(\mathbb{N}\)</span>의 카디널리티는 <span class="math inline">\(\aleph_0\)</span>이다.</li>
-<li>짝수인 자연수 집합의 카디널리티는 <span class="math inline">\(\aleph_0\)</span>이고, 홀수인 자연수 집합의 카디널리티도 <span class="math inline">\(\aleph_0\)</span>이다.</li>
-<li>정수집합 <span class="math inline">\(\mathbb{Z}\)</span>의 카디널리티 역시 <span class="math inline">\(\aleph_0\)</span>이다.</li>
-</ul>
-</section>
-<section id="c.-카디널리티의-유용한-개념" class="level2">
-<h2 class="anchored" data-anchor-id="c.-카디널리티의-유용한-개념">C. 카디널리티의 유용한 개념</h2>
-<p><code># 개념1</code> – <span class="math inline">\(A \subset B\)</span> 라면, 항상 <span class="math inline">\(A\)</span>에서 <span class="math inline">\(B\)</span>로 가는 단사함수가 존재한다. 즉 <span class="math inline">\(|A| \leq |B|\)</span> 가 성립한다.</p>
-<p><code># 개념2</code> – 어떠한 집합 <span class="math inline">\(A\)</span>의 cardinality가 <span class="math inline">\(\aleph_0\)</span> 이라면, 집합 <span class="math inline">\(A\)</span>를 아래와 같이 쓸 수 있다.</p>
-<p><span class="math display">\[ A = \{a_1,a_2,a_3,\dots \} =\bigcup_{n \in \mathbb{N}} \{a_n\}\]</span></p>
-<p>즉 어떠한 집합 <span class="math inline">\(A\)</span>의 cardinality가 <span class="math inline">\(\aleph_0\)</span> 이라면 그 집합은 “셀 수 있다.”</p>
-<p><code>#</code></p>
-<p><code>-</code> 이 개념을 이용하여 아래를 풀어보자.</p>
-<ul>
-<li><span class="math inline">\(\{0\} \cup \mathbb{N}\)</span>의 카디널리티는?</li>
-<li>짝수집합의 카디널리티는?</li>
-<li>홀수집합의 카디널리티는?</li>
-<li>정수집합의 카디널리티는?</li>
-<li><span class="math inline">\(\{3n-2: n=1,2,3,\dots\}\)</span>의 카디널리티는?</li>
-</ul>
-<p><code>-</code> 요령? (제가 속으로 생각하는 감각)</p>
-<ul>
-<li>원소나열법으로 표현가능한 무한집합은 “셀 수 있는 무한집합” 이다.</li>
-</ul>
-</section>
-<section id="d.-유리수의-카디널리티" class="level2">
-<h2 class="anchored" data-anchor-id="d.-유리수의-카디널리티">D. 유리수의 카디널리티</h2>
-<p><code># 예제4</code> – <span class="math inline">\(|\mathbb{N}| = |\mathbb{Q}|\)</span> 임을 보여라. (<a href="https://en.wikipedia.org/wiki/Rational_number" class="uri">https://en.wikipedia.org/wiki/Rational_number</a>)</p>
-<p><code>-</code> 전략: 자연수집합 <span class="math inline">\(\mathbb{N}\)</span>에서 양의유리수 <span class="math inline">\(\mathbb{Q}^+\)</span>로 가는 전단사함수가 존재함을 보이자. (그러면 아래의 2-4가 자동으로 보여진다.)</p>
-<ol type="1">
-<li><span class="math inline">\(|\mathbb{N}| = |\mathbb{Q}^+|\)</span></li>
-<li><span class="math inline">\(|\mathbb{Q}^+| = |\mathbb{Q}^-| \Rightarrow |\mathbb{N}| = |\mathbb{Q}^-|\)</span></li>
-<li><span class="math inline">\(|\mathbb{N}| = |\mathbb{Q}^+ \cup \mathbb{Q}^-|\)</span></li>
-<li><span class="math inline">\(|\mathbb{N}| = |\mathbb{Q}|\)</span></li>
-</ol>
-<p><code>-</code> 아래의 그림을 보면 직관적으로 <span class="math inline">\(\mathbb{N} \to \mathbb{Q}^+\)</span>인 전단사함수가 존재함을 알 수 있음.</p>
+<p>1과 2이 모두 성립하므로 함수 <span class="math inline">\(f\)</span>는 전단사함수이다. 집합 <span class="math inline">\(X\)</span>에서 집합 <span class="math inline">\(Y\)</span>로 가는 전단사 함수가 존재하므로 집합 <span class="math inline">\(X\)</span>와 집합 <span class="math inline">\(Y\)</span>의 카디널리티는 동일하다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="수업보충설명">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>수업보충설명
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>언뜻 생각하면 <span class="math inline">\(|Y| = |X| + 1\)</span> 과 같은 관계가 성립할 것 같다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figs/Diagonal_argument.png" class="img-fluid figure-img"></p>
-<figcaption>Figure: 자연수와 양의유리수의 카디널넘버가 동일함을 보여주는 그림 (출처: 위키)</figcaption>
+<p><img src="attachments/261012-강민-06wk-2-직관.png" class="img-fluid figure-img"></p>
+<figcaption>Figure: 예제3의 <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>를 직관적으로 보면 <span class="math inline">\(|Y|=|X|+1\)</span>인 것 같다</figcaption>
 </figure>
 </div>
-<p><code>-</code> 외우세요: 유리수집합 <span class="math inline">\(\mathbb{Q}\)</span>의 카디널넘버는 <span class="math inline">\(\aleph_0\)</span>이다. 좀 더 자극적으로 말하면 “자연수의 개수와 유리수의 개수는 같다” 라고 말할 수 있다.</p>
-<p><code>-</code> 아래와 같이 쓸 수 있다.</p>
-<ul>
-<li><span class="math inline">\(\aleph_0 \times \aleph_0 = \aleph_0^2 =  \aleph_0\)</span></li>
-</ul>
-</section>
-<section id="e.-실수의-카디널리티" class="level2">
-<h2 class="anchored" data-anchor-id="e.-실수의-카디널리티">E. 실수의 카디널리티</h2>
-<p><code># 예제5</code> – <span class="math inline">\(|\mathbb{Q}| &lt; |\mathbb{R}|\)</span> 임을 보여라.</p>
-<p>(증명)</p>
-<p><span class="math inline">\(|\mathbb{N}| &lt; |[0,1]|\)</span> 임을 보여도 충분하다. (왜냐하면 <span class="math inline">\(|\mathbb{N}|=|\mathbb{Q}|\)</span>임은 이미 알고 있고 <span class="math inline">\(|[0,1]| \leq |\mathbb{R}|\)</span>일테니까) 따라서 <span class="math inline">\(\mathbb{N} \to [0,1]\)</span> 인 단사는 존재하지만 전사가 존재할 수 없음을 보이면 된다. 단사가 존재함은 <span class="math inline">\(f(x)=\frac{1}{x}\)</span>로 보일 수 있다. 전사가 존재하지 않음은 귀류법을 이용하여 (즉 전사가 존재한다고 가정 <span class="math inline">\(\to\)</span> 사실상 전단사가 존재한다고 가정하는 셈)</p>
-<p><code>1</code>. 아래와 같은 주장을 하는 가상의 인물을 세움:</p>
-<blockquote class="blockquote">
-<p><span class="math inline">\(\mathbb{N} \to [0,1]\)</span>인 전사함수 <span class="math inline">\(a(n)\)</span> 이 존재한다.</p>
-</blockquote>
-<p>(부연설명)</p>
-<p>함수 <span class="math inline">\(a:\mathbb{N} \to [0,1]\)</span>의 예시 중 하나는 아래와 같은 형태일 것임.</p>
-<ul>
-<li><span class="math inline">\(a(1)=a_1= 0.1\)</span> (유리수)</li>
-<li><span class="math inline">\(a(2)=a_2= 0.3141592\cdots\)</span> (무리수, <span class="math inline">\(\frac{\pi}{10}\)</span>)</li>
-<li><span class="math inline">\(a(3)=a_3=0.14142135\cdots\)</span> (무리수, <span class="math inline">\(\frac{\sqrt{2}}{10}\)</span>)</li>
-<li><span class="math inline">\(\dots\)</span></li>
-</ul>
-<p>그 가상의 인물의 주장이 맞다면 모든 <span class="math inline">\(y \in [0,1]\)</span>에 대하여, <span class="math inline">\(a(n)=y\)</span>를 만족하는 적당한 <span class="math inline">\(n \in \mathbb{N}\)</span>이 존재한다는 의미이므로</p>
-<p><span class="math display">\[[0,1]=\{a_1,a_2,a_3,\dots\}\]</span></p>
-<p>꼴로 표현가능하다는 의미임. 다시 말하면 <span class="math inline">\([0,1]\)</span> 사이의 모든 실수는 “셀 수 있다”는 의미.</p>
-<p><code>2</code>. 전사함수의 정의에 의하여 아래가 성립해야 함</p>
-<blockquote class="blockquote">
-<p><span class="math inline">\(\forall y\in [0,1] ~\exists x \in \mathbb{N}\)</span> such that <span class="math inline">\(a(x)=y\)</span></p>
-</blockquote>
-<p>아래의 원리에 따라서 <span class="math inline">\(y=0.x_1x_2x_3\cdots\)</span>를 뽑는다면?</p>
-<ul>
-<li><span class="math inline">\(y\)</span>의 첫번째 소수점의 값 <span class="math inline">\(x_1\)</span>은 <span class="math inline">\(a(1)=a_1\)</span>의 첫번째 소수점과 다르게 한다. <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(y\neq a(1)\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(y \notin \{a_1\}\)</span></li>
-<li><span class="math inline">\(y\)</span>의 두번째 소수점의 값 <span class="math inline">\(x_2\)</span>은 <span class="math inline">\(a(2)=a_2\)</span>의 두번째 소수점과 다르게 한다. <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(y\neq a(1)\)</span> and <span class="math inline">\(y\neq a(2)\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(y \notin \{a_1, a_2\}\)</span></li>
-<li><span class="math inline">\(\dots\)</span></li>
-</ul>
-<p><span class="math inline">\(y\)</span>는 분명히 실수이지만 <span class="math inline">\(y \notin \{a_1,a_2,a_3,\dots\}\)</span> 이다. (모순)</p>
+<p>그렇지만 그렇지 않다. <span class="math inline">\(f(x)=x-1\)</span> 로 정의한 함수 <span class="math inline">\(f\)</span>가 <span class="math inline">\(X\)</span>에서 <span class="math inline">\(Y\)</span>로 가는 전단사함수이기 때문이다.</p>
+<ol type="1">
+<li>(단사) 임의의 <span class="math inline">\(x_1, x_2 \in X\)</span>에 대하여 <span class="math inline">\(x_1 \neq x_2\)</span> 이면 <span class="math inline">\(f(x_1)=x_1-1 \neq x_2-1=f(x_2)\)</span> 이므로 단사이다.</li>
+<li>(전사) 임의의 <span class="math inline">\(y \in Y\)</span>에 대하여 <span class="math inline">\(x=y+1\)</span> 로 두면 <span class="math inline">\(x \in X\)</span> 이고 <span class="math inline">\(f(x)=y\)</span> 이므로 전사이다.</li>
+</ol>
+<p>따라서 <span class="math inline">\(f\)</span>는 전단사함수이고, <span class="math inline">\(|X|=|Y|\)</span> 이다.</p>
+</div>
+</div>
+</div>
 <p><code>#</code></p>
-</section>
-<section id="f.-무리수의-카디널리티" class="level2">
-<h2 class="anchored" data-anchor-id="f.-무리수의-카디널리티">F. 무리수의 카디널리티</h2>
-<p><code># 예제6</code> – <span class="math inline">\(|\mathbb{R}-\mathbb{Q}| &gt; |\mathbb{Q}|\)</span> 임을 보여라.</p>
-<p><code>-</code> 유리수의 집합 <span class="math inline">\(\mathbb{Q}\)</span> 에서 무리수의 집합 <span class="math inline">\(\mathbb{R}-\mathbb{Q}\)</span> 로의 단사함수가 존재하므로 <span class="math inline">\(|\mathbb{Q}| \leq |\mathbb{R}-\mathbb{Q}|\)</span> 가 성립함은 자명하다. (왜?)</p>
-<p><code>-</code> 이제 <span class="math inline">\(|\mathbb{Q}| \neq |\mathbb{R}-\mathbb{Q}|\)</span> 임을 귀류법을 이용하여 보이자.</p>
-<p>(증명)</p>
-<p>…</p>
-<p><code>#</code></p>
-<p><code># 예제7</code> – <span class="math inline">\(|\mathbb{R} - \mathbb{Q}| = |\mathbb{R}|\)</span> 임을 보여라.</p>
-<p>(증명) – 연속체가설을 쓰는 버전</p>
-<blockquote class="blockquote">
-<p>연속체가설: <span class="math inline">\(\aleph_0\)</span>과 <span class="math inline">\(|\mathbb{R}|\)</span>사이에 다른 카디널리티는 없다.</p>
-</blockquote>
-<p>예제6과 연속체가설을 이용하면 바로 증명이 끝난다.</p>
-<p><code>#</code></p>
-<p><code>-</code> 정리하면 <span class="math inline">\(|\mathbb{N}|:=\aleph_0 =|\mathbb{Q}| &lt; |\mathbb{R}-\mathbb{Q}| = |\mathbb{R}|:=\aleph_1\)</span> 와 같이 된다.</p>
-</section>
-<section id="g.-르벡메저" class="level2">
-<h2 class="anchored" data-anchor-id="g.-르벡메저">G. 르벡메저</h2>
-<p>이제 누군가가 아래와 같은 방식으로 길이를 잰다고 해도 비웃을 수 없다.</p>
-<ul>
-<li>한 점의 길이는 <span class="math inline">\(0\)</span>이다.</li>
-<li><span class="math inline">\([0,2\pi)\)</span>의 모든 유리수의 길이는 <span class="math inline">\(0\)</span>이다.</li>
-<li><span class="math inline">\([0,2\pi)\)</span>의 모든 무리수의 길이는 <span class="math inline">\(2\pi\)</span>이다.</li>
-</ul>
 
 
 </section>
