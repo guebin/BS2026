@@ -1,7 +1,7 @@
 ---
 title: "**07wk-2**: 퀴즈2"
 author: 최규빈
-date: "10/22/2026 09:00"
+date: "10/19/2026 09:00"
 draft: false
 format:
   html:
