@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-reports .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -86,7 +86,35 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-reports'] = new List('listing-reports', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-notes .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-notes'] = new List('listing-notes', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -171,11 +199,11 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(13)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -184,7 +212,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -213,12 +241,8 @@ window.Quarto = {
 <li>10월5일 대체공휴일 보강은 영상업로드로 대체 (05wk-2)</li>
 <li>중간고사: 11월2일 수업시간</li>
 </ul>
-<p><strong>강의노트</strong></p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<p><strong>레포트</strong></p>
+<div id="listing-reports" class="quarto-listing quarto-listing-container-table">
 <table class="quarto-listing-table table">
 <thead>
 <tr>
@@ -239,7 +263,46 @@ Author
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-date-sort="1792627200000" data-listing-file-modified-sort="1792374149166" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="909" data-listing-title-sort="**07wk-2**: 퀴즈2" data-listing-filename-sort="07wk-2.qmd">
+<tr data-index="0" data-listing-date-sort="1792627200000" data-listing-file-modified-sort="1792521025000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="102" data-listing-title-sort="**레포트1**: 퀴즈2 문제7 다시 풀기" data-listing-filename-sort="report1.qmd">
+<td>
+<span class="listing-date">Oct 22, 2026</span>
+</td>
+<td>
+<a href="./reports/report1.html" class="title listing-title"><strong>레포트1</strong>: 퀴즈2 문제7 다시 풀기</a>
+</td>
+<td>
+<span class="listing-author">최규빈 </span>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+<p><strong>강의노트</strong></p>
+<div id="listing-notes" class="quarto-listing quarto-listing-container-table">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+
+<th>
+Date
+</th>
+
+<th>
+Title
+</th>
+
+<th>
+Author
+</th>
+
+</tr>
+</thead>
+<tbody class="list">
+
+<tr data-index="0" data-listing-date-sort="1792627200000" data-listing-file-modified-sort="1792521906000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1098" data-listing-title-sort="**07wk-2**: 퀴즈2" data-listing-filename-sort="07wk-2.qmd">
 <td>
 <span class="listing-date">Oct 22, 2026</span>
 </td>
@@ -252,7 +315,7 @@ Author
 
 </tr>
 
-<tr data-index="1" data-listing-date-sort="1791936000000" data-listing-file-modified-sort="1791961968000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1616" data-listing-title-sort="**07wk-1**: 카디널리티 (2)" data-listing-filename-sort="07wk-1.qmd">
+<tr data-index="1" data-listing-date-sort="1791936000000" data-listing-file-modified-sort="1792481979000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1616" data-listing-title-sort="**07wk-1**: 카디널리티 (2)" data-listing-filename-sort="07wk-1.qmd">
 <td>
 <span class="listing-date">Oct 14, 2026</span>
 </td>
@@ -411,7 +474,12 @@ Author
 </tbody>
 </table>
 <div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</div>
+
+
+
+
+</main> <!-- /main -->
 <style>
 #replBtn {
   position: fixed; right: 20px; bottom: 20px; z-index: 1000;
