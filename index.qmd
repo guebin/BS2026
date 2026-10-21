@@ -1,20 +1,12 @@
 ---
 title: "베이지안 통계 (2026)"
 listing:
-  - id: reports
-    contents: reports
-    sort: "date desc"
-    type: table
-    categories: false
-    sort-ui: false
-    filter-ui: false
-  - id: notes
-    contents: posts
-    sort: "date desc"
-    type: table
-    categories: true
-    sort-ui: false
-    filter-ui: false
+  contents: posts
+  sort: "date desc"
+  type: table
+  categories: true
+  sort-ui: false
+  filter-ui: false
 page-layout: full
 title-block-banner: false
 ---
@@ -36,12 +28,4 @@ title-block-banner: false
 - 10월5일 대체공휴일 보강은 영상업로드로 대체 (05wk-2)
 - 중간고사: 11월2일 수업시간
 
-**레포트**
-
-::: {#reports}
-:::
-
 **강의노트**
-
-::: {#notes}
-:::
