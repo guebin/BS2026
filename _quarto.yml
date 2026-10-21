@@ -5,7 +5,6 @@ project:
     - "index.qmd"
     - "about.qmd"
     - "posts/**"
-    - "reports/**"
 
 execute:
   freeze: true
