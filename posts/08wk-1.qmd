@@ -45,13 +45,9 @@ $$[0,1]=\{a_1,a_2,a_3,\dots\}$$
 
 `# 예제2` -- $|\mathbb{R}-\mathbb{Q}| > |\mathbb{Q}|$ 임을 보여라. 
 
-`-` 유리수의 집합 $\mathbb{Q}$ 에서 무리수의 집합 $\mathbb{R}-\mathbb{Q}$ 로의 단사함수가 존재하므로 $|\mathbb{Q}| \leq |\mathbb{R}-\mathbb{Q}|$ 가 성립함은 자명하다. (왜?)
+(증명) 
 
-`-` 이제 $|\mathbb{Q}| \neq |\mathbb{R}-\mathbb{Q}|$ 임을 귀류법을 이용하여 보이자.
-
-(증명)
-
-...
+숙제? 
 
 `#`
 

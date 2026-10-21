@@ -32,7 +32,7 @@
     "href": "posts/08wk-1.html#d.-무리수의-카디널리티",
     "title": "08wk-1: 카디널리티 (3)",
     "section": "D. 무리수의 카디널리티",
-    "text": "D. 무리수의 카디널리티\n# 예제2 – \\(|\\mathbb{R}-\\mathbb{Q}| &gt; |\\mathbb{Q}|\\) 임을 보여라.\n- 유리수의 집합 \\(\\mathbb{Q}\\) 에서 무리수의 집합 \\(\\mathbb{R}-\\mathbb{Q}\\) 로의 단사함수가 존재하므로 \\(|\\mathbb{Q}| \\leq |\\mathbb{R}-\\mathbb{Q}|\\) 가 성립함은 자명하다. (왜?)\n- 이제 \\(|\\mathbb{Q}| \\neq |\\mathbb{R}-\\mathbb{Q}|\\) 임을 귀류법을 이용하여 보이자.\n(증명)\n…\n#\n# 예제3 – \\(|\\mathbb{R} - \\mathbb{Q}| = |\\mathbb{R}|\\) 임을 보여라.\n(증명) – 연속체가설을 쓰는 버전\n\n연속체가설: \\(\\aleph_0\\)과 \\(|\\mathbb{R}|\\)사이에 다른 카디널리티는 없다.\n\n예제2와 연속체가설을 이용하면 바로 증명이 끝난다.\n#\n- 정리하면 \\(|\\mathbb{N}|:=\\aleph_0 =|\\mathbb{Q}| &lt; |\\mathbb{R}-\\mathbb{Q}| = |\\mathbb{R}|:=\\aleph_1\\) 와 같이 된다."
+    "text": "D. 무리수의 카디널리티\n# 예제2 – \\(|\\mathbb{R}-\\mathbb{Q}| &gt; |\\mathbb{Q}|\\) 임을 보여라.\n(증명)\n숙제?\n#\n# 예제3 – \\(|\\mathbb{R} - \\mathbb{Q}| = |\\mathbb{R}|\\) 임을 보여라.\n(증명) – 연속체가설을 쓰는 버전\n\n연속체가설: \\(\\aleph_0\\)과 \\(|\\mathbb{R}|\\)사이에 다른 카디널리티는 없다.\n\n예제2와 연속체가설을 이용하면 바로 증명이 끝난다.\n#\n- 정리하면 \\(|\\mathbb{N}|:=\\aleph_0 =|\\mathbb{Q}| &lt; |\\mathbb{R}-\\mathbb{Q}| = |\\mathbb{R}|:=\\aleph_1\\) 와 같이 된다."
   },
   {
     "objectID": "posts/08wk-1.html#e.-르벡메저",
