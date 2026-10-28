@@ -13,6 +13,8 @@ format:
 
 # 1. 강의영상
 
+{{< video https://youtube.com/playlist?list=PLYv7J0345ud8&si=Ivv0WuAkXRbGxhrz >}}
+
 # 2. 지금까지의 Story
 
 `-` 표본공간 $\Omega$의 임의의 부분집합 $\Omega^*$에 대한 확률을 정의하는 것은 생각보다 까다로운 일이다. 

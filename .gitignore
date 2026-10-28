@@ -11,3 +11,9 @@ _freeze/
 posts/attachments/*중간고사*
 posts/attachments/*수능형*
 posts/attachments/*베이지안하니-퀴즈*
+# 맥은 한글 이름이 풀어쓴 꼴(NFD)로 올 수 있어 두 꼴 다 적는다
+posts/attachments/*중간고사*
+posts/attachments/*수능형*
+posts/attachments/*베이지안하니-퀴즈*
+posts/attachments/*시험그림*
+posts/attachments/*시험그림*
