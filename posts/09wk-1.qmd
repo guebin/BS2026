@@ -2,7 +2,7 @@
 title: "**09wk-1**: 확률"
 author: 최규빈
 date: "10/28/2026 09:00"
-draft: false
+draft: true
 format:
   html:
     header-includes: |

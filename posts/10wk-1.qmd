@@ -2,7 +2,7 @@
 title: "**10wk-1**: 확률변수"
 author: 최규빈
 date: "11/04/2026 09:00"
-draft: false
+draft: true
 format:
   html:
     header-includes: |
