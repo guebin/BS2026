@@ -13,7 +13,7 @@ format:
 
 # 1. 강의영상
 
-{{< video https://youtube.com/playlist?list=PLYv7J0345ud8&si=Ivv0WuAkXRbGxhrz >}}
+{{<video https://youtu.be/playlist?list=PLYv7J0345ud8&si=Ivv0WuAkXRbGxhrz>}}
 
 # 2. 지금까지의 Story
 
