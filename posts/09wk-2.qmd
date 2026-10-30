@@ -64,7 +64,7 @@ $$\big\{\emptyset, \{H\}, \{T\}, \Omega\big\}$$
 `#`
 
 
-## A. Definition
+## B. Definition
 
 `-` 확률의 정의: $(\Omega, {\cal F})$가 measurable space 라고 할때, 함수 $P:{\cal F} \to [0,1]$이 아래를 만족한다면 
 
