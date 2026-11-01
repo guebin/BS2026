@@ -482,7 +482,29 @@ window.Quarto = {
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>레포트1에서 다시 풉니다.</strong></p>
+<p><strong>모순이 생긴다.</strong></p>
+<p><code>(풀이1)</code></p>
+<p><span class="math inline">\(A\)</span>를 <span class="math inline">\((0,\pi)\)</span> 사이의 모든 유리수로 이루어진 집합이라고 하자. 약속4에 의해 <span class="math inline">\(m(A)=\frac{\pi}{2}\)</span> 이므로 <span class="math inline">\(P(A)=\frac{\pi/2}{2\pi}=\frac{1}{4}\)</span> 이다.</p>
+<p><span class="math inline">\(A\)</span>의 모든 점에 <span class="math inline">\(\sqrt{2}\)</span>, <span class="math inline">\(\frac{\sqrt{2}}{2}\)</span>, <span class="math inline">\(\frac{\sqrt{2}}{3}\)</span>, <span class="math inline">\(\frac{\sqrt{2}}{4}\)</span>를 더하여 만든 집합을 각각 <span class="math inline">\(A_{\sqrt{2}}\)</span>, <span class="math inline">\(A_{\sqrt{2}/2}\)</span>, <span class="math inline">\(A_{\sqrt{2}/3}\)</span>, <span class="math inline">\(A_{\sqrt{2}/4}\)</span>라고 하자. <span class="math inline">\(A\)</span>까지 합쳐 모두 5개의 집합을 생각하면</p>
+<ol type="1">
+<li>모두 <span class="math inline">\(\Omega\)</span>의 부분집합이다. (가장 멀리 가도 <span class="math inline">\(\pi+\sqrt{2}\approx 4.56 &lt; 2\pi\)</span>)</li>
+<li>서로 겹치지 않는다.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>평행이동은 길이를 변화시키지 않으므로 5개 집합의 확률은 모두 <span class="math inline">\(\frac{1}{4}\)</span>이다. (06wk-1 질문7 빌드업1)</li>
+</ol>
+<p>따라서</p>
+<p><span class="math display">\[P(A\cup A_{\sqrt{2}}\cup A_{\sqrt{2}/2}\cup A_{\sqrt{2}/3}\cup A_{\sqrt{2}/4}) = 5\times\frac{1}{4}=\frac{5}{4}&gt;1\]</span></p>
+<p>이 되어 확률의 공리에 어긋난다.</p>
+<p><code>(풀이2)</code></p>
+<p>구간 <span class="math inline">\((a,b)=(0,2\pi)\)</span> 사이의 모든 유리수의 집합은 <span class="math inline">\(\mathbb{Q}\)</span>, 모든 무리수의 집합을 <span class="math inline">\(\mathbb{Q}^c\)</span> 라고 하자. <span class="math inline">\(2\pi\)</span>에서 <span class="math inline">\(\mathbb{Q}\)</span>의 모든 원소를 뺀 집합을 <span class="math inline">\(\mathbb{Q}^\star\)</span> 라고 하자. 즉</p>
+<p><span class="math display">\[\mathbb{Q}^\star = \{2\pi-q : q \in \mathbb{Q} \}\]</span></p>
+<p>이다. 이제 아래의 식을 관찰하자.</p>
+<p><span class="math display">\[P(\mathbb{Q}^c)=P\big(\mathbb{Q}^\star \cup (\mathbb{Q}^c-\mathbb{Q}^\star)\big)= P(\mathbb{Q}^\star) +P(\mathbb{Q}^c-\mathbb{Q}^\star) = \frac{m(\mathbb{Q}^\star)}{2\pi} +\frac{m(\mathbb{Q}^c-\mathbb{Q}^\star)}{2\pi}  = \frac{b-a}{4\pi}\]</span></p>
+<p>여기에서 첫번째 등호는 집합의 성질에 의하여, 두번째 등호는 서로소인 사건에 대한 확률의 공리에 의하여, 세번째 등호는 식 <span class="math inline">\(P(\Omega^*)=\frac{m(\Omega^*)}{m(\Omega)}\)</span>에 의하여, 네번째 등호는 약속4에 의하여 성립한다. 그런데 <span class="math inline">\(\mathbb{Q}^\star\)</span>는 <span class="math inline">\(\mathbb{Q}\)</span>를 <span class="math inline">\(\pi\)</span>를 기준으로 플립(대칭이동)한 것이므로 <span class="math inline">\(m(\mathbb{Q})=m(\mathbb{Q}^\star)=\frac{b-a}{2}\)</span> 가 성립하고 이에 따라 <span class="math inline">\(m(\mathbb{Q}^c-\mathbb{Q}^\star)=0\)</span> 이어야 한다. 그런데 집합 <span class="math inline">\(\mathbb{Q}^c-\mathbb{Q}^\star\)</span>는 무한집합이므로 약속3에 따라서 0이 아닌 길이가 있어야 하는데 이는 모순이다.</p>
+<p><code>-</code> 흔한 오답: “유리수를 하나씩 나열하면 각 점의 확률이 <span class="math inline">\(0\)</span>이므로 가산가법성에 의해 <span class="math inline">\(0+0+0+\cdots=0\)</span> 이다. 그런데 약속4는 <span class="math inline">\(0\)</span>보다 크다고 하니 모순이다.”</p>
+<ul>
+<li>이 답은 “약속3은 잘못된 약속이다”라는 주장이다. 사실 그 주장 자체는 맞다.</li>
+<li>하지만 이 문제는 약속1~4를 모두 받아들였을 때 모순이 생기는지를 묻는다. 약속3을 버리고 찾은 모순은 이 문제의 답이 아니다.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -609,7 +631,13 @@ window.Quarto = {
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>겹친다면 <span class="math inline">\(\sqrt{2}\)</span>가 유리수가 된다. 예를 들어 <span class="math inline">\(q+\frac{\sqrt{2}}{j}=q'+\frac{\sqrt{2}}{k}\)</span> <span class="math inline">\((j\neq k)\)</span> 이면 <span class="math inline">\(\sqrt{2}=\frac{q'-q}{1/j-1/k}\)</span> 이다. <span class="math inline">\(A\)</span>와 겹치는 경우도 마찬가지다.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <style>
 #replBtn {
   position: fixed; right: 20px; bottom: 20px; z-index: 1000;
