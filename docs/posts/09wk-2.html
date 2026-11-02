@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2026-10-28">
 
-<title>09wk-2: 확률, 확률변수 – BS2026</title>
+<title>09wk-2: 확률 – BS2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -164,7 +164,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><strong>09wk-2</strong>: 확률, 확률변수</h1>
+<h1 class="title"><strong>09wk-2</strong>: 확률</h1>
 </div>
 
 
@@ -195,6 +195,7 @@ window.Quarto = {
 
 <section id="강의영상" class="level1">
 <h1>1. 강의영상</h1>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLO0QFjrEqzck&amp;si=pRV2Iwjtrz_LzmAa" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="확률" class="level1">
 <h1>2. 확률</h1>
@@ -365,7 +366,18 @@ Note
 <p><strong>값이 0인 이유:</strong> <span class="math inline">\(A=\{1,\frac{1}{2},\frac{1}{3},\dots\}\)</span> 라고 하자.</p>
 <p><span class="math display">\[P(A)=P(\{1\})+P(\{\tfrac{1}{2}\})+P(\{\tfrac{1}{3}\})+\cdots=0+0+0+\cdots=0\]</span></p>
 <p>이다. 참고로 위의 식을 좀 더 세련되게 아래처럼 쓸 수도 있다.</p>
-<p><span class="math display">\[P(A)=P\left(\cup_{a \in A}\{a\}\right)=\sum_{a \in A}P(\{a\})=0\]</span> :::{.callout-note} 어떠한 집합 <span class="math inline">\(X\)</span>는 항상 <span class="math inline">\(X=\cup_{x \in X}\{x\}\)</span> 꼴로 표현 가능하다.</p>
+<p><span class="math display">\[P(A)=P\left(\cup_{a \in A}\{a\}\right)=\sum_{a \in A}P(\{a\})=0\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>어떠한 집합 <span class="math inline">\(X\)</span>는 항상 <span class="math inline">\(X=\cup_{x \in X}\{x\}\)</span> 꼴로 표현 가능하다.</p>
 <p>여기서 <span class="math inline">\(\cup_{x \in X}\)</span> 기호의 뜻은 아래와 같다.</p>
 <ul>
 <li><span class="math inline">\(x\)</span>는 집합 <span class="math inline">\(X\)</span>의 원소</li>
@@ -381,7 +393,9 @@ A&amp;=\{\text{사과},\text{배}\}\\
 &amp;=\cup_{a \in A}\{a\}
 \end{aligned}
 \]</span></p>
-<p>이다. (<span class="math inline">\(a=\)</span> 사과라면 <span class="math inline">\(\{a\}=\{\text{사과}\}\)</span>, <span class="math inline">\(a=\)</span> 배라면 <span class="math inline">\(\{a\}=\{\text{배}\}\)</span>) 따라서 <span class="math inline">\(\cup_{a \in A} \{a\}=\{\text{사과}\}\cup\{\text{배}\}\)</span> 이다. :::</p>
+<p>이다. (<span class="math inline">\(a=\)</span> 사과라면 <span class="math inline">\(\{a\}=\{\text{사과}\}\)</span>, <span class="math inline">\(a=\)</span> 배라면 <span class="math inline">\(\{a\}=\{\text{배}\}\)</span>) 따라서 <span class="math inline">\(\cup_{a \in A} \{a\}=\{\text{사과}\}\cup\{\text{배}\}\)</span> 이다.</p>
+</div>
+</div>
 <p><code>(3)</code> 정의할 수 있고 값은 <span class="math inline">\(1\)</span> 이다.</p>
 <p><strong>정의할 수 있는 이유:</strong></p>
 <p><span class="math display">\[
@@ -457,97 +471,6 @@ Note
 <figcaption>그림2: 드 피네티(1937) «La prévision: ses lois logiques, ses sources subjectives» p.13. 칠한 곳은 사건이 무한히 많을 때는 유한 개짜리 부분 모임마다 일관되면 된다는 정의와, 그래서 확률의 덧셈 정리를 «셀 수 있는 무한 개의 사건으로도 넓힐 수 없다»는 결론이다.</figcaption>
 </figure>
 </div>
-<p><code>-</code> 정리</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 49%">
-<col style="width: 7%">
-<col style="width: 10%">
-<col style="width: 15%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(\Omega\)</span></th>
-<th style="text-align: center;">collection</th>
-<th style="text-align: center;">시그마필드?</th>
-<th style="text-align: center;">확률 정의 가능?</th>
-<th style="text-align: center;">원하는 확률 정의 가능?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\{H,T\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{\emptyset,\{H\},\{T\},\Omega\}\)</span></td>
-<td style="text-align: center;">O</td>
-<td style="text-align: center;">O</td>
-<td style="text-align: center;">O</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\{H,T\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{\emptyset,\{H\},\Omega\}\)</span></td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;">X</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\{H,T\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{\{H\},\{T\},\Omega\}\)</span></td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;">X</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\{1,\dots,6\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Omega\)</span>의 모든 부분집합</td>
-<td style="text-align: center;">O</td>
-<td style="text-align: center;">O</td>
-<td style="text-align: center;">O</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\{1,\dots,6\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{\emptyset,\{6\},\{1,\dots,5\},\Omega\}\)</span></td>
-<td style="text-align: center;">O</td>
-<td style="text-align: center;">O</td>
-<td style="text-align: center;">O</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\{1,\dots,6\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{\emptyset,\{1,3,5\},\{2,4,6\},\Omega\}\)</span></td>
-<td style="text-align: center;">O</td>
-<td style="text-align: center;">O</td>
-<td style="text-align: center;">O</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\mathbb{N}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Omega\)</span>의 모든 부분집합</td>
-<td style="text-align: center;">O</td>
-<td style="text-align: center;">O</td>
-<td style="text-align: center;">△</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\([0,2\pi)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Omega\)</span>의 모든 부분집합</td>
-<td style="text-align: center;">O</td>
-<td style="text-align: center;">O</td>
-<td style="text-align: center;">X</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\([0,2\pi)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Omega\)</span>의 구간들을 모두 원소로 가지는 가장 작은 시그마필드</td>
-<td style="text-align: center;">O</td>
-<td style="text-align: center;">O</td>
-<td style="text-align: center;">O</td>
-</tr>
-</tbody>
-</table>
-<!-- colwidths: 8.3 13.8 7.8 7.8 13.8 -->
-<p><code>-</code> 헷갈리는 포인트:</p>
-<ul>
-<li><span class="math inline">\([0,1]\)</span>의 모든 부분집합들의 모임을 <span class="math inline">\({\cal F}\)</span>라고 하자. <span class="math inline">\({\cal F}\)</span>는 르벡메저를 정의할 수 없다.</li>
-<li><span class="math inline">\([0,1]\)</span>의 모든 구간들을 원소로 가지는 최소한의 시그마필드 <span class="math inline">\({\cal B}%\)</span>를 상상하자. 거기서는 르벡메저를 정의할 수 있다.</li>
-<li>원래는 <span class="math inline">\({\cal B}\)</span>를 정의하기 위해서 시그마필드의 개념을 공부했음. 그런데 <span class="math inline">\({\cal B}\)</span>는 <span class="math inline">\({\cal F}\)</span>는 둘 다 시그마필드로 불림.</li>
-</ul>
 
 
 </section>
