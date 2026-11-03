@@ -59,7 +59,7 @@ format:
 ② (다) 는 너무 막연한 진술이므로, 참일 확률이 가장 작다. \
 ③ 세 진술은 모두 같은 사진을 말하므로, 참일 확률이 모두 같다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 75%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 75% · 보기별 ① 86% · ② 94% · ③ 88%)"}
 **없음**
 :::
 
@@ -79,7 +79,7 @@ format:
 ① 다섯 값의 평균이 $\frac{1}{2}$ 이 아니므로, 이 동전이 공평하다는 가정은 틀렸다. \
 ② 동전을 $5$ 번 더 던지면, (1)에서 구한 두 답이 모두 바뀔 수 있다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 57%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 57% · 보기별 ① 84% · ② 69%)"}
 **① 거짓 · ② 거짓**
 :::
 
@@ -93,7 +93,7 @@ format:
 ③ ‘지지율’이 $p$ 를 뜻한다면, $p$ 는 모수이고 모수에는 확률을 줄 수 없으므로 이 물음의 ‘확률’은 어색하다. \
 ④ ‘지지율’을 $p$ 로 읽든 $\bar{x}$ 로 읽든 같은 낱말이므로, 이 물음이 말이 되는지는 달라지지 않는다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 65%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 65% · 보기별 ① 86% · ② 80% · ③ 90% · ④ 96%)"}
 **② · ③**
 :::
 
@@ -119,7 +119,7 @@ format:
 ③ ㉠은, 표본을 아무리 되풀이해 뽑아도 그에 따라 달라지는 것은 $x$ 이지 $p$ 가 아니라는 데서 나온다. \
 ④ 표본을 아주 크게 하면 $\frac{x}{n}$ 이 곧 $p$ 가 되므로, $p$ 가 가질 수 있는 값들의 도수도 알 수 있게 되어 ㉠의 어려움은 사라진다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 24%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 24% · 보기별 ① 35% · ② 94% · ③ 92% · ④ 78%)"}
 **③**
 :::
 
@@ -141,7 +141,7 @@ format:
 ③ 이미 세워 둔 꼴 $y_i=\beta_0+\beta_1x_i+\epsilon_i$ 에서, 자료로 $\beta_0$ 와 $\beta_1$ 의 값을 구체적으로 정하였다. \
 ④ $100$ 명의 스펙과 취업 여부 자료를 보고, 취업 여부가 $Bernoulli(\pi_i)$, $\pi_i=\frac{\exp(\beta_0+\beta_1x_i)}{1+\exp(\beta_0+\beta_1x_i)}$ 를 따른다고 상상하였다. ($x_i$ 는 스펙)
 
-::: {.callout-note collapse="true" title="정답보기(정답률 71%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 73% · 보기별 ① 86% · ② 80% · ③ 84% · ④ 86%)"}
 **③**
 :::
 
@@ -158,7 +158,7 @@ format:
 ③ 이 자료를 두고 한 사람은 균등분포 $U(a,b)$ 에서, 다른 사람은 정규분포 $N(\mu,\sigma^2)$ 에서 나왔다고 상상하였다면, 두 사람 모두 모델링을 한 것이다. \
 ④ $U(a,b)$ 의 $a$ 와 $b$ 를 자료로 정하는 것을 모수추정이라 한다. 
 
-::: {.callout-note collapse="true" title="정답보기(정답률 51%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 53% · 보기별 ① 90% · ② 57% · ③ 100% · ④ 86%)"}
 **① · ③ · ④**
 :::
 
@@ -187,7 +187,7 @@ format:
 ② 정규분포 모델이든 균등분포 모델이든 실제 규칙과 꼭 같지는 않을 것이므로, 두 모델은 모두 쓸모가 없다. \
 ③ 두 모델은 서로 다른 분포를 상상했으므로, 둘 가운데 하나만 올바른 모델링이라 할 수 있다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 76%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 76% · 보기별 ① 92% · ② 92% · ③ 86%)"}
 **없음**
 :::
 
@@ -203,7 +203,7 @@ format:
 ② 이 표를 막대그래프로 그리면 가운데가 높고 양쪽이 엇비슷하게 낮아지는 종 모양이 된다. 그러므로 사과 무게는 무조건 정규분포를 따른다. \
 ③ 이 표만으로 사과 무게가 정규분포를 따른다고 확정할 수는 없지만, 이 자료에는 정규분포 모델이 균등분포 모델보다 쓸모 있어 보인다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 92%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 92% · 보기별 ① 96% · ② 98% · ③ 96%)"}
 **① · ③**
 :::
 
@@ -220,7 +220,7 @@ $$x_1=0,\qquad x_2=1$$
 ② $\theta=0.5$ 이면 이 결과를 얻을 확률은 $0.5\times0.5=0.25$ 이고, $\theta=0.1$ 이면 $0.9\times0.1=0.09$ 이다. 즉 $L(0.5)>L(0.1)$ 이다. \
 ③ 두 번 가운데 한 번 앞면이 나왔으므로, $\theta$ 는 정확히 $0.5$ 이다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 73%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 73% · 보기별 ① 82% · ② 96% · ③ 88%)"}
 **②**
 :::
 
@@ -251,7 +251,7 @@ $$0.21+0.24+0.25+0.24+0.21=1.15>1$$
 ① 을의 반박은 갑의 말이 옳다고 가정한 뒤 모순을 끌어내어 그 가정이 틀렸음을 보이는 것으로, 귀류법이다. \
 ② 을의 반박대로라면 $0.25$ 와 $0.09$ 는 아무 뜻도 없는 수이므로, 두 수를 견주어 $\theta=0.5$ 가 $\theta=0.1$ 보다 그럴듯하다고 말할 수도 없다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 69%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 69% · 보기별 ① 90% · ② 71%)"}
 **①**
 :::
 
@@ -274,7 +274,7 @@ $$x_1=0.8,\quad x_2=-0.3,\quad x_3=1.1,\quad x_4=0.6$$
 ③ 이번 자료의 표본평균이 $0$ 이었다면, 을의 추정량도 불편추정량이 된다. \
 ④ 갑의 추정량이 불편추정량이라고 해서, 이번 자료로 얻은 추정값 $0.55$ 가 $\theta$ 와 같다는 뜻은 아니다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 33%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 33% · 보기별 ① 73% · ② 75% · ③ 45% · ④ 88%)"}
 **② · ④**
 :::
 
@@ -293,7 +293,7 @@ $$x_1=0.8,\quad x_2=-0.3,\quad x_3=1.1,\quad x_4=0.6$$
 ④ 을의 추정값은 참값 $\theta$ 에 따라 (다) 의 꼴로도, (라) 의 꼴로도 찍힐 수 있다. \
 ⑤ 갑의 추정값은 참값 $\theta$ 에 따라 (가) 의 꼴로도, (나) 의 꼴로도 찍힐 수 있다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 24%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 24% · 보기별 ① 33% · ② 92% · ③ 84% · ④ 82% · ⑤ 35%)"}
 **① · ④**
 :::
 
@@ -306,7 +306,7 @@ $$x_1=0.8,\quad x_2=-0.3,\quad x_3=1.1,\quad x_4=0.6$$
 
 ![](attachments/261102-midterm-T134_1.png){width=85% fig-align="center"}
 
-::: {.callout-note collapse="true" title="정답보기(정답률 92%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 92% · 보기별 ① 98% · ② 92% · ③ 94% · ④ 100%)"}
 **②**
 :::
 
@@ -337,7 +337,7 @@ $$x_1=0.8,\quad x_2=-0.3,\quad x_3=1.1,\quad x_4=0.6$$
 ③ $1,\ 1,\ 1,\ 1$ \
 ④ $1,\ 1,\ 0,\ 0$
 
-::: {.callout-note collapse="true" title="정답보기(정답률 94%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 94% · 보기별 ① 94% · ② 98% · ③ 98% · ④ 98%)"}
 **①**
 :::
 
@@ -353,7 +353,7 @@ $$x_1=0.8,\quad x_2=-0.3,\quad x_3=1.1,\quad x_4=0.6$$
 - (나) 모분산
 - (다) $1$ 이 처음 나올 때까지 던지는 횟수의 기댓값
 
-::: {.callout-note collapse="true" title="정답보기(정답률 71%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 71% · 보기별 (가) 84% · (나) 84% · (다) 73%)"}
 **(가) $\frac{1}{3}$ · (나) $\frac{2}{9}$ · (다) $\frac{3}{2}$**
 :::
 
@@ -364,13 +364,13 @@ $$x_1=0.8,\quad x_2=-0.3,\quad x_3=1.1,\quad x_4=0.6$$
 ③ $1,\ 1,\ 1,\ 1,\ 0,\ 0$ \
 ④ $1,\ 0,\ 1,\ 0$
 
-::: {.callout-note collapse="true" title="정답보기(정답률 78%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 80% · 보기별 ① 98% · ② 88% · ③ 92% · ④ 100%)"}
 **① · ②**
 :::
 
 `(7)` 세 번 던져 $x_1,\ x_2,\ x_3$ 을 얻었다. 그런데 $x_1,\ x_2,\ x_3$ 은 알려 주지 않고 그 평균 $\bar{x}=\frac{x_1+x_2+x_3}{3}$ 만 알려 주었다. $L(0.5\mid\bar{x}=\frac{2}{3})$ 과 $L(0.5\mid\bar{x}=\frac{1}{2})$ 를 구하라.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 35%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 37% · 보기별 L(0.5|x̄ 45% · L(0.5|x̄ 65%)"}
 **$\frac{3}{8}$, $0$**
 :::
 
@@ -380,7 +380,7 @@ $$x_1=0.8,\quad x_2=-0.3,\quad x_3=1.1,\quad x_4=0.6$$
 ② 동엽: "여섯째가 $0$ 이면 최대가능도추정값은 $0.4$ 그대로야." \
 ③ 호동: "여섯째가 무엇이든, 새 가능도함수는 $\theta^2(1-\theta)^3$ 에 $\theta$ 나 $1-\theta$ 가 하나 곱해진 꼴이야."
 
-::: {.callout-note collapse="true" title="정답보기(정답률 76%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 76% · 보기별 ① 94% · ② 94% · ③ 88%)"}
 **① · ③**
 :::
 
@@ -397,7 +397,7 @@ $\mu$ 에 대한 가능도함수 $L(\mu)$ 의 그래프로 알맞은 것을 고�
 
 ![](attachments/261102-midterm-T130.png){width=85% fig-align="center"}
 
-::: {.callout-note collapse="true" title="정답보기(정답률 94%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 94% · 보기별 ① 98% · ② 94% · ③ 98% · ④ 98%)"}
 **②**
 :::
 
@@ -405,7 +405,7 @@ $\mu$ 에 대한 가능도함수 $L(\mu)$ 의 그래프로 알맞은 것을 고�
 
 ![](attachments/261102-midterm-T135_1.png){width=90% fig-align="center"}
 
-::: {.callout-note collapse="true" title="정답보기(정답률 84%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 84% · 보기별 ① 98% · ② 84% · ③ 94% · ④ 92%)"}
 **②**
 :::
 
@@ -418,13 +418,13 @@ $\mu$ 에 대한 가능도함수 $L(\mu)$ 의 그래프로 알맞은 것을 고�
 ③ $0,\ 2,\ 2,\ 4$ \
 ④ $-2,\ 0,\ 0,\ 2$
 
-::: {.callout-note collapse="true" title="정답보기(정답률 75%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 75% · 보기별 ① 80% · ② 80% · ③ 96% · ④ 100%)"}
 **①**
 :::
 
 `(4)` $X_1,\dots,X_4 \overset{i.i.d.}{\sim} N(\mu,\sigma^2)$ 에서 $1,\ 3,\ 5,\ 7$ 을 관측하였다. $\mu$ 와 $\sigma^2$ 의 최대가능도추정값을 구하라. (네 값의 제곱의 평균은 $\frac{1}{4}\sum_{i=1}^{4}x_i^2=21$ 이다.)
 
-::: {.callout-note collapse="true" title="정답보기(정답률 67%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 67% · 보기별 μ̂ 82% · σ̂² 71%)"}
 **$\hat{\mu}=4$, $\hat{\sigma}^2=5$**
 :::
 
@@ -449,7 +449,7 @@ $$L(\mu) = \left(\frac{1}{\sqrt{2\pi}}\right)^3\exp\left[-\frac{(\mu-2.1)^2 + (\
 ③ $3.3,\ 3.3,\ 3.3$ \
 ④ $2.1,\ 3.5$
 
-::: {.callout-note collapse="true" title="정답보기(정답률 61%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 61% · 보기별 ① 94% · ② 82% · ③ 80% · ④ 100%)"}
 **① · ②**
 :::
 
@@ -460,7 +460,7 @@ $$L(\mu) = \left(\frac{1}{\sqrt{2\pi}}\right)^3\exp\left[-\frac{(\mu-2.1)^2 + (\
 ③ 호동: "새 관측값이 $9$ 이면 $\hat{\mu}$ 는 $5$ 가 돼." \
 ④ 효리: "새 관측값이 무엇이든 $\hat{\mu}$ 는 $4$ 그대로야. 하나쯤 더해도 평균은 바뀌지 않거든."
 
-::: {.callout-note collapse="true" title="정답보기(정답률 71%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 73% · 보기별 ① 88% · ② 88% · ③ 90% · ④ 100%)"}
 **① · ③**
 :::
 
@@ -478,7 +478,7 @@ $X_1,\dots,X_4 \overset{i.i.d.}{\sim} N(\mu,\sigma^2)$ 에서 $1,\ 1,\ 5,\ 5$ �
 ② 두 사람 가운데 $\sigma^2$ 의 최대가능도추정값을 구한 사람은 을이다. \
 ③ $\mu=3$ 임을 미리 알고 있었다면, $\sigma^2$ 의 최대가능도추정값은 을의 값 $\frac{16}{3}$ 이다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 65%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 65% · 보기별 ① 76% · ② 84% · ③ 73%)"}
 **①**
 :::
 
@@ -506,7 +506,7 @@ $$
 
 `(1)` 윗글의 자료에서 $a$, $b$ 의 최대가능도추정값을 구하고, 모평균 $\mathbb{E}(X)$, 모분산 $\mathbb{V}(X)$, 범위 $R(X)$ 를 최대가능도방법으로 추정하라. ($X\sim U(a,b)$ 이면 $\mathbb{E}(X)=\frac{a+b}{2}$, $\mathbb{V}(X)=\frac{(b-a)^2}{12}$, $R(X)=b-a$ 이다.)
 
-::: {.callout-note collapse="true" title="정답보기(정답률 41%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 43% · 보기별 â 57% · b̂ 63% · E(X) 76% · V(X) 71% · R(X) 76%)"}
 **$\hat{a}=0.8$, $\hat{b}=2.6$, 모평균 $1.7$, 모분산 $\frac{1.8^2}{12}=0.27$, 범위 $1.8$**
 :::
 
@@ -517,7 +517,7 @@ $$
 ③ 호동: "새 관측값이 $3.0$ 이라면, 가능도를 가장 크게 하는 $b$ 는 $3.0$ 이 돼." \
 ④ 효리: "새 관측값이 $0.5$ 라면, $(a,b)=(0.8,\ 2.6)$ 에서 가능도는 $0$ 이야."
 
-::: {.callout-note collapse="true" title="정답보기(정답률 33%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 33% · 보기별 ① 96% · ② 57% · ③ 92% · ④ 61%)"}
 **① · ③ · ④**
 :::
 
@@ -555,7 +555,7 @@ $$x_1=0.6,\quad x_2=1.3,\quad x_3=1.0,\quad x_4=1.7$$
 
 ![](attachments/261102-midterm-T136_1.png){width=90% fig-align="center"}
 
-::: {.callout-note collapse="true" title="정답보기(정답률 94%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 94% · 보기별 ① 96% · ② 94% · ③ 98% · ④ 96%)"}
 **②**
 :::
 
@@ -579,7 +579,7 @@ $$x_1=0.6,\quad x_2=1.3,\quad x_3=1.0,\quad x_4=1.7$$
 ③ $1.2,\ 2.5$ \
 ④ $1.2,\ 1.8,\ 2.4,\ 2.5$
 
-::: {.callout-note collapse="true" title="정답보기(정답률 73%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 73% · 보기별 ① 98% · ② 90% · ③ 80% · ④ 78%)"}
 **① · ②**
 :::
 
@@ -607,7 +607,7 @@ $x_i$, $y_i$ 가 모두 서로 독립으로 $U(0,1)$ 을 따르는 자료 $100$ 
 
 (가), (나) 가운데 A 로 찍은 것을 고르라.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 82%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 90%)"}
 **(나)**
 :::
 
@@ -621,7 +621,7 @@ $x_i$, $y_i$ 가 모두 서로 독립으로 $U(0,1)$ 을 따르는 자료 $100$ 
 - (다) 자료가 정규분포에서 나왔다면, 평균을 표본평균으로 추정한 값은 중앙값으로 추정한 값보다 참값 둘레에 좁게 모인다.
 - (라) 표본평균은 자료를 모두 쓰므로, 자료가 어떤 분포에서 나왔든 평균을 추정하는 다른 어떤 방법보다 참값 둘레에 좁게 모인다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 63%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 63% · 보기별 (가) 98% · (나) 73% · (다) 84% · (라) 90%)"}
 **(가) O · (나) X · (다) O · (라) X**
 :::
 
@@ -654,7 +654,7 @@ $$P(A\cup A_{\sqrt{2}}\cup A_{\sqrt{2}/2}\cup A_{\sqrt{2}/3}\cup A_{\sqrt{2}/4})
 ③ $A_{2\pi/3}$ \
 ④ $A_{2\pi/4}$
 
-::: {.callout-note collapse="true" title="정답보기(정답률 39%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 39% · 보기별 ① 59% · ② 80% · ③ 84% · ④ 84%)"}
 **② · ③ · ④**
 :::
 
@@ -665,7 +665,7 @@ $$P(A\cup A_{\sqrt{2}}\cup A_{\sqrt{2}/2}\cup A_{\sqrt{2}/3}\cup A_{\sqrt{2}/4})
 ③ $A, A_{2\pi}, A_{2\pi/2}, A_{2\pi/3}, A_{2\pi/4}$ 의 확률을 모두 더하면 $\frac{5}{4}$ 이므로, 이 다섯 집합으로 모순을 얻는다. \
 ④ $A_{2\pi}$ 대신 $A_{2\pi/5}$ 를 쓰면, $A, A_{2\pi/2}, A_{2\pi/3}, A_{2\pi/4}, A_{2\pi/5}$ 다섯 집합으로 모순을 얻을 수 있다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 20%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 20% · 보기별 ① 65% · ② 61% · ③ 49% · ④ 67%)"}
 **① · ② · ④**
 :::
 
@@ -675,7 +675,7 @@ $$P(A\cup A_{\sqrt{2}}\cup A_{\sqrt{2}/2}\cup A_{\sqrt{2}/3}\cup A_{\sqrt{2}/4})
 ② $2\pi$ 가 유리수이기 때문이다. \
 ③ 확률은 $\Omega$ 의 부분집합에만 매기기로 했기 때문이다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 51%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 51% · 보기별 ① 69% · ② 69% · ③ 82%)"}
 **① · ③**
 :::
 
@@ -689,7 +689,7 @@ $$P(A\cup A_{\sqrt{2}}\cup A_{\sqrt{2}/2}\cup A_{\sqrt{2}/3}\cup A_{\sqrt{2}/4})
 - (다) $\forall x\in\mathbb{R}\ \ \exists y\in\mathbb{R}$ such that $x+y=0$
 - (라) $\exists y\in\mathbb{R}$ such that $\forall x\in\mathbb{R}:\ x+y=0$
 
-::: {.callout-note collapse="true" title="정답보기(정답률 12%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 12% · 보기별 (가) 90% · (나) 88% · (다) 84% · (라) 20%)"}
 **(가) O · (나) X · (다) O · (라) X**
 :::
 
@@ -705,7 +705,7 @@ $$P(A\cup A_{\sqrt{2}}\cup A_{\sqrt{2}/2}\cup A_{\sqrt{2}/3}\cup A_{\sqrt{2}/4})
 
 (답은 ‘(가) ②, (나) ①’ 과 같은 꼴로 쓴다.)
 
-::: {.callout-note collapse="true" title="정답보기(정답률 63%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 63% · 보기별 (가) 67% · (나) 75%)"}
 **(가) ③, (나) ④**
 :::
 
@@ -716,7 +716,7 @@ $$P(A\cup A_{\sqrt{2}}\cup A_{\sqrt{2}/2}\cup A_{\sqrt{2}/3}\cup A_{\sqrt{2}/4})
 ③ $\exists n\in\mathbb{N}$ such that $n^2\geq n$ \
 ④ $n\in\mathbb{N}\Rightarrow n^2\geq n$
 
-::: {.callout-note collapse="true" title="정답보기(정답률 27%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 27% · 보기별 ① 96% · ② 76% · ③ 65% · ④ 69%)"}
 **① · ② · ④**
 :::
 
@@ -729,19 +729,19 @@ $$P(A\cup A_{\sqrt{2}}\cup A_{\sqrt{2}/2}\cup A_{\sqrt{2}/3}\cup A_{\sqrt{2}/4})
 
 `(1)` 단사함수인 것을 모두 고르라.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 78%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 78% · 보기별 (가) 98% · (나) 84% · (다) 94% · (라) 98%)"}
 **(나) · (다)**
 :::
 
 `(2)` 전사함수인 것을 모두 고르라.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 76%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 76% · 보기별 (가) 94% · (나) 84% · (다) 94% · (라) 96%)"}
 **(가) · (나)**
 :::
 
 `(3)` 전단사함수인 것을 모두 고르라.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 86%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 86% · 보기별 (가) 94% · (나) 92% · (다) 90% · (라) 98%)"}
 **(나)**
 :::
 
@@ -769,7 +769,7 @@ $$P(A\cup A_{\sqrt{2}}\cup A_{\sqrt{2}/2}\cup A_{\sqrt{2}/3}\cup A_{\sqrt{2}/4})
 ② $0,\ \frac{1}{2},\ \frac{2}{2},\ \frac{1}{3},\ \frac{2}{3},\ \frac{3}{3},\ \frac{1}{4},\ \dots$ \
 ③ $-44,\ -2,\ 0,\ 1,\ 2,\ 3,\ \dots$
 
-::: {.callout-note collapse="true" title="정답보기(정답률 65%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 65% · 보기별 ① 86% · ② 71% · ③ 82%)"}
 **① · ② · ③**
 :::
 
@@ -779,7 +779,7 @@ $$P(A\cup A_{\sqrt{2}}\cup A_{\sqrt{2}/2}\cup A_{\sqrt{2}/3}\cup A_{\sqrt{2}/4})
 ② $f$ 는 단사함수이다. \
 ③ $f$ 가 전단사함수가 아니므로, $|A|\neq|\mathbb{N}|$ 이다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 22%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 22% · 보기별 ① 82% · ② 41% · ③ 80%)"}
 **①**
 :::
 
@@ -796,7 +796,7 @@ $$P(A\cup A_{\sqrt{2}}\cup A_{\sqrt{2}/2}\cup A_{\sqrt{2}/3}\cup A_{\sqrt{2}/4})
 ② (가) 의 $g$ 가 전사함수가 아니므로, $|\mathbb{N}|<|L|$ 이다. \
 ③ (나) 의 $g$ 는 전단사함수이므로, $|\mathbb{N}|=|L|$ 이다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 24%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 24% · 보기별 ① 49% · ② 69% · ③ 71%)"}
 **① · ③**
 :::
 
@@ -807,7 +807,7 @@ $$P(A\cup A_{\sqrt{2}}\cup A_{\sqrt{2}/2}\cup A_{\sqrt{2}/3}\cup A_{\sqrt{2}/4})
 ③ ① 과 ② 를 합치면 $|L^+|=|\mathbb{N}|$ 이다. \
 ④ $L^+$ 는 $L$ 의 대략 $\frac{1}{4}$ 만 차지하므로, $|L^+|$ 는 $|L|$ 보다 작다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 39%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 39% · 보기별 ① 82% · ② 65% · ③ 47% · ④ 78%)"}
 **① · ② · ③**
 :::
 
@@ -844,7 +844,7 @@ $|\mathbb{N}|=|\mathbb{Q}|$ 임을 보이자. 먼저 양의 유리수 전체의 
 ① 양의 유리수 $\frac{p}{q}$ 는 모두 그림의 $p$ 번째 줄, $q$ 번째 칸에 있고, 화살표는 칸이 유한개인 비스듬한 줄을 차례로 훑으므로 어느 칸이든 유한한 차례에 지나가기 때문이다. \
 ② 유리수는 셀 수 있는 집합이기 때문이다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 71%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 73% · 보기별 ① 84% · ② 75%)"}
 **①**
 :::
 
@@ -855,7 +855,7 @@ $|\mathbb{N}|=|\mathbb{Q}|$ 임을 보이자. 먼저 양의 유리수 전체의 
 ③ ㉡ 을 거친 뒤에도 $f(n)=q_n$ 은 전사함수일 뿐, 단사함수는 아니다. \
 ④ ㉡ 에서 고르지 않는 항이 끝없이 많으므로, 어느 자연수 $n$ 부터는 $b_n$ 으로 고를 번호가 남지 않는다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 45%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 45% · 보기별 ① 76% · ② 67% · ③ 84% · ④ 78%)"}
 **① · ②**
 :::
 
@@ -865,7 +865,7 @@ $|\mathbb{N}|=|\mathbb{Q}|$ 임을 보이자. 먼저 양의 유리수 전체의 
 ② $0,\ q_1,\ q_2,\ -q_1,\ q_3,\ q_4,\ -q_2,\ \dots$ (양수 둘, 음수 하나를 번갈아) \
 ③ $q_1,\ -q_1,\ q_2,\ -q_2,\ q_3,\ -q_3,\ \dots$ ($0$ 은 넣지 않음)
 
-::: {.callout-note collapse="true" title="정답보기(정답률 22%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 22% · 보기별 ① 69% · ② 31% · ③ 71%)"}
 **① · ②**
 :::
 
@@ -885,7 +885,7 @@ $|\mathbb{Q}|<|\mathbb{R}|$ 임을 보이자. $|[0,1]|\leq|\mathbb{R}|$ 이므�
 ③ $g(n)=\frac{1}{n+1}$ \
 ④ $g(n)=\frac{1}{2}$
 
-::: {.callout-note collapse="true" title="정답보기(정답률 33%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 33% · 보기별 ① 96% · ② 76% · ③ 51% · ④ 96%)"}
 **① · ③**
 :::
 
@@ -895,7 +895,7 @@ $|\mathbb{Q}|<|\mathbb{R}|$ 임을 보이자. $|[0,1]|\leq|\mathbb{R}|$ 이므�
 ② ㉠ 이 성립하려면 서로 다른 $n$ 에 대하여 $f(n)$ 이 모두 달라야 한다. \
 ③ ㉠ 이 성립하려면 $f(1)<f(2)<f(3)<\cdots$ 처럼 함숫값이 크기 순서로 놓여야 한다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 33%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 33% · 보기별 ① 78% · ② 49% · ③ 80%)"}
 **①**
 :::
 
@@ -913,7 +913,7 @@ $$a_1=0.5141\cdots,\quad a_2=0.2718\cdots,\quad a_3=0.1454\cdots,\quad a_4=0.377
 ② $[0,1]$ 의 수를 늘어놓은 어떤 목록에 대해서도 같은 방법으로 그 목록에 없는 $[0,1]$ 의 수를 만들 수 있다. \
 ③ ㉡ 에 따르면 $y$ 는 $[0,1]$ 의 수가 아니다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 59%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 59% · 보기별 ① 80% · ② 67% · ③ 94%)"}
 **① · ② 또는 ① · ② · ③** (복수정답)
 :::
 
@@ -931,7 +931,7 @@ $$a_1=0.5141\cdots,\quad a_2=0.2718\cdots,\quad a_3=0.1454\cdots,\quad a_4=0.377
 ② $x\mapsto x$ 는 $X$ 에서 $Y$ 로 가는 단사함수이므로 $|X|\le|Y|$ 이다. 만약 $|X|=|Y|$ 라면 전단사함수 $\varphi:X\to Y$ 가 있고, $X$ 는 유리수만 모은 셀 수 있는 집합이므로 $X=\{x_1,x_2,x_3,\dots\}$ 로 쓰면 $Y=\{\varphi(x_1),\varphi(x_2),\varphi(x_3),\dots\}$ 가 되어 $Y$ 도 셀 수 있는 집합이 된다. 그런데 $[0,1]$ 은 셀 수 있는 집합이 아니므로 모순이다. 따라서 $|X|<|Y|$ 이다. \
 ③ $Y$ 의 길이는 $1$ 이고, $X$ 는 유리수만 모은 집합이라 길이가 $0$ 이다. 길이는 집합이 차지하는 크기이므로, 길이가 더 긴 집합일수록 원소가 더 많고 카디널리티도 더 크다. 따라서 $|X|<|Y|$ 이다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 10%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 10% · 보기별 ① 22% · ② 67% · ③ 55%)"}
 **②**
 :::
 
@@ -951,7 +951,7 @@ $|\mathbb{N}|=|\mathbb{Q}|$ 이고 $|\mathbb{Q}|<|\mathbb{R}|$ 임은 이미 보
 ③ $f(q)=q+\pi$ \
 ④ $f(q)=\sqrt{2}$
 
-::: {.callout-note collapse="true" title="정답보기(정답률 37%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 37% · 보기별 ① 90% · ② 63% · ③ 65% · ④ 86%)"}
 **① · ③**
 :::
 
@@ -962,7 +962,7 @@ $|\mathbb{N}|=|\mathbb{Q}|$ 이고 $|\mathbb{Q}|<|\mathbb{R}|$ 임은 이미 보
 ③ 유리수와 무리수는 모두 크기 순서로 늘어놓을 수 있기 때문이다. \
 ④ ㉠ 은 가정과 상관없이 언제나 성립한다.
 
-::: {.callout-note collapse="true" title="정답보기(정답률 37%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 37% · 보기별 ① 73% · ② 82% · ③ 76% · ④ 82%)"}
 **① · ②**
 :::
 
@@ -973,7 +973,7 @@ $|\mathbb{N}|=|\mathbb{Q}|$ 이고 $|\mathbb{Q}|<|\mathbb{R}|$ 임은 이미 보
 ③ $q_1,\ q_2,\ r_1,\ r_2,\ q_3,\ q_4,\ r_3,\ r_4,\ \dots$ (유리수 둘, 무리수 둘을 번갈아) \
 ④ $r_1,\ r_2,\ q_1,\ q_2,\ r_3,\ r_4,\ q_3,\ q_4,\ \dots$ (무리수 둘, 유리수 둘을 번갈아)
 
-::: {.callout-note collapse="true" title="정답보기(정답률 24%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 24% · 보기별 ① 86% · ② 41% · ③ 39% · ④ 31%)"}
 **① · ② · ③ · ④**
 :::
 
@@ -982,6 +982,6 @@ $|\mathbb{N}|=|\mathbb{Q}|$ 이고 $|\mathbb{Q}|<|\mathbb{R}|$ 임은 이미 보
 ① $|\mathbb{N}|<|\mathbb{R}|$ \
 ② $|\mathbb{N}|=|\mathbb{Q}|$
 
-::: {.callout-note collapse="true" title="정답보기(정답률 65%)"}
+::: {.callout-note collapse="true" title="정답보기(정답률 65% · 보기별 ① 65% · ② 67%)"}
 **①**
 :::
