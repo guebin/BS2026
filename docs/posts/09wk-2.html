@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="최규빈">
-<meta name="dcterms.date" content="2026-10-28">
+<meta name="dcterms.date" content="2026-11-02">
 
-<title>09wk-2: 확률 – BS2026</title>
+<title>09wk-2: 중간고사 – BS2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,7 +71,32 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>
-table { width: auto !important; margin-left: auto !important; margin-right: auto !important; }
+/* 간격은 이 글(중간고사)에만 — 대표 11-03 05:07 «이게 아님 중간고사만 바뀌어야함». 사이트 styles.css 는 그대로 */
+/* 본문 · 보기 ①~④ — 줄 사이와 문단 사이 */
+#quarto-document-content p, #quarto-document-content li { line-height: 1.85; }
+#quarto-document-content p { margin-bottom: 1.1em; }
+/* 문제 사이 — 위를 넉넉히 띄우고 가는 선으로 가른다 */
+body #quarto-document-content h3 { margin-top: 3em; padding-top: 1.2em; border-top: 1px solid #e2e2e2; margin-bottom: 1.1em; }
+/* 인용(피셔 · 박스 · 문제19 명제) — 위아래 여백 */
+#quarto-document-content blockquote { margin: 1.2em 0 2em 0; padding: 0.5em 1.1em; border-left: 3px solid #c8c8c8; color: #333; font-size: 1em; }
+#quarto-document-content blockquote > p { margin: 0 0 0.6em 0; }
+#quarto-document-content blockquote > p:last-child { margin-bottom: 0; }
+/* 그림 · 블록 수식 위아래 (블록 수식은 styles.css 의 1em !important 보다 앞서게 body 를 붙인다) */
+#quarto-document-content .quarto-figure { margin: 1.6em 0; }
+body #quarto-document-content .math.display { margin: 1.3em 0 !important; }
+/* 밑줄(㉠ ㉡) — 글자 밑줄은 수식 자리에서 끊기므로 테두리 선으로 (대표 05:04 «밑줄이 왜케 짤려보이지») */
+#quarto-document-content u { text-decoration: none; border-bottom: 1.5px solid currentColor; padding-bottom: 1px; }
+/* 지문 상자 · 〈보기〉 — 안 여백 */
+.passage { border: 1px solid #888; border-radius: 4px; padding: 1.3em 1.6em; margin: 1.5em 0; }
+.bogi { border: 1px solid #888; padding: 1.1em 1.5em; margin: 1.4em 0; }
+.bogi > p:first-child { text-align: center; }
+/* 표 — 가운데 · 위아래 · 칸 */
+table { width: auto !important; margin-left: auto !important; margin-right: auto !important; margin-top: 1.2em !important; margin-bottom: 1.4em !important; }
+#quarto-document-content table td, #quarto-document-content table th { padding: 0.5em 0.9em; }
+/* 지문 상자 · 〈보기〉 안의 표 — 칸이 많으면 상자 밖으로 나가므로(대표 05:02 «칸을삐져나감») 칸 여백을 줄이고, 그래도 넓으면 표 안에서 가로로 민다 */
+.passage table, .bogi table { display: block; width: max-content !important; max-width: 100%; overflow-x: auto; }
+#quarto-document-content .passage table td, #quarto-document-content .passage table th,
+#quarto-document-content .bogi table td, #quarto-document-content .bogi table th { padding: 0.45em 0.5em; }
 </style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -107,7 +132,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -145,26 +170,13 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">1. 강의영상</a></li>
-  <li><a href="#확률" id="toc-확률" class="nav-link" data-scroll-target="#확률">2. 확률</a>
-  <ul class="collapse">
-  <li><a href="#a.-motivation" id="toc-a.-motivation" class="nav-link" data-scroll-target="#a.-motivation">A. Motivation</a></li>
-  <li><a href="#b.-definition" id="toc-b.-definition" class="nav-link" data-scroll-target="#b.-definition">B. Definition</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><strong>09wk-2</strong>: 확률</h1>
+<h1 class="title"><strong>09wk-2</strong>: 중간고사</h1>
 </div>
 
 
@@ -181,7 +193,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 28, 2026</p>
+      <p class="date">November 2, 2026</p>
     </div>
   </div>
   
@@ -193,296 +205,1873 @@ window.Quarto = {
 </header>
 
 
-<section id="강의영상" class="level1">
-<h1>1. 강의영상</h1>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLO0QFjrEqzck&amp;si=pRV2Iwjtrz_LzmAa" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</section>
-<section id="확률" class="level1">
-<h1>2. 확률</h1>
-<section id="a.-motivation" class="level2">
-<h2 class="anchored" data-anchor-id="a.-motivation">A. Motivation</h2>
-<p><code>-</code> 이제 우리는 확률을 정의할 준비가 되었다. (놀랍게도 지금까지 우리는 확률을 정의한 적 없다)</p>
-<p><code># 생각예제1</code></p>
-<p>동전을 한 번 던지는 상황을 생각하자. <span class="math inline">\(\Omega=\{H,T\}\)</span> 이다. 공평한 동전이라면 우리는 보통 확률을 아래와 같이 준다.</p>
+<p>※ 총 <span class="math inline">\(65\)</span> 문항이며(소문항은 각각 한 문항으로 센다), 문항별 배점은 모두 같다. <span class="math inline">\(65\)</span> 점 만점이다.</p>
+<p>※ “모두 고르라”는 문항은 올바른 것이 하나도 없을 수도 있다. 그때는 “없음”이라고 쓴다.</p>
+<p>※ 꼭 그런 것은 아니지만, 보기가 긴 경우가 정답인 경우가 있다. 답 자리가 ①에 몰려 있는 경우가 많다.</p>
+<section id="문제1" class="level3">
+<h3 class="anchored" data-anchor-id="문제1">문제1</h3>
+<p>어떤 사진을 보고 세 사람이 다음과 같이 말하였다.</p>
 <ul>
-<li><span class="math inline">\(P(\Omega)=1\)</span></li>
-<li><span class="math inline">\(P(\{H\})=\frac{1}{2}\)</span></li>
-<li><span class="math inline">\(P(\{T\})=\frac{1}{2}\)</span></li>
-<li><span class="math inline">\(P(\emptyset)=0\)</span></li>
+<li>(가) 한 남자가 공원에서 빨간 자전거를 타고 있다.</li>
+<li>(나) 한 남자가 자전거를 타고 있다.</li>
+<li>(다) 사람이 자전거를 타고 있다.</li>
 </ul>
-<p>이렇게 써 놓고 보니, 확률이라는 것은 어떠한 집합이 입력으로 들어가고 <span class="math inline">\([0,1]\)</span> 사이의 값이 출력으로 나오는 함수라고 해석할 수 있다.</p>
-<p>그런데 이 숫자들은 아무렇게나 정한 것이 아니다. 예를 들어 <span class="math inline">\(P(\Omega)=0.5\)</span> 라면 이러한 함수 <span class="math inline">\(P\)</span>를 확률이라고 생각하지는 않을 것이다. 그렇다면 확률이라는 함수는 어떠한 특성을 만족해야 할까? 이 예제에서는 아래 세 가지가 지켜지고 있다.</p>
-<ol type="1">
-<li>확률은 음수가 아니다. (네 값이 모두 <span class="math inline">\(0\)</span> 이상이다)</li>
-<li>전체집합의 확률은 <span class="math inline">\(1\)</span>이다. (<span class="math inline">\(P(\Omega)=1\)</span>)</li>
-<li>서로소인 집합들의 합집합의 확률은 각 확률의 합이다. (<span class="math inline">\(P(\{H\}\cup\{T\})=P(\{H\})+P(\{T\})\)</span>)</li>
-</ol>
-<p>동전 예제에서는 서로소인 집합을 유한개만 고를수 있지만, 좀 더 일반적인 상황에서는 3에서 등장하는 서로소인 합집합을 유한 개가 아니라 셀 수 있는 무한 개까지 확장시킨다. 즉 서로소인 <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>에 대하여</p>
-<p><span class="math display">\[P(A)+P(B)=P(A\cup B)\]</span></p>
-<p>뿐 아니라, 서로소인 <span class="math inline">\(A_1,A_2,\dots\)</span>에 대하여</p>
-<p><span class="math display">\[P(A_1)+P(A_2)+\cdots=P(A_1\cup A_2\cup\cdots)\]</span></p>
-<p>도 성립해야 한다. 이제 약속 3개를 기호로 다시 정리하면 아래와 같다.</p>
-<ol type="1">
-<li><span class="math inline">\(P(A)\geq 0\)</span></li>
-<li><span class="math inline">\(P(\Omega)=1\)</span></li>
-<li>서로소인 <span class="math inline">\(A_1,A_2,\dots\)</span>에 대하여 <span class="math inline">\(P(\cup_{i=1}^{\infty}A_i)=\sum_{i=1}^{\infty}P(A_i)\)</span></li>
-</ol>
-<p>이것이 확률의 공리이다. 그런데 이것으로 끝일까? 가장 중요한 것이 하나 남았다. 앞에서 확률은 함수라고 했다. 함수라면 정의역이 있어야 한다. 이 예제에서 확률의 정의역, 즉 <span class="math inline">\(P\)</span>에 넣을 수 있는 집합들의 모임을 보자.</p>
-<p><span class="math display">\[\big\{\emptyset, \{H\}, \{T\}, \Omega\big\}\]</span></p>
-<p>바로 시그마필드다! 확률은 정의역이 시그마필드이어야 한다는 조건이 있다. (이건 사실 당연한 거죠. 애초에 시그마필드를 정의한 이유가 뭐였겠어요?)</p>
-<p>따라서 아래와 같이 정리할 수 있다.</p>
+<p>세 진술이 참일 확률에 대하여 올바른 것을 모두 고르라.</p>
+<p>① 사진을 가장 자세히 설명한 진술은 (가) 이므로, 참일 확률이 가장 큰 진술도 (가) 이다.<br>
+② (다) 는 너무 막연한 진술이므로, 참일 확률이 가장 작다.<br>
+③ 세 진술은 모두 같은 사진을 말하므로, 참일 확률이 모두 같다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 75%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 75%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>없음</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제2" class="level3">
+<h3 class="anchored" data-anchor-id="문제2">문제2</h3>
+<p>공평한 동전을 던져 앞면이 나오면 <span class="math inline">\(0\)</span>, 뒷면이 나오면 <span class="math inline">\(1\)</span> 을 적기로 하고, 이 동전을 <span class="math inline">\(5\)</span> 번 던져 <span class="math inline">\(0,\ 1,\ 0,\ 0,\ 1\)</span> 을 얻었다. 다음 물음에 답하라.</p>
+<p><code>(1)</code> 누군가 “평균은 얼마인가?” 하고 물었다. 이 물음은 두 가지 뜻으로 읽을 수 있다. 두 뜻을 각각 쓰고, 그때의 답을 구하라.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 27%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 27%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>모평균(동전을 한 번 던진 결과의 평균) <span class="math inline">\(\frac{1}{2}\)</span> · 표본평균(얻은 다섯 값의 평균) <span class="math inline">\(\frac{2}{5}\)</span></strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> 다음 두 주장이 참인지 거짓인지 판단하라.</p>
+<p>① 다섯 값의 평균이 <span class="math inline">\(\frac{1}{2}\)</span> 이 아니므로, 이 동전이 공평하다는 가정은 틀렸다.<br>
+② 동전을 <span class="math inline">\(5\)</span> 번 더 던지면, (1)에서 구한 두 답이 모두 바뀔 수 있다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 57%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 57%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① 거짓 · ② 거짓</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제3" class="level3">
+<h3 class="anchored" data-anchor-id="문제3">문제3</h3>
+<p>어떤 후보를 지지하는 유권자의 비율을 알아보려고 유권자 <span class="math inline">\(100\)</span> 명에게 물었더니 <span class="math inline">\(40\)</span> 명이 지지한다고 답하였다. 전체 유권자 가운데 지지자의 비율을 <span class="math inline">\(p\)</span>, 물어본 <span class="math inline">\(100\)</span> 명 가운데 지지자의 비율을 <span class="math inline">\(\bar{x}\)</span> 라 하자. 이번 조사에서 <span class="math inline">\(\bar{x}\)</span> 는 <span class="math inline">\(0.40\)</span> 으로 실현되었다. 이 조사를 두고 누군가 “지지율이 <span class="math inline">\(0.35\)</span> 와 <span class="math inline">\(0.45\)</span> 사이일 확률은 얼마인가?” 하고 물었다. 올바른 것을 모두 고르라.</p>
+<p>① 이번 조사에서 <span class="math inline">\(\bar{x}\)</span> 가 이미 <span class="math inline">\(0.40\)</span> 으로 실현되었으므로, <span class="math inline">\(p\)</span> 가 <span class="math inline">\(0.35\)</span> 와 <span class="math inline">\(0.45\)</span> 사이일 확률은 <span class="math inline">\(1\)</span> 이다.<br>
+② 이 물음이 “<span class="math inline">\(100\)</span> 명을 다시 뽑을 때 <span class="math inline">\(\bar{x}\)</span> 가 <span class="math inline">\(0.35\)</span> 와 <span class="math inline">\(0.45\)</span> 사이의 값으로 실현될 확률” 이라는 의미라고 한다면, 말이 된다.<br>
+③ ’지지율’이 <span class="math inline">\(p\)</span> 를 뜻한다면, <span class="math inline">\(p\)</span> 는 모수이고 모수에는 확률을 줄 수 없으므로 이 물음의 ’확률’은 어색하다.<br>
+④ ’지지율’을 <span class="math inline">\(p\)</span> 로 읽든 <span class="math inline">\(\bar{x}\)</span> 로 읽든 같은 낱말이므로, 이 물음이 말이 되는지는 달라지지 않는다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 65%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 65%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>② · ③</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제4" class="level3">
+<h3 class="anchored" data-anchor-id="문제4">문제4</h3>
+<p>다음 글을 읽고 물음에 답하라.</p>
+<div class="passage">
+<p>통계학을 두 세계의 이야기로 비유할 수 있다. 하나는 우리가 알고 싶지만 직접 볼 수는 없는 ’진실의 세계’이고, 다른 하나는 우리가 실제로 손에 쥐는 ’데이터의 세계’이다. 피셔는 1922년 논문에서, 우리가 얻은 관측값을 ’가설적 무한 모집단’에서 뽑은 표본으로 보자고 하였다. 이 비유로 말하면, 1이 나올 비율이 <span class="math inline">\(p\)</span> 인 가설적 무한 모집단은 진실의 세계에 있고, 그 모집단에서 실제로 뽑은 표본은 데이터의 세계에 있다. <span class="math inline">\(n\)</span> 개를 뽑아 1이 <span class="math inline">\(x\)</span> 개 나왔다면 <span class="math inline">\(x\)</span> 와 <span class="math inline">\(\frac{x}{n}\)</span> 은 데이터의 세계의 값이다. 표본을 새로 뽑을 때마다 달라지는 것은 진실의 세계의 <span class="math inline">\(p\)</span> 가 아니라 데이터의 세계 쪽이다. 같은 논문에서 피셔는, 최대가능도방법을 처음 내놓은 1912년 논문에서 <span class="math inline">\(p\)</span> 의 한 값이 다른 값보다 몇 배의 ’역확률’을 가진다고 말했던 것을 돌아보며 이렇게 썼다.</p>
 <blockquote class="blockquote">
-<ol type="1">
-<li>정의역이 시그마필드이고 (2) 공리1,2,3을 만족하는 “함수”를 우리는 “확률”이라고 부르기로 했어요.</li>
-</ol>
+<p>Upon consideration, therefore, I perceive that the word probability is wrongly used in such a connection : probability is a ratio of frequencies, and about the frequencies of such values we can know nothing whatever.</p>
+<p>(그러므로 곰곰이 생각해 보니, 그런 맥락에서 확률이라는 낱말은 잘못 쓰였음을 알겠다. 확률은 도수의 비인데, ㉠<u>그러한 값들의 도수에 대해서 우리는 아무것도 알 수 없다</u>.) — Fisher (1922), p.326 (간접인용)</p>
 </blockquote>
-<p><code>#</code></p>
+<p>여기서 ’그러한 값들’은 모수 <span class="math inline">\(p\)</span> 가 가질 수 있는 값들을 뜻한다.</p>
+</div>
+<p>밑줄 친 ㉠에 대한 이해로 올바른 것을 모두 고르라.</p>
+<p>① ㉠은 표본에서 계산한 비율 <span class="math inline">\(\frac{x}{n}\)</span> 이 표본마다 달라지므로, <span class="math inline">\(\frac{x}{n}\)</span> 의 도수를 알 수 없다는 뜻이다.<br>
+② ㉠은, <span class="math inline">\(p\)</span> 도 <span class="math inline">\(x\)</span> 처럼 표본을 새로 뽑을 때마다 달라지므로 그 값들의 도수를 미리 알 수 없다는 데서 나온다.<br>
+③ ㉠은, 표본을 아무리 되풀이해 뽑아도 그에 따라 달라지는 것은 <span class="math inline">\(x\)</span> 이지 <span class="math inline">\(p\)</span> 가 아니라는 데서 나온다.<br>
+④ 표본을 아주 크게 하면 <span class="math inline">\(\frac{x}{n}\)</span> 이 곧 <span class="math inline">\(p\)</span> 가 되므로, <span class="math inline">\(p\)</span> 가 가질 수 있는 값들의 도수도 알 수 있게 되어 ㉠의 어려움은 사라진다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 24%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 24%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>③</strong></p>
+</div>
+</div>
+</div>
 </section>
-<section id="b.-definition" class="level2">
-<h2 class="anchored" data-anchor-id="b.-definition">B. Definition</h2>
-<p><code>-</code> 확률의 정의: <span class="math inline">\((\Omega, {\cal F})\)</span>가 measurable space 라고 할때, 함수 <span class="math inline">\(P:{\cal F} \to [0,1]\)</span>이 아래를 만족한다면</p>
-<ol type="1">
-<li><span class="math inline">\(P(A)\geq 0\)</span>, for any <span class="math inline">\(A \in {\cal F}\)</span></li>
-<li><span class="math inline">\(P(\Omega)=1\)</span></li>
-<li><span class="math inline">\(P(\cup_{i=1}^{\infty}A_i)= \sum_{i=1}^\infty P(A_i)\)</span>, for any countable sequence of disjoint sets <span class="math inline">\(A_i \in {\cal F}\)</span></li>
-</ol>
-<p><span class="math inline">\(P\)</span>를 <span class="math inline">\((\Omega, {\cal F})\)</span>에서의 probablity라고 한다.</p>
-<p><code>-</code> 위키의 정의</p>
+<section id="문제5" class="level3">
+<h3 class="anchored" data-anchor-id="문제5">문제5</h3>
+<p>다음 글을 읽고 물음에 답하라.</p>
+<div class="passage">
+<p>자료를 오래 들여다보면 “이 수들은 이러이러한 규칙에서 나온 것 같다” 는 생각이 든다. 이처럼 자료가 만들어지는 규칙을 거꾸로 상상하는 일을 모델링이라 한다. 예컨대 관측한 <span class="math inline">\(n\)</span> 개의 값이 정규분포에서 나왔다고 상상하면, 그것은 <span class="math inline">\(X_1,\dots,X_n \overset{i.i.d.}{\sim} N(\mu,\sigma^2)\)</span> 으로 모델링한 것이다. 상상한 규칙이 실제 규칙과 같다는 보장은 없다. 같은 자료를 보고 다른 사람은 다른 규칙을 상상할 수 있으며, 그 또한 모델링이다.</p>
+<p>상상한 규칙에는 아직 정해지지 않은 수가 남는다. 정규분포라면 <span class="math inline">\(\mu\)</span> 와 <span class="math inline">\(\sigma^2\)</span> 이다. 이처럼 분포를 특정하는 데 필요한 수를 모수라 하고, 자료를 써서 모수의 값을 구체적으로 정하는 일을 모수추정이라 한다.</p>
+</div>
+<p><code>(1)</code> 윗글에 비추어, 다음 가운데 모델링의 예가 <strong>아닌</strong> 것을 모두 고르라.</p>
+<p>① 카페 주인이 온도와 아이스아메리카노 판매량 자료를 보고, 판매량이 <span class="math inline">\(y_i=\beta_0+\beta_1x_i+\epsilon_i\)</span>, <span class="math inline">\(\epsilon_i\sim N(0,\sigma^2)\)</span> 의 꼴로 만들어졌다고 상상하였다. (<span class="math inline">\(x_i\)</span> 는 온도)<br>
+② 숫자 <span class="math inline">\(8\)</span> 개를 보고, 이 숫자들이 <span class="math inline">\(N(\mu,\sigma^2)\)</span> 에서 독립으로 나왔다고 상상하였다. (사실 이 숫자들은 균등분포에서 만든 것이다.)<br>
+③ 이미 세워 둔 꼴 <span class="math inline">\(y_i=\beta_0+\beta_1x_i+\epsilon_i\)</span> 에서, 자료로 <span class="math inline">\(\beta_0\)</span> 와 <span class="math inline">\(\beta_1\)</span> 의 값을 구체적으로 정하였다.<br>
+④ <span class="math inline">\(100\)</span> 명의 스펙과 취업 여부 자료를 보고, 취업 여부가 <span class="math inline">\(Bernoulli(\pi_i)\)</span>, <span class="math inline">\(\pi_i=\frac{\exp(\beta_0+\beta_1x_i)}{1+\exp(\beta_0+\beta_1x_i)}\)</span> 를 따른다고 상상하였다. (<span class="math inline">\(x_i\)</span> 는 스펙)</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 71%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 71%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>③</strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> 어떤 자료 <span class="math inline">\(30\)</span> 개의 평균, 표준편차, 최솟값, 최댓값을 계산하였더니 아래와 같았다.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">평균</th>
+<th style="text-align: center;">표준편차</th>
+<th style="text-align: center;">최솟값</th>
+<th style="text-align: center;">최댓값</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(20.13\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2.95\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(14.62\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(26.40\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>윗글에 비추어 올바른 것을 모두 고르라.</p>
+<p>① 표의 평균과 표준편차는 자료에서 계산한 값이므로 모수가 아니다.<br>
+② 이 자료를 <span class="math inline">\(U(a,b)\)</span> 로 모델링하면, 표의 최솟값과 최댓값이 곧 모수 <span class="math inline">\(a\)</span> 와 <span class="math inline">\(b\)</span> 이다.<br>
+③ 이 자료를 두고 한 사람은 균등분포 <span class="math inline">\(U(a,b)\)</span> 에서, 다른 사람은 정규분포 <span class="math inline">\(N(\mu,\sigma^2)\)</span> 에서 나왔다고 상상하였다면, 두 사람 모두 모델링을 한 것이다.<br>
+④ <span class="math inline">\(U(a,b)\)</span> 의 <span class="math inline">\(a\)</span> 와 <span class="math inline">\(b\)</span> 를 자료로 정하는 것을 모수추정이라 한다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 51%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 51%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ③ · ④</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제6" class="level3">
+<h3 class="anchored" data-anchor-id="문제6">문제6</h3>
+<p>다음 글을 읽고 물음에 답하라.</p>
+<div class="passage">
+<p>자료를 보고 그 자료가 만들어진 규칙을 상상하는 일을 모델링이라 한다. 같은 숫자들을 보고 누군가는 균등분포를, 누군가는 정규분포를 상상할 수 있다. 그런데 현실에서는 많은 경우 자료를 만든 규칙을 끝내 알 수 없으므로, 올바른 모델링이란 거의 불가능하다. 그래서 올바른 모델을 찾으려 애쓰기보다 쓸모 있는 모델을 찾으려 애쓰는 편이 더 의미 있는 경우가 많다. 통계학자 조지 박스는 이렇게 적었다.</p>
+<blockquote class="blockquote">
+<p>All models are wrong, but some are useful.</p>
+<p>(모든 모델은 틀렸다. 그러나 몇 개는 쓸모 있다.) — George Box</p>
+</blockquote>
+</div>
+<div class="bogi">
+<p>〈보기〉</p>
+<p>어느 과수원의 사과 무게(g)를 두고, 자료를 모으기 전에 “무게가 어떤 구간 안에서 고르게 퍼져 있다”는 균등분포 모델과 “무게가 정규분포를 따른다”는 정규분포 모델이 제안되었다.</p>
+</div>
+<p><code>(1)</code> 도수분포표를 보기 전, 윗글을 바탕으로 〈보기〉의 두 모델을 판단한 것으로 올바른 것을 모두 고르라.</p>
+<p>① 두 모델 가운데 적어도 하나는 사과 무게를 만든 실제 규칙과 꼭 같다.<br>
+② 정규분포 모델이든 균등분포 모델이든 실제 규칙과 꼭 같지는 않을 것이므로, 두 모델은 모두 쓸모가 없다.<br>
+③ 두 모델은 서로 다른 분포를 상상했으므로, 둘 가운데 하나만 올바른 모델링이라 할 수 있다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 76%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 76%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>없음</strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> 그 뒤 사과 <span class="math inline">\(40\)</span> 개의 무게를 재어 도수분포표를 만들었더니 아래와 같았다.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">무게(g)</th>
+<th style="text-align: center;"><span class="math inline">\([250,270)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\([270,290)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\([290,310)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\([310,330)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\([330,350)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\([350,370)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">개수</td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(13\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(11\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>이 도수분포표를 본 뒤, 윗글을 바탕으로 두 모델을 판단한 것으로 올바른 것을 모두 고르라.</p>
+<p>① 균등분포 모델이 맞다면 여섯 구간에 엇비슷한 개수가 들어가야 하는데, 가운데 두 구간에 <span class="math inline">\(24\)</span> 개가 몰리고 양 끝 구간에는 <span class="math inline">\(2\)</span> 개씩뿐이다. 그러므로 이 자료에 균등분포 모델은 쓸모 있는 모델로 보기 어렵다.<br>
+② 이 표를 막대그래프로 그리면 가운데가 높고 양쪽이 엇비슷하게 낮아지는 종 모양이 된다. 그러므로 사과 무게는 무조건 정규분포를 따른다.<br>
+③ 이 표만으로 사과 무게가 정규분포를 따른다고 확정할 수는 없지만, 이 자료에는 정규분포 모델이 균등분포 모델보다 쓸모 있어 보인다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 92%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 92%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ③</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제7" class="level3">
+<h3 class="anchored" data-anchor-id="문제7">문제7</h3>
+<p>앞면이 나올 확률이 <span class="math inline">\(\theta\)</span> 인 동전을 두 번 던져 앞면은 <span class="math inline">\(1\)</span>, 뒷면은 <span class="math inline">\(0\)</span> 으로 적었더니 아래와 같았다. 다음 물음에 답하라.</p>
+<p><span class="math display">\[x_1=0,\qquad x_2=1\]</span></p>
+<p><code>(1)</code> <span class="math inline">\(\theta=0.1\)</span> 이라고 생각하기보다 <span class="math inline">\(\theta=0.5\)</span> 라고 생각하는 것이 더 타당하다. 그 까닭으로 올바른 것을 모두 고르라.</p>
+<p>① 동전이니까 앞면이 나올 확률은 당연히 반반, 즉 <span class="math inline">\(\theta=0.5\)</span> 이다.<br>
+② <span class="math inline">\(\theta=0.5\)</span> 이면 이 결과를 얻을 확률은 <span class="math inline">\(0.5\times0.5=0.25\)</span> 이고, <span class="math inline">\(\theta=0.1\)</span> 이면 <span class="math inline">\(0.9\times0.1=0.09\)</span> 이다. 즉 <span class="math inline">\(L(0.5)&gt;L(0.1)\)</span> 이다.<br>
+③ 두 번 가운데 한 번 앞면이 나왔으므로, <span class="math inline">\(\theta\)</span> 는 정확히 <span class="math inline">\(0.5\)</span> 이다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 73%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 73%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>②</strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> 갑은 아래와 같이 말하였다.</p>
+<p><span class="math display">\[P(\theta=0.5)=0.25,\qquad P(\theta=0.1)=0.09\]</span></p>
+<p>을은 다음과 같이 반박하였다.</p>
+<div class="bogi">
+<p>〈을의 반박〉</p>
+<p>갑의 말이 옳다면, 같은 방법으로</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(\theta\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0.3\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0.4\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0.5\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0.6\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0.7\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P(\theta)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.21\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.24\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.25\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.24\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.21\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>이어야 한다. 그런데 이 다섯 값만 더해도</p>
+<p><span class="math display">\[0.21+0.24+0.25+0.24+0.21=1.15&gt;1\]</span></p>
+<p>이다. 따라서 갑이 말한 값은 <span class="math inline">\(\theta\)</span> 의 확률이 아니다.</p>
+</div>
+<p>을의 반박에 대하여 올바른 것을 모두 고르라.</p>
+<p>① 을의 반박은 갑의 말이 옳다고 가정한 뒤 모순을 끌어내어 그 가정이 틀렸음을 보이는 것으로, 귀류법이다.<br>
+② 을의 반박대로라면 <span class="math inline">\(0.25\)</span> 와 <span class="math inline">\(0.09\)</span> 는 아무 뜻도 없는 수이므로, 두 수를 견주어 <span class="math inline">\(\theta=0.5\)</span> 가 <span class="math inline">\(\theta=0.1\)</span> 보다 그럴듯하다고 말할 수도 없다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 69%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 69%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>①</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제8" class="level3">
+<h3 class="anchored" data-anchor-id="문제8">문제8</h3>
+<p>어떤 양 <span class="math inline">\(\theta\)</span> 를 네 번 측정하여 아래 자료를 얻었다. 측정값은 <span class="math inline">\(X_1,\dots,X_4 \overset{i.i.d.}{\sim} N(\theta,1)\)</span> 을 따른다고 하자.</p>
+<p><span class="math display">\[x_1=0.8,\quad x_2=-0.3,\quad x_3=1.1,\quad x_4=0.6\]</span></p>
+<p>두 사람이 <span class="math inline">\(\theta\)</span> 를 다음과 같이 추정하였다.</p>
+<ul>
+<li>갑: 표본평균 <span class="math inline">\(\hat{\theta}=\frac{X_1+X_2+X_3+X_4}{4}\)</span> 로 추정한다. 이 자료에서는 <span class="math inline">\(\frac{0.8-0.3+1.1+0.6}{4}=0.55\)</span> 이다.</li>
+<li>을: 지난해 조사에서 <span class="math inline">\(\theta\)</span> 가 <span class="math inline">\(0\)</span> 근처였다는 것을 알고 있어서, 자료와 상관없이 <span class="math inline">\(\hat{\theta}=0\)</span> 으로 추정한다.</li>
+</ul>
+<p>두 추정량에 대한 설명으로 올바른 것을 모두 고르라.</p>
+<p>① 을의 추정량은 <span class="math inline">\(\theta=0\)</span> 일 때 <span class="math inline">\(\mathbb{E}[\hat{\theta}]=\theta\)</span> 를 만족하므로 불편추정량이다.<br>
+② 갑의 추정량은 모든 <span class="math inline">\(\theta\)</span> 에서 <span class="math inline">\(\mathbb{E}[\hat{\theta}]=\theta\)</span> 를 만족하므로 불편추정량이다.<br>
+③ 이번 자료의 표본평균이 <span class="math inline">\(0\)</span> 이었다면, 을의 추정량도 불편추정량이 된다.<br>
+④ 갑의 추정량이 불편추정량이라고 해서, 이번 자료로 얻은 추정값 <span class="math inline">\(0.55\)</span> 가 <span class="math inline">\(\theta\)</span> 와 같다는 뜻은 아니다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 33%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 33%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>② · ④</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제9" class="level3">
+<h3 class="anchored" data-anchor-id="문제9">문제9</h3>
+<p>문제8 의 갑과 을이 저마다의 방법으로, 자료를 새로 얻어 <span class="math inline">\(\theta\)</span> 를 추정하는 일을 여러 번 되풀이하였다. 아래는 그 추정값들을 과녁에 하나씩 찍을 때 나올 수 있는 네 가지 꼴이다. 과녁의 한가운데가 참값 <span class="math inline">\(\theta\)</span> 이고, 점이 하나뿐인 그림은 추정값이 모두 같은 자리에 찍힌 것이다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="attachments/261030-강민-09wk2-위키-콜모고로프공리.png" class="img-fluid figure-img"></p>
-<figcaption>그림1: 위키피디아 「Probability axioms」 문서에서 캡처한 콜모고로프 공리</figcaption>
+<p><img src="attachments/261102-midterm-target4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
 </figure>
 </div>
-<p><code>-</code> 제 생각: 확률을 헷갈리지 않고 잘 이해하는 포인트는 (1) 확률은 “함수”라는 사실과 (2) 정의역이 “시그마필드”라는 사실입니다.</p>
-<p><code>-</code> 암기!! <span class="math inline">\(P: {\cal F} \to [0,1]\)</span></p>
-<p><code># 예제1</code></p>
-<p><span class="math inline">\(\Omega=\{H,T\}\)</span>, <span class="math inline">\({\cal F}=\{\emptyset, \{H\}, \{T\}, \Omega\}\)</span>라고 하자. 아래와 같이 정의한 <span class="math inline">\(P\)</span>는 확률인가?</p>
-<ul>
-<li><span class="math inline">\(P(\emptyset)=0\)</span></li>
-<li><span class="math inline">\(P(\{H\})=-\frac{1}{2}\)</span></li>
-<li><span class="math inline">\(P(\{T\})=\frac{3}{2}\)</span></li>
-<li><span class="math inline">\(P(\Omega)=1\)</span></li>
-</ul>
-<p>(해설)</p>
-<p>확률은 시그마필드를 정의역으로 가지며 공리1,2,3을 만족하는 함수이다. 그런데 위의 함수는 공리1을 만족하지 않으므로 확률이 아니다.</p>
-<p><code>#</code></p>
-<p><code># 예제2</code></p>
-<p><span class="math inline">\(\Omega=\{H,T\}\)</span>, <span class="math inline">\({\cal F}=\{\emptyset, \{H\}, \{T\}, \Omega\}\)</span>라고 하자. 아래와 같이 정의한 <span class="math inline">\(P\)</span>는 확률인가?</p>
-<ul>
-<li><span class="math inline">\(P(\emptyset) = 0\)</span></li>
-<li><span class="math inline">\(P(\{H\}) = \frac{1}{2}\)</span></li>
-<li><span class="math inline">\(P(\{T\}) = \frac{1}{3}\)</span></li>
-<li><span class="math inline">\(P(\Omega) = 1\)</span></li>
-</ul>
-<p>(해설)</p>
-<p>확률은 시그마필드를 정의역으로 가지며 공리1,2,3을 만족하는 함수이다. 그런데 위의 함수는 공리3를 만족하지 않으므로 확률이 아니다.</p>
-<p><code>#</code></p>
-<p><code># 예제3</code> – 시그마필드가 정의역이 아닌 경우</p>
-<p><span class="math inline">\(\Omega=\{H,T\}\)</span>, <span class="math inline">\({\cal F}=\{\emptyset, \{H\}, \Omega\}\)</span>라고 하자. 아래와 같이 정의한 <span class="math inline">\(P\)</span>는 확률인가?</p>
-<ul>
-<li><span class="math inline">\(P(\emptyset) = 0\)</span></li>
-<li><span class="math inline">\(P(\{H\}) = \frac{1}{2}\)</span></li>
-<li><span class="math inline">\(P(\Omega) = 1\)</span></li>
-</ul>
-<p>(해설)</p>
-<p>확률은 시그마필드를 정의역으로 가지며 공리1,2,3을 만족하는 함수이다. 그런데 위의 함수 <span class="math inline">\(P\)</span>는 시그마필드에서 정의되지 않았으므로 확률이 아니다.</p>
-<p><code>#</code></p>
-<p><code># 예제4</code></p>
-<p><span class="math inline">\(\Omega=[0,1]\)</span> 라고 하고 <span class="math inline">\({\cal F}\)</span>는 구간 <span class="math inline">\([a,b], [a,b), (a,b], (a,b)\)</span> (단, <span class="math inline">\(0\leq a&lt;b\leq 1\)</span>)를 모두 원소로 가지는 가장 작은 시그마필드라고 하자. (어떠한 원소들을 포함하는 가장 작은 시그마필드는 [08wk-2, 09wk-1 생각예제7]에서 잠깐 소개했음)</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<p>올바른 것을 모두 고르라.</p>
+<p>① 갑의 추정값은 참값 <span class="math inline">\(\theta\)</span> 가 무엇이든 (가) 의 꼴로 찍힌다.<br>
+② 갑의 추정값은 참값 <span class="math inline">\(\theta\)</span> 가 무엇이든 (나) 의 꼴로 찍힌다.<br>
+③ 을의 추정값은 참값 <span class="math inline">\(\theta\)</span> 에 따라 (가) 의 꼴로도, (나) 의 꼴로도 찍힐 수 있다.<br>
+④ 을의 추정값은 참값 <span class="math inline">\(\theta\)</span> 에 따라 (다) 의 꼴로도, (라) 의 꼴로도 찍힐 수 있다.<br>
+⑤ 갑의 추정값은 참값 <span class="math inline">\(\theta\)</span> 에 따라 (가) 의 꼴로도, (나) 의 꼴로도 찍힐 수 있다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 24%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>정답보기(정답률 24%)
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\({\cal F}\)</span>는 아래의 조건을 만족한다고 생각하면 된다.</p>
-<ul>
-<li>아무튼 <span class="math inline">\({\cal F}\)</span>는 시그마필드임</li>
-<li>그리고 <span class="math inline">\(0\leq a &lt; b\leq 1\)</span> 를 만족하는 임의의 <span class="math inline">\(a,b\)</span>에 대하여 <span class="math inline">\([a,b], [a,b), (a,b], (a,b) \in {\cal F}\)</span> 임<br>
-</li>
-</ul>
+<p><strong>① · ④</strong></p>
 </div>
 </div>
-<p><span class="math inline">\({\cal F}\)</span>의 원소 <span class="math inline">\(A\)</span>에 대하여 확률 <span class="math inline">\(P(A)\)</span>를 <span class="math inline">\(A\)</span>의 르벡메저(길이)로 정의하자. 즉 <span class="math display">\[\forall A \in {\cal F}: m(A)=P(A)\]</span> 라고 하자. (여기서 <span class="math inline">\(m(A)\)</span>는 <span class="math inline">\(A\)</span>의 르벡메저이다.)</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>예를 들어 <span class="math inline">\(0\leq a&lt;b\leq 1\)</span> 인 임의의 <span class="math inline">\(a,b\)</span>에 대하여 네 구간</p>
-<p><span class="math display">\[[a,b],\quad [a,b),\quad (a,b],\quad (a,b)\]</span></p>
-<p>에 대한 길이는 모두 아래와 같다.</p>
-<p><span class="math display">\[P([a,b])=P([a,b))=P((a,b])=P((a,b))=b-a\]</span></p>
-</div>
-</div>
-<p>아래의 값을 정의할 수 있는가? 정의할 수 있다면 그 값은 얼마인가?</p>
-<p><code>(1)</code> <span class="math inline">\(P(\{1\})=\)</span> ?</p>
-<p><code>(2)</code> <span class="math inline">\(P\left(\{1,\frac{1}{2},\frac{1}{3},\dots\}\right)=\)</span> ?</p>
-<p><code>(3)</code> <span class="math inline">\(P\left([0,1] - \{1,\frac{1}{2},\frac{1}{3},\dots\}\right)=\)</span> ?</p>
-<p>(해설)</p>
-<p><code>(1)</code> 정의할 수 있고 값은 <span class="math inline">\(0\)</span> 이다.</p>
-<p><strong>정의할 수 있는 이유:</strong></p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;[0,1] \in {\cal F},\quad [0,1) \in {\cal F} &amp;&amp; (\text{왜? 구간은 모두 } {\cal F} \text{의 원소})\\
-\Rightarrow\ &amp;[0,1] - [0,1) \in {\cal F} &amp;&amp; (\text{왜? 시그마필드는 차집합에 닫혀 있다 (08wk-2 규칙9)})\\
-\Leftrightarrow\ &amp;\{1\} \in {\cal F} &amp;&amp; (\text{왜? } [0,1]-[0,1)=\{1\})
-\end{aligned}
-\]</span></p>
-<p><strong>값이 0인 이유:</strong></p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;[0,1] = [0,1) \cup \{1\} &amp;&amp; \\
-\Rightarrow\ &amp;P([0,1]) = P([0,1) \cup \{1\}) &amp;&amp; (\text{왜? 같은 집합이므로 확률도 같다})\\
-\Rightarrow\ &amp;P([0,1]) = P([0,1)) + P(\{1\}) &amp;&amp; (\text{왜? 공리3, } [0,1) \text{과 } \{1\} \text{은 서로소})\\
-\Rightarrow\ &amp;1 = 1 + P(\{1\}) &amp;&amp; (\text{왜? } [0,1] \text{과 } [0,1) \text{의 길이는 모두 } 1-0=1)\\
-\Rightarrow\ &amp;P(\{1\}) = 0
-\end{aligned}
-\]</span></p>
-<p><code>(2)</code> 정의할 수 있고 값은 <span class="math inline">\(0\)</span> 이다.</p>
-<p><strong>정의할 수 있는 이유:</strong></p>
-<p><span class="math inline">\(\{1,\frac{1}{2},\frac{1}{3},\cdots\} \in {\cal F}\)</span> 임을 보이자.</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;\{1\} \in {\cal F} &amp;&amp; (\text{왜? (1)에서 보였으므로})\hspace{16em}\\
-&amp;\{\tfrac{1}{2}\} \in {\cal F} &amp;&amp; (\text{왜? (1)과 유사논리로 보일 수 있음})\\
-&amp;\{\tfrac{1}{3}\} \in {\cal F} &amp;&amp; (\text{왜? (1)과 유사논리로 보일 수 있음})\\
-&amp;\quad\vdots
-\end{aligned}
-\]</span></p>
-<p><span class="math inline">\(A=\{1,\frac{1}{2},\frac{1}{3},\cdots\}\)</span> 라고 하면</p>
-<p><span class="math display">\[A=\{1\}\cup \{\tfrac{1}{2}\} \cup \{\tfrac{1}{3}\}\cup \cdots = A_1\cup A_2\cup A_3\cup\cdots\]</span></p>
-<p>이다. 그런데 <span class="math inline">\(A_1 \in {\cal F}\)</span>, <span class="math inline">\(A_2 \in {\cal F}\)</span>, <span class="math inline">\(A_3 \in {\cal F}\)</span>, <span class="math inline">\(\dots\)</span> 이고 시그마필드는 가산합집합에 닫혀 있으므로 <span class="math inline">\(A \in {\cal F}\)</span> 이다.</p>
-<p><strong>값이 0인 이유:</strong> <span class="math inline">\(A=\{1,\frac{1}{2},\frac{1}{3},\dots\}\)</span> 라고 하자.</p>
-<p><span class="math display">\[P(A)=P(\{1\})+P(\{\tfrac{1}{2}\})+P(\{\tfrac{1}{3}\})+\cdots=0+0+0+\cdots=0\]</span></p>
-<p>이다. 참고로 위의 식을 좀 더 세련되게 아래처럼 쓸 수도 있다.</p>
-<p><span class="math display">\[P(A)=P\left(\cup_{a \in A}\{a\}\right)=\sum_{a \in A}P(\{a\})=0\]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>어떠한 집합 <span class="math inline">\(X\)</span>는 항상 <span class="math inline">\(X=\cup_{x \in X}\{x\}\)</span> 꼴로 표현 가능하다.</p>
-<p>여기서 <span class="math inline">\(\cup_{x \in X}\)</span> 기호의 뜻은 아래와 같다.</p>
-<ul>
-<li><span class="math inline">\(x\)</span>는 집합 <span class="math inline">\(X\)</span>의 원소</li>
-<li><span class="math inline">\(\cup_{x\in X}\{x\}\)</span> 는 <span class="math inline">\(x\)</span>가 가질 수 있는 모든 값에 대하여 <span class="math inline">\(\{x\}\)</span> 들을 한꺼번에 합집합하라는 뜻임</li>
-</ul>
-<p><strong>예시1:</strong> <span class="math inline">\(A_1\cup A_2 \cup A_3\)</span> 은 아래와 같이 쓸 수 있다. (<span class="math inline">\(i\)</span>가 가질 수 있는 모든 값 <span class="math inline">\(1,2,3\)</span> 에 대하여 <span class="math inline">\(A_i\)</span> 들을 한꺼번에 합집합)</p>
-<p><span class="math display">\[A_1\cup A_2 \cup A_3=\cup_{i=1}^{3}A_i=\cup_{i \in \{1,2,3\}} A_i\]</span></p>
-<p><strong>예시2:</strong> <span class="math inline">\(A=\{\text{사과},\text{배}\}\)</span> 라면 <span class="math inline">\(a\)</span>가 가질 수 있는 값은 <span class="math inline">\(a=\)</span> 사과, <span class="math inline">\(a=\)</span> 배이고</p>
-<p><span class="math display">\[
-\begin{aligned}
-A&amp;=\{\text{사과},\text{배}\}\\
-&amp;=\{\text{사과}\}\cup\{\text{배}\}\\
-&amp;=\cup_{a \in A}\{a\}
-\end{aligned}
-\]</span></p>
-<p>이다. (<span class="math inline">\(a=\)</span> 사과라면 <span class="math inline">\(\{a\}=\{\text{사과}\}\)</span>, <span class="math inline">\(a=\)</span> 배라면 <span class="math inline">\(\{a\}=\{\text{배}\}\)</span>) 따라서 <span class="math inline">\(\cup_{a \in A} \{a\}=\{\text{사과}\}\cup\{\text{배}\}\)</span> 이다.</p>
-</div>
-</div>
-<p><code>(3)</code> 정의할 수 있고 값은 <span class="math inline">\(1\)</span> 이다.</p>
-<p><strong>정의할 수 있는 이유:</strong></p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;\begin{cases}
-[0,1] \in {\cal F} &amp; (\text{왜? 구간은 모두 } {\cal F} \text{의 원소})\\
-\{1,\tfrac{1}{2},\tfrac{1}{3},\dots\} \in {\cal F} &amp; (\text{왜? (2)에서 보였으므로})
-\end{cases}\\
-\Rightarrow\ &amp;[0,1]-\{1,\tfrac{1}{2},\tfrac{1}{3},\dots\} \in {\cal F} \quad (\text{왜? 시그마필드는 차집합에 닫혀 있다})
-\end{aligned}
-\]</span></p>
-<p><strong>값이 0인 이유:</strong></p>
-<p><span class="math inline">\(B=[0,1]-\{1,\frac{1}{2},\frac{1}{3},\dots\}\)</span> 로 두자. 언뜻 생각하면 이렇게 볼 수 있다.</p>
-<p><span class="math display">\[P(B)=P\left(\cup_{b \in B}\{b\}\right)=\sum_{b \in B}P(\{b\})=0\]</span></p>
-<p>그렇지만 공리3은 두 번째 등호를 허용하지 않는다. 따라서 <span class="math inline">\(P(B)=0\)</span> 이 아니다. (이게 무한 번의 기적과 같은 이상한 논리를 주장하는 사람을 깨는 가장 깔끔한 수단이다. 하지만 이를 이해할 수 있는 사람은 무한 번의 기적과 같은 이상한 논리를 펴지 않겠지…)</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><span class="math inline">\(B\)</span>가 셀 수 없는 무한집합인 이유?</p>
-<p>08wk-1 예제2(<span class="math inline">\(\mathbb{R}-\mathbb{Q}\)</span>가 셀 수 없음)와 같은 논리다. <span class="math inline">\([0,1]\)</span>은 셀 수 없는 집합이고(08wk-1 예제1), <span class="math inline">\(A=\{1,\frac{1}{2},\frac{1}{3},\dots\}\)</span>는 셀 수 있는 집합이다. 만약 <span class="math inline">\(B\)</span>가 셀 수 있다면</p>
-<ul>
-<li><span class="math inline">\(A=\{a_1,a_2,a_3,\dots\}\)</span></li>
-<li><span class="math inline">\(B=\{b_1,b_2,b_3,\dots\}\)</span></li>
-</ul>
-<p>와 같이 표현할 수 있고, 그러면</p>
-<p><span class="math display">\[[0,1]=A\cup B=\{a_1,b_1,a_2,b_2,\dots\}\]</span></p>
-<p>가 되어 <span class="math inline">\([0,1]\)</span>이 셀 수 있는 집합이 된다. 이는 <span class="math inline">\([0,1]\)</span>이 셀 수 없는 집합이라는 결과와 모순이다. 따라서 <span class="math inline">\(B\)</span>는 셀 수 없는 집합이다.</p>
-</div>
-</div>
-<p>그러면 <span class="math inline">\(P(B)\)</span>는 어떻게 구해야 하나?</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;B=[0,1]-A &amp;&amp; (A=\{1,\tfrac{1}{2},\tfrac{1}{3},\dots\})\\
-\Rightarrow\ &amp;A \cup B = [0,1] &amp;&amp; \\
-\Rightarrow\ &amp;P(A)+P(B) = P([0,1]) &amp;&amp; (\text{왜? 공리3, } A \text{와 } B \text{는 서로소})\\
-\Rightarrow\ &amp;0+P(B) = 1 &amp;&amp; (\text{왜? (2)에서 } P(A)=0,\ [0,1] \text{의 길이는 } 1)\\
-\Rightarrow\ &amp;P(B)=1
-\end{aligned}
-\]</span> <code>#</code></p>
-<p><code>-</code> 참고: 아래의 사실이 성립한다.</p>
-<p><strong><span class="math inline">\({\cal F}\)</span>를 <span class="math inline">\(\Omega\)</span>의 모든 부분집합들의 모임이라고 하면, <span class="math inline">\({\cal F}\)</span>는 <span class="math inline">\(\Omega\)</span>의 시그마필드이다.</strong> 왜냐하면</p>
-<ol type="1">
-<li><span class="math inline">\(\Omega \in {\cal F}\)</span> 이고</li>
-<li>여집합에 닫혀 있고</li>
-<li>가산합집합에도 닫혀 있기 때문이다.</li>
-</ol>
-<p><code># 예제5</code></p>
-<p><span class="math inline">\(\Omega=\mathbb{N}\)</span> 이고, <span class="math inline">\({\cal F}\)</span>는 <span class="math inline">\(\mathbb{N}\)</span>의 모든 부분집합들의 모임이라고 하자.</p>
-<p><code>(1)</code> 자연수 <span class="math inline">\(n\)</span>을 확률 <span class="math inline">\(\frac{1}{2^n}\)</span> 으로 뽑고 싶다고 하자. 즉 <span class="math inline">\(1\)</span>은 <span class="math inline">\(\frac{1}{2}\)</span>, <span class="math inline">\(2\)</span>는 <span class="math inline">\(\frac{1}{4}\)</span>, <span class="math inline">\(3\)</span>은 <span class="math inline">\(\frac{1}{8}\)</span>, <span class="math inline">\(\dots\)</span> 의 확률로 뽑는다. <span class="math inline">\({\cal F}\)</span>의 원소 <span class="math inline">\(A\)</span>에 대하여 <span class="math inline">\(P(A)=\sum_{n\in A}\frac{1}{2^n}\)</span> 으로 정의하면 <span class="math inline">\(P\)</span>는 적절한 확률인가?</p>
-<p><code>(2)</code> 자연수를 모두 같은 확률로 뽑는다고 하자. <span class="math inline">\(P\)</span>를 잘 정의할 수 있는가?</p>
-<p>(해설)</p>
-<p><code>(1)</code> 적절한 확률이다. 정의역 <span class="math inline">\({\cal F}\)</span>는 시그마필드이고, 공리 1, 2, 3을 모두 만족한다.</p>
-<p><code>(2)</code> 잘 정의할 수 없다. 모든 자연수의 확률이 같다고 하고 그 값을 <span class="math inline">\(c\)</span>라 하자. 즉 <span class="math inline">\(P(\{n\})=c\)</span> 이다. <span class="math inline">\(\mathbb{N}=\{1\}\cup\{2\}\cup\{3\}\cup\cdots\)</span> 은 서로소인 한 점 집합들의 합집합이므로 공리3에 의하여</p>
-<p><span class="math display">\[P(\mathbb{N})=c+c+c+\cdots\]</span></p>
-<p>이다. 그런데 <span class="math inline">\(c=0\)</span> 이면 우변은 <span class="math inline">\(0\)</span> 이고, <span class="math inline">\(c&gt;0\)</span> 이면 우변은 <span class="math inline">\(\infty\)</span> 이다. 어느 쪽이든 공리2 <span class="math inline">\(P(\mathbb{N})=1\)</span> 과 맞지 않는다. 따라서 자연수 전체에서 “공평하게” 하나를 뽑는 확률은 없다.</p>
-<p><code>#</code></p>
-<p><code>-</code> 노트: 현대확률론에서는 자연수의 집합 전체에서 하나의 수를 공평하게 뽑을 확률은 정의할 수 없다.</p>
-<ul>
-<li>이는 직관적이지 않다.</li>
-<li>이걸 정의하려면 공리3을 부정해야 한다. (가산가법성을 유한가법성으로 바꿔야 한다)</li>
-<li>이러한 이유로 가산가법성(공리3)을 확률의 조건으로 받아들이지 않은 학자도 있다. 대표적인 사람이 드 피네티다. 그는 자연수 하나를 공평하게 뽑는 추첨도 일관된 확률이어야 한다고 보았고(지금은 이것을 «드 피네티 추첨(de Finetti lottery)»이라고 부른다),<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> 1930년 프레셰(Fréchet)와 주고받은 논문들에서부터 이 입장을 지켰다. 아래는 그의 1937년 논문의 한 대목이다.</li>
-</ul>
+</section>
+<section id="문제10" class="level3">
+<h3 class="anchored" data-anchor-id="문제10">문제10</h3>
+<p>앞면이 나올 확률이 <span class="math inline">\(\theta\)</span> 인 동전을 던져 앞면을 <span class="math inline">\(1\)</span>, 뒷면을 <span class="math inline">\(0\)</span> 으로 적는다. (<span class="math inline">\(X_1,\dots,X_n \overset{i.i.d.}{\sim} Ber(\theta)\)</span>) 다음 물음에 답하라.</p>
+<p><code>(1)</code> 다섯 번 던져 <span class="math inline">\(1,\ 0,\ 0,\ 1,\ 0\)</span> 을 얻었다. 가능도함수 <span class="math inline">\(L(\theta)\)</span> 의 그래프로 알맞은 것을 고르라.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="attachments/261027-강민-09wk1-드피네티1937-p13.png" class="img-fluid figure-img"></p>
-<figcaption>그림2: 드 피네티(1937) «La prévision: ses lois logiques, ses sources subjectives» p.13. 칠한 곳은 사건이 무한히 많을 때는 유한 개짜리 부분 모임마다 일관되면 된다는 정의와, 그래서 확률의 덧셈 정리를 «셀 수 있는 무한 개의 사건으로도 넓힐 수 없다»는 결론이다.</figcaption>
+<p><img src="attachments/261102-midterm-T134_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 92%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 92%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>②</strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> 네 번 던져 <span class="math inline">\(0,\ 1,\ 0,\ 0\)</span> 을 얻었다. 두 학생이 가능도 <span class="math inline">\(L(\theta)\)</span> 를 계산하여 아래 표 (가), (나) 를 만들었다. 바르게 계산한 표를 고르라.</p>
+<p>(가)</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(\theta\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\frac{1}{4}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\frac{2}{4}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\frac{3}{4}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(L(\theta)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\left(\frac{1}{4}\right)\left(\frac{3}{4}\right)^3\approx0.1055\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\left(\frac{2}{4}\right)^4=0.0625\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\left(\frac{3}{4}\right)\left(\frac{1}{4}\right)^3\approx0.0117\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>(나)</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(\theta\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\frac{1}{4}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\frac{2}{4}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\frac{3}{4}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(L(\theta)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\left(\frac{1}{4}\right)^3\left(\frac{3}{4}\right)\approx0.0117\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\left(\frac{2}{4}\right)^4=0.0625\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\left(\frac{3}{4}\right)^3\left(\frac{1}{4}\right)\approx0.1055\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 96%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 96%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(가)</strong></p>
+</div>
+</div>
+</div>
+<p><code>(3)</code> 네 번 던진 기록으로 그린 가능도함수 <span class="math inline">\(L(\theta)\)</span> 가 아래와 같았다. 이 기록으로 알맞은 것을 고르라.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/261102-midterm-T134_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:55.0%"></p>
+</figure>
+</div>
+<p>① <span class="math inline">\(1,\ 0,\ 1,\ 1\)</span><br>
+② <span class="math inline">\(0,\ 1,\ 0,\ 0\)</span><br>
+③ <span class="math inline">\(1,\ 1,\ 1,\ 1\)</span><br>
+④ <span class="math inline">\(1,\ 1,\ 0,\ 0\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 94%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 94%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>①</strong></p>
+</div>
+</div>
+</div>
+<p><code>(4)</code> 세 번 던져 <span class="math inline">\(1,\ 0,\ 1\)</span> 을 얻었다. <span class="math inline">\(\theta\)</span> 의 최대가능도추정값을 구하라.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 86%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 86%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong><span class="math inline">\(\frac{2}{3}\)</span></strong></p>
+</div>
+</div>
+</div>
+<p><code>(5)</code> (4) 에서 다음을 최대가능도방법으로 추정하라. (모분산은 <span class="math inline">\(\theta(1-\theta)\)</span> 이고, <span class="math inline">\(1\)</span> 이 처음 나올 때까지 던지는 횟수의 기댓값은 <span class="math inline">\(\frac{1}{\theta}\)</span> 이다.)</p>
+<ul>
+<li>(가) 뒷면이 나올 확률</li>
+<li>(나) 모분산</li>
+<li>(다) <span class="math inline">\(1\)</span> 이 처음 나올 때까지 던지는 횟수의 기댓값</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 71%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 71%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(가) <span class="math inline">\(\frac{1}{3}\)</span> · (나) <span class="math inline">\(\frac{2}{9}\)</span> · (다) <span class="math inline">\(\frac{3}{2}\)</span></strong></p>
+</div>
+</div>
+</div>
+<p><code>(6)</code> 어떤 기록으로 구한 가능도함수가 <span class="math inline">\(L(\theta)=\theta^2(1-\theta)^4\)</span> 이었다. 이 가능도함수를 나오게 할 만한 기록을 모두 고르라.</p>
+<p>① <span class="math inline">\(1,\ 1,\ 0,\ 0,\ 0,\ 0\)</span><br>
+② <span class="math inline">\(0,\ 1,\ 0,\ 0,\ 1,\ 0\)</span><br>
+③ <span class="math inline">\(1,\ 1,\ 1,\ 1,\ 0,\ 0\)</span><br>
+④ <span class="math inline">\(1,\ 0,\ 1,\ 0\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 78%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 78%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ②</strong></p>
+</div>
+</div>
+</div>
+<p><code>(7)</code> 세 번 던져 <span class="math inline">\(x_1,\ x_2,\ x_3\)</span> 을 얻었다. 그런데 <span class="math inline">\(x_1,\ x_2,\ x_3\)</span> 은 알려 주지 않고 그 평균 <span class="math inline">\(\bar{x}=\frac{x_1+x_2+x_3}{3}\)</span> 만 알려 주었다. <span class="math inline">\(L(0.5\mid\bar{x}=\frac{2}{3})\)</span> 과 <span class="math inline">\(L(0.5\mid\bar{x}=\frac{1}{2})\)</span> 를 구하라.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 35%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 35%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong><span class="math inline">\(\frac{3}{8}\)</span>, <span class="math inline">\(0\)</span></strong></p>
+</div>
+</div>
+</div>
+<p><code>(8)</code> (1) 에서 다섯 번 던져 <span class="math inline">\(1,\ 0,\ 0,\ 1,\ 0\)</span> 을 얻은 뒤 한 번 더 던졌다. 이를 두고 나눈 대화에서 올바른 것을 모두 고르라.</p>
+<p>① 재석: “여섯째가 <span class="math inline">\(1\)</span> 이면 <span class="math inline">\(\theta\)</span> 의 최대가능도추정값은 <span class="math inline">\(0.4\)</span> 에서 <span class="math inline">\(\frac{1}{2}\)</span> 로 커져.”<br>
+② 동엽: “여섯째가 <span class="math inline">\(0\)</span> 이면 최대가능도추정값은 <span class="math inline">\(0.4\)</span> 그대로야.”<br>
+③ 호동: “여섯째가 무엇이든, 새 가능도함수는 <span class="math inline">\(\theta^2(1-\theta)^3\)</span> 에 <span class="math inline">\(\theta\)</span> 나 <span class="math inline">\(1-\theta\)</span> 가 하나 곱해진 꼴이야.”</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 76%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 76%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ③</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제11" class="level3">
+<h3 class="anchored" data-anchor-id="문제11">문제11</h3>
+<p>정규분포 모형의 가능도함수와 최대가능도추정에 대하여 답하라. (<span class="math inline">\(X\sim N(\mu,\sigma^2)\)</span> 이면 <span class="math inline">\(\mathbb{E}(X^2)=\mu^2+\sigma^2\)</span> 이다.)</p>
+<p><code>(1)</code> <span class="math inline">\(X_1,\dots,X_{10} \overset{i.i.d.}{\sim} N(\mu,1)\)</span> 에서 아래 <span class="math inline">\(10\)</span> 개를 관측하였다. (<span class="math inline">\(\sigma^2=1\)</span> 은 알려져 있다.)</p>
+<p><span class="math display">\[0,\ 0,\ 1,\ 1,\ 1,\ 2,\ 3,\ 3,\ 4,\ 5\]</span></p>
+<p><span class="math inline">\(\mu\)</span> 에 대한 가능도함수 <span class="math inline">\(L(\mu)\)</span> 의 그래프로 알맞은 것을 고르라.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/261102-midterm-T130.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 94%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 94%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>②</strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> (1) 과 같은 관측값 <span class="math inline">\(10\)</span> 개를, 이번에는 <span class="math inline">\(\sigma^2\)</span> 도 모른다고 보고 <span class="math inline">\(X_1,\dots,X_{10} \overset{i.i.d.}{\sim} N(\mu,\sigma^2)\)</span> 의 관측값으로 보자. (이 <span class="math inline">\(10\)</span> 개에서 편차 제곱의 합을 <span class="math inline">\(n=10\)</span> 으로 나눈 값은 <span class="math inline">\(\frac{1}{10}\sum_{i=1}^{10}(x_i-\bar{x})^2=2.6\)</span> 이고, <span class="math inline">\(n-1=9\)</span> 로 나눈 값은 <span class="math inline">\(\frac{1}{9}\sum_{i=1}^{10}(x_i-\bar{x})^2\approx2.89\)</span> 이다.) 가능도함수 <span class="math inline">\(L(\mu,\sigma^2)\)</span> 의 그래프로 알맞은 것을 고르라. (빨간 점이 가장 큰 곳이고, 그 좌표를 적어 두었다.)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/261102-midterm-T135_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 84%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 84%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>②</strong></p>
+</div>
+</div>
+</div>
+<p><code>(3)</code> <span class="math inline">\(X_1,\dots,X_4 \overset{i.i.d.}{\sim} N(\mu,\sigma^2)\)</span> 의 관측값 <span class="math inline">\(4\)</span> 개로 그린 가능도함수 <span class="math inline">\(L(\mu,\sigma^2)\)</span> 가 아래와 같았다. 이 관측값으로 알맞은 것을 고르라.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/261102-midterm-T135_2_n4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+<p>① <span class="math inline">\(-1,\ 1,\ 1,\ 3\)</span><br>
+② <span class="math inline">\(0,\ 1,\ 1,\ 2\)</span><br>
+③ <span class="math inline">\(0,\ 2,\ 2,\ 4\)</span><br>
+④ <span class="math inline">\(-2,\ 0,\ 0,\ 2\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 75%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 75%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>①</strong></p>
+</div>
+</div>
+</div>
+<p><code>(4)</code> <span class="math inline">\(X_1,\dots,X_4 \overset{i.i.d.}{\sim} N(\mu,\sigma^2)\)</span> 에서 <span class="math inline">\(1,\ 3,\ 5,\ 7\)</span> 을 관측하였다. <span class="math inline">\(\mu\)</span> 와 <span class="math inline">\(\sigma^2\)</span> 의 최대가능도추정값을 구하라. (네 값의 제곱의 평균은 <span class="math inline">\(\frac{1}{4}\sum_{i=1}^{4}x_i^2=21\)</span> 이다.)</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 67%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 67%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong><span class="math inline">\(\hat{\mu}=4\)</span>, <span class="math inline">\(\hat{\sigma}^2=5\)</span></strong></p>
+</div>
+</div>
+</div>
+<p><code>(5)</code> (4) 와 같은 관측값 <span class="math inline">\(1,\ 3,\ 5,\ 7\)</span> 에서, 이번에는 <span class="math inline">\(\sigma^2=1\)</span> 임을 알고 있다고 하자. <span class="math inline">\(\mathbb{E}(X^2)\)</span> 을 최대가능도방법으로 추정하라.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 65%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 65%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong><span class="math inline">\(17\)</span></strong></p>
+</div>
+</div>
+</div>
+<p><code>(6)</code> <span class="math inline">\(X_1,X_2,X_3 \overset{i.i.d.}{\sim} N(\mu,1)\)</span> 의 관측값으로 구한 가능도함수가 아래와 같았다. <span class="math inline">\(\mu\)</span> 의 최대가능도추정값을 구하라.</p>
+<p><span class="math display">\[L(\mu) = \left(\frac{1}{\sqrt{2\pi}}\right)^3\exp\left[-\frac{(\mu-2.1)^2 + (\mu-3.5)^2 + (\mu-4.3)^2}{2}\right]\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 69%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 69%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong><span class="math inline">\(3.3\)</span></strong></p>
+</div>
+</div>
+</div>
+<p><code>(7)</code> (6) 의 가능도함수를 나오게 할 만한 관측값을 모두 고르라.</p>
+<p>① <span class="math inline">\(2.1,\ 3.5,\ 4.3\)</span><br>
+② <span class="math inline">\(4.3,\ 2.1,\ 3.5\)</span><br>
+③ <span class="math inline">\(3.3,\ 3.3,\ 3.3\)</span><br>
+④ <span class="math inline">\(2.1,\ 3.5\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 61%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 61%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ②</strong></p>
+</div>
+</div>
+</div>
+<p><code>(8)</code> (4) 의 자료 <span class="math inline">\(1,\ 3,\ 5,\ 7\)</span> 에 관측값을 하나 더 얻었다. 이를 두고 나눈 대화에서 올바른 것을 모두 고르라.</p>
+<p>① 재석: “새 관측값이 <span class="math inline">\(4\)</span> 이면 <span class="math inline">\(\hat{\mu}\)</span> 는 <span class="math inline">\(4\)</span> 그대로야.”<br>
+② 동엽: “새 관측값이 <span class="math inline">\(4\)</span> 이면 <span class="math inline">\(\hat{\sigma}^2\)</span> 도 <span class="math inline">\(5\)</span> 그대로야.”<br>
+③ 호동: “새 관측값이 <span class="math inline">\(9\)</span> 이면 <span class="math inline">\(\hat{\mu}\)</span> 는 <span class="math inline">\(5\)</span> 가 돼.”<br>
+④ 효리: “새 관측값이 무엇이든 <span class="math inline">\(\hat{\mu}\)</span> 는 <span class="math inline">\(4\)</span> 그대로야. 하나쯤 더해도 평균은 바뀌지 않거든.”</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 71%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 71%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ③</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제12" class="level3">
+<h3 class="anchored" data-anchor-id="문제12">문제12</h3>
+<p><span class="math inline">\(X_1,\dots,X_4 \overset{i.i.d.}{\sim} N(\mu,\sigma^2)\)</span> 에서 <span class="math inline">\(1,\ 1,\ 5,\ 5\)</span> 를 관측하였다. 갑과 을은 <span class="math inline">\(\mu\)</span> 를 <span class="math inline">\(\bar{x}=3\)</span> 으로 추정한 뒤, <span class="math inline">\(\sigma^2\)</span> 을 아래와 같이 추정하였다.</p>
+<ul>
+<li>갑: <span class="math inline">\(\frac{1}{4}\sum_{i=1}^{4}(x_i-\bar{x})^2=4\)</span></li>
+<li>을: <span class="math inline">\(\frac{1}{3}\sum_{i=1}^{4}(x_i-\bar{x})^2=\frac{16}{3}\)</span></li>
+</ul>
+<p>올바른 것을 모두 고르라.</p>
+<p>① 가능도 <span class="math inline">\(L(\mu,\sigma^2)\)</span> 의 값은 <span class="math inline">\((\mu,\sigma^2)=(3,\ 4)\)</span> 에서가 <span class="math inline">\(\left(3,\ \frac{16}{3}\right)\)</span> 에서보다 크다.<br>
+② 두 사람 가운데 <span class="math inline">\(\sigma^2\)</span> 의 최대가능도추정값을 구한 사람은 을이다.<br>
+③ <span class="math inline">\(\mu=3\)</span> 임을 미리 알고 있었다면, <span class="math inline">\(\sigma^2\)</span> 의 최대가능도추정값은 을의 값 <span class="math inline">\(\frac{16}{3}\)</span> 이다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 65%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 65%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>①</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제13" class="level3">
+<h3 class="anchored" data-anchor-id="문제13">문제13</h3>
+<p>다음 글을 읽고 물음에 답하라.</p>
+<div class="passage">
+<p>명제 <span class="math inline">\(P\)</span> 가 참이면 <span class="math inline">\(1\)</span>, 거짓이면 <span class="math inline">\(0\)</span> 인 함수 <span class="math inline">\(I(P)\)</span> 를 지시함수라 한다. 균등분포 <span class="math inline">\(U(a,b)\)</span> 의 확률밀도함수는 지시함수로 <span class="math inline">\(f(x)=\frac{1}{b-a}I(a \leq x \leq b)\)</span> 라 쓸 수 있다. 그래서 <span class="math inline">\(X_1,\dots,X_5 \overset{i.i.d.}{\sim} U(a,b)\)</span> 에서 아래 자료를 얻었다.</p>
+<p><span class="math display">\[x_1=1.3,\quad x_2=0.8,\quad x_3=2.6,\quad x_4=1.9,\quad x_5=2.2\]</span></p>
+<p>한 학생은 이 자료의 가능도함수를 아래와 같이 구하였다.</p>
+<p><span class="math display">\[
+\begin{aligned}
+L(a,b) &amp;= \frac{1}{b-a}I(a \leq x_1 \leq b) \times \cdots \times \frac{1}{b-a}I(a \leq x_5 \leq b) \\
+&amp;= \frac{1}{(b-a)^5}\, I(a \leq x_1 \leq b) \cdots I(a \leq x_5 \leq b) \\
+&amp;= \frac{1}{(b-a)^5}\, I\big(a \leq \min(x_1,\dots,x_5)\big)\, I\big(\max(x_1,\dots,x_5) \leq b\big) \\
+&amp;= \frac{1}{(b-a)^5}\, I(a \leq 0.8)\, I(2.6 \leq b)
+\end{aligned}
+\]</span></p>
+</div>
+<p><code>(1)</code> 윗글의 자료에서 <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> 의 최대가능도추정값을 구하고, 모평균 <span class="math inline">\(\mathbb{E}(X)\)</span>, 모분산 <span class="math inline">\(\mathbb{V}(X)\)</span>, 범위 <span class="math inline">\(R(X)\)</span> 를 최대가능도방법으로 추정하라. (<span class="math inline">\(X\sim U(a,b)\)</span> 이면 <span class="math inline">\(\mathbb{E}(X)=\frac{a+b}{2}\)</span>, <span class="math inline">\(\mathbb{V}(X)=\frac{(b-a)^2}{12}\)</span>, <span class="math inline">\(R(X)=b-a\)</span> 이다.)</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 41%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 41%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong><span class="math inline">\(\hat{a}=0.8\)</span>, <span class="math inline">\(\hat{b}=2.6\)</span>, 모평균 <span class="math inline">\(1.7\)</span>, 모분산 <span class="math inline">\(\frac{1.8^2}{12}=0.27\)</span>, 범위 <span class="math inline">\(1.8\)</span></strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> 윗글의 자료에 관측값을 하나 더 얻어 관측값이 여섯 개가 되었다고 하자. 이를 두고 나눈 대화에서 올바른 것을 모두 고르라.</p>
+<p>① 재석: “새 관측값이 <span class="math inline">\(1.5\)</span> 라면, 가능도를 가장 크게 하는 <span class="math inline">\((a,b)\)</span> 는 <span class="math inline">\((0.8,\ 2.6)\)</span> 그대로야.”<br>
+② 동엽: “새 관측값이 <span class="math inline">\(1.5\)</span> 라면, 가능도함수도 처음과 똑같아.”<br>
+③ 호동: “새 관측값이 <span class="math inline">\(3.0\)</span> 이라면, 가능도를 가장 크게 하는 <span class="math inline">\(b\)</span> 는 <span class="math inline">\(3.0\)</span> 이 돼.”<br>
+④ 효리: “새 관측값이 <span class="math inline">\(0.5\)</span> 라면, <span class="math inline">\((a,b)=(0.8,\ 2.6)\)</span> 에서 가능도는 <span class="math inline">\(0\)</span> 이야.”</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 33%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 33%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ③ · ④</strong></p>
+</div>
+</div>
+</div>
+<p><code>(3)</code> <span class="math inline">\(X_1,X_2,X_3 \overset{i.i.d.}{\sim} U(a,b)\)</span> 에서 아래 자료를 얻었다.</p>
+<p><span class="math display">\[x_1=1.2,\quad x_2=1.5,\quad x_3=1.8\]</span></p>
+<p>가능도함수 <span class="math inline">\(L(a,b)\)</span> 의 값을 몇 점에서 계산한 표로 알맞은 것을 고르라.</p>
+<p>①</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(b=1.7\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(b=1.8\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(b=1.9\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a=1.1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(a=1.2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{(1.7-1.2)^3}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{(1.8-1.2)^3}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a=1.3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{(1.7-1.3)^3}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{(1.8-1.3)^3}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>②</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(b=1.7\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(b=1.8\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(b=1.9\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a=1.1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{(1.8-1.1)^3}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{(1.9-1.1)^3}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(a=1.2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{(1.8-1.2)^3}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{(1.9-1.2)^3}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a=1.3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 65%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 65%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>②</strong></p>
+</div>
+</div>
+</div>
+<p><code>(4)</code> <span class="math inline">\(X_1,\dots,X_4 \overset{i.i.d.}{\sim} U(a,b)\)</span> 에서 아래 자료를 관측하였다.</p>
+<p><span class="math display">\[x_1=0.6,\quad x_2=1.3,\quad x_3=1.0,\quad x_4=1.7\]</span></p>
+<p>가능도함수 <span class="math inline">\(L(a,b)\)</span> 의 그래프로 알맞은 것을 고르라.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/261102-midterm-T136_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 94%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 94%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>②</strong></p>
+</div>
+</div>
+</div>
+<p><code>(5)</code> <span class="math inline">\(X_1,\dots,X_4 \overset{i.i.d.}{\sim} U(a,b)\)</span> 의 네 관측값으로 그린 가능도함수 <span class="math inline">\(L(a,b)\)</span> 가 아래와 같았다. 이 관측값으로 알맞은 것을 고르라.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/261102-midterm-T136_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+<p>① <span class="math inline">\(2,\ 4,\ 4,\ 5\)</span><br>
+② <span class="math inline">\(2,\ 3,\ 4,\ 6\)</span><br>
+③ <span class="math inline">\(3,\ 4,\ 5,\ 5\)</span><br>
+④ <span class="math inline">\(1,\ 2,\ 3,\ 5\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 90%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 90%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-35" class="callout-35-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>①</strong></p>
+</div>
+</div>
+</div>
+<p><code>(6)</code> 어떤 자료로 구한 가능도함수가 <span class="math inline">\(L(a,b)=\frac{1}{(b-a)^3}\,I(a\leq1.2)\,I(2.5\leq b)\)</span> 이었다. 이 가능도함수를 나오게 할 만한 자료를 모두 고르라.</p>
+<p>① <span class="math inline">\(1.2,\ 1.8,\ 2.5\)</span><br>
+② <span class="math inline">\(2.5,\ 1.2,\ 2.0\)</span><br>
+③ <span class="math inline">\(1.2,\ 2.5\)</span><br>
+④ <span class="math inline">\(1.2,\ 1.8,\ 2.4,\ 2.5\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 73%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 73%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ②</strong></p>
+</div>
+</div>
+</div>
+<p><code>(7)</code> <span class="math inline">\(X \sim U(0,\theta)\)</span> 에서 아래 <span class="math inline">\(4\)</span> 개의 표본을 얻었다.</p>
+<p><span class="math display">\[x_1=0.3,\quad x_2=0.1,\quad x_3=0.7,\quad x_4=0.5\]</span></p>
+<p><span class="math inline">\(\theta\)</span> 의 최대가능도추정값을 구하고, 모평균을 최대가능도방법으로 추정하라. (<span class="math inline">\(X\sim U(0,\theta)\)</span> 이면 <span class="math inline">\(\mathbb{E}(X)=\frac{\theta}{2}\)</span> 이다.)</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 75%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 75%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-37" class="callout-37-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong><span class="math inline">\(0.7\)</span>, <span class="math inline">\(0.35\)</span></strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제14" class="level3">
+<h3 class="anchored" data-anchor-id="문제14">문제14</h3>
+<p>평면 위의 점 <span class="math inline">\((x_i,y_i)\)</span>, <span class="math inline">\(i=1,\dots,100\)</span> 을 관측하여 점들의 중심을 추정하는 두 방법이 있다.</p>
+<ul>
+<li>A: <span class="math inline">\(\left(\frac{\min_i x_i+\max_i x_i}{2},\ \frac{\min_i y_i+\max_i y_i}{2}\right)\)</span> 로 추정한다.</li>
+<li>B: <span class="math inline">\((\bar{x},\ \bar{y})\)</span> 로 추정한다.</li>
+</ul>
+<p><span class="math inline">\(x_i\)</span>, <span class="math inline">\(y_i\)</span> 가 모두 서로 독립으로 <span class="math inline">\(U(0,1)\)</span> 을 따르는 자료 <span class="math inline">\(100\)</span> 개를 만들어 추정하는 일을 <span class="math inline">\(2000\)</span> 번 되풀이하고, 추정값을 과녁에 찍었다. 과녁의 중심(<span class="math inline">\(+\)</span>)이 참값이다. 아래 (가), (나) 가운데 하나는 A 로, 다른 하나는 B 로 찍은 것이다.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/261102-midterm-T133_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>(가), (나) 가운데 A 로 찍은 것을 고르라.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 82%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 82%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-38" class="callout-38-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(나)</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제15" class="level3">
+<h3 class="anchored" data-anchor-id="문제15">문제15</h3>
+<p>다음 설명이 옳으면 O, 틀리면 X 를 쓰라.</p>
+<ul>
+<li>(가) <span class="math inline">\(X_1,\dots,X_n \overset{i.i.d.}{\sim} N(\mu,\sigma^2)\)</span> 이면, 평균 <span class="math inline">\(\mu\)</span> 의 최대가능도추정값은 표본평균 <span class="math inline">\(\bar{x}\)</span> 이다.</li>
+<li>(나) <span class="math inline">\(X_1,\dots,X_n \overset{i.i.d.}{\sim} U(a,b)\)</span> 이면, 평균 <span class="math inline">\(\frac{a+b}{2}\)</span> 의 최대가능도추정값은 표본평균 <span class="math inline">\(\bar{x}\)</span> 이다.</li>
+<li>(다) 자료가 정규분포에서 나왔다면, 평균을 표본평균으로 추정한 값은 중앙값으로 추정한 값보다 참값 둘레에 좁게 모인다.</li>
+<li>(라) 표본평균은 자료를 모두 쓰므로, 자료가 어떤 분포에서 나왔든 평균을 추정하는 다른 어떤 방법보다 참값 둘레에 좁게 모인다.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 63%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 63%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-39" class="callout-39-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(가) O · (나) X · (다) O · (라) X</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제16" class="level3">
+<h3 class="anchored" data-anchor-id="문제16">문제16</h3>
+<p>바늘이 하나 있는 시계에서 바늘을 무작위로 돌린다. 바늘의 위치를 각도로 나타내면 <span class="math inline">\(\Omega=[0,2\pi)\)</span> 이고, 바늘이 <span class="math inline">\(\Omega\)</span> 의 부분집합 <span class="math inline">\(\Omega^*\)</span> 에 멈출 확률을 <span class="math inline">\(P(\Omega^*) = \frac{m(\Omega^*)}{2\pi}\)</span> 로 정한다. 확률은 이렇게 <span class="math inline">\(\Omega\)</span> 의 부분집합에만 매기고, <span class="math inline">\(\Omega\)</span> 를 벗어나는 집합에는 매기지 않는다. 길이 <span class="math inline">\(m\)</span> 은 아래와 같이 약속하고, 집합을 평행이동해도 길이는 변하지 않는다고 하자.</p>
+<ul>
+<li>약속1: 구간 <span class="math inline">\((a,b)\)</span> 의 길이는 <span class="math inline">\(b-a\)</span> 이다.</li>
+<li>약속2: 한 점의 길이는 <span class="math inline">\(0\)</span> 이다.</li>
+<li>약속3: 점을 무한히 합치면 선이 되는 것처럼, 점의 길이를 무한히 합치면 <span class="math inline">\(0\)</span> 이 아니라 <span class="math inline">\(0\)</span> 보다 큰 어떠한 수가 된다.</li>
+<li>약속4: 구간 <span class="math inline">\((a,b)\)</span> 사이의 모든 유리수의 길이는 <span class="math inline">\(\frac{b-a}{2}\)</span> 이다.</li>
+</ul>
+<p>이렇게 길이를 재면 확률을 정의할 때 모순이 생긴다. 다음은 그것을 보인 풀이이다.</p>
+<div class="passage">
+<p><span class="math inline">\(A\)</span> 를 <span class="math inline">\((0,\pi)\)</span> 사이의 모든 유리수로 이루어진 집합이라 하자. 약속4에 의해 <span class="math inline">\(m(A)=\frac{\pi}{2}\)</span> 이므로 <span class="math inline">\(P(A)=\frac{\pi/2}{2\pi}=\frac{1}{4}\)</span> 이다. <span class="math inline">\(A\)</span> 의 모든 점에 <span class="math inline">\(\sqrt{2}\)</span>, <span class="math inline">\(\frac{\sqrt{2}}{2}\)</span>, <span class="math inline">\(\frac{\sqrt{2}}{3}\)</span>, <span class="math inline">\(\frac{\sqrt{2}}{4}\)</span> 를 더하여 만든 집합을 각각 <span class="math inline">\(A_{\sqrt{2}}\)</span>, <span class="math inline">\(A_{\sqrt{2}/2}\)</span>, <span class="math inline">\(A_{\sqrt{2}/3}\)</span>, <span class="math inline">\(A_{\sqrt{2}/4}\)</span> 라 하자. 평행이동해도 길이는 변하지 않으므로 이 네 집합의 확률도 저마다 <span class="math inline">\(\frac{1}{4}\)</span> 이다. 또 <span class="math inline">\(A\)</span> 까지 다섯 집합은 모두 <span class="math inline">\(\Omega\)</span> 의 부분집합이고 서로 겹치지 않는다. 따라서</p>
+<p><span class="math display">\[P(A\cup A_{\sqrt{2}}\cup A_{\sqrt{2}/2}\cup A_{\sqrt{2}/3}\cup A_{\sqrt{2}/4}) = 5\times\frac{1}{4}=\frac{5}{4}&gt;1\]</span></p>
+<p>이 되어 확률의 공리에 어긋난다.</p>
+</div>
+<p>이번에는 윗글의 <span class="math inline">\(A\)</span> 의 원소에 <span class="math inline">\(\frac{2\pi}{k}\)</span> 를 더해 만든 집합을 <span class="math inline">\(A_{2\pi/k}\)</span> 라 하자. (<span class="math inline">\(k=1,2,3,\dots\)</span>)</p>
+<p><code>(1)</code> 다음 가운데 <span class="math inline">\(\Omega\)</span> 의 부분집합인 것을 모두 고르라.</p>
+<p>① <span class="math inline">\(A_{2\pi}\)</span><br>
+② <span class="math inline">\(A_{2\pi/2}\)</span><br>
+③ <span class="math inline">\(A_{2\pi/3}\)</span><br>
+④ <span class="math inline">\(A_{2\pi/4}\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 39%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 39%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-40" class="callout-40-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>② · ③ · ④</strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> 올바른 것을 모두 고르라.</p>
+<p>① <span class="math inline">\(P(A_{2\pi})\)</span> 는 정할 수 없다. 약속1~4 로 길이를 재는 방법은 <span class="math inline">\(\Omega\)</span> 의 부분집합에서만 유효하기 때문이다.<br>
+② <span class="math inline">\(A, A_{2\pi/2}, A_{2\pi/3}, A_{2\pi/4}\)</span> 는 서로 겹치지 않고, 각각의 확률은 <span class="math inline">\(\frac{1}{4}\)</span> 이다.<br>
+③ <span class="math inline">\(A, A_{2\pi}, A_{2\pi/2}, A_{2\pi/3}, A_{2\pi/4}\)</span> 의 확률을 모두 더하면 <span class="math inline">\(\frac{5}{4}\)</span> 이므로, 이 다섯 집합으로 모순을 얻는다.<br>
+④ <span class="math inline">\(A_{2\pi}\)</span> 대신 <span class="math inline">\(A_{2\pi/5}\)</span> 를 쓰면, <span class="math inline">\(A, A_{2\pi/2}, A_{2\pi/3}, A_{2\pi/4}, A_{2\pi/5}\)</span> 다섯 집합으로 모순을 얻을 수 있다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 20%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 20%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-41" class="callout-41-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ② · ④</strong></p>
+</div>
+</div>
+</div>
+<p><code>(3)</code> 윗글의 풀이에서는 다섯 집합 <span class="math inline">\(A, A_{\sqrt{2}}, A_{\sqrt{2}/2}, A_{\sqrt{2}/3}, A_{\sqrt{2}/4}\)</span> 로 모순을 얻었다. 그런데 <span class="math inline">\(\frac{2\pi}{k}\)</span> 를 더해 만든 다섯 집합 <span class="math inline">\(A, A_{2\pi}, A_{2\pi/2}, A_{2\pi/3}, A_{2\pi/4}\)</span> 로는 같은 방법으로 모순을 얻을 수 없다. 그 까닭으로 올바른 것을 모두 고르라.</p>
+<p>① <span class="math inline">\(A_{2\pi}\)</span> 이 <span class="math inline">\(\Omega\)</span> 를 벗어나기 때문이다.<br>
+② <span class="math inline">\(2\pi\)</span> 가 유리수이기 때문이다.<br>
+③ 확률은 <span class="math inline">\(\Omega\)</span> 의 부분집합에만 매기기로 했기 때문이다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 51%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 51%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-42" class="callout-42-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ③</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제17" class="level3">
+<h3 class="anchored" data-anchor-id="문제17">문제17</h3>
+<p><code>(1)</code> 다음 명제가 참이면 O, 거짓이면 X 를 쓰라. (<span class="math inline">\(\mathbb{N}=\{1,2,3,\dots\}\)</span> 은 자연수 전체, <span class="math inline">\(\mathbb{R}\)</span> 은 실수 전체의 집합이다.)</p>
+<ul>
+<li>(가) <span class="math inline">\(\forall n\in\mathbb{N}:\ n+1\in\mathbb{N}\)</span></li>
+<li>(나) <span class="math inline">\(\exists n\in\mathbb{N}\)</span> such that <span class="math inline">\(n+1=1\)</span></li>
+<li>(다) <span class="math inline">\(\forall x\in\mathbb{R}\ \ \exists y\in\mathbb{R}\)</span> such that <span class="math inline">\(x+y=0\)</span></li>
+<li>(라) <span class="math inline">\(\exists y\in\mathbb{R}\)</span> such that <span class="math inline">\(\forall x\in\mathbb{R}:\ x+y=0\)</span></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 12%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 12%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-43" class="callout-43-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(가) O · (나) X · (다) O · (라) X</strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> 함수 <span class="math inline">\(f:X\to Y\)</span> 에 대한 아래 기호 문장 (가), (나) 의 뜻으로 알맞은 것을 ①~④ 에서 각각 고르라.</p>
+<ul>
+<li>(가) <span class="math inline">\(\exists x_1,x_2\in X\)</span> such that <span class="math inline">\(x_1\neq x_2\)</span> and <span class="math inline">\(f(x_1)=f(x_2)\)</span></li>
+<li>(나) <span class="math inline">\(\exists y\in Y\)</span> such that <span class="math inline">\(\forall x\in X:\ f(x)\neq y\)</span></li>
+</ul>
+<p>① <span class="math inline">\(f\)</span> 는 단사이다.<br>
+② <span class="math inline">\(f\)</span> 는 전사이다.<br>
+③ <span class="math inline">\(f\)</span> 는 단사가 아니다.<br>
+④ <span class="math inline">\(f\)</span> 는 전사가 아니다.</p>
+<p>(답은 ‘(가) ②, (나) ①’ 과 같은 꼴로 쓴다.)</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 63%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 63%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-44" class="callout-44-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(가) ③, (나) ④</strong></p>
+</div>
+</div>
+</div>
+<p><code>(3)</code> “모든 자연수 <span class="math inline">\(n\)</span> 에 대하여, <span class="math inline">\(n^2\)</span> 은 <span class="math inline">\(n\)</span> 이상이다” 를 기호로 바르게 쓴 것을 모두 고르라.</p>
+<p>① <span class="math inline">\(\forall n\in\mathbb{N}:\ n^2\geq n\)</span><br>
+② <span class="math inline">\(n^2\geq n,\ \forall n\in\mathbb{N}\)</span><br>
+③ <span class="math inline">\(\exists n\in\mathbb{N}\)</span> such that <span class="math inline">\(n^2\geq n\)</span><br>
+④ <span class="math inline">\(n\in\mathbb{N}\Rightarrow n^2\geq n\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 27%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 27%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-45" class="callout-45-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ② · ④</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제18" class="level3">
+<h3 class="anchored" data-anchor-id="문제18">문제18</h3>
+<p>아래 (가)~(라) 는 모두 같은 규칙 <span class="math inline">\(f(x)=x^2\)</span> 으로 집합 <span class="math inline">\(X\)</span> 의 원소를 집합 <span class="math inline">\(Y\)</span> 의 원소로 보내는 함수를 화살표로 나타낸 것이다. 네 그림에서 다른 것은 <span class="math inline">\(X\)</span> 와 <span class="math inline">\(Y\)</span> 뿐이다. 왼쪽 타원이 <span class="math inline">\(X\)</span>, 오른쪽 타원이 <span class="math inline">\(Y\)</span> 이다.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/261102-midterm-T164.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+<p><code>(1)</code> 단사함수인 것을 모두 고르라.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 78%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 78%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-46" class="callout-46-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(나) · (다)</strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> 전사함수인 것을 모두 고르라.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 76%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 76%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-47" class="callout-47-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(가) · (나)</strong></p>
+</div>
+</div>
+</div>
+<p><code>(3)</code> 전단사함수인 것을 모두 고르라.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 86%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 86%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-48" class="callout-48-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(나)</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제19" class="level3">
+<h3 class="anchored" data-anchor-id="문제19">문제19</h3>
+<p>다음 명제가 참이면 증명하고, 거짓이면 반례를 들어라.</p>
+<blockquote class="blockquote">
+<p>실수의 두 구간 <span class="math inline">\(A=[a,b]\)</span>, <span class="math inline">\(B=[c,d]\)</span> (단, <span class="math inline">\(a&lt;b\)</span>, <span class="math inline">\(c&lt;d\)</span>) 에 대하여, <span class="math inline">\(A\)</span> 의 길이 <span class="math inline">\(b-a\)</span> 가 <span class="math inline">\(B\)</span> 의 길이 <span class="math inline">\(d-c\)</span> 보다 길면 <span class="math inline">\(|A|&gt;|B|\)</span> 이다.</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/261102-midterm-two-intervals.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:55.0%"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 12%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 12%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-49" class="callout-49-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>거짓 — 반례: <span class="math inline">\(A=[0,2]\)</span>, <span class="math inline">\(B=[0,1]\)</span></strong> (<span class="math inline">\(f(x)=2x\)</span> 가 <span class="math inline">\(B\)</span> 에서 <span class="math inline">\(A\)</span> 로 가는 전단사함수이므로 <span class="math inline">\(|A|=|B|\)</span>)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제20" class="level3">
+<h3 class="anchored" data-anchor-id="문제20">문제20</h3>
+<p>다음 물음에 답하라.</p>
+<p><code>(1)</code> 아래 세 수열 각각에 대하여, 그 수열의 값들로 이루어진 집합을 생각하자. 그 집합의 카디널리티가 <span class="math inline">\(|\mathbb{N}|\)</span> 과 같은 것을 모두 고르라.</p>
+<p>① <span class="math inline">\(1,\ \frac{1}{2},\ \frac{1}{3},\ \frac{1}{4},\ \dots\)</span><br>
+② <span class="math inline">\(0,\ \frac{1}{2},\ \frac{2}{2},\ \frac{1}{3},\ \frac{2}{3},\ \frac{3}{3},\ \frac{1}{4},\ \dots\)</span><br>
+③ <span class="math inline">\(-44,\ -2,\ 0,\ 1,\ 2,\ 3,\ \dots\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 65%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 65%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-50" class="callout-50-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ② · ③</strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> (1) ② 의 수열을 <span class="math inline">\(a_1,a_2,a_3,\dots\)</span> 라 하고, 그 값들의 집합을 <span class="math inline">\(A\)</span> 라 하자. <span class="math inline">\(\mathbb{N}\)</span> 에서 <span class="math inline">\(A\)</span> 로 가는 함수 <span class="math inline">\(f(n)=a_n\)</span> 에 대하여 올바른 것을 모두 고르라.</p>
+<p>① <span class="math inline">\(f\)</span> 는 전사함수이다.<br>
+② <span class="math inline">\(f\)</span> 는 단사함수이다.<br>
+③ <span class="math inline">\(f\)</span> 가 전단사함수가 아니므로, <span class="math inline">\(|A|\neq|\mathbb{N}|\)</span> 이다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 22%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 22%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-51" class="callout-51-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>①</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제21" class="level3">
+<h3 class="anchored" data-anchor-id="문제21">문제21</h3>
+<p>좌표평면에서 두 좌표가 모두 정수인 점 전체의 집합을 <span class="math inline">\(L=\{(a,b): a,b\in\mathbb{Z}\}\)</span> 라 하자. (<span class="math inline">\(\mathbb{Z}\)</span> 는 정수 전체의 집합) 아래 그림의 (가), (나) 는 <span class="math inline">\(L\)</span> 의 점을 한 걸음에 하나씩 차례로 밟아 가는 두 길이다. <span class="math inline">\(n\)</span> 번째 걸음에 밟는 점을 <span class="math inline">\(g(n)\)</span> 이라 하면, <span class="math inline">\(g\)</span> 는 <span class="math inline">\(\mathbb{N}=\{1,2,3,\dots\}\)</span> 에서 <span class="math inline">\(L\)</span> 로 가는 함수이다. (<span class="math inline">\(g(1)\)</span> 은 원점) 다음 물음에 답하라.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/261102-midterm-N310.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+<p><code>(1)</code> 올바른 것을 모두 고르라.</p>
+<p>① (가) 의 <span class="math inline">\(g\)</span> 는 단사함수이지만 전사함수는 아니다.<br>
+② (가) 의 <span class="math inline">\(g\)</span> 가 전사함수가 아니므로, <span class="math inline">\(|\mathbb{N}|&lt;|L|\)</span> 이다.<br>
+③ (나) 의 <span class="math inline">\(g\)</span> 는 전단사함수이므로, <span class="math inline">\(|\mathbb{N}|=|L|\)</span> 이다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 24%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 24%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-52" class="callout-52-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ③</strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> <span class="math inline">\(L\)</span> 의 점 가운데 두 좌표가 모두 <span class="math inline">\(0\)</span> 이상인 점 전체의 집합을 <span class="math inline">\(L^+\)</span> 라 하자. 올바른 것을 모두 고르라.</p>
+<p>① <span class="math inline">\(L^+\subset L\)</span> 이므로 <span class="math inline">\(|L^+|\leq|L|\)</span> 이고, (1) 에서 <span class="math inline">\(|L|=|\mathbb{N}|\)</span> 이므로 <span class="math inline">\(|L^+|\leq|\mathbb{N}|\)</span> 이다.<br>
+② (가) 의 <span class="math inline">\(g\)</span> 의 값은 모두 <span class="math inline">\(L^+\)</span> 에 들어 있으므로, <span class="math inline">\(\mathbb{N}\)</span> 에서 <span class="math inline">\(L^+\)</span> 로 가는 단사함수가 있다. 곧 <span class="math inline">\(|\mathbb{N}|\leq|L^+|\)</span> 이다.<br>
+③ ① 과 ② 를 합치면 <span class="math inline">\(|L^+|=|\mathbb{N}|\)</span> 이다.<br>
+④ <span class="math inline">\(L^+\)</span> 는 <span class="math inline">\(L\)</span> 의 대략 <span class="math inline">\(\frac{1}{4}\)</span> 만 차지하므로, <span class="math inline">\(|L^+|\)</span> 는 <span class="math inline">\(|L|\)</span> 보다 작다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 39%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-53-contents" aria-controls="callout-53" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 39%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-53" class="callout-53-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ② · ③</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제22" class="level3">
+<h3 class="anchored" data-anchor-id="문제22">문제22</h3>
+<p>다음은 <span class="math inline">\(|\mathbb{N}|=|\mathbb{Q}|\)</span> 임을 보인 증명이다. 물음에 답하라.</p>
+<div class="passage">
+<p><span class="math inline">\(|\mathbb{N}|=|\mathbb{Q}|\)</span> 임을 보이자. 먼저 양의 유리수 전체의 집합 <span class="math inline">\(\mathbb{Q}^+\)</span> 에 대하여 <span class="math inline">\(|\mathbb{N}|=|\mathbb{Q}^+|\)</span> 임을 보이고, 그다음 <span class="math inline">\(0\)</span> 과 음의 유리수까지 넣어 <span class="math inline">\(\mathbb{Q}\)</span> 전체로 넓힌다. <span class="math inline">\(|\mathbb{N}|=|\mathbb{Q}^+|\)</span> 를 보이려면 <span class="math inline">\(\mathbb{N}\)</span> 에서 <span class="math inline">\(\mathbb{Q}^+\)</span> 로 가는 전단사함수를 찾으면 된다. 아래 그림처럼 분수 <span class="math inline">\(\frac{p}{q}\)</span> 를 <span class="math inline">\(p\)</span> 번째 줄, <span class="math inline">\(q\)</span> 번째 칸에 적고, 화살표를 따라 나오는 분수를 차례로 <span class="math inline">\(a_1,a_2,a_3,\dots\)</span> 라 하자.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(3\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(4\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(5\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(6\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(7\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(8\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(9\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(10\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(11\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(12\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\cdots\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a_n\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1/1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2/1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1/2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1/3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2/2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3/1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4/1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3/2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2/3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1/4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1/5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2/4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\cdots\)</span></td>
+</tr>
+</tbody>
+</table>
+<!-- colwidths: 4.4 2.4 2.4 2.4 2.4 2.4 2.4 2.4 2.4 2.4 2.4 2.4 2.4 2.4 -->
+<p>그러면 <u>㉠ 모든 양의 유리수는 이 수열 어딘가에 반드시 나온다</u>. 다만 <span class="math inline">\(a_5=\frac{2}{2}=a_1\)</span>, <span class="math inline">\(a_{12}=\frac{2}{4}=a_3\)</span> 처럼 이미 나온 수(그림의 빨간 분수)가 다시 나오기도 한다. 그래서 <u>㉡ 처음 나오는 항의 번호만 골라 차례로 <span class="math inline">\(b_1,b_2,b_3,\dots\)</span> 라 한다</u>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(3\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(4\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(5\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(6\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(7\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(8\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(9\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(10\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\cdots\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(b_n\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(7\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(8\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(9\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(10\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(11\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\cdots\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(a(b_n)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1/1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2/1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1/2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1/3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3/1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4/1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3/2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2/3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1/4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1/5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\cdots\)</span></td>
+</tr>
+</tbody>
+</table>
+<!-- colwidths: 4.4 2.4 2.4 2.4 2.4 2.4 2.4 2.4 2.4 2.4 2.4 2.4 -->
+<p>그러면 <span class="math inline">\(f(n)=a(b_n)\)</span> 은 <span class="math inline">\(\mathbb{N}\)</span> 에서 <span class="math inline">\(\mathbb{Q}^+\)</span> 로 가는 전단사함수이므로 <span class="math inline">\(|\mathbb{N}|=|\mathbb{Q}^+|\)</span> 이다. 이제 <span class="math inline">\(a(b_n)\)</span> 을 <span class="math inline">\(q_n\)</span> 이라 쓰자(<span class="math inline">\(q_1=1\)</span>, <span class="math inline">\(q_2=2\)</span>, <span class="math inline">\(q_3=\frac{1}{2}\)</span>, <span class="math inline">\(\dots\)</span>). 음의 유리수는 <span class="math inline">\(-q_1,-q_2,-q_3,\dots\)</span> 이다. <span class="math inline">\(\mathbb{Q}\)</span> 의 수를 (가) 와 같이 늘어놓고 자연수 <span class="math inline">\(1,2,3,\dots\)</span> 와 차례로 짝지으면 <span class="math inline">\(\mathbb{N}\)</span> 에서 <span class="math inline">\(\mathbb{Q}\)</span> 로 가는 전단사함수를 얻는다. 따라서 <span class="math inline">\(|\mathbb{N}|=|\mathbb{Q}|\)</span> 이다.</p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/261102-midterm-T140.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:55.0%"></p>
+</figure>
+</div>
+<p><code>(1)</code> ㉠ 이 성립하는 까닭으로 가장 적절한 것을 고르라.</p>
+<p>① 양의 유리수 <span class="math inline">\(\frac{p}{q}\)</span> 는 모두 그림의 <span class="math inline">\(p\)</span> 번째 줄, <span class="math inline">\(q\)</span> 번째 칸에 있고, 화살표는 칸이 유한개인 비스듬한 줄을 차례로 훑으므로 어느 칸이든 유한한 차례에 지나가기 때문이다.<br>
+② 유리수는 셀 수 있는 집합이기 때문이다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 71%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-54-contents" aria-controls="callout-54" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 71%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-54" class="callout-54-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>①</strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> 밑줄 친 ㉡ 에 대한 설명으로 올바른 것을 모두 고르라.</p>
+<p>① ㉡ 을 하지 않고 <span class="math inline">\(f(n)=a_n\)</span> 으로 두어도 <span class="math inline">\(f\)</span> 는 <span class="math inline">\(\mathbb{N}\)</span> 에서 <span class="math inline">\(\mathbb{Q}^+\)</span> 로 가는 전사함수이지만, 같은 수가 다시 나오므로 단사함수는 아니다.<br>
+② ㉡ 에서 고르지 않은 항은 모두 앞에 이미 나온 수이므로, 고르지 않아도 <span class="math inline">\(q_1,q_2,q_3,\dots\)</span> 에서 빠지는 양의 유리수는 없다.<br>
+③ ㉡ 을 거친 뒤에도 <span class="math inline">\(f(n)=q_n\)</span> 은 전사함수일 뿐, 단사함수는 아니다.<br>
+④ ㉡ 에서 고르지 않는 항이 끝없이 많으므로, 어느 자연수 <span class="math inline">\(n\)</span> 부터는 <span class="math inline">\(b_n\)</span> 으로 고를 번호가 남지 않는다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 45%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-55-contents" aria-controls="callout-55" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 45%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-55" class="callout-55-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ②</strong></p>
+</div>
+</div>
+</div>
+<p><code>(3)</code> (가) 에 들어갈 늘어놓기로 알맞은 것을 모두 고르라.</p>
+<p>① <span class="math inline">\(0,\ q_1,\ -q_1,\ q_2,\ -q_2,\ q_3,\ -q_3,\ \dots\)</span><br>
+② <span class="math inline">\(0,\ q_1,\ q_2,\ -q_1,\ q_3,\ q_4,\ -q_2,\ \dots\)</span> (양수 둘, 음수 하나를 번갈아)<br>
+③ <span class="math inline">\(q_1,\ -q_1,\ q_2,\ -q_2,\ q_3,\ -q_3,\ \dots\)</span> (<span class="math inline">\(0\)</span> 은 넣지 않음)</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 22%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-56-contents" aria-controls="callout-56" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 22%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-56" class="callout-56-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ②</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제23" class="level3">
+<h3 class="anchored" data-anchor-id="문제23">문제23</h3>
+<p>다음은 <span class="math inline">\(|\mathbb{Q}|&lt;|\mathbb{R}|\)</span> 임을 보인 증명이다. 물음에 답하라.</p>
+<div class="passage">
+<p><span class="math inline">\(|\mathbb{Q}|&lt;|\mathbb{R}|\)</span> 임을 보이자. <span class="math inline">\(|[0,1]|\leq|\mathbb{R}|\)</span> 이므로 <span class="math inline">\(|\mathbb{Q}|&lt;|[0,1]|\)</span> 임을 보여도 되고, <span class="math inline">\(|\mathbb{N}|=|\mathbb{Q}|\)</span> 이므로 그 대신 <span class="math inline">\(|\mathbb{N}|&lt;|[0,1]|\)</span> 임을 보여도 된다. 이를 위해서는 <span class="math inline">\(\mathbb{N}\)</span> 에서 <span class="math inline">\([0,1]\)</span> 로 가는 단사함수는 있지만 전사함수는 없음을 보이면 된다. 먼저 단사함수는 (가) 처럼 바로 잡을 수 있다. 전사함수가 없음은 바로 보이기 어려우므로 귀류법을 쓴다. <span class="math inline">\(\mathbb{N}\)</span> 에서 <span class="math inline">\([0,1]\)</span> 로 가는 전사함수 <span class="math inline">\(f\)</span> 가 있다고 하자. 그러면 <u>㉠ <span class="math inline">\([0,1]=\{f(n): n\in\mathbb{N}\}\)</span> 이다</u>. 이제 <span class="math inline">\(a_n=f(n)\)</span> 이라 하고, 수 <span class="math inline">\(y=0.x_1x_2x_3\cdots\)</span> 의 소수점 아래 <span class="math inline">\(n\)</span> 번째 자리 <span class="math inline">\(x_n\)</span> 을 <span class="math inline">\(a_n\)</span> 의 소수점 아래 <span class="math inline">\(n\)</span> 번째 자리와 다른 숫자로 정한다. (단 <span class="math inline">\(x_n\)</span> 은 <span class="math inline">\(0\)</span> 이나 <span class="math inline">\(9\)</span> 가 아니다.) 그러면 <u>㉡ <span class="math inline">\(y\)</span> 는 <span class="math inline">\(a_1,a_2,a_3,\dots\)</span> 가운데 어디에도 없다</u>. 그런데 <span class="math inline">\(y\)</span> 는 <span class="math inline">\([0,1]\)</span> 의 수이므로, 이것은 모순이다. 따라서 <span class="math inline">\(\mathbb{N}\)</span> 에서 <span class="math inline">\([0,1]\)</span> 로 가는 전사함수는 없고, <span class="math inline">\(|\mathbb{N}|&lt;|[0,1]|\)</span> 이다. 곧 <span class="math inline">\(|\mathbb{Q}|&lt;|\mathbb{R}|\)</span> 이다.</p>
+</div>
+<p><code>(1)</code> (가) 에 들어갈 것으로 알맞은 것을 모두 고르라.</p>
+<p>① <span class="math inline">\(g(n)=\frac{1}{n}\)</span><br>
+② <span class="math inline">\(g(n)=n\)</span><br>
+③ <span class="math inline">\(g(n)=\frac{1}{n+1}\)</span><br>
+④ <span class="math inline">\(g(n)=\frac{1}{2}\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 33%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-57-contents" aria-controls="callout-57" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 33%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-57" class="callout-57-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ③</strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> 밑줄 친 ㉠ 에 대한 설명으로 올바른 것을 모두 고르라.</p>
+<p>① ㉠ 에 따르면 <span class="math inline">\([0,1]\)</span> 의 수는 모두 <span class="math inline">\(f(1),f(2),f(3),\dots\)</span> 가운데 어딘가에 나온다.<br>
+② ㉠ 이 성립하려면 서로 다른 <span class="math inline">\(n\)</span> 에 대하여 <span class="math inline">\(f(n)\)</span> 이 모두 달라야 한다.<br>
+③ ㉠ 이 성립하려면 <span class="math inline">\(f(1)&lt;f(2)&lt;f(3)&lt;\cdots\)</span> 처럼 함숫값이 크기 순서로 놓여야 한다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 33%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-58-contents" aria-controls="callout-58" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 33%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-58" class="callout-58-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>①</strong></p>
+</div>
+</div>
+</div>
+<p><code>(3)</code> <span class="math inline">\(a_1,a_2,a_3,a_4\)</span> 가 아래와 같을 때, 위 증명의 방법으로 만들 수 있는 <span class="math inline">\(y\)</span> 를 하나 골라 소수점 아래 넷째 자리까지 쓰라.</p>
+<p><span class="math display">\[a_1=0.5141\cdots,\quad a_2=0.2718\cdots,\quad a_3=0.1454\cdots,\quad a_4=0.3772\cdots\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 35%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-59-contents" aria-controls="callout-59" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 35%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-59" class="callout-59-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>예: <span class="math inline">\(0.1111\)</span></strong> (소수점 아래 <span class="math inline">\(n\)</span> 번째 자리가 <span class="math inline">\(a_n\)</span> 의 <span class="math inline">\(n\)</span> 번째 자리와 다르고 <span class="math inline">\(0\)</span>, <span class="math inline">\(9\)</span> 가 아니면 모두 정답)</p>
+</div>
+</div>
+</div>
+<p><code>(4)</code> 밑줄 친 ㉡ 과 그 뒤의 논증에 대한 설명으로 올바른 것을 모두 고르라.</p>
+<p>① ㉡ 이 성립하는 것은, 어느 <span class="math inline">\(n\)</span> 에 대해서도 <span class="math inline">\(y\)</span> 와 <span class="math inline">\(a_n\)</span> 의 소수점 아래 <span class="math inline">\(n\)</span> 번째 자리가 다르기 때문이다.<br>
+② <span class="math inline">\([0,1]\)</span> 의 수를 늘어놓은 어떤 목록에 대해서도 같은 방법으로 그 목록에 없는 <span class="math inline">\([0,1]\)</span> 의 수를 만들 수 있다.<br>
+③ ㉡ 에 따르면 <span class="math inline">\(y\)</span> 는 <span class="math inline">\([0,1]\)</span> 의 수가 아니다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 59%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-60-contents" aria-controls="callout-60" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 59%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-60" class="callout-60-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ② 또는 ① · ② · ③</strong> (복수정답)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제24" class="level3">
+<h3 class="anchored" data-anchor-id="문제24">문제24</h3>
+<p>두 집합 <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> 를 아래와 같이 두자.</p>
+<ul>
+<li><span class="math inline">\(X=\)</span> <span class="math inline">\([0,1]\)</span> 사이의 모든 유리수의 집합</li>
+<li><span class="math inline">\(Y=\)</span> <span class="math inline">\([0,1]\)</span></li>
+</ul>
+<p>세 학생이 <span class="math inline">\(|X|&lt;|Y|\)</span> 를 보이려고 아래와 같이 논증하였다. 올바른 논증을 모두 고르라.</p>
+<p>① <span class="math inline">\(x\mapsto x\)</span> 는 <span class="math inline">\(X\)</span> 에서 <span class="math inline">\(Y\)</span> 로 가는 단사함수이다. 그런데 <span class="math inline">\(\frac{\sqrt2}{2}\)</span> 는 <span class="math inline">\(Y\)</span> 의 원소이지만 유리수가 아니므로 이 함수의 값으로 나오지 않는다. 즉 이 함수는 단사이지만 전사가 아니어서 전단사함수가 아니다. 따라서 <span class="math inline">\(|X|&lt;|Y|\)</span> 이다.<br>
+② <span class="math inline">\(x\mapsto x\)</span> 는 <span class="math inline">\(X\)</span> 에서 <span class="math inline">\(Y\)</span> 로 가는 단사함수이므로 <span class="math inline">\(|X|\le|Y|\)</span> 이다. 만약 <span class="math inline">\(|X|=|Y|\)</span> 라면 전단사함수 <span class="math inline">\(\varphi:X\to Y\)</span> 가 있고, <span class="math inline">\(X\)</span> 는 유리수만 모은 셀 수 있는 집합이므로 <span class="math inline">\(X=\{x_1,x_2,x_3,\dots\}\)</span> 로 쓰면 <span class="math inline">\(Y=\{\varphi(x_1),\varphi(x_2),\varphi(x_3),\dots\}\)</span> 가 되어 <span class="math inline">\(Y\)</span> 도 셀 수 있는 집합이 된다. 그런데 <span class="math inline">\([0,1]\)</span> 은 셀 수 있는 집합이 아니므로 모순이다. 따라서 <span class="math inline">\(|X|&lt;|Y|\)</span> 이다.<br>
+③ <span class="math inline">\(Y\)</span> 의 길이는 <span class="math inline">\(1\)</span> 이고, <span class="math inline">\(X\)</span> 는 유리수만 모은 집합이라 길이가 <span class="math inline">\(0\)</span> 이다. 길이는 집합이 차지하는 크기이므로, 길이가 더 긴 집합일수록 원소가 더 많고 카디널리티도 더 크다. 따라서 <span class="math inline">\(|X|&lt;|Y|\)</span> 이다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 10%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-61-contents" aria-controls="callout-61" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 10%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-61" class="callout-61-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>②</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="문제25" class="level3">
+<h3 class="anchored" data-anchor-id="문제25">문제25</h3>
+<p>다음은 <span class="math inline">\(|\mathbb{Q}|&lt;|\mathbb{R}-\mathbb{Q}|\)</span> 임을 보이는 증명이다. (<span class="math inline">\(\mathbb{R}-\mathbb{Q}\)</span> 는 무리수 전체의 집합이다.)</p>
+<div class="passage">
+<p><span class="math inline">\(|\mathbb{N}|=|\mathbb{Q}|\)</span> 이고 <span class="math inline">\(|\mathbb{Q}|&lt;|\mathbb{R}|\)</span> 임은 이미 보였다. 먼저 <span class="math inline">\(|\mathbb{Q}|\leq|\mathbb{R}-\mathbb{Q}|\)</span> 를 보이는 것은 어렵지 않다. <span class="math inline">\(\mathbb{Q}\)</span> 에서 <span class="math inline">\(\mathbb{R}-\mathbb{Q}\)</span> 로 가는 단사함수를 (가) 처럼 잡으면 되기 때문이다. 이제 <span class="math inline">\(|\mathbb{Q}|\neq|\mathbb{R}-\mathbb{Q}|\)</span> 임을 귀류법으로 보이자. <span class="math inline">\(|\mathbb{Q}|=|\mathbb{R}-\mathbb{Q}|\)</span> 라고 하자. 그러면 <u>㉠ <span class="math inline">\(\mathbb{Q}=\{q_1,q_2,q_3,\dots\}\)</span>, <span class="math inline">\(\mathbb{R}-\mathbb{Q}=\{r_1,r_2,r_3,\dots\}\)</span> 로 쓸 수 있다</u>. 실수는 유리수이거나 무리수이므로, 실수 전체를 (나) 처럼 한 줄로 늘어놓을 수 있다. 이것은 실수가 셀 수 있는 집합이라는 뜻이므로 (다) 와 모순이다. 따라서 <span class="math inline">\(|\mathbb{Q}|\neq|\mathbb{R}-\mathbb{Q}|\)</span> 이고, 앞의 결과와 합치면 <span class="math inline">\(|\mathbb{Q}|&lt;|\mathbb{R}-\mathbb{Q}|\)</span> 이다.</p>
+</div>
+<p><code>(1)</code> (가) 에 들어갈 함수로 알맞은 것을 모두 고르라.</p>
+<p>① <span class="math inline">\(f(q)=q+\sqrt{2}\)</span><br>
+② <span class="math inline">\(f(q)=q\sqrt{2}\)</span><br>
+③ <span class="math inline">\(f(q)=q+\pi\)</span><br>
+④ <span class="math inline">\(f(q)=\sqrt{2}\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 37%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-62-contents" aria-controls="callout-62" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 37%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-62" class="callout-62-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ③</strong></p>
+</div>
+</div>
+</div>
+<p><code>(2)</code> ㉠ 처럼 쓸 수 있는 까닭으로 올바른 것을 모두 고르라.</p>
+<p>① <span class="math inline">\(|\mathbb{N}|=|\mathbb{Q}|\)</span> 이므로, 유리수를 자연수 번호를 붙여 빠짐없이, 겹치지 않게 늘어놓을 수 있다.<br>
+② 가정 <span class="math inline">\(|\mathbb{Q}|=|\mathbb{R}-\mathbb{Q}|\)</span> 와 <span class="math inline">\(|\mathbb{N}|=|\mathbb{Q}|\)</span> 에서 <span class="math inline">\(|\mathbb{N}|=|\mathbb{R}-\mathbb{Q}|\)</span> 이므로, 무리수도 그렇게 늘어놓을 수 있다.<br>
+③ 유리수와 무리수는 모두 크기 순서로 늘어놓을 수 있기 때문이다.<br>
+④ ㉠ 은 가정과 상관없이 언제나 성립한다.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 37%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-63-contents" aria-controls="callout-63" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 37%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-63" class="callout-63-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ②</strong></p>
+</div>
+</div>
+</div>
+<p><code>(3)</code> (나) 에 들어갈 늘어놓기로 알맞은 것을 모두 고르라.</p>
+<p>① <span class="math inline">\(q_1,\ r_1,\ q_2,\ r_2,\ q_3,\ r_3,\ \dots\)</span><br>
+② <span class="math inline">\(r_1,\ q_1,\ r_2,\ q_2,\ r_3,\ q_3,\ \dots\)</span><br>
+③ <span class="math inline">\(q_1,\ q_2,\ r_1,\ r_2,\ q_3,\ q_4,\ r_3,\ r_4,\ \dots\)</span> (유리수 둘, 무리수 둘을 번갈아)<br>
+④ <span class="math inline">\(r_1,\ r_2,\ q_1,\ q_2,\ r_3,\ r_4,\ q_3,\ q_4,\ \dots\)</span> (무리수 둘, 유리수 둘을 번갈아)</p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 24%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-64-contents" aria-controls="callout-64" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 24%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-64" class="callout-64-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>① · ② · ③ · ④</strong></p>
+</div>
+</div>
+</div>
+<p><code>(4)</code> (다) 에 들어갈 것으로 알맞은 것을 고르라.</p>
+<p>① <span class="math inline">\(|\mathbb{N}|&lt;|\mathbb{R}|\)</span><br>
+② <span class="math inline">\(|\mathbb{N}|=|\mathbb{Q}|\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="정답보기(정답률 65%)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-65-contents" aria-controls="callout-65" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>정답보기(정답률 65%)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-65" class="callout-65-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>①</strong></p>
+</div>
+</div>
 </div>
 
 
 </section>
-</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Bartha (2004), «Countable Additivity and the de Finetti Lottery», <em>The British Journal for the Philosophy of Science</em> 55(2), 301–321. (2차 문헌)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <style>
 #replBtn {
   position: fixed; right: 20px; bottom: 20px; z-index: 1000;
