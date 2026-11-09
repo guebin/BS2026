@@ -1,5 +1,5 @@
 ---
-title: "**10wk-2(1)**: 확률변수"
+title: "**10wk-2**: 확률변수"
 author: 최규빈
 date: "11/09/2026 09:00"
 draft: false
@@ -12,6 +12,8 @@ format:
 ---
 
 # 1. 강의영상
+
+{{< video https://youtu.be/playlist?list=PLTnWSCkF9KkY&si=A18Bl99bdm9R9Pi2 >}}
 
 # 2. 확률변수
 
