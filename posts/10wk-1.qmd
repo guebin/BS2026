@@ -325,3 +325,4 @@ $$P(\mathbb{N})=c+c+c+\cdots$$
 
 ![그림2: 드 피네티(1937) «La prévision: ses lois logiques, ses sources subjectives» p.13. 칠한 곳은 사건이 무한히 많을 때는 유한 개짜리 부분 모임마다 일관되면 된다는 정의와, 그래서 확률의 덧셈 정리를 «셀 수 있는 무한 개의 사건으로도 넓힐 수 없다»는 결론이다.](attachments/261027-강민-09wk1-드피네티1937-p13.png)
 
+다음 강의: [10wk-2(1) 확률변수](10wk-2-1.qmd)
