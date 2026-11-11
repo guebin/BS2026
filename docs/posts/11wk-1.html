@@ -221,21 +221,21 @@ window.Quarto = {
 </ul>
 <p><code>-</code> 구체적으로 사후분포를 아래와 같이 구한다.</p>
 <p><span class="math display">\[\underbrace{\pi(\theta\mid\text{data})}_{\text{사후분포}}=\underbrace{\pi(\theta)}_{\text{사전분포}}\times\underbrace{L(\theta)}_{\text{가능도}}\times\text{정규화}\]</span> 정규화는 세 가지 경우로 나뉜다.</p>
-<p><span class="math display">\[\text{정규화}=\begin{cases}\dfrac{1}{\sum_{\theta}\pi(\theta)\,L(\theta)} &amp; (\theta\text{ 가 이산형})\\[2ex]\dfrac{1}{\int\pi(\theta)\,L(\theta)\,d\theta} &amp; (\theta\text{ 가 연속형})\\[2ex]?? &amp; (\text{그 외})\end{cases}\]</span></p>
-<p><span class="math inline">\(\theta\)</span> 가 이산형이면 합으로 나누고, 연속형이면 적분으로 나눈다. 그 외의 경우를 정확하게 쓰려면 라돈-니코딤 정리를 알아야 한다. (이 강의의 범위는 아님)</p>
+<p><span class="math display">\[\text{정규화}=\begin{cases}\dfrac{1}{\sum_{\theta}\pi(\theta)\,L(\theta)} &amp; (\pi(\theta)\text{ 가 이산형})\\[2ex]\dfrac{1}{\int\pi(\theta)\,L(\theta)\,d\theta} &amp; (\pi(\theta)\text{ 가 연속형})\\[2ex]?? &amp; (\text{그 외})\end{cases}\]</span></p>
+<p><span class="math inline">\(\pi(\theta)\)</span> 가 이산형이면 합으로 나누고, 연속형이면 적분으로 나눈다. 그 외의 경우를 정확하게 쓰려면 라돈-니코딤 정리를 알아야 한다. (이 강의의 범위는 아님)</p>
 <p><code>-</code> 현실적으로는 이산형 · 연속형 · 혼합형 세 경우에 대해서 사후분포를 아래의 공식으로 정리하면 이 강의를 이해하는 데는 무리가 없다.</p>
-<p>① <span class="math inline">\(\theta\)</span> 가 이산형일 때: <span class="math inline">\(\pi(\theta\mid\text{data})=\frac{\pi(\theta)\,L(\theta)}{\sum_{\theta}\pi(\theta)\,L(\theta)}\)</span><br>
-② <span class="math inline">\(\theta\)</span> 가 연속형일 때: <span class="math inline">\(\pi(\theta\mid\text{data})=\frac{\pi(\theta)\,L(\theta)}{\int\pi(\theta)\,L(\theta)\,d\theta}\)</span><br>
-③ 혼합형일 때: <span class="math inline">\(\pi(\theta\mid\text{data})=\frac{\pi(\theta)\,L(\theta)}{\sum_{\theta}\pi_1(\theta)\,L(\theta)+\int\pi_2(\theta)\,L(\theta)\,d\theta}\)</span>, 단 <span class="math inline">\(\pi(\theta)=\pi_1(\theta)+\pi_2(\theta)\)</span></p>
+<p>① <span class="math inline">\(\pi(\theta)\)</span> 가 이산형일 때: <span class="math inline">\(\pi(\theta\mid\text{data})=\frac{\pi(\theta)\,L(\theta)}{\sum_{\theta}\pi(\theta)\,L(\theta)}\)</span><br>
+② <span class="math inline">\(\pi(\theta)\)</span> 가 연속형일 때: <span class="math inline">\(\pi(\theta\mid\text{data})=\frac{\pi(\theta)\,L(\theta)}{\int\pi(\theta)\,L(\theta)\,d\theta}\)</span><br>
+③ <span class="math inline">\(\pi(\theta)\)</span> 가 혼합형일 때: <span class="math inline">\(\pi(\theta\mid\text{data})=\frac{\pi(\theta)\,L(\theta)}{\sum_{\theta}\pi_1(\theta)\,L(\theta)+\int\pi_2(\theta)\,L(\theta)\,d\theta}\)</span>, 단 <span class="math inline">\(\pi(\theta)=\pi_1(\theta)+\pi_2(\theta)\)</span></p>
 <ul>
 <li><span class="math inline">\(\pi_1(\theta)\)</span> 은 점에 놓인 부분이고 <strong>확률</strong>이다.</li>
 <li><span class="math inline">\(\pi_2(\theta)\)</span> 는 퍼진 부분이고 <strong>밀도</strong>다.</li>
 <li>분모에서 <span class="math inline">\(\pi_1\)</span> 쪽은 더하고 <span class="math inline">\(\pi_2\)</span> 쪽은 적분한다. 사후분포도 같은 두 부분으로 나뉜다: <span class="math inline">\(\pi(\theta\mid\text{data})=\pi_1(\theta\mid\text{data})+\pi_2(\theta\mid\text{data})\)</span>, 여기서 <span class="math inline">\(\pi_j(\theta\mid\text{data})=\frac{\pi_j(\theta)\,L(\theta)}{\sum_{\theta}\pi_1(\theta)\,L(\theta)+\int\pi_2(\theta)\,L(\theta)\,d\theta}\)</span> <span class="math inline">\((j=1,2)\)</span>.</li>
 </ul>
-<p><code>-</code> <span class="math inline">\(\pi(\theta)\)</span> 를 읽는 법: <span class="math inline">\(\theta\)</span> 가 이산형인지, 연속형인지, 혼합형인지에 따라 <span class="math inline">\(\pi(\theta)\)</span> 의 뜻이 다르다. 사후분포 <span class="math inline">\(\pi(\theta\mid\text{data})\)</span> 도 똑같다.</p>
+<p><code>-</code> <span class="math inline">\(\pi(\theta)\)</span> 를 읽는 법: <span class="math inline">\(\pi(\theta)\)</span> 가 이산형인지, 연속형인지, 혼합형인지에 따라 그 뜻이 다르다. 사후분포 <span class="math inline">\(\pi(\theta\mid\text{data})\)</span> 도 똑같다.</p>
 <ul>
-<li><strong>이산형</strong>: <span class="math inline">\(\theta\)</span> 가 가질 수 있는 값이 점으로 떨어져 있다(예제1~4). 이때 <span class="math inline">\(\pi(\theta)\)</span> 는 <strong>확률</strong>이다. <span class="math inline">\(\pi(0.5)=P(\theta=0.5)\)</span> 처럼 <span class="math inline">\(\theta\)</span> 가 그 값일 확률이고, 그 점들 밖에서는 <span class="math inline">\(0\)</span> 이다. 점들에서의 값을 모두 더하면 <span class="math inline">\(1\)</span> 이다: <span class="math inline">\(\sum_{\theta}\pi(\theta)=1\)</span>.</li>
-<li><strong>연속형</strong>: <span class="math inline">\(\theta\)</span> 가 구간 위의 어느 값이든 될 수 있다(예제7~14). 이때 <span class="math inline">\(\pi(\theta)\)</span> 는 <strong>밀도</strong>다. <span class="math inline">\(\pi(\theta)\)</span> 의 값 자체는 확률이 아니고 <span class="math inline">\(1\)</span> 보다 클 수도 있다(<span class="math inline">\(Beta(50,50)\)</span> 의 꼭대기는 약 <span class="math inline">\(7.96\)</span>). 확률은 넓이다: <span class="math inline">\(P(a&lt;\theta&lt;b)=\int_a^b\pi(\theta)\,d\theta\)</span>. 전체 넓이는 <span class="math inline">\(1\)</span> 이고(<span class="math inline">\(\int\pi(\theta)\,d\theta=1\)</span>), 한 점의 확률은 <span class="math inline">\(0\)</span> 이다.</li>
+<li><strong>이산형</strong>: <span class="math inline">\(\pi(\theta)\)</span> 가 점으로 떨어진 값들에만 놓여 있다(예제1~4). 이때 <span class="math inline">\(\pi(\theta)\)</span> 는 <strong>확률</strong>이다. <span class="math inline">\(\pi(0.5)=P(\theta=0.5)\)</span> 처럼 <span class="math inline">\(\theta\)</span> 가 그 값일 확률이고, 그 점들 밖에서는 <span class="math inline">\(0\)</span> 이다. 점들에서의 값을 모두 더하면 <span class="math inline">\(1\)</span> 이다: <span class="math inline">\(\sum_{\theta}\pi(\theta)=1\)</span>.</li>
+<li><strong>연속형</strong>: <span class="math inline">\(\pi(\theta)\)</span> 가 구간 위에 퍼져 있다(예제7~14). 이때 <span class="math inline">\(\pi(\theta)\)</span> 는 <strong>밀도</strong>다. <span class="math inline">\(\pi(\theta)\)</span> 의 값 자체는 확률이 아니고 <span class="math inline">\(1\)</span> 보다 클 수도 있다(<span class="math inline">\(Beta(50,50)\)</span> 의 꼭대기는 약 <span class="math inline">\(7.96\)</span>). 확률은 넓이다: <span class="math inline">\(P(a&lt;\theta&lt;b)=\int_a^b\pi(\theta)\,d\theta\)</span>. 전체 넓이는 <span class="math inline">\(1\)</span> 이고(<span class="math inline">\(\int\pi(\theta)\,d\theta=1\)</span>), 한 점의 확률은 <span class="math inline">\(0\)</span> 이다.</li>
 <li><strong>혼합형</strong>: 점에 놓인 부분과 퍼진 부분이 함께 있다(예제5·6). 점에 놓인 부분 <span class="math inline">\(\pi_1\)</span> 은 확률, 퍼진 부분 <span class="math inline">\(\pi_2\)</span> 는 밀도다(③ 아래). 한 점에서 두 값을 더한 숫자 자체에는 뜻이 없고, 확률은 <span class="math inline">\(P(\theta\in A)=\sum_{\theta\in A}\pi_1(\theta)+\int_A\pi_2(\theta)\,d\theta\)</span> 로 구한다. 전체는 <span class="math inline">\(\sum_{\theta}\pi_1(\theta)+\int\pi_2(\theta)\,d\theta=1\)</span> 이다. 확률과 밀도는 단위가 달라 크기를 견줄 수 없다. 밀도로 보면 점에 놓인 값은 무한대다.</li>
 </ul>
 <p><code>-</code> 저의 생각: 사실 그냥 정규화한다는 개념만 알면 된다. 그래도 수식모양은 기억하는 편이 좋다. (책을 읽긴 해야하니까)</p>
@@ -266,7 +266,7 @@ window.Quarto = {
 <p><span class="math display">\[L(\theta)=P(X_1=x_1,\dots,X_n=x_n\mid\theta)=\prod_{i=1}^{n}\theta^{x_i}(1-\theta)^{1-x_i}=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)\]</span></p>
 <p><code>Step3</code> 곱:</p>
 <p><span class="math display">\[\pi(\theta)\times L(\theta)=\begin{cases}1\times0.5^{\sum x_i}(1-0.5)^{n-\sum x_i}=0.5^{n} &amp; (\theta=0.5)\\ 0 &amp; (\text{그 외})\end{cases}\]</span></p>
-<p><code>Step4</code> 정규화상수: <span class="math inline">\(\theta\)</span> 가 <span class="math inline">\(0.5\)</span> 한 점뿐인 이산형이라 ① 의 합이고, 더할 것도 하나다.</p>
+<p><code>Step4</code> 정규화상수: <span class="math inline">\(\pi(\theta)\)</span> 가 <span class="math inline">\(0.5\)</span> 한 점에만 놓인 이산형이라 ① 의 합이고, 더할 것도 하나다.</p>
 <p><span class="math display">\[\sum_{\theta}\pi(\theta)\,L(\theta)=0.5^{n}\]</span></p>
 <p><code>Step5</code> 사후분포: 사후분포도 이산형이라 <span class="math inline">\(\pi(\theta\mid\text{data})\)</span> 는 확률이다. Step3 을 Step4 로 나눈다.</p>
 <p><span class="math display">\[\pi(\theta\mid\text{data})=\begin{cases}\frac{0.5^{n}}{0.5^{n}}=1 &amp; (\theta=0.5)\\ 0 &amp; (\text{그 외})\end{cases}\]</span></p>
@@ -288,7 +288,7 @@ window.Quarto = {
 <p><span class="math display">\[L(\theta)=P(X_1=x_1,\dots,X_n=x_n\mid\theta)=\prod_{i=1}^{n}\theta^{x_i}(1-\theta)^{1-x_i}=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)\]</span></p>
 <p><code>Step3</code> 곱:</p>
 <p><span class="math display">\[\pi(\theta)\times L(\theta)=\begin{cases}1\times0.5^{\sum x_i}(1-0.5)^{n-\sum x_i}=0.5^{n} &amp; (\theta=0.5)\\ 0 &amp; (\text{그 외})\end{cases}\]</span></p>
-<p><code>Step4</code> 정규화상수: <span class="math inline">\(\theta\)</span> 가 <span class="math inline">\(0.5\)</span> 한 점뿐인 이산형이라 ① 의 합이고, 더할 것도 하나다.</p>
+<p><code>Step4</code> 정규화상수: <span class="math inline">\(\pi(\theta)\)</span> 가 <span class="math inline">\(0.5\)</span> 한 점에만 놓인 이산형이라 ① 의 합이고, 더할 것도 하나다.</p>
 <p><span class="math display">\[\sum_{\theta}\pi(\theta)\,L(\theta)=0.5^{n}\]</span></p>
 <p><code>Step5</code> 사후분포: 사후분포도 이산형이라 <span class="math inline">\(\pi(\theta\mid\text{data})\)</span> 는 확률이다. Step3 을 Step4 로 나눈다.</p>
 <p><span class="math display">\[\pi(\theta\mid\text{data})=\begin{cases}\frac{0.5^{n}}{0.5^{n}}=1 &amp; (\theta=0.5)\\ 0 &amp; (\text{그 외})\end{cases}\]</span></p>
@@ -415,7 +415,7 @@ window.Quarto = {
 \MoveEqLeft[2] \sum_{\theta}\theta\,\pi_1(\theta\mid\text{data})+\int_0^1\theta\,\pi_2(\theta\mid\text{data})\,d\theta \\
 &amp;=0.5\times w+\int_0^1\theta\times(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\,\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\,d\theta \\
 &amp;=0.5\,w+(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\int_0^1\theta^{\sum x_i+1}(1-\theta)^{n-\sum x_i}\,d\theta \\
-&amp;=0.5\,w+(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{Step4 의 공식, } p=\sum x_i+1,\ q=n-\sum x_i) \\
+&amp;=0.5\,w+(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{Step4}) \\
 &amp;=0.5\,w+(1-w)\frac{\sum x_i+1}{n+2}
 \end{align*}
 \]</span></p>
@@ -463,7 +463,7 @@ window.Quarto = {
 \MoveEqLeft[2] \sum_{\theta}\theta\,\pi_1(\theta\mid\text{data})+\int_0^1\theta\,\pi_2(\theta\mid\text{data})\,d\theta \\
 &amp;=0.5\times w+\int_0^1\theta\times(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\,\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\,d\theta \\
 &amp;=0.5\,w+(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\int_0^1\theta^{\sum x_i+1}(1-\theta)^{n-\sum x_i}\,d\theta \\
-&amp;=0.5\,w+(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{Step4 의 공식, } p=\sum x_i+1,\ q=n-\sum x_i) \\
+&amp;=0.5\,w+(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{Step4}) \\
 &amp;=0.5\,w+(1-w)\frac{\sum x_i+1}{n+2}
 \end{align*}
 \]</span></p>
@@ -491,7 +491,7 @@ window.Quarto = {
 \begin{align*}
 \MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &amp;=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\int_0^1\theta^{\sum x_i+1}(1-\theta)^{n-\sum x_i}\,d\theta \\
-&amp;=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{예제5 Step4 의 공식, } p=\sum x_i+1,\ q=n-\sum x_i) \\
+&amp;=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{\sum x_i+1}{n+2}
 \end{align*}
 \]</span></p>
@@ -519,7 +519,7 @@ window.Quarto = {
 \begin{align*}
 \MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &amp;=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\int_0^1\theta^{\sum x_i+1}(1-\theta)^{n-\sum x_i}\,d\theta \\
-&amp;=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{예제5 Step4 의 공식, } p=\sum x_i+1,\ q=n-\sum x_i) \\
+&amp;=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{\sum x_i+1}{n+2}
 \end{align*}
 \]</span></p>
@@ -539,7 +539,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \begin{align*}
 \MoveEqLeft[2] \int_0^1\frac{\theta^{\sum x_i+4}(1-\theta)^{n-\sum x_i+4}}{B(5,5)}\,d\theta \\
-&amp;=\frac{1}{B(5,5)}\cdot\frac{(\sum x_i+4)!\,(n-\sum x_i+4)!}{(n+9)!} \quad (\because\ \text{예제5 Step4 의 공식, } p=\sum x_i+4,\ q=n-\sum x_i+4) \\
+&amp;=\frac{1}{B(5,5)}\cdot\frac{(\sum x_i+4)!\,(n-\sum x_i+4)!}{(n+9)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{B(\sum x_i+5,\ n-\sum x_i+5)}{B(5,5)}
 \end{align*}
 \]</span></p>
@@ -553,7 +553,7 @@ window.Quarto = {
 \begin{align*}
 \MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &amp;=\frac{1}{B(\sum x_i+5,\ n-\sum x_i+5)}\int_0^1\theta^{\sum x_i+5}(1-\theta)^{n-\sum x_i+4}\,d\theta \\
-&amp;=\frac{(n+9)!}{(\sum x_i+4)!\,(n-\sum x_i+4)!}\cdot\frac{(\sum x_i+5)!\,(n-\sum x_i+4)!}{(n+10)!} \quad (\because\ \text{예제5 Step4 의 공식, } p=\sum x_i+5,\ q=n-\sum x_i+4) \\
+&amp;=\frac{(n+9)!}{(\sum x_i+4)!\,(n-\sum x_i+4)!}\cdot\frac{(\sum x_i+5)!\,(n-\sum x_i+4)!}{(n+10)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{\sum x_i+5}{n+10}
 \end{align*}
 \]</span></p>
@@ -574,7 +574,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \begin{align*}
 \MoveEqLeft[2] \int_0^1\frac{\theta^{\sum x_i+4}(1-\theta)^{n-\sum x_i+4}}{B(5,5)}\,d\theta \\
-&amp;=\frac{1}{B(5,5)}\cdot\frac{(\sum x_i+4)!\,(n-\sum x_i+4)!}{(n+9)!} \quad (\because\ \text{예제5 Step4 의 공식, } p=\sum x_i+4,\ q=n-\sum x_i+4) \\
+&amp;=\frac{1}{B(5,5)}\cdot\frac{(\sum x_i+4)!\,(n-\sum x_i+4)!}{(n+9)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{B(\sum x_i+5,\ n-\sum x_i+5)}{B(5,5)}
 \end{align*}
 \]</span></p>
@@ -588,7 +588,7 @@ window.Quarto = {
 \begin{align*}
 \MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &amp;=\frac{1}{B(\sum x_i+5,\ n-\sum x_i+5)}\int_0^1\theta^{\sum x_i+5}(1-\theta)^{n-\sum x_i+4}\,d\theta \\
-&amp;=\frac{(n+9)!}{(\sum x_i+4)!\,(n-\sum x_i+4)!}\cdot\frac{(\sum x_i+5)!\,(n-\sum x_i+4)!}{(n+10)!} \quad (\because\ \text{예제5 Step4 의 공식, } p=\sum x_i+5,\ q=n-\sum x_i+4) \\
+&amp;=\frac{(n+9)!}{(\sum x_i+4)!\,(n-\sum x_i+4)!}\cdot\frac{(\sum x_i+5)!\,(n-\sum x_i+4)!}{(n+10)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{\sum x_i+5}{n+10}
 \end{align*}
 \]</span></p>
@@ -609,7 +609,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \begin{align*}
 \MoveEqLeft[2] \int_0^1\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(50,50)}\,d\theta \\
-&amp;=\frac{1}{B(50,50)}\cdot\frac{(\sum x_i+49)!\,(n-\sum x_i+49)!}{(n+99)!} \quad (\because\ \text{예제5 Step4 의 공식, } p=\sum x_i+49,\ q=n-\sum x_i+49) \\
+&amp;=\frac{1}{B(50,50)}\cdot\frac{(\sum x_i+49)!\,(n-\sum x_i+49)!}{(n+99)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{B(\sum x_i+50,\ n-\sum x_i+50)}{B(50,50)}
 \end{align*}
 \]</span></p>
@@ -623,7 +623,7 @@ window.Quarto = {
 \begin{align*}
 \MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &amp;=\frac{1}{B(\sum x_i+50,\ n-\sum x_i+50)}\int_0^1\theta^{\sum x_i+50}(1-\theta)^{n-\sum x_i+49}\,d\theta \\
-&amp;=\frac{(n+99)!}{(\sum x_i+49)!\,(n-\sum x_i+49)!}\cdot\frac{(\sum x_i+50)!\,(n-\sum x_i+49)!}{(n+100)!} \quad (\because\ \text{예제5 Step4 의 공식, } p=\sum x_i+50,\ q=n-\sum x_i+49) \\
+&amp;=\frac{(n+99)!}{(\sum x_i+49)!\,(n-\sum x_i+49)!}\cdot\frac{(\sum x_i+50)!\,(n-\sum x_i+49)!}{(n+100)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{\sum x_i+50}{n+100}
 \end{align*}
 \]</span></p>
@@ -644,7 +644,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \begin{align*}
 \MoveEqLeft[2] \int_0^1\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(50,50)}\,d\theta \\
-&amp;=\frac{1}{B(50,50)}\cdot\frac{(\sum x_i+49)!\,(n-\sum x_i+49)!}{(n+99)!} \quad (\because\ \text{예제5 Step4 의 공식, } p=\sum x_i+49,\ q=n-\sum x_i+49) \\
+&amp;=\frac{1}{B(50,50)}\cdot\frac{(\sum x_i+49)!\,(n-\sum x_i+49)!}{(n+99)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{B(\sum x_i+50,\ n-\sum x_i+50)}{B(50,50)}
 \end{align*}
 \]</span></p>
@@ -658,7 +658,7 @@ window.Quarto = {
 \begin{align*}
 \MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &amp;=\frac{1}{B(\sum x_i+50,\ n-\sum x_i+50)}\int_0^1\theta^{\sum x_i+50}(1-\theta)^{n-\sum x_i+49}\,d\theta \\
-&amp;=\frac{(n+99)!}{(\sum x_i+49)!\,(n-\sum x_i+49)!}\cdot\frac{(\sum x_i+50)!\,(n-\sum x_i+49)!}{(n+100)!} \quad (\because\ \text{예제5 Step4 의 공식, } p=\sum x_i+50,\ q=n-\sum x_i+49) \\
+&amp;=\frac{(n+99)!}{(\sum x_i+49)!\,(n-\sum x_i+49)!}\cdot\frac{(\sum x_i+50)!\,(n-\sum x_i+49)!}{(n+100)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{\sum x_i+50}{n+100}
 \end{align*}
 \]</span></p>
@@ -685,7 +685,7 @@ window.Quarto = {
 \begin{align*}
 \MoveEqLeft[2] \int_{-\infty}^{\infty}\pi(\theta)\,L(\theta)\,d\theta \\
 &amp;=\frac{2}{(2\pi)^{(n+1)/2}}\exp\left(-\frac{1}{2}\Big(\sum x_i^2-\frac{(\sum x_i)^2}{n+4}\Big)\right)\int_{-\infty}^{\infty}\exp\left(-\frac{n+4}{2}\Big(\theta-\frac{\sum x_i}{n+4}\Big)^2\right)d\theta \quad (\because\ \text{완전제곱}) \\
-&amp;=\frac{2}{(2\pi)^{(n+1)/2}}\exp\left(-\frac{1}{2}\Big(\sum x_i^2-\frac{(\sum x_i)^2}{n+4}\Big)\right)\sqrt{\frac{2\pi}{n+4}} \quad \Big(\because\ N\Big(\tfrac{\sum x_i}{n+4},\ \tfrac{1}{n+4}\Big)\text{ 의 밀도는 넓이가 }1\Big)
+&amp;=\frac{2}{(2\pi)^{(n+1)/2}}\exp\left(-\frac{1}{2}\Big(\sum x_i^2-\frac{(\sum x_i)^2}{n+4}\Big)\right)\sqrt{\frac{2\pi}{n+4}} \quad (\because\ \text{정규분포 밀도의 넓이는 }1)
 \end{align*}
 \]</span></p>
 <p><code>Step5</code> 사후분포: 사후분포도 연속형이라 <span class="math inline">\(\pi(\theta\mid\text{data})\)</span> 는 밀도다. Step3 을 Step4 로 나눈다. <span class="math inline">\(\theta\)</span> 가 없는 부분은 모두 약분된다.</p>
@@ -697,7 +697,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \begin{align*}
 \MoveEqLeft[2] \int_{-\infty}^{\infty}\theta\,\pi(\theta\mid\text{data})\,d\theta \\
-&amp;=\frac{\sum x_i}{n+4} \quad \Big(\because\ N\Big(\tfrac{\sum x_i}{n+4},\ \tfrac{1}{n+4}\Big)\text{ 의 평균}\Big) \\
+&amp;=\frac{\sum x_i}{n+4} \quad (\because\ \text{정규분포의 평균}) \\
 &amp;=\frac{n}{n+4}\times\frac{\sum x_i}{n}+\frac{4}{n+4}\times0
 \end{align*}
 \]</span></p>
@@ -721,7 +721,7 @@ window.Quarto = {
 \begin{align*}
 \MoveEqLeft[2] \int_{-\infty}^{\infty}\pi(\theta)\,L(\theta)\,d\theta \\
 &amp;=\frac{2}{(2\pi)^{(n+1)/2}}\exp\left(-\frac{1}{2}\Big(\sum x_i^2-\frac{(\sum x_i)^2}{n+4}\Big)\right)\int_{-\infty}^{\infty}\exp\left(-\frac{n+4}{2}\Big(\theta-\frac{\sum x_i}{n+4}\Big)^2\right)d\theta \quad (\because\ \text{완전제곱}) \\
-&amp;=\frac{2}{(2\pi)^{(n+1)/2}}\exp\left(-\frac{1}{2}\Big(\sum x_i^2-\frac{(\sum x_i)^2}{n+4}\Big)\right)\sqrt{\frac{2\pi}{n+4}} \quad \Big(\because\ N\Big(\tfrac{\sum x_i}{n+4},\ \tfrac{1}{n+4}\Big)\text{ 의 밀도는 넓이가 }1\Big)
+&amp;=\frac{2}{(2\pi)^{(n+1)/2}}\exp\left(-\frac{1}{2}\Big(\sum x_i^2-\frac{(\sum x_i)^2}{n+4}\Big)\right)\sqrt{\frac{2\pi}{n+4}} \quad (\because\ \text{정규분포 밀도의 넓이는 }1)
 \end{align*}
 \]</span></p>
 <p><code>Step5</code> 사후분포: 사후분포도 연속형이라 <span class="math inline">\(\pi(\theta\mid\text{data})\)</span> 는 밀도다. Step3 을 Step4 로 나눈다. <span class="math inline">\(\theta\)</span> 가 없는 부분은 모두 약분된다.</p>
@@ -733,7 +733,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \begin{align*}
 \MoveEqLeft[2] \int_{-\infty}^{\infty}\theta\,\pi(\theta\mid\text{data})\,d\theta \\
-&amp;=\frac{\sum x_i}{n+4} \quad \Big(\because\ N\Big(\tfrac{\sum x_i}{n+4},\ \tfrac{1}{n+4}\Big)\text{ 의 평균}\Big) \\
+&amp;=\frac{\sum x_i}{n+4} \quad (\because\ \text{정규분포의 평균}) \\
 &amp;=\frac{n}{n+4}\times\frac{\sum x_i}{n}+\frac{4}{n+4}\times0
 \end{align*}
 \]</span></p>
