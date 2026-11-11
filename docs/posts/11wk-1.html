@@ -279,7 +279,7 @@ window.Quarto = {
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">가능도,사전분포,사후분포 애니메이션 (상황은 참값 <span class="math inline">\(\theta=0.5\)</span>이고 프라이어는 <span class="math inline">\(\theta=0.5\)</span>에 몰빵)</span></p>
 <p><code>Step6</code> – 사후분포의 평균</p>
-<p><span class="math display">\[E(\theta\mid\text{data})=\sum_{\theta}\theta\,\pi(\theta\mid\text{data})=0.5\times\pi(0.5\mid\text{data})=0.5\times1=0.5\]</span></p>
+<p><span class="math display">\[\sum_{\theta}\theta\,\pi(\theta\mid\text{data})=0.5\times\pi(0.5\mid\text{data})=0.5\times1=0.5\]</span></p>
 <iframe src="attachments/261111-강민-동전예제1-n추정값-애니메이션.html" width="100%" height="418" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">추정값의 변화 애니메이션 (상황은 참값 <span class="math inline">\(\theta=0.5\)</span>이고 프라이어는 <span class="math inline">\(\theta=0.5\)</span>에 몰빵)</span></p>
@@ -301,7 +301,7 @@ window.Quarto = {
 <p><code>Step5</code> – 사후분포(이산형)</p>
 <p><span class="math display">\[\pi(\theta\mid\text{data})=\frac{\pi(\theta)\times L(\theta)}{\sum_{\theta}\pi(\theta)L(\theta)}=\begin{cases}\frac{0.5^{n}}{0.5^{n}}=1 &amp; (\theta=0.5)\\ 0 &amp; (\text{그 외})\end{cases}\]</span></p>
 <p><code>Step6</code> – 사후분포의 평균</p>
-<p><span class="math display">\[E(\theta\mid\text{data})=\sum_{\theta}\theta\,\pi(\theta\mid\text{data})=0.5\times\pi(0.5\mid\text{data})=0.5\times1=0.5\]</span></p>
+<p><span class="math display">\[\sum_{\theta}\theta\,\pi(\theta\mid\text{data})=0.5\times\pi(0.5\mid\text{data})=0.5\times1=0.5\]</span></p>
 </details>
 <iframe src="attachments/261111-강민-동전예제2-사전분포가능도사후분포-애니메이션.html" width="100%" height="350" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
@@ -329,8 +329,7 @@ window.Quarto = {
 <p><code>Step6</code> – 사후분포의 평균</p>
 <p><span class="math display">\[
 \begin{align*}
-\MoveEqLeft[2] E(\theta\mid\text{data}) \\
-&amp;=\sum_{\theta}\theta\,\pi(\theta\mid\text{data}) \\
+\MoveEqLeft[2] \sum_{\theta}\theta\,\pi(\theta\mid\text{data}) \\
 &amp;=0.5\times P(\theta=0.5\mid\text{data})+0.55\times P(\theta=0.55\mid\text{data}) \\
 &amp;=\frac{0.5\times0.5^{n}+0.55\times0.55^{\sum x_i}\,0.45^{n-\sum x_i}}{0.5^{n}+0.55^{\sum x_i}\,0.45^{n-\sum x_i}}
 \end{align*}
@@ -362,8 +361,7 @@ window.Quarto = {
 <p><code>Step6</code> – 사후분포의 평균</p>
 <p><span class="math display">\[
 \begin{align*}
-\MoveEqLeft[2] E(\theta\mid\text{data}) \\
-&amp;=\sum_{\theta}\theta\,\pi(\theta\mid\text{data}) \\
+\MoveEqLeft[2] \sum_{\theta}\theta\,\pi(\theta\mid\text{data}) \\
 &amp;=0.5\times P(\theta=0.5\mid\text{data})+0.55\times P(\theta=0.55\mid\text{data}) \\
 &amp;=\frac{0.5\times0.5^{n}+0.55\times0.55^{\sum x_i}\,0.45^{n-\sum x_i}}{0.5^{n}+0.55^{\sum x_i}\,0.45^{n-\sum x_i}}
 \end{align*}
@@ -426,8 +424,7 @@ window.Quarto = {
 <p><code>Step6</code> – 사후분포의 평균</p>
 <p><span class="math display">\[
 \begin{align*}
-\MoveEqLeft[2] E(\theta\mid\text{data}) \\
-&amp;=\sum_{\theta}\theta\,\pi_1(\theta\mid\text{data})+\int_0^1\theta\,\pi_2(\theta\mid\text{data})\,d\theta \\
+\MoveEqLeft[2] \sum_{\theta}\theta\,\pi_1(\theta\mid\text{data})+\int_0^1\theta\,\pi_2(\theta\mid\text{data})\,d\theta \\
 &amp;=0.5\times w+\int_0^1\theta\times(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\,\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\,d\theta \\
 &amp;=0.5\,w+(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\int_0^1\theta^{\sum x_i+1}(1-\theta)^{n-\sum x_i}\,d\theta \\
 &amp;=0.5\,w+(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{Step4}) \\
@@ -481,8 +478,7 @@ window.Quarto = {
 <p><code>Step6</code> – 사후분포의 평균</p>
 <p><span class="math display">\[
 \begin{align*}
-\MoveEqLeft[2] E(\theta\mid\text{data}) \\
-&amp;=\sum_{\theta}\theta\,\pi_1(\theta\mid\text{data})+\int_0^1\theta\,\pi_2(\theta\mid\text{data})\,d\theta \\
+\MoveEqLeft[2] \sum_{\theta}\theta\,\pi_1(\theta\mid\text{data})+\int_0^1\theta\,\pi_2(\theta\mid\text{data})\,d\theta \\
 &amp;=0.5\times w+\int_0^1\theta\times(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\,\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\,d\theta \\
 &amp;=0.5\,w+(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\int_0^1\theta^{\sum x_i+1}(1-\theta)^{n-\sum x_i}\,d\theta \\
 &amp;=0.5\,w+(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{Step4}) \\
@@ -513,8 +509,7 @@ window.Quarto = {
 <p><code>Step6</code> – 사후분포의 평균</p>
 <p><span class="math display">\[
 \begin{align*}
-\MoveEqLeft[2] E(\theta\mid\text{data}) \\
-&amp;=\int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
+\MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &amp;=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\int_0^1\theta^{\sum x_i+1}(1-\theta)^{n-\sum x_i}\,d\theta \\
 &amp;=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{\sum x_i+1}{n+2}
@@ -544,8 +539,7 @@ window.Quarto = {
 <p><code>Step6</code> – 사후분포의 평균</p>
 <p><span class="math display">\[
 \begin{align*}
-\MoveEqLeft[2] E(\theta\mid\text{data}) \\
-&amp;=\int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
+\MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &amp;=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\int_0^1\theta^{\sum x_i+1}(1-\theta)^{n-\sum x_i}\,d\theta \\
 &amp;=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{\sum x_i+1}{n+2}
@@ -588,8 +582,7 @@ window.Quarto = {
 <p><code>Step6</code> – 사후분포의 평균</p>
 <p><span class="math display">\[
 \begin{align*}
-\MoveEqLeft[2] E(\theta\mid\text{data}) \\
-&amp;=\int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
+\MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &amp;=\frac{1}{B(\sum x_i+5,\ n-\sum x_i+5)}\int_0^1\theta^{\sum x_i+5}(1-\theta)^{n-\sum x_i+4}\,d\theta \\
 &amp;=\frac{(n+9)!}{(\sum x_i+4)!\,(n-\sum x_i+4)!}\cdot\frac{(\sum x_i+5)!\,(n-\sum x_i+4)!}{(n+10)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{\sum x_i+5}{n+10}
@@ -632,8 +625,7 @@ window.Quarto = {
 <p><code>Step6</code> – 사후분포의 평균</p>
 <p><span class="math display">\[
 \begin{align*}
-\MoveEqLeft[2] E(\theta\mid\text{data}) \\
-&amp;=\int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
+\MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &amp;=\frac{1}{B(\sum x_i+5,\ n-\sum x_i+5)}\int_0^1\theta^{\sum x_i+5}(1-\theta)^{n-\sum x_i+4}\,d\theta \\
 &amp;=\frac{(n+9)!}{(\sum x_i+4)!\,(n-\sum x_i+4)!}\cdot\frac{(\sum x_i+5)!\,(n-\sum x_i+4)!}{(n+10)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{\sum x_i+5}{n+10}
@@ -675,8 +667,7 @@ window.Quarto = {
 <p><code>Step6</code> – 사후분포의 평균</p>
 <p><span class="math display">\[
 \begin{align*}
-\MoveEqLeft[2] E(\theta\mid\text{data}) \\
-&amp;=\int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
+\MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &amp;=\frac{1}{B(\sum x_i+50,\ n-\sum x_i+50)}\int_0^1\theta^{\sum x_i+50}(1-\theta)^{n-\sum x_i+49}\,d\theta \\
 &amp;=\frac{(n+99)!}{(\sum x_i+49)!\,(n-\sum x_i+49)!}\cdot\frac{(\sum x_i+50)!\,(n-\sum x_i+49)!}{(n+100)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{\sum x_i+50}{n+100}
@@ -718,8 +709,7 @@ window.Quarto = {
 <p><code>Step6</code> – 사후분포의 평균</p>
 <p><span class="math display">\[
 \begin{align*}
-\MoveEqLeft[2] E(\theta\mid\text{data}) \\
-&amp;=\int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
+\MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &amp;=\frac{1}{B(\sum x_i+50,\ n-\sum x_i+50)}\int_0^1\theta^{\sum x_i+50}(1-\theta)^{n-\sum x_i+49}\,d\theta \\
 &amp;=\frac{(n+99)!}{(\sum x_i+49)!\,(n-\sum x_i+49)!}\cdot\frac{(\sum x_i+50)!\,(n-\sum x_i+49)!}{(n+100)!} \quad (\because\ \text{예제5 Step4}) \\
 &amp;=\frac{\sum x_i+50}{n+100}
