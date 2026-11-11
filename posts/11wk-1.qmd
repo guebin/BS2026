@@ -15,7 +15,7 @@ format:
 
 # 1. 강의영상
 
-{{<video https://youtu.becom/playlist?list=PLEQllOh0MEkY&si=AqGNxAWbxhQTaJ_x>}}
+{{<video https://youtu.be/playlist?list=PLEQllOh0MEkY&si=AqGNxAWbxhQTaJ_x>}}
 
 # 2. 베이지안 특징
 
