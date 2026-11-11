@@ -43,6 +43,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-3bbbbd466991e281563892c5dce73c3d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -193,6 +195,7 @@ window.Quarto = {
 
 <section id="강의영상" class="level1">
 <h1>1. 강의영상</h1>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="https://youtu.becom/playlist?list=PLEQllOh0MEkY&amp;si=AqGNxAWbxhQTaJ_x"></video></div>
 </section>
 <section id="베이지안-특징" class="level1">
 <h1>2. 베이지안 특징</h1>
@@ -274,12 +277,12 @@ window.Quarto = {
 <p><span class="math display">\[\sum_{\theta}\pi(\theta)\,L(\theta)=0.5^{n}\]</span></p>
 <p><code>Step5</code> – 사후분포(이산형)</p>
 <p><span class="math display">\[\pi(\theta\mid\text{data})=\frac{\pi(\theta)\times L(\theta)}{\sum_{\theta}\pi(\theta)L(\theta)}=\begin{cases}\frac{0.5^{n}}{0.5^{n}}=1 &amp; (\theta=0.5)\\ 0 &amp; (\text{그 외})\end{cases}\]</span></p>
-<iframe src="attachments/261111-강민-동전예제1-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제1-사전분포가능도사후분포-애니메이션.html" width="100%" height="350" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">가능도,사전분포,사후분포 애니메이션 (상황은 참값 <span class="math inline">\(\theta=0.5\)</span>이고 프라이어는 <span class="math inline">\(\theta=0.5\)</span>에 몰빵)</span></p>
 <p><code>Step6</code> – 사후분포의 평균</p>
 <p><span class="math display">\[E(\theta\mid\text{data})=\sum_{\theta}\theta\,\pi(\theta\mid\text{data})=0.5\times\pi(0.5\mid\text{data})=0.5\times1=0.5\]</span></p>
-<iframe src="attachments/261111-강민-동전예제1-n추정값-애니메이션.html" width="100%" height="530" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제1-n추정값-애니메이션.html" width="100%" height="418" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">추정값의 변화 애니메이션 (상황은 참값 <span class="math inline">\(\theta=0.5\)</span>이고 프라이어는 <span class="math inline">\(\theta=0.5\)</span>에 몰빵)</span></p>
 <p><code>#</code></p>
@@ -302,10 +305,10 @@ window.Quarto = {
 <p><code>Step6</code> – 사후분포의 평균</p>
 <p><span class="math display">\[E(\theta\mid\text{data})=\sum_{\theta}\theta\,\pi(\theta\mid\text{data})=0.5\times\pi(0.5\mid\text{data})=0.5\times1=0.5\]</span></p>
 </details>
-<iframe src="attachments/261111-강민-동전예제2-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제2-사전분포가능도사후분포-애니메이션.html" width="100%" height="350" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">가능도,사전분포,사후분포 애니메이션 (상황은 참값 <span class="math inline">\(\theta=0.6\)</span>이고 프라이어는 <span class="math inline">\(\theta=0.5\)</span>에 몰빵)</span></p>
-<iframe src="attachments/261111-강민-동전예제2-n추정값-애니메이션.html" width="100%" height="530" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제2-n추정값-애니메이션.html" width="100%" height="418" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">추정값의 변화 애니메이션 (상황은 참값 <span class="math inline">\(\theta=0.6\)</span>이고 프라이어는 <span class="math inline">\(\theta=0.5\)</span>에 몰빵)</span></p>
 <p><code>#</code></p>
@@ -335,10 +338,10 @@ window.Quarto = {
 \end{align*}
 \]</span></p>
 </details>
-<iframe src="attachments/261111-강민-동전예제3-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제3-사전분포가능도사후분포-애니메이션.html" width="100%" height="350" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">가능도,사전분포,사후분포 애니메이션 (상황은 참값 <span class="math inline">\(\theta=0.5\)</span>이고 프라이어는 <span class="math inline">\(\theta=0.5\)</span>와 <span class="math inline">\(\theta=0.55\)</span>에 반반)</span></p>
-<iframe src="attachments/261111-강민-동전예제3-n추정값-애니메이션.html" width="100%" height="530" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제3-n추정값-애니메이션.html" width="100%" height="418" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">추정값의 변화 애니메이션 (상황은 참값 <span class="math inline">\(\theta=0.5\)</span>이고 프라이어는 <span class="math inline">\(\theta=0.5\)</span>와 <span class="math inline">\(\theta=0.55\)</span>에 반반)</span></p>
 <p><code>#</code></p>
@@ -368,10 +371,10 @@ window.Quarto = {
 \end{align*}
 \]</span></p>
 </details>
-<iframe src="attachments/261111-강민-동전예제4-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제4-사전분포가능도사후분포-애니메이션.html" width="100%" height="350" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">가능도,사전분포,사후분포 애니메이션 (상황은 참값 <span class="math inline">\(\theta=0.6\)</span>이고 프라이어는 <span class="math inline">\(\theta=0.5\)</span>와 <span class="math inline">\(\theta=0.55\)</span>에 반반)</span></p>
-<iframe src="attachments/261111-강민-동전예제4-n추정값-애니메이션.html" width="100%" height="530" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제4-n추정값-애니메이션.html" width="100%" height="418" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">추정값의 변화 애니메이션 (상황은 참값 <span class="math inline">\(\theta=0.6\)</span>이고 프라이어는 <span class="math inline">\(\theta=0.5\)</span>와 <span class="math inline">\(\theta=0.55\)</span>에 반반)</span></p>
 <p><code>#</code></p>
@@ -434,13 +437,13 @@ window.Quarto = {
 \end{align*}
 \]</span></p>
 </details>
-<iframe src="attachments/261111-강민-동전예제5-사전분포가능도사후분포-나눠그림-애니메이션.html" width="100%" height="680" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제5-사전분포가능도사후분포-나눠그림-애니메이션.html" width="100%" height="528" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">가능도,사전분포,사후분포 애니메이션 — <span class="math inline">\(\pi_1\)</span>·<span class="math inline">\(\pi_2\)</span> 로 나눠 그림 (상황은 참값 <span class="math inline">\(\theta=0.5\)</span>이고 프라이어는 <span class="math inline">\(\theta=0.5\)</span>에 반, 나머지 반은 균등)</span></p>
-<iframe src="attachments/261111-강민-동전예제5-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제5-사전분포가능도사후분포-애니메이션.html" width="100%" height="350" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">가능도,사전분포,사후분포 애니메이션 — 합쳐 그림 (상황은 참값 <span class="math inline">\(\theta=0.5\)</span>이고 프라이어는 <span class="math inline">\(\theta=0.5\)</span>에 반, 나머지 반은 균등)</span></p>
-<iframe src="attachments/261111-강민-동전예제5-n추정값-애니메이션.html" width="100%" height="530" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제5-n추정값-애니메이션.html" width="100%" height="418" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">추정값의 변화 애니메이션 (상황은 참값 <span class="math inline">\(\theta=0.5\)</span>이고 프라이어는 <span class="math inline">\(\theta=0.5\)</span>에 반, 나머지 반은 균등)</span></p>
 <p><code>#</code></p>
@@ -489,9 +492,7 @@ window.Quarto = {
 \end{align*}
 \]</span></p>
 </details>
-<iframe src="attachments/261111-강민-동전예제6-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;">
-</iframe>
-<iframe src="attachments/261111-강민-동전예제6-n추정값-애니메이션.html" width="100%" height="530" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제6-합친-애니메이션.html" width="100%" height="580" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">애니메이션들 (상황은 참값 <span class="math inline">\(\theta=0.6\)</span>이고 프라이어는 <span class="math inline">\(\theta=0.5\)</span>에 반, 나머지 반은 균등)</span></p>
 <p><code>#</code></p>
@@ -522,9 +523,7 @@ window.Quarto = {
 \end{align*}
 \]</span></p>
 </details>
-<iframe src="attachments/261111-강민-동전예제7-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;">
-</iframe>
-<iframe src="attachments/261111-강민-동전예제7-n추정값-애니메이션.html" width="100%" height="530" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제7-합친-애니메이션.html" width="100%" height="580" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">애니메이션들 (상황은 참값 <span class="math inline">\(\theta=0.5\)</span>이고 프라이어는 균등)</span></p>
 <p><code>#</code></p>
@@ -555,9 +554,7 @@ window.Quarto = {
 \end{align*}
 \]</span></p>
 </details>
-<iframe src="attachments/261111-강민-동전예제8-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;">
-</iframe>
-<iframe src="attachments/261111-강민-동전예제8-n추정값-애니메이션.html" width="100%" height="530" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제8-합친-애니메이션.html" width="100%" height="580" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">애니메이션들 (상황은 참값 <span class="math inline">\(\theta=0.6\)</span>이고 프라이어는 균등)</span></p>
 <p><code>#</code></p>
@@ -601,9 +598,7 @@ window.Quarto = {
 \end{align*}
 \]</span></p>
 </details>
-<iframe src="attachments/261111-강민-동전예제9-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;">
-</iframe>
-<iframe src="attachments/261111-강민-동전예제9-n추정값-애니메이션.html" width="100%" height="530" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제9-합친-애니메이션.html" width="100%" height="580" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">애니메이션들 (상황은 참값 <span class="math inline">\(\theta=0.5\)</span>이고 프라이어는 <span class="math inline">\(Beta(5,5)\)</span>)</span></p>
 <p><code>#</code></p>
@@ -647,9 +642,7 @@ window.Quarto = {
 \end{align*}
 \]</span></p>
 </details>
-<iframe src="attachments/261111-강민-동전예제10-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;">
-</iframe>
-<iframe src="attachments/261111-강민-동전예제10-n추정값-애니메이션.html" width="100%" height="530" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제10-합친-애니메이션.html" width="100%" height="580" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">애니메이션들 (상황은 참값 <span class="math inline">\(\theta=0.6\)</span>이고 프라이어는 <span class="math inline">\(Beta(5,5)\)</span>)</span></p>
 <p><code>#</code></p>
@@ -692,9 +685,7 @@ window.Quarto = {
 \end{align*}
 \]</span></p>
 </details>
-<iframe src="attachments/261111-강민-동전예제11-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;">
-</iframe>
-<iframe src="attachments/261111-강민-동전예제11-n추정값-애니메이션.html" width="100%" height="530" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제11-합친-애니메이션.html" width="100%" height="580" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">애니메이션들 (상황은 참값 <span class="math inline">\(\theta=0.5\)</span>이고 프라이어는 <span class="math inline">\(Beta(50,50)\)</span>)</span></p>
 <p><code>#</code></p>
@@ -737,9 +728,7 @@ window.Quarto = {
 \end{align*}
 \]</span></p>
 </details>
-<iframe src="attachments/261111-강민-동전예제12-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;">
-</iframe>
-<iframe src="attachments/261111-강민-동전예제12-n추정값-애니메이션.html" width="100%" height="530" style="border:none;">
+<iframe src="attachments/261111-강민-동전예제12-합친-애니메이션.html" width="100%" height="580" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><span style="display:block; text-align:center; font-size:0.9em; color:#555;">애니메이션들 (상황은 참값 <span class="math inline">\(\theta=0.6\)</span>이고 프라이어는 <span class="math inline">\(Beta(50,50)\)</span>)</span></p>
 <p><code>#</code></p>
@@ -1283,6 +1272,7 @@ window.Quarto = {
   });
   </script>
 </div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 

@@ -15,6 +15,7 @@ format:
 
 # 1. 강의영상
 
+{{<video https://youtu.becom/playlist?list=PLEQllOh0MEkY&si=AqGNxAWbxhQTaJ_x>}}
 
 # 2. 베이지안 특징
 
@@ -117,7 +118,7 @@ $$\sum_{\theta}\pi(\theta)\,L(\theta)=0.5^{n}$$
 
 $$\pi(\theta\mid\text{data})=\frac{\pi(\theta)\times L(\theta)}{\sum_{\theta}\pi(\theta)L(\theta)}=\begin{cases}\frac{0.5^{n}}{0.5^{n}}=1 & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}$$
 
-<iframe src="attachments/261111-강민-동전예제1-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제1-사전분포가능도사후분포-애니메이션.html" width="100%" height="350" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [가능도,사전분포,사후분포 애니메이션 (상황은 참값 $\theta=0.5$이고 프라이어는 $\theta=0.5$에 몰빵)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
@@ -125,7 +126,7 @@ $$\pi(\theta\mid\text{data})=\frac{\pi(\theta)\times L(\theta)}{\sum_{\theta}\pi
 
 $$E(\theta\mid\text{data})=\sum_{\theta}\theta\,\pi(\theta\mid\text{data})=0.5\times\pi(0.5\mid\text{data})=0.5\times1=0.5$$
 
-<iframe src="attachments/261111-강민-동전예제1-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제1-n추정값-애니메이션.html" width="100%" height="418" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [추정값의 변화 애니메이션 (상황은 참값 $\theta=0.5$이고 프라이어는 $\theta=0.5$에 몰빵)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
@@ -164,11 +165,11 @@ $$E(\theta\mid\text{data})=\sum_{\theta}\theta\,\pi(\theta\mid\text{data})=0.5\t
 
 </details>
 
-<iframe src="attachments/261111-강민-동전예제2-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제2-사전분포가능도사후분포-애니메이션.html" width="100%" height="350" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [가능도,사전분포,사후분포 애니메이션 (상황은 참값 $\theta=0.6$이고 프라이어는 $\theta=0.5$에 몰빵)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
-<iframe src="attachments/261111-강민-동전예제2-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제2-n추정값-애니메이션.html" width="100%" height="418" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [추정값의 변화 애니메이션 (상황은 참값 $\theta=0.6$이고 프라이어는 $\theta=0.5$에 몰빵)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
@@ -214,11 +215,11 @@ $$
 
 </details>
 
-<iframe src="attachments/261111-강민-동전예제3-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제3-사전분포가능도사후분포-애니메이션.html" width="100%" height="350" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [가능도,사전분포,사후분포 애니메이션 (상황은 참값 $\theta=0.5$이고 프라이어는 $\theta=0.5$와 $\theta=0.55$에 반반)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
-<iframe src="attachments/261111-강민-동전예제3-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제3-n추정값-애니메이션.html" width="100%" height="418" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [추정값의 변화 애니메이션 (상황은 참값 $\theta=0.5$이고 프라이어는 $\theta=0.5$와 $\theta=0.55$에 반반)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
@@ -264,11 +265,11 @@ $$
 
 </details>
 
-<iframe src="attachments/261111-강민-동전예제4-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제4-사전분포가능도사후분포-애니메이션.html" width="100%" height="350" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [가능도,사전분포,사후분포 애니메이션 (상황은 참값 $\theta=0.6$이고 프라이어는 $\theta=0.5$와 $\theta=0.55$에 반반)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
-<iframe src="attachments/261111-강민-동전예제4-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제4-n추정값-애니메이션.html" width="100%" height="418" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [추정값의 변화 애니메이션 (상황은 참값 $\theta=0.6$이고 프라이어는 $\theta=0.5$와 $\theta=0.55$에 반반)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
@@ -356,15 +357,15 @@ $$
 
 </details>
 
-<iframe src="attachments/261111-강민-동전예제5-사전분포가능도사후분포-나눠그림-애니메이션.html" width="100%" height="680" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제5-사전분포가능도사후분포-나눠그림-애니메이션.html" width="100%" height="528" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [가능도,사전분포,사후분포 애니메이션 — $\pi_1$·$\pi_2$ 로 나눠 그림 (상황은 참값 $\theta=0.5$이고 프라이어는 $\theta=0.5$에 반, 나머지 반은 균등)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
-<iframe src="attachments/261111-강민-동전예제5-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제5-사전분포가능도사후분포-애니메이션.html" width="100%" height="350" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [가능도,사전분포,사후분포 애니메이션 — 합쳐 그림 (상황은 참값 $\theta=0.5$이고 프라이어는 $\theta=0.5$에 반, 나머지 반은 균등)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
-<iframe src="attachments/261111-강민-동전예제5-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제5-n추정값-애니메이션.html" width="100%" height="418" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [추정값의 변화 애니메이션 (상황은 참값 $\theta=0.5$이고 프라이어는 $\theta=0.5$에 반, 나머지 반은 균등)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
@@ -434,8 +435,7 @@ $$
 
 </details>
 
-<iframe src="attachments/261111-강민-동전예제6-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-<iframe src="attachments/261111-강민-동전예제6-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제6-합친-애니메이션.html" width="100%" height="580" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [애니메이션들 (상황은 참값 $\theta=0.6$이고 프라이어는 $\theta=0.5$에 반, 나머지 반은 균등)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
@@ -482,8 +482,7 @@ $$
 
 </details>
 
-<iframe src="attachments/261111-강민-동전예제7-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-<iframe src="attachments/261111-강민-동전예제7-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제7-합친-애니메이션.html" width="100%" height="580" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [애니메이션들 (상황은 참값 $\theta=0.5$이고 프라이어는 균등)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
@@ -530,8 +529,7 @@ $$
 
 </details>
 
-<iframe src="attachments/261111-강민-동전예제8-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-<iframe src="attachments/261111-강민-동전예제8-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제8-합친-애니메이션.html" width="100%" height="580" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [애니메이션들 (상황은 참값 $\theta=0.6$이고 프라이어는 균등)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
@@ -592,8 +590,7 @@ $$
 
 </details>
 
-<iframe src="attachments/261111-강민-동전예제9-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-<iframe src="attachments/261111-강민-동전예제9-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제9-합친-애니메이션.html" width="100%" height="580" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [애니메이션들 (상황은 참값 $\theta=0.5$이고 프라이어는 $Beta(5,5)$)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
@@ -654,8 +651,7 @@ $$
 
 </details>
 
-<iframe src="attachments/261111-강민-동전예제10-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-<iframe src="attachments/261111-강민-동전예제10-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제10-합친-애니메이션.html" width="100%" height="580" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [애니메이션들 (상황은 참값 $\theta=0.6$이고 프라이어는 $Beta(5,5)$)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
@@ -714,8 +710,7 @@ $$
 
 </details>
 
-<iframe src="attachments/261111-강민-동전예제11-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-<iframe src="attachments/261111-강민-동전예제11-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제11-합친-애니메이션.html" width="100%" height="580" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [애니메이션들 (상황은 참값 $\theta=0.5$이고 프라이어는 $Beta(50,50)$)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
@@ -774,8 +769,7 @@ $$
 
 </details>
 
-<iframe src="attachments/261111-강민-동전예제12-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-<iframe src="attachments/261111-강민-동전예제12-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
+<iframe src="attachments/261111-강민-동전예제12-합친-애니메이션.html" width="100%" height="580" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
 
 [애니메이션들 (상황은 참값 $\theta=0.6$이고 프라이어는 $Beta(50,50)$)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
