@@ -55,17 +55,22 @@ $\pi(\theta)$ 가 이산형이면 합으로 나누고, 연속형이면 적분으
 
 ① $\pi(\theta)$ 가 이산형일 때: $\pi(\theta\mid\text{data})=\frac{\pi(\theta)\,L(\theta)}{\sum_{\theta}\pi(\theta)\,L(\theta)}$\
 ② $\pi(\theta)$ 가 연속형일 때: $\pi(\theta\mid\text{data})=\frac{\pi(\theta)\,L(\theta)}{\int\pi(\theta)\,L(\theta)\,d\theta}$\
-③ $\pi(\theta)$ 가 혼합형일 때: $\pi(\theta\mid\text{data})=\frac{\pi(\theta)\,L(\theta)}{\sum_{\theta}\pi_1(\theta)\,L(\theta)+\int\pi_2(\theta)\,L(\theta)\,d\theta}$, 단 $\pi(\theta)=\pi_1(\theta)+\pi_2(\theta)$
+③ $\pi(\theta)$ 가 혼합형일 때: $\pi_j(\theta\mid\text{data})=\frac{\pi_j(\theta)\,L(\theta)}{\sum_{\theta}\pi_1(\theta)\,L(\theta)+\int\pi_2(\theta)\,L(\theta)\,d\theta}$ $(j=1,2)$, 단 사전분포는 $P(\theta\in A)=\sum_{\theta\in A}\pi_1(\theta)+\int_A\pi_2(\theta)\,d\theta$
 
 - $\pi_1(\theta)$ 은 점에 놓인 부분이고 **확률**이다. 
 - $\pi_2(\theta)$ 는 퍼진 부분이고 **밀도**다. 
-- 분모에서 $\pi_1$ 쪽은 더하고 $\pi_2$ 쪽은 적분한다. 사후분포도 같은 두 부분으로 나뉜다: $\pi(\theta\mid\text{data})=\pi_1(\theta\mid\text{data})+\pi_2(\theta\mid\text{data})$, 여기서 $\pi_j(\theta\mid\text{data})=\frac{\pi_j(\theta)\,L(\theta)}{\sum_{\theta}\pi_1(\theta)\,L(\theta)+\int\pi_2(\theta)\,L(\theta)\,d\theta}$ $(j=1,2)$.
+- 확률과 밀도는 더해도 뜻이 없으므로 $\pi_1(\theta)+\pi_2(\theta)$ 처럼 합쳐 쓰지 않는다. 분모에서 $\pi_1$ 쪽은 더하고 $\pi_2$ 쪽은 적분한다. 사후분포도 같은 두 부분으로 나뉜다: $P(\theta\in A\mid\text{data})=\sum_{\theta\in A}\pi_1(\theta\mid\text{data})+\int_A\pi_2(\theta\mid\text{data})\,d\theta$.
 
-`-` $\pi(\theta)$ 를 읽는 법: $\pi(\theta)$ 가 이산형인지, 연속형인지, 혼합형인지에 따라 그 뜻이 다르다. 사후분포 $\pi(\theta\mid\text{data})$ 도 똑같다.
+<details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
+<summary style="cursor:pointer; color:#888;">π(θ) 를 읽는 법</summary>
+
+$\pi(\theta)$ 가 이산형인지, 연속형인지, 혼합형인지에 따라 그 뜻이 다르다. 사후분포 $\pi(\theta\mid\text{data})$ 도 똑같다.
 
 - **이산형**: $\pi(\theta)$ 가 점으로 떨어진 값들에만 놓여 있다(예제1~4). 이때 $\pi(\theta)$ 는 **확률**이다. $\pi(0.5)=P(\theta=0.5)$ 처럼 $\theta$ 가 그 값일 확률이고, 그 점들 밖에서는 $0$ 이다. 점들에서의 값을 모두 더하면 $1$ 이다: $\sum_{\theta}\pi(\theta)=1$.
-- **연속형**: $\pi(\theta)$ 가 구간 위에 퍼져 있다(예제7~14). 이때 $\pi(\theta)$ 는 **밀도**다. $\pi(\theta)$ 의 값 자체는 확률이 아니고 $1$ 보다 클 수도 있다($Beta(50,50)$ 의 꼭대기는 약 $7.96$). 확률은 넓이다: $P(a<\theta<b)=\int_a^b\pi(\theta)\,d\theta$. 전체 넓이는 $1$ 이고($\int\pi(\theta)\,d\theta=1$), 한 점의 확률은 $0$ 이다.
+- **연속형**: $\pi(\theta)$ 가 구간 위에 퍼져 있다(예제7~12). 이때 $\pi(\theta)$ 는 **밀도**다. $\pi(\theta)$ 의 값 자체는 확률이 아니고 $1$ 보다 클 수도 있다($Beta(50,50)$ 의 꼭대기는 약 $7.96$). 확률은 넓이다: $P(a<\theta<b)=\int_a^b\pi(\theta)\,d\theta$. 전체 넓이는 $1$ 이고($\int\pi(\theta)\,d\theta=1$), 한 점의 확률은 $0$ 이다.
 - **혼합형**: 점에 놓인 부분과 퍼진 부분이 함께 있다(예제5·6). 점에 놓인 부분 $\pi_1$ 은 확률, 퍼진 부분 $\pi_2$ 는 밀도다(③ 아래). 한 점에서 두 값을 더한 숫자 자체에는 뜻이 없고, 확률은 $P(\theta\in A)=\sum_{\theta\in A}\pi_1(\theta)+\int_A\pi_2(\theta)\,d\theta$ 로 구한다. 전체는 $\sum_{\theta}\pi_1(\theta)+\int\pi_2(\theta)\,d\theta=1$ 이다. 확률과 밀도는 단위가 달라 크기를 견줄 수 없다. 밀도로 보면 점에 놓인 값은 무한대다.
+
+</details>
 
 `-` 저의 생각: 사실 그냥 정규화한다는 개념만 알면 된다. 그래도 수식모양은 기억하는 편이 좋다. (책을 읽긴 해야하니까) 
 
@@ -86,206 +91,217 @@ $\pi(\theta)$ 가 이산형이면 합으로 나누고, 연속형이면 적분으
 - 빈도주의: 추정을 할 때 가능도를 최대화하는 방법을 주로 쓴다. (꼭 그런건 아님) 
 - 베이지안: 이 강의노트에서는 추정을 할 때 포스테리어의 평균으로 추정하겠음. (꼭 평균으로 추정해야만 하는건 아니지만 그냥) 
 
-`# 예제1` -- 한 점 사전분포 (참값 $\theta=0.5$)
+`# 예제1`
 
-동전이니까 $\theta=0.5$ 다. 100% 확신한다. $\theta$ 를 추정하라. (진짜 동전은 $\theta=0.5$ 다.)
+$\theta=0.5$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.5)$ 를 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 100% $0.5$ 라고 생각한다. 즉 $\pi(0.5)=1$(그 외 $0$) 인 사전분포를 이용한다)
 
 (풀이)
 
-`Step1` 사전분포: 이산형이다. $\pi(\theta)$ 는 $\theta$ 가 그 값일 확률이다.
+`Step1` -- 사전분포(이산형)
 
 $$\pi(\theta)=\begin{cases}1 & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}$$
 
-`Step2` 가능도: 자료 $x_1,\dots,x_n$ 이 나올 확률이다. (아래에서 $\sum x_i$ 는 $\sum_{i=1}^{n}x_i$, 곧 앞면이 나온 횟수다.)
+`Step2` -- 가능도
 
 $$L(\theta)=P(X_1=x_1,\dots,X_n=x_n\mid\theta)=\prod_{i=1}^{n}\theta^{x_i}(1-\theta)^{1-x_i}=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)$$
 
-`Step3` 곱:
+`Step3` -- 사전분포 $\times$ 가능도 
 
 $$\pi(\theta)\times L(\theta)=\begin{cases}1\times0.5^{\sum x_i}(1-0.5)^{n-\sum x_i}=0.5^{n} & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}$$
 
-`Step4` 정규화상수: $\pi(\theta)$ 가 $0.5$ 한 점에만 놓인 이산형이라 ① 의 합이고, 더할 것도 하나다.
+`Step4` -- 정규화상수
 
 $$\sum_{\theta}\pi(\theta)\,L(\theta)=0.5^{n}$$
 
-`Step5` 사후분포: 사후분포도 이산형이라 $\pi(\theta\mid\text{data})$ 는 확률이다. Step3 을 Step4 로 나눈다.
+`Step5` -- 사후분포(이산형)
 
-$$\pi(\theta\mid\text{data})=\begin{cases}\frac{0.5^{n}}{0.5^{n}}=1 & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}$$
-
-사후분포는 $0.5$ 한 점이다.
+$$\pi(\theta\mid\text{data})=\frac{\pi(\theta)\times L(\theta)}{\sum_{\theta}\pi(\theta)L(\theta)}=\begin{cases}\frac{0.5^{n}}{0.5^{n}}=1 & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}$$
 
 <iframe src="attachments/261111-강민-동전예제1-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
 
-[그림1: 예제1(참값 $\theta=0.5$). 왼쪽부터 가능도 × 사전분포 $\propto$ 사후분포다. 가능도는 꼭대기를 1 로 맞춘 모양이고, 사후분포 칸의 빨간 점이 사후평균, 점선이 참값이다. 점에 놓인 확률은 막대의 높이와 그 옆 숫자로 그렸다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+[가능도,사전분포,사후분포 애니메이션 (상황은 참값 $\theta=0.5$이고 프라이어는 $\theta=0.5$에 몰빵)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
-`Step6` 사후평균: 사후분포가 $0.5$ 한 점이라 사후평균은 $0.5\times1=0.5$ 다. 자료가 무엇이든 추정값은 $0.5$ 다.
+`Step6` -- 사후분포의 평균
+
+$$E(\theta\mid\text{data})=\sum_{\theta}\theta\,\pi(\theta\mid\text{data})=0.5\times\pi(0.5\mid\text{data})=0.5\times1=0.5$$
 
 <iframe src="attachments/261111-강민-동전예제1-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
 
-[그림2: 예제1(참값 $\theta=0.5$). 왼쪽은 빈도주의의 최대가능도 $\frac{\sum x_i}{n}$, 오른쪽은 베이지안의 사후평균이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+[추정값의 변화 애니메이션 (상황은 참값 $\theta=0.5$이고 프라이어는 $\theta=0.5$에 몰빵)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 `#`
 
-`# 예제2` -- 한 점 사전분포 (참값 $\theta=0.6$)
+`# 예제2`
 
-예제1 과 같은 사전분포다. 동전이니까 $\theta=0.5$ 다. 100% 확신한다. 사후평균으로 $\theta$ 를 추정하라. 그런데 진짜 동전은 조금 기운 동전이라 $\theta=0.6$ 이다.
+$\theta=0.6$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.6)$ 을 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 100% $0.5$ 라고 생각한다. 즉 $\pi(0.5)=1$(그 외 $0$) 인 사전분포를 이용한다)
 
-(풀이)
+<details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
+<summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>
 
-`Step1` 사전분포: 이산형이다. $\pi(\theta)$ 는 $\theta$ 가 그 값일 확률이다.
+`Step1` -- 사전분포(이산형)
 
 $$\pi(\theta)=\begin{cases}1 & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}$$
 
-`Step2` 가능도: 자료 $x_1,\dots,x_n$ 이 나올 확률이다.
+`Step2` -- 가능도
 
 $$L(\theta)=P(X_1=x_1,\dots,X_n=x_n\mid\theta)=\prod_{i=1}^{n}\theta^{x_i}(1-\theta)^{1-x_i}=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)$$
 
-`Step3` 곱:
+`Step3` -- 사전분포 $\times$ 가능도
 
 $$\pi(\theta)\times L(\theta)=\begin{cases}1\times0.5^{\sum x_i}(1-0.5)^{n-\sum x_i}=0.5^{n} & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}$$
 
-`Step4` 정규화상수: $\pi(\theta)$ 가 $0.5$ 한 점에만 놓인 이산형이라 ① 의 합이고, 더할 것도 하나다.
+`Step4` -- 정규화상수
 
 $$\sum_{\theta}\pi(\theta)\,L(\theta)=0.5^{n}$$
 
-`Step5` 사후분포: 사후분포도 이산형이라 $\pi(\theta\mid\text{data})$ 는 확률이다. Step3 을 Step4 로 나눈다.
+`Step5` -- 사후분포(이산형)
 
-$$\pi(\theta\mid\text{data})=\begin{cases}\frac{0.5^{n}}{0.5^{n}}=1 & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}$$
+$$\pi(\theta\mid\text{data})=\frac{\pi(\theta)\times L(\theta)}{\sum_{\theta}\pi(\theta)L(\theta)}=\begin{cases}\frac{0.5^{n}}{0.5^{n}}=1 & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}$$
 
-사후분포는 $0.5$ 한 점이다.
+`Step6` -- 사후분포의 평균
+
+$$E(\theta\mid\text{data})=\sum_{\theta}\theta\,\pi(\theta\mid\text{data})=0.5\times\pi(0.5\mid\text{data})=0.5\times1=0.5$$
+
+</details>
 
 <iframe src="attachments/261111-강민-동전예제2-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
 
-[그림3: 예제2(참값 $\theta=0.6$). 왼쪽부터 가능도 × 사전분포 $\propto$ 사후분포다. 가능도는 꼭대기를 1 로 맞춘 모양이고, 사후분포 칸의 빨간 점이 사후평균, 점선이 참값이다. 점에 놓인 확률은 막대의 높이와 그 옆 숫자로 그렸다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`Step6` 사후평균: 사후분포가 $0.5$ 한 점이라 사후평균은 $0.5\times1=0.5$ 다. 자료가 무엇이든 추정값은 $0.5$ 다.
-
-진짜 $\theta$ 가 $0.6$ 이어도 추정값은 $0.5$ 에서 움직이지 않는다.
+[가능도,사전분포,사후분포 애니메이션 (상황은 참값 $\theta=0.6$이고 프라이어는 $\theta=0.5$에 몰빵)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 <iframe src="attachments/261111-강민-동전예제2-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
 
-[그림4: 예제2(참값 $\theta=0.6$). 왼쪽은 빈도주의의 최대가능도 $\frac{\sum x_i}{n}$, 오른쪽은 베이지안의 사후평균이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+[추정값의 변화 애니메이션 (상황은 참값 $\theta=0.6$이고 프라이어는 $\theta=0.5$에 몰빵)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 `#`
 
-`# 예제3` -- 두 점 사전분포 (참값 $\theta=0.5$)
+`# 예제3`
 
-$\theta$ 는 $0.5$ 아니면 $0.55$ 다. 둘 중 무엇인지는 반반이라고 생각한다. 사후평균으로 $\theta$ 를 추정하라. (진짜 동전은 $\theta=0.5$ 다.)
+$\theta=0.5$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.5)$ 를 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0.5$ 아니면 $0.55$ 이고 둘이 반반이라고 생각한다. 즉 $\pi(0.5)=\pi(0.55)=0.5$(그 외 $0$) 인 사전분포를 이용한다)
 
-(풀이)
+<details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
+<summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>
 
-`Step1` 사전분포: 이산형이다. $\pi(\theta)$ 는 $\theta$ 가 그 값일 확률이다.
+`Step1` -- 사전분포(이산형)
 
 $$\pi(\theta)=\begin{cases}0.5 & (\theta=0.5)\\ 0.5 & (\theta=0.55)\\ 0 & (\text{그 외})\end{cases}$$
 
-`Step2` 가능도: 예제1 과 같다. $L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\quad(0\le\theta\le1)$
+`Step2` -- 가능도
 
-`Step3` 곱:
+$$L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)$$
+
+`Step3` -- 사전분포 $\times$ 가능도
 
 $$\pi(\theta)\times L(\theta)=\begin{cases}0.5\times0.5^{\sum x_i}(1-0.5)^{n-\sum x_i}=0.5^{n+1} & (\theta=0.5)\\ 0.5\times0.55^{\sum x_i}\,0.45^{n-\sum x_i} & (\theta=0.55)\\ 0 & (\text{그 외})\end{cases}$$
 
-`Step4` 정규화상수: 이산형이라 ① 의 합이다. 두 점에서의 값을 더한다.
+`Step4` -- 정규화상수
 
 $$\sum_{\theta}\pi(\theta)\,L(\theta)=0.5^{n+1}+0.5\times0.55^{\sum x_i}\,0.45^{n-\sum x_i}$$
 
-`Step5` 사후분포: 사후분포도 이산형이라 $\pi(\theta\mid\text{data})$ 는 확률이다. Step3 을 Step4 로 나눈다. 분자와 분모에 똑같이 붙은 $0.5$ 는 약분된다.
+`Step5` -- 사후분포(이산형)
 
-$$\pi(\theta\mid\text{data})=\begin{cases}\dfrac{0.5^{n}}{0.5^{n}+0.55^{\sum x_i}\,0.45^{n-\sum x_i}} & (\theta=0.5)\\[2ex]\dfrac{0.55^{\sum x_i}\,0.45^{n-\sum x_i}}{0.5^{n}+0.55^{\sum x_i}\,0.45^{n-\sum x_i}} & (\theta=0.55)\\[2ex] 0 & (\text{그 외})\end{cases}$$
+$$\pi(\theta\mid\text{data})=\frac{\pi(\theta)\times L(\theta)}{\sum_{\theta}\pi(\theta)L(\theta)}=\begin{cases}\dfrac{0.5^{n}}{0.5^{n}+0.55^{\sum x_i}\,0.45^{n-\sum x_i}} & (\theta=0.5)\\[2ex]\dfrac{0.55^{\sum x_i}\,0.45^{n-\sum x_i}}{0.5^{n}+0.55^{\sum x_i}\,0.45^{n-\sum x_i}} & (\theta=0.55)\\[2ex] 0 & (\text{그 외})\end{cases}$$
+
+`Step6` -- 사후분포의 평균
+
+$$
+\begin{align*}
+\MoveEqLeft[2] E(\theta\mid\text{data}) \\
+&=\sum_{\theta}\theta\,\pi(\theta\mid\text{data}) \\
+&=0.5\times P(\theta=0.5\mid\text{data})+0.55\times P(\theta=0.55\mid\text{data}) \\
+&=\frac{0.5\times0.5^{n}+0.55\times0.55^{\sum x_i}\,0.45^{n-\sum x_i}}{0.5^{n}+0.55^{\sum x_i}\,0.45^{n-\sum x_i}}
+\end{align*}
+$$
+
+</details>
 
 <iframe src="attachments/261111-강민-동전예제3-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
 
-[그림5: 예제3(참값 $\theta=0.5$). 왼쪽부터 가능도 × 사전분포 $\propto$ 사후분포다. 가능도는 꼭대기를 1 로 맞춘 모양이고, 사후분포 칸의 빨간 점이 사후평균, 점선이 참값이다. 점에 놓인 확률은 막대의 높이와 그 옆 숫자로 그렸다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`Step6` 사후평균: 두 값에 그 사후확률을 곱해 더한다.
-
-$$
-\begin{align*}
-\MoveEqLeft[2] \sum_{\theta}\theta\,\pi(\theta\mid\text{data}) \\
-&=0.5\times P(\theta=0.5\mid\text{data})+0.55\times P(\theta=0.55\mid\text{data}) \\
-&=\frac{0.5\times0.5^{n}+0.55\times0.55^{\sum x_i}\,0.45^{n-\sum x_i}}{0.5^{n}+0.55^{\sum x_i}\,0.45^{n-\sum x_i}}
-\end{align*}
-$$
+[가능도,사전분포,사후분포 애니메이션 (상황은 참값 $\theta=0.5$이고 프라이어는 $\theta=0.5$와 $\theta=0.55$에 반반)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 <iframe src="attachments/261111-강민-동전예제3-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
 
-[그림6: 예제3(참값 $\theta=0.5$). 왼쪽은 빈도주의의 최대가능도 $\frac{\sum x_i}{n}$, 오른쪽은 베이지안의 사후평균이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+[추정값의 변화 애니메이션 (상황은 참값 $\theta=0.5$이고 프라이어는 $\theta=0.5$와 $\theta=0.55$에 반반)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 `#`
 
-`# 예제4` -- 두 점 사전분포 (참값 $\theta=0.6$)
+`# 예제4`
 
-예제3 과 같은 사전분포다. $\theta$ 는 $0.5$ 아니면 $0.55$ 다. 둘 중 무엇인지는 반반이라고 생각한다. 사후평균으로 $\theta$ 를 추정하라. 그런데 진짜 동전은 $\theta=0.6$ 이다.
+$\theta=0.6$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.6)$ 을 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0.5$ 아니면 $0.55$ 이고 둘이 반반이라고 생각한다. 즉 $\pi(0.5)=\pi(0.55)=0.5$(그 외 $0$) 인 사전분포를 이용한다)
 
-(풀이)
+<details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
+<summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>
 
-`Step1` 사전분포: 이산형이다. $\pi(\theta)$ 는 $\theta$ 가 그 값일 확률이다.
+`Step1` -- 사전분포(이산형)
 
 $$\pi(\theta)=\begin{cases}0.5 & (\theta=0.5)\\ 0.5 & (\theta=0.55)\\ 0 & (\text{그 외})\end{cases}$$
 
-`Step2` 가능도: 예제1 과 같다. $L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\quad(0\le\theta\le1)$
+`Step2` -- 가능도
 
-`Step3` 곱:
+$$L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)$$
+
+`Step3` -- 사전분포 $\times$ 가능도
 
 $$\pi(\theta)\times L(\theta)=\begin{cases}0.5\times0.5^{\sum x_i}(1-0.5)^{n-\sum x_i}=0.5^{n+1} & (\theta=0.5)\\ 0.5\times0.55^{\sum x_i}\,0.45^{n-\sum x_i} & (\theta=0.55)\\ 0 & (\text{그 외})\end{cases}$$
 
-`Step4` 정규화상수: 이산형이라 ① 의 합이다. 두 점에서의 값을 더한다.
+`Step4` -- 정규화상수
 
 $$\sum_{\theta}\pi(\theta)\,L(\theta)=0.5^{n+1}+0.5\times0.55^{\sum x_i}\,0.45^{n-\sum x_i}$$
 
-`Step5` 사후분포: 사후분포도 이산형이라 $\pi(\theta\mid\text{data})$ 는 확률이다. Step3 을 Step4 로 나눈다. 분자와 분모에 똑같이 붙은 $0.5$ 는 약분된다.
+`Step5` -- 사후분포(이산형)
 
-$$\pi(\theta\mid\text{data})=\begin{cases}\dfrac{0.5^{n}}{0.5^{n}+0.55^{\sum x_i}\,0.45^{n-\sum x_i}} & (\theta=0.5)\\[2ex]\dfrac{0.55^{\sum x_i}\,0.45^{n-\sum x_i}}{0.5^{n}+0.55^{\sum x_i}\,0.45^{n-\sum x_i}} & (\theta=0.55)\\[2ex] 0 & (\text{그 외})\end{cases}$$
+$$\pi(\theta\mid\text{data})=\frac{\pi(\theta)\times L(\theta)}{\sum_{\theta}\pi(\theta)L(\theta)}=\begin{cases}\dfrac{0.5^{n}}{0.5^{n}+0.55^{\sum x_i}\,0.45^{n-\sum x_i}} & (\theta=0.5)\\[2ex]\dfrac{0.55^{\sum x_i}\,0.45^{n-\sum x_i}}{0.5^{n}+0.55^{\sum x_i}\,0.45^{n-\sum x_i}} & (\theta=0.55)\\[2ex] 0 & (\text{그 외})\end{cases}$$
 
-진짜 값 $0.6$ 은 사전분포가 확률 $0$ 을 준 곳이라 사후분포에서도 확률이 $0$ 이다.
-
-<iframe src="attachments/261111-강민-동전예제4-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-
-[그림7: 예제4(참값 $\theta=0.6$). 왼쪽부터 가능도 × 사전분포 $\propto$ 사후분포다. 가능도는 꼭대기를 1 로 맞춘 모양이고, 사후분포 칸의 빨간 점이 사후평균, 점선이 참값이다. 점에 놓인 확률은 막대의 높이와 그 옆 숫자로 그렸다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`Step6` 사후평균: 두 값에 그 사후확률을 곱해 더한다.
+`Step6` -- 사후분포의 평균
 
 $$
 \begin{align*}
-\MoveEqLeft[2] \sum_{\theta}\theta\,\pi(\theta\mid\text{data}) \\
+\MoveEqLeft[2] E(\theta\mid\text{data}) \\
+&=\sum_{\theta}\theta\,\pi(\theta\mid\text{data}) \\
 &=0.5\times P(\theta=0.5\mid\text{data})+0.55\times P(\theta=0.55\mid\text{data}) \\
 &=\frac{0.5\times0.5^{n}+0.55\times0.55^{\sum x_i}\,0.45^{n-\sum x_i}}{0.5^{n}+0.55^{\sum x_i}\,0.45^{n-\sum x_i}}
 \end{align*}
 $$
 
-그래서 사후평균은 $0.5$ 와 $0.55$ 사이에서만 움직이고 $0.55$ 를 넘지 못한다.
+</details>
+
+<iframe src="attachments/261111-강민-동전예제4-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
+
+[가능도,사전분포,사후분포 애니메이션 (상황은 참값 $\theta=0.6$이고 프라이어는 $\theta=0.5$와 $\theta=0.55$에 반반)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 <iframe src="attachments/261111-강민-동전예제4-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
 
-[그림8: 예제4(참값 $\theta=0.6$). 왼쪽은 빈도주의의 최대가능도 $\frac{\sum x_i}{n}$, 오른쪽은 베이지안의 사후평균이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+[추정값의 변화 애니메이션 (상황은 참값 $\theta=0.6$이고 프라이어는 $\theta=0.5$와 $\theta=0.55$에 반반)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 `#`
 
-`# 예제5` -- 한 점 + 균등 사전분포 (참값 $\theta=0.5$)
+`# 예제5`
 
-50% 는 $\theta=0.5$ 라고 확신하고, 나머지 50% 는 $0$ 과 $1$ 사이 어느 값이든 똑같이 그럴듯하다고 생각한다. 사후평균으로 $\theta$ 를 추정하라. (진짜 동전은 $\theta=0.5$ 다.)
+$\theta=0.5$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.5)$ 를 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 50% 는 $\theta=0.5$ 라고 확신하고, 나머지 50% 는 $0$ 과 $1$ 사이 어디든 같다고 생각한다. 즉 $\pi_1(0.5)=0.5$ 와 $\pi_2(\theta)=0.5\ (0<\theta<1)$ 인 사전분포를 이용한다)
 
-(풀이)
+<details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
+<summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>
 
-`Step1` 사전분포: 혼합형이다. 점에 놓인 부분 $\pi_1$ 과 퍼진 부분 $\pi_2$ 로 나눠 쓴다. $\pi_1$ 은 확률이고 $\pi_2$ 는 밀도다.
+`Step1` -- 사전분포(혼합형)
 
 $$\pi_1(\theta)=\begin{cases}0.5 & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}\qquad\pi_2(\theta)=\begin{cases}0.5 & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
 
-사전분포는 둘의 합 $\pi(\theta)=\pi_1(\theta)+\pi_2(\theta)$ 다. 점의 확률과 밀도의 넓이를 더하면 $1$ 이다: $\pi_1(0.5)+\int_0^1\pi_2(\theta)\,d\theta=0.5+0.5=1$.
+$$P(\theta\in A)=\sum_{\theta\in A}\pi_1(\theta)+\int_A\pi_2(\theta)\,d\theta,\qquad\pi_1(0.5)+\int_0^1\pi_2(\theta)\,d\theta=0.5+0.5=1$$
 
-`Step2` 가능도: 예제1 과 같다. $L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\quad(0\le\theta\le1)$
+`Step2` -- 가능도
 
-`Step3` 곱: 두 부분에 따로 가능도를 곱한다.
+$$L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)$$
+
+`Step3` -- 사전분포 $\times$ 가능도
 
 $$\pi_1(\theta)\times L(\theta)=\begin{cases}0.5\times0.5^{\sum x_i}(1-0.5)^{n-\sum x_i}=0.5^{n+1} & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}$$
 
 $$\pi_2(\theta)\times L(\theta)=\begin{cases}0.5\,\theta^{\sum x_i}(1-\theta)^{n-\sum x_i} & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
 
-`Step4` 정규화상수: 혼합형이라 ③ 이다. $\pi_1$ 쪽은 더하고 $\pi_2$ 쪽은 적분한다.
+`Step4` -- 정규화상수
 
 $$\sum_{\theta}\pi_1(\theta)\,L(\theta)+\int_0^1\pi_2(\theta)\,L(\theta)\,d\theta=0.5^{n+1}+0.5\int_0^1\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\,d\theta$$
 
-적분은 어떤 자료에도 통하는 식으로 구한다. 적기 편하게 $k=\sum x_i$ 라 쓰자. 부분적분($u=(1-\theta)^{n-k}$, $dv=\theta^{k}\,d\theta$)을 하면 경계항 $\Big[\frac{\theta^{k+1}}{k+1}(1-\theta)^{n-k}\Big]_0^1$ 이 $0$ 이라, $\theta$ 의 지수는 하나 늘고 $1-\theta$ 의 지수는 하나 준다. $1-\theta$ 의 지수가 $0$ 이 될 때까지 이것을 $n-k$ 번 되풀이한다.
-
+적기 편하게 $k=\sum x_i$ 라 쓰자.
 $$
 \begin{align*}
 \MoveEqLeft[2] \int_0^1\theta^{k}(1-\theta)^{n-k}\,d\theta \\
@@ -299,15 +315,13 @@ $$
 \end{align*}
 $$
 
-곧 $\int_0^1\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\,d\theta=\frac{(\sum x_i)!\,(n-\sum x_i)!}{(n+1)!}$ 이다. $k$, $n-k$ 자리에 $0$ 이상의 정수 $p$, $q$ 를 넣어도 같은 계산이 그대로 된다. 아래 예제에서는 이것을 공식으로 쓴다.
+곧 $\int_0^1\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\,d\theta=\frac{(\sum x_i)!\,(n-\sum x_i)!}{(n+1)!}$ 이다. $k$, $n-k$ 자리에 $0$ 이상의 정수 $p$, $q$ 를 넣어도 같은 계산이 그대로 된다.
 
 $$\int_0^1\theta^{p}(1-\theta)^{q}\,d\theta=\frac{p!\,q!}{(p+q+1)!}\qquad(p,q=0,1,2,\dots)$$
 
-그래서 정규화상수는 다음과 같다.
-
 $$0.5^{n+1}+0.5\times\frac{(\sum x_i)!\,(n-\sum x_i)!}{(n+1)!}$$
 
-`Step5` 사후분포: 사후분포도 혼합형이다. 두 부분을 각각 Step4 로 나눈다. 분자와 분모에 똑같이 붙은 $0.5$ 는 약분된다. 점에 남는 확률을 $w$ 라 쓰자.
+`Step5` -- 사후분포(혼합형)
 
 $$
 \begin{align*}
@@ -325,21 +339,14 @@ $$
 \end{align*}
 $$
 
-사후분포는 둘의 합 $\pi(\theta\mid\text{data})=\pi_1(\theta\mid\text{data})+\pi_2(\theta\mid\text{data})$ 다. $\pi_1(\theta\mid\text{data})$ 는 확률이고 $\pi_2(\theta\mid\text{data})$ 는 밀도다. 점에는 확률 $w$ 가 남고, 퍼진 부분은 넓이가 $1-w$ 인 $Beta(\sum x_i+1,\ n-\sum x_i+1)$ 꼴이다.
+$$P(\theta\in A\mid\text{data})=\sum_{\theta\in A}\pi_1(\theta\mid\text{data})+\int_A\pi_2(\theta\mid\text{data})\,d\theta$$
 
-<iframe src="attachments/261111-강민-동전예제5-사전분포가능도사후분포-나눠그림-애니메이션.html" width="100%" height="680" style="border:none;"></iframe>
-
-[그림9-1: 예제5(참값 $\theta=0.5$). 사전분포를 $\pi_1$(점, 확률)과 $\pi_2$(퍼진 부분, 밀도)로 나눠 그린 것이다. 윗줄은 가능도 × $\pi_1$ $\propto$ $\pi_1(\theta\mid\text{data})$, 아랫줄은 가능도 × $\pi_2$ $\propto$ $\pi_2(\theta\mid\text{data})$ 다. 점에 놓인 확률은 막대의 높이와 그 옆 숫자로 그렸다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-<iframe src="attachments/261111-강민-동전예제5-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-
-[그림9-2: 예제5(참값 $\theta=0.5$). 그림9-1 의 두 줄을 합쳐 한 줄로 그린 것이다. 왼쪽부터 가능도 × 사전분포 $\propto$ 사후분포다. 가능도는 꼭대기를 1 로 맞춘 모양이고, 사후분포 칸의 빨간 점이 사후평균, 점선이 참값이다. 점에 놓인 확률은 밀도로는 무한대라 세로축 물결 위에 따로 두고, 화살표의 길이와 그 옆 숫자로 그렸다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`Step6` 사후평균: $\pi_1$ 쪽은 $\theta$ 에 확률을 곱해 더하고, $\pi_2$ 쪽은 $\theta$ 에 밀도를 곱해 적분한다.
+`Step6` -- 사후분포의 평균
 
 $$
 \begin{align*}
-\MoveEqLeft[2] \sum_{\theta}\theta\,\pi_1(\theta\mid\text{data})+\int_0^1\theta\,\pi_2(\theta\mid\text{data})\,d\theta \\
+\MoveEqLeft[2] E(\theta\mid\text{data}) \\
+&=\sum_{\theta}\theta\,\pi_1(\theta\mid\text{data})+\int_0^1\theta\,\pi_2(\theta\mid\text{data})\,d\theta \\
 &=0.5\times w+\int_0^1\theta\times(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\,\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\,d\theta \\
 &=0.5\,w+(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\int_0^1\theta^{\sum x_i+1}(1-\theta)^{n-\sum x_i}\,d\theta \\
 &=0.5\,w+(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{Step4}) \\
@@ -347,43 +354,52 @@ $$
 \end{align*}
 $$
 
+</details>
+
+<iframe src="attachments/261111-강민-동전예제5-사전분포가능도사후분포-나눠그림-애니메이션.html" width="100%" height="680" style="border:none;"></iframe>
+
+[가능도,사전분포,사후분포 애니메이션 — $\pi_1$·$\pi_2$ 로 나눠 그림 (상황은 참값 $\theta=0.5$이고 프라이어는 $\theta=0.5$에 반, 나머지 반은 균등)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+
+<iframe src="attachments/261111-강민-동전예제5-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
+
+[가능도,사전분포,사후분포 애니메이션 — 합쳐 그림 (상황은 참값 $\theta=0.5$이고 프라이어는 $\theta=0.5$에 반, 나머지 반은 균등)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+
 <iframe src="attachments/261111-강민-동전예제5-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
 
-[그림10: 예제5(참값 $\theta=0.5$). 왼쪽은 빈도주의의 최대가능도 $\frac{\sum x_i}{n}$, 오른쪽은 베이지안의 사후평균이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+[추정값의 변화 애니메이션 (상황은 참값 $\theta=0.5$이고 프라이어는 $\theta=0.5$에 반, 나머지 반은 균등)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 `#`
 
-`# 예제6` -- 한 점 + 균등 사전분포 (참값 $\theta=0.6$)
+`# 예제6`
 
-예제5 와 같은 사전분포다. 50% 는 $\theta=0.5$ 라고 확신하고, 나머지 50% 는 $0$ 과 $1$ 사이 어느 값이든 똑같이 그럴듯하다고 생각한다. 사후평균으로 $\theta$ 를 추정하라. 그런데 진짜 동전은 $\theta=0.6$ 이다.
+$\theta=0.6$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.6)$ 을 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 50% 는 $\theta=0.5$ 라고 확신하고, 나머지 50% 는 $0$ 과 $1$ 사이 어디든 같다고 생각한다. 즉 $\pi_1(0.5)=0.5$ 와 $\pi_2(\theta)=0.5\ (0<\theta<1)$ 인 사전분포를 이용한다)
 
-(풀이)
+<details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
+<summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>
 
-`Step1` 사전분포: 혼합형이다. 점에 놓인 부분 $\pi_1$ 과 퍼진 부분 $\pi_2$ 로 나눠 쓴다. $\pi_1$ 은 확률이고 $\pi_2$ 는 밀도다.
+`Step1` -- 사전분포(혼합형)
 
 $$\pi_1(\theta)=\begin{cases}0.5 & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}\qquad\pi_2(\theta)=\begin{cases}0.5 & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
 
-사전분포는 둘의 합 $\pi(\theta)=\pi_1(\theta)+\pi_2(\theta)$ 다. 점의 확률과 밀도의 넓이를 더하면 $1$ 이다: $\pi_1(0.5)+\int_0^1\pi_2(\theta)\,d\theta=0.5+0.5=1$.
+$$P(\theta\in A)=\sum_{\theta\in A}\pi_1(\theta)+\int_A\pi_2(\theta)\,d\theta,\qquad\pi_1(0.5)+\int_0^1\pi_2(\theta)\,d\theta=0.5+0.5=1$$
 
-`Step2` 가능도: 예제1 과 같다. $L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\quad(0\le\theta\le1)$
+`Step2` -- 가능도
 
-`Step3` 곱: 두 부분에 따로 가능도를 곱한다.
+$$L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)$$
+
+`Step3` -- 사전분포 $\times$ 가능도
 
 $$\pi_1(\theta)\times L(\theta)=\begin{cases}0.5\times0.5^{\sum x_i}(1-0.5)^{n-\sum x_i}=0.5^{n+1} & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}$$
 
 $$\pi_2(\theta)\times L(\theta)=\begin{cases}0.5\,\theta^{\sum x_i}(1-\theta)^{n-\sum x_i} & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
 
-`Step4` 정규화상수: 혼합형이라 ③ 이다. $\pi_1$ 쪽은 더하고 $\pi_2$ 쪽은 적분한다.
+`Step4` -- 정규화상수
 
 $$\sum_{\theta}\pi_1(\theta)\,L(\theta)+\int_0^1\pi_2(\theta)\,L(\theta)\,d\theta=0.5^{n+1}+0.5\int_0^1\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\,d\theta$$
 
-적분은 예제5 의 Step4 에서 구한 공식 $\int_0^1\theta^{p}(1-\theta)^{q}\,d\theta=\frac{p!\,q!}{(p+q+1)!}$ 에 $p=\sum x_i$, $q=n-\sum x_i$ 를 넣는다.
-
-그래서 정규화상수는 다음과 같다.
-
 $$0.5^{n+1}+0.5\times\frac{(\sum x_i)!\,(n-\sum x_i)!}{(n+1)!}$$
 
-`Step5` 사후분포: 사후분포도 혼합형이다. 두 부분을 각각 Step4 로 나눈다. 분자와 분모에 똑같이 붙은 $0.5$ 는 약분된다. 점에 남는 확률을 $w$ 라 쓰자.
+`Step5` -- 사후분포(혼합형)
 
 $$
 \begin{align*}
@@ -401,17 +417,14 @@ $$
 \end{align*}
 $$
 
-사후분포는 둘의 합 $\pi(\theta\mid\text{data})=\pi_1(\theta\mid\text{data})+\pi_2(\theta\mid\text{data})$ 다. $\pi_1(\theta\mid\text{data})$ 는 확률이고 $\pi_2(\theta\mid\text{data})$ 는 밀도다. 점에는 확률 $w$ 가 남고, 퍼진 부분은 넓이가 $1-w$ 인 $Beta(\sum x_i+1,\ n-\sum x_i+1)$ 꼴이다.
+$$P(\theta\in A\mid\text{data})=\sum_{\theta\in A}\pi_1(\theta\mid\text{data})+\int_A\pi_2(\theta\mid\text{data})\,d\theta$$
 
-<iframe src="attachments/261111-강민-동전예제6-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-
-[그림11: 예제6(참값 $\theta=0.6$). 왼쪽부터 가능도 × 사전분포 $\propto$ 사후분포다. 가능도는 꼭대기를 1 로 맞춘 모양이고, 사후분포 칸의 빨간 점이 사후평균, 점선이 참값이다. 점에 놓인 확률은 밀도로는 무한대라 세로축 물결 위에 따로 두고, 화살표의 길이와 그 옆 숫자로 그렸다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`Step6` 사후평균: $\pi_1$ 쪽은 $\theta$ 에 확률을 곱해 더하고, $\pi_2$ 쪽은 $\theta$ 에 밀도를 곱해 적분한다.
+`Step6` -- 사후분포의 평균
 
 $$
 \begin{align*}
-\MoveEqLeft[2] \sum_{\theta}\theta\,\pi_1(\theta\mid\text{data})+\int_0^1\theta\,\pi_2(\theta\mid\text{data})\,d\theta \\
+\MoveEqLeft[2] E(\theta\mid\text{data}) \\
+&=\sum_{\theta}\theta\,\pi_1(\theta\mid\text{data})+\int_0^1\theta\,\pi_2(\theta\mid\text{data})\,d\theta \\
 &=0.5\times w+\int_0^1\theta\times(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\,\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\,d\theta \\
 &=0.5\,w+(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\int_0^1\theta^{\sum x_i+1}(1-\theta)^{n-\sum x_i}\,d\theta \\
 &=0.5\,w+(1-w)\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{Step4}) \\
@@ -419,119 +432,133 @@ $$
 \end{align*}
 $$
 
+</details>
+
+<iframe src="attachments/261111-강민-동전예제6-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
 <iframe src="attachments/261111-강민-동전예제6-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
 
-[그림12: 예제6(참값 $\theta=0.6$). 왼쪽은 빈도주의의 최대가능도 $\frac{\sum x_i}{n}$, 오른쪽은 베이지안의 사후평균이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+[애니메이션들 (상황은 참값 $\theta=0.6$이고 프라이어는 $\theta=0.5$에 반, 나머지 반은 균등)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 `#`
 
-`# 예제7` -- 균등 사전분포 (참값 $\theta=0.5$)
+`# 예제7`
 
-그냥 모르겠다. $0$ 과 $1$ 사이 어느 값이든 똑같이 그럴듯하다고 생각한다. 사후평균으로 $\theta$ 를 추정하라. (진짜 동전은 $\theta=0.5$ 다.)
+$\theta=0.5$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.5)$ 를 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0$ 과 $1$ 사이 어디든 같다고 생각한다. 즉 $\pi(\theta)=1\ (0<\theta<1)$, 곧 $U(0,1)$ 인 사전분포를 이용한다)
 
-(풀이)
+<details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
+<summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>
 
-`Step1` 사전분포: 연속형이다. $\pi(\theta)$ 는 밀도다.
+`Step1` -- 사전분포(연속형)
 
 $$\pi(\theta)=\begin{cases}1 & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
 
-곧 $U(0,1)$ 이다.
+`Step2` -- 가능도
 
-`Step2` 가능도: 예제1 과 같다. $L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\quad(0\le\theta\le1)$
+$$L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)$$
 
-`Step3` 곱: $\pi(\theta)\times L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}$
+`Step3` -- 사전분포 $\times$ 가능도
 
-`Step4` 정규화상수: 연속형이라 ② 의 적분이다. 예제5 의 Step4 에서 구한 그대로다.
+$$\pi(\theta)\times L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}$$
+
+`Step4` -- 정규화상수
 
 $$\int_0^1\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\,d\theta=\frac{(\sum x_i)!\,(n-\sum x_i)!}{(n+1)!}$$
 
-`Step5` 사후분포: 사후분포도 연속형이라 $\pi(\theta\mid\text{data})$ 는 밀도다. Step3 을 Step4 로 나눈다.
+`Step5` -- 사후분포(연속형)
 
-$$\pi(\theta\mid\text{data})=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\,\theta^{\sum x_i}(1-\theta)^{n-\sum x_i},\quad\text{곧 } Beta(\sum x_i+1,\ n-\sum x_i+1)$$
+$$\pi(\theta\mid\text{data})=\frac{\pi(\theta)\times L(\theta)}{\int\pi(\theta)L(\theta)\,d\theta}=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\,\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}$$
+
+`Step6` -- 사후분포의 평균
+
+$$
+\begin{align*}
+\MoveEqLeft[2] E(\theta\mid\text{data}) \\
+&=\int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
+&=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\int_0^1\theta^{\sum x_i+1}(1-\theta)^{n-\sum x_i}\,d\theta \\
+&=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{예제5 Step4}) \\
+&=\frac{\sum x_i+1}{n+2}
+\end{align*}
+$$
+
+</details>
 
 <iframe src="attachments/261111-강민-동전예제7-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-
-[그림13: 예제7(참값 $\theta=0.5$). 왼쪽부터 가능도 × 사전분포 $\propto$ 사후분포다. 가능도는 꼭대기를 1 로 맞춘 모양이고, 사후분포 칸의 빨간 점이 사후평균, 점선이 참값이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`Step6` 사후평균: $\theta$ 에 사후분포를 곱해 적분한다.
-
-$$
-\begin{align*}
-\MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
-&=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\int_0^1\theta^{\sum x_i+1}(1-\theta)^{n-\sum x_i}\,d\theta \\
-&=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{예제5 Step4}) \\
-&=\frac{\sum x_i+1}{n+2}
-\end{align*}
-$$
-
 <iframe src="attachments/261111-강민-동전예제7-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
 
-[그림14: 예제7(참값 $\theta=0.5$). 왼쪽은 빈도주의의 최대가능도 $\frac{\sum x_i}{n}$, 오른쪽은 베이지안의 사후평균이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+[애니메이션들 (상황은 참값 $\theta=0.5$이고 프라이어는 균등)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 `#`
 
-`# 예제8` -- 균등 사전분포 (참값 $\theta=0.6$)
+`# 예제8`
 
-예제7 과 같은 사전분포다. 그냥 모르겠다. $0$ 과 $1$ 사이 어느 값이든 똑같이 그럴듯하다고 생각한다. 사후평균으로 $\theta$ 를 추정하라. 그런데 진짜 동전은 $\theta=0.6$ 이다.
+$\theta=0.6$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.6)$ 을 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0$ 과 $1$ 사이 어디든 같다고 생각한다. 즉 $\pi(\theta)=1\ (0<\theta<1)$, 곧 $U(0,1)$ 인 사전분포를 이용한다)
 
-(풀이)
+<details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
+<summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>
 
-`Step1` 사전분포: 연속형이다. $\pi(\theta)$ 는 밀도다.
+`Step1` -- 사전분포(연속형)
 
 $$\pi(\theta)=\begin{cases}1 & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
 
-곧 $U(0,1)$ 이다.
+`Step2` -- 가능도
 
-`Step2` 가능도: 예제1 과 같다. $L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\quad(0\le\theta\le1)$
+$$L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)$$
 
-`Step3` 곱: $\pi(\theta)\times L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}$
+`Step3` -- 사전분포 $\times$ 가능도
 
-`Step4` 정규화상수: 연속형이라 ② 의 적분이다. 예제5 의 Step4 에서 구한 그대로다.
+$$\pi(\theta)\times L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}$$
+
+`Step4` -- 정규화상수
 
 $$\int_0^1\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\,d\theta=\frac{(\sum x_i)!\,(n-\sum x_i)!}{(n+1)!}$$
 
-`Step5` 사후분포: 사후분포도 연속형이라 $\pi(\theta\mid\text{data})$ 는 밀도다. Step3 을 Step4 로 나눈다.
+`Step5` -- 사후분포(연속형)
 
-$$\pi(\theta\mid\text{data})=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\,\theta^{\sum x_i}(1-\theta)^{n-\sum x_i},\quad\text{곧 } Beta(\sum x_i+1,\ n-\sum x_i+1)$$
+$$\pi(\theta\mid\text{data})=\frac{\pi(\theta)\times L(\theta)}{\int\pi(\theta)L(\theta)\,d\theta}=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\,\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}$$
 
-<iframe src="attachments/261111-강민-동전예제8-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-
-[그림15: 예제8(참값 $\theta=0.6$). 왼쪽부터 가능도 × 사전분포 $\propto$ 사후분포다. 가능도는 꼭대기를 1 로 맞춘 모양이고, 사후분포 칸의 빨간 점이 사후평균, 점선이 참값이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`Step6` 사후평균: $\theta$ 에 사후분포를 곱해 적분한다.
+`Step6` -- 사후분포의 평균
 
 $$
 \begin{align*}
-\MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
+\MoveEqLeft[2] E(\theta\mid\text{data}) \\
+&=\int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\int_0^1\theta^{\sum x_i+1}(1-\theta)^{n-\sum x_i}\,d\theta \\
 &=\frac{(n+1)!}{(\sum x_i)!\,(n-\sum x_i)!}\cdot\frac{(\sum x_i+1)!\,(n-\sum x_i)!}{(n+2)!} \quad (\because\ \text{예제5 Step4}) \\
 &=\frac{\sum x_i+1}{n+2}
 \end{align*}
 $$
 
+</details>
+
+<iframe src="attachments/261111-강민-동전예제8-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
 <iframe src="attachments/261111-강민-동전예제8-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
 
-[그림16: 예제8(참값 $\theta=0.6$). 왼쪽은 빈도주의의 최대가능도 $\frac{\sum x_i}{n}$, 오른쪽은 베이지안의 사후평균이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+[애니메이션들 (상황은 참값 $\theta=0.6$이고 프라이어는 균등)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 `#`
 
-`# 예제9` -- 베타 사전분포, 약하게 (참값 $\theta=0.5$)
+`# 예제9`
 
-$\theta$ 는 $0.5$ 근처일 거라고 약하게 믿는다. 앞면 5번, 뒷면 5번을 이미 본 것만큼 믿는다. 사후평균으로 $\theta$ 를 추정하라. (진짜 동전은 $\theta=0.5$ 다.)
+$\theta=0.5$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.5)$ 를 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0.5$ 근처일 거라고 약하게 생각한다(앞면 5번, 뒷면 5번을 본 것만큼). 즉 $\pi(\theta)=\frac{\theta^{4}(1-\theta)^{4}}{B(5,5)}\ (0<\theta<1)$, 곧 $Beta(5,5)$ 인 사전분포를 이용한다)
 
-(풀이)
+<details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
+<summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>
 
-`Step1` 사전분포: 연속형이다. $\pi(\theta)$ 는 밀도다.
+`Step1` -- 사전분포(연속형)
 
 $$\pi(\theta)=\begin{cases}\frac{\theta^{4}(1-\theta)^{4}}{B(5,5)} & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
 
-곧 $Beta(5,5)$ 다. 베타분포 $Beta(a,b)$ 의 밀도는 $\frac{\theta^{a-1}(1-\theta)^{b-1}}{B(a,b)}$ 이고, $B(a,b)=\int_0^1\theta^{a-1}(1-\theta)^{b-1}\,d\theta$ 는 넓이를 1 로 맞추는 수다.
+$$B(a,b)=\int_0^1\theta^{a-1}(1-\theta)^{b-1}\,d\theta$$
 
-`Step2` 가능도: 예제1 과 같다. $L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\quad(0\le\theta\le1)$
+`Step2` -- 가능도
 
-`Step3` 곱: $\pi(\theta)\times L(\theta)=\frac{\theta^{\sum x_i+4}(1-\theta)^{n-\sum x_i+4}}{B(5,5)}$
+$$L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)$$
 
-`Step4` 정규화상수: 연속형이라 ② 의 적분이다.
+`Step3` -- 사전분포 $\times$ 가능도
+
+$$\pi(\theta)\times L(\theta)=\frac{\theta^{\sum x_i+4}(1-\theta)^{n-\sum x_i+4}}{B(5,5)}$$
+
+`Step4` -- 정규화상수
 
 $$
 \begin{align*}
@@ -541,50 +568,59 @@ $$
 \end{align*}
 $$
 
-`Step5` 사후분포: 사후분포도 연속형이라 $\pi(\theta\mid\text{data})$ 는 밀도다. Step3 을 Step4 로 나눈다.
+`Step5` -- 사후분포(연속형)
 
-$$\pi(\theta\mid\text{data})=\frac{\theta^{\sum x_i+4}(1-\theta)^{n-\sum x_i+4}}{B(\sum x_i+5,\ n-\sum x_i+5)},\quad\text{곧 } Beta(\sum x_i+5,\ n-\sum x_i+5)$$
+$$
+\begin{align*}
+\MoveEqLeft[2] \pi(\theta\mid\text{data}) \\
+&=\frac{\pi(\theta)\times L(\theta)}{\int\pi(\theta)L(\theta)\,d\theta} \\
+&=\frac{\theta^{\sum x_i+4}(1-\theta)^{n-\sum x_i+4}}{B(\sum x_i+5,\ n-\sum x_i+5)}
+\end{align*}
+$$
+
+`Step6` -- 사후분포의 평균
+
+$$
+\begin{align*}
+\MoveEqLeft[2] E(\theta\mid\text{data}) \\
+&=\int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
+&=\frac{1}{B(\sum x_i+5,\ n-\sum x_i+5)}\int_0^1\theta^{\sum x_i+5}(1-\theta)^{n-\sum x_i+4}\,d\theta \\
+&=\frac{(n+9)!}{(\sum x_i+4)!\,(n-\sum x_i+4)!}\cdot\frac{(\sum x_i+5)!\,(n-\sum x_i+4)!}{(n+10)!} \quad (\because\ \text{예제5 Step4}) \\
+&=\frac{\sum x_i+5}{n+10}
+\end{align*}
+$$
+
+</details>
 
 <iframe src="attachments/261111-강민-동전예제9-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-
-[그림17: 예제9(참값 $\theta=0.5$). 왼쪽부터 가능도 × 사전분포 $\propto$ 사후분포다. 가능도는 꼭대기를 1 로 맞춘 모양이고, 사후분포 칸의 빨간 점이 사후평균, 점선이 참값이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`Step6` 사후평균: $\theta$ 에 사후분포를 곱해 적분한다.
-
-$$
-\begin{align*}
-\MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
-&=\frac{1}{B(\sum x_i+5,\ n-\sum x_i+5)}\int_0^1\theta^{\sum x_i+5}(1-\theta)^{n-\sum x_i+4}\,d\theta \\
-&=\frac{(n+9)!}{(\sum x_i+4)!\,(n-\sum x_i+4)!}\cdot\frac{(\sum x_i+5)!\,(n-\sum x_i+4)!}{(n+10)!} \quad (\because\ \text{예제5 Step4}) \\
-&=\frac{\sum x_i+5}{n+10}
-\end{align*}
-$$
-
-앞면 5번, 뒷면 5번을 자료에 더해서 앞면 비율을 낸 것과 같다.
-
 <iframe src="attachments/261111-강민-동전예제9-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
 
-[그림18: 예제9(참값 $\theta=0.5$). 왼쪽은 빈도주의의 최대가능도 $\frac{\sum x_i}{n}$, 오른쪽은 베이지안의 사후평균이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+[애니메이션들 (상황은 참값 $\theta=0.5$이고 프라이어는 $Beta(5,5)$)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 `#`
 
-`# 예제10` -- 베타 사전분포, 약하게 (참값 $\theta=0.6$)
+`# 예제10`
 
-예제9 와 같은 사전분포다. $\theta$ 는 $0.5$ 근처일 거라고 약하게 믿는다. 앞면 5번, 뒷면 5번을 이미 본 것만큼 믿는다. 사후평균으로 $\theta$ 를 추정하라. 그런데 진짜 동전은 $\theta=0.6$ 이다.
+$\theta=0.6$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.6)$ 을 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0.5$ 근처일 거라고 약하게 생각한다(앞면 5번, 뒷면 5번을 본 것만큼). 즉 $\pi(\theta)=\frac{\theta^{4}(1-\theta)^{4}}{B(5,5)}\ (0<\theta<1)$, 곧 $Beta(5,5)$ 인 사전분포를 이용한다)
 
-(풀이)
+<details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
+<summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>
 
-`Step1` 사전분포: 연속형이다. $\pi(\theta)$ 는 밀도다.
+`Step1` -- 사전분포(연속형)
 
 $$\pi(\theta)=\begin{cases}\frac{\theta^{4}(1-\theta)^{4}}{B(5,5)} & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
 
-곧 $Beta(5,5)$ 다. 베타분포 $Beta(a,b)$ 의 밀도는 $\frac{\theta^{a-1}(1-\theta)^{b-1}}{B(a,b)}$ 이고, $B(a,b)=\int_0^1\theta^{a-1}(1-\theta)^{b-1}\,d\theta$ 는 넓이를 1 로 맞추는 수다.
+$$B(a,b)=\int_0^1\theta^{a-1}(1-\theta)^{b-1}\,d\theta$$
 
-`Step2` 가능도: 예제1 과 같다. $L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\quad(0\le\theta\le1)$
+`Step2` -- 가능도
 
-`Step3` 곱: $\pi(\theta)\times L(\theta)=\frac{\theta^{\sum x_i+4}(1-\theta)^{n-\sum x_i+4}}{B(5,5)}$
+$$L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)$$
 
-`Step4` 정규화상수: 연속형이라 ② 의 적분이다.
+`Step3` -- 사전분포 $\times$ 가능도
+
+$$\pi(\theta)\times L(\theta)=\frac{\theta^{\sum x_i+4}(1-\theta)^{n-\sum x_i+4}}{B(5,5)}$$
+
+`Step4` -- 정규화상수
 
 $$
 \begin{align*}
@@ -594,50 +630,57 @@ $$
 \end{align*}
 $$
 
-`Step5` 사후분포: 사후분포도 연속형이라 $\pi(\theta\mid\text{data})$ 는 밀도다. Step3 을 Step4 로 나눈다.
-
-$$\pi(\theta\mid\text{data})=\frac{\theta^{\sum x_i+4}(1-\theta)^{n-\sum x_i+4}}{B(\sum x_i+5,\ n-\sum x_i+5)},\quad\text{곧 } Beta(\sum x_i+5,\ n-\sum x_i+5)$$
-
-<iframe src="attachments/261111-강민-동전예제10-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-
-[그림19: 예제10(참값 $\theta=0.6$). 왼쪽부터 가능도 × 사전분포 $\propto$ 사후분포다. 가능도는 꼭대기를 1 로 맞춘 모양이고, 사후분포 칸의 빨간 점이 사후평균, 점선이 참값이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`Step6` 사후평균: $\theta$ 에 사후분포를 곱해 적분한다.
+`Step5` -- 사후분포(연속형)
 
 $$
 \begin{align*}
-\MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
+\MoveEqLeft[2] \pi(\theta\mid\text{data}) \\
+&=\frac{\pi(\theta)\times L(\theta)}{\int\pi(\theta)L(\theta)\,d\theta} \\
+&=\frac{\theta^{\sum x_i+4}(1-\theta)^{n-\sum x_i+4}}{B(\sum x_i+5,\ n-\sum x_i+5)}
+\end{align*}
+$$
+
+`Step6` -- 사후분포의 평균
+
+$$
+\begin{align*}
+\MoveEqLeft[2] E(\theta\mid\text{data}) \\
+&=\int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &=\frac{1}{B(\sum x_i+5,\ n-\sum x_i+5)}\int_0^1\theta^{\sum x_i+5}(1-\theta)^{n-\sum x_i+4}\,d\theta \\
 &=\frac{(n+9)!}{(\sum x_i+4)!\,(n-\sum x_i+4)!}\cdot\frac{(\sum x_i+5)!\,(n-\sum x_i+4)!}{(n+10)!} \quad (\because\ \text{예제5 Step4}) \\
 &=\frac{\sum x_i+5}{n+10}
 \end{align*}
 $$
 
-앞면 5번, 뒷면 5번을 자료에 더해서 앞면 비율을 낸 것과 같다.
+</details>
 
+<iframe src="attachments/261111-강민-동전예제10-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
 <iframe src="attachments/261111-강민-동전예제10-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
 
-[그림20: 예제10(참값 $\theta=0.6$). 왼쪽은 빈도주의의 최대가능도 $\frac{\sum x_i}{n}$, 오른쪽은 베이지안의 사후평균이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+[애니메이션들 (상황은 참값 $\theta=0.6$이고 프라이어는 $Beta(5,5)$)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 `#`
 
-`# 예제11` -- 베타 사전분포, 강하게 (참값 $\theta=0.5$)
+`# 예제11`
 
-$\theta$ 는 $0.5$ 근처일 거라고 강하게 믿는다. 앞면 50번, 뒷면 50번을 이미 본 것만큼 믿는다. 사후평균으로 $\theta$ 를 추정하라. (진짜 동전은 $\theta=0.5$ 다.)
+$\theta=0.5$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.5)$ 를 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0.5$ 근처일 거라고 강하게 생각한다(앞면 50번, 뒷면 50번을 본 것만큼). 즉 $\pi(\theta)=\frac{\theta^{49}(1-\theta)^{49}}{B(50,50)}\ (0<\theta<1)$, 곧 $Beta(50,50)$ 인 사전분포를 이용한다)
 
-(풀이)
+<details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
+<summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>
 
-`Step1` 사전분포: 연속형이다. $\pi(\theta)$ 는 밀도다.
+`Step1` -- 사전분포(연속형)
 
 $$\pi(\theta)=\begin{cases}\frac{\theta^{49}(1-\theta)^{49}}{B(50,50)} & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
 
-곧 $Beta(50,50)$ 다
+`Step2` -- 가능도
 
-`Step2` 가능도: 예제1 과 같다. $L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\quad(0\le\theta\le1)$
+$$L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)$$
 
-`Step3` 곱: $\pi(\theta)\times L(\theta)=\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(50,50)}$
+`Step3` -- 사전분포 $\times$ 가능도
 
-`Step4` 정규화상수: 연속형이라 ② 의 적분이다.
+$$\pi(\theta)\times L(\theta)=\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(50,50)}$$
+
+`Step4` -- 정규화상수
 
 $$
 \begin{align*}
@@ -647,50 +690,57 @@ $$
 \end{align*}
 $$
 
-`Step5` 사후분포: 사후분포도 연속형이라 $\pi(\theta\mid\text{data})$ 는 밀도다. Step3 을 Step4 로 나눈다.
+`Step5` -- 사후분포(연속형)
 
-$$\pi(\theta\mid\text{data})=\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(\sum x_i+50,\ n-\sum x_i+50)},\quad\text{곧 } Beta(\sum x_i+50,\ n-\sum x_i+50)$$
+$$
+\begin{align*}
+\MoveEqLeft[2] \pi(\theta\mid\text{data}) \\
+&=\frac{\pi(\theta)\times L(\theta)}{\int\pi(\theta)L(\theta)\,d\theta} \\
+&=\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(\sum x_i+50,\ n-\sum x_i+50)}
+\end{align*}
+$$
+
+`Step6` -- 사후분포의 평균
+
+$$
+\begin{align*}
+\MoveEqLeft[2] E(\theta\mid\text{data}) \\
+&=\int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
+&=\frac{1}{B(\sum x_i+50,\ n-\sum x_i+50)}\int_0^1\theta^{\sum x_i+50}(1-\theta)^{n-\sum x_i+49}\,d\theta \\
+&=\frac{(n+99)!}{(\sum x_i+49)!\,(n-\sum x_i+49)!}\cdot\frac{(\sum x_i+50)!\,(n-\sum x_i+49)!}{(n+100)!} \quad (\because\ \text{예제5 Step4}) \\
+&=\frac{\sum x_i+50}{n+100}
+\end{align*}
+$$
+
+</details>
 
 <iframe src="attachments/261111-강민-동전예제11-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-
-[그림21: 예제11(참값 $\theta=0.5$). 왼쪽부터 가능도 × 사전분포 $\propto$ 사후분포다. 가능도는 꼭대기를 1 로 맞춘 모양이고, 사후분포 칸의 빨간 점이 사후평균, 점선이 참값이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`Step6` 사후평균: $\theta$ 에 사후분포를 곱해 적분한다.
-
-$$
-\begin{align*}
-\MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
-&=\frac{1}{B(\sum x_i+50,\ n-\sum x_i+50)}\int_0^1\theta^{\sum x_i+50}(1-\theta)^{n-\sum x_i+49}\,d\theta \\
-&=\frac{(n+99)!}{(\sum x_i+49)!\,(n-\sum x_i+49)!}\cdot\frac{(\sum x_i+50)!\,(n-\sum x_i+49)!}{(n+100)!} \quad (\because\ \text{예제5 Step4}) \\
-&=\frac{\sum x_i+50}{n+100}
-\end{align*}
-$$
-
-앞면 50번, 뒷면 50번을 자료에 더해서 앞면 비율을 낸 것과 같다.
-
 <iframe src="attachments/261111-강민-동전예제11-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
 
-[그림22: 예제11(참값 $\theta=0.5$). 왼쪽은 빈도주의의 최대가능도 $\frac{\sum x_i}{n}$, 오른쪽은 베이지안의 사후평균이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+[애니메이션들 (상황은 참값 $\theta=0.5$이고 프라이어는 $Beta(50,50)$)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 `#`
 
-`# 예제12` -- 베타 사전분포, 강하게 (참값 $\theta=0.6$)
+`# 예제12`
 
-예제11 과 같은 사전분포다. $\theta$ 는 $0.5$ 근처일 거라고 강하게 믿는다. 앞면 50번, 뒷면 50번을 이미 본 것만큼 믿는다. 사후평균으로 $\theta$ 를 추정하라. 그런데 진짜 동전은 $\theta=0.6$ 이다.
+$\theta=0.6$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.6)$ 을 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0.5$ 근처일 거라고 강하게 생각한다(앞면 50번, 뒷면 50번을 본 것만큼). 즉 $\pi(\theta)=\frac{\theta^{49}(1-\theta)^{49}}{B(50,50)}\ (0<\theta<1)$, 곧 $Beta(50,50)$ 인 사전분포를 이용한다)
 
-(풀이)
+<details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
+<summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>
 
-`Step1` 사전분포: 연속형이다. $\pi(\theta)$ 는 밀도다.
+`Step1` -- 사전분포(연속형)
 
 $$\pi(\theta)=\begin{cases}\frac{\theta^{49}(1-\theta)^{49}}{B(50,50)} & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
 
-곧 $Beta(50,50)$ 다
+`Step2` -- 가능도
 
-`Step2` 가능도: 예제1 과 같다. $L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\quad(0\le\theta\le1)$
+$$L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)$$
 
-`Step3` 곱: $\pi(\theta)\times L(\theta)=\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(50,50)}$
+`Step3` -- 사전분포 $\times$ 가능도
 
-`Step4` 정규화상수: 연속형이라 ② 의 적분이다.
+$$\pi(\theta)\times L(\theta)=\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(50,50)}$$
+
+`Step4` -- 정규화상수
 
 $$
 \begin{align*}
@@ -700,145 +750,33 @@ $$
 \end{align*}
 $$
 
-`Step5` 사후분포: 사후분포도 연속형이라 $\pi(\theta\mid\text{data})$ 는 밀도다. Step3 을 Step4 로 나눈다.
-
-$$\pi(\theta\mid\text{data})=\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(\sum x_i+50,\ n-\sum x_i+50)},\quad\text{곧 } Beta(\sum x_i+50,\ n-\sum x_i+50)$$
-
-<iframe src="attachments/261111-강민-동전예제12-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-
-[그림23: 예제12(참값 $\theta=0.6$). 왼쪽부터 가능도 × 사전분포 $\propto$ 사후분포다. 가능도는 꼭대기를 1 로 맞춘 모양이고, 사후분포 칸의 빨간 점이 사후평균, 점선이 참값이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`Step6` 사후평균: $\theta$ 에 사후분포를 곱해 적분한다.
+`Step5` -- 사후분포(연속형)
 
 $$
 \begin{align*}
-\MoveEqLeft[2] \int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
+\MoveEqLeft[2] \pi(\theta\mid\text{data}) \\
+&=\frac{\pi(\theta)\times L(\theta)}{\int\pi(\theta)L(\theta)\,d\theta} \\
+&=\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(\sum x_i+50,\ n-\sum x_i+50)}
+\end{align*}
+$$
+
+`Step6` -- 사후분포의 평균
+
+$$
+\begin{align*}
+\MoveEqLeft[2] E(\theta\mid\text{data}) \\
+&=\int_0^1\theta\,\pi(\theta\mid\text{data})\,d\theta \\
 &=\frac{1}{B(\sum x_i+50,\ n-\sum x_i+50)}\int_0^1\theta^{\sum x_i+50}(1-\theta)^{n-\sum x_i+49}\,d\theta \\
 &=\frac{(n+99)!}{(\sum x_i+49)!\,(n-\sum x_i+49)!}\cdot\frac{(\sum x_i+50)!\,(n-\sum x_i+49)!}{(n+100)!} \quad (\because\ \text{예제5 Step4}) \\
 &=\frac{\sum x_i+50}{n+100}
 \end{align*}
 $$
 
-앞면 50번, 뒷면 50번을 자료에 더해서 앞면 비율을 낸 것과 같다.
+</details>
 
+<iframe src="attachments/261111-강민-동전예제12-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
 <iframe src="attachments/261111-강민-동전예제12-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
 
-[그림24: 예제12(참값 $\theta=0.6$). 왼쪽은 빈도주의의 최대가능도 $\frac{\sum x_i}{n}$, 오른쪽은 베이지안의 사후평균이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`#`
-
-# 5. 정규분포
-
-`# 예제13` -- 정규 사전분포 (참값 $\theta=0$)
-
-정규분포에서 난수를 뽑았다. $X\sim N(\theta,1)$ 이고 $\theta$ 는 모른다. 난수 $n$ 개 $x_1,\dots,x_n$ 을 얻었다. $\theta$ 는 $0$ 근처일 거라고 믿는다. 멀어 봐야 $1$ 정도다. 이 믿음을 사전분포 $N(0,\,0.5^2)$ 으로 두고 $\theta$ 를 추정하라. (진짜 $\theta=0$ 이다.)
-
-(풀이)
-
-`Step1` 사전분포: 연속형이다. $\pi(\theta)$ 는 $N(0,\,0.5^2)$ 의 밀도다. 이 분포는 95% 가 $-0.98$ 과 $0.98$ 사이에 있다.
-
-$$\pi(\theta)=\frac{1}{\sqrt{2\pi\times0.5^2}}\exp\left(-\frac{\theta^2}{2\times0.5^2}\right)=\frac{2}{\sqrt{2\pi}}\exp\left(-2\theta^2\right)\qquad(-\infty<\theta<\infty)$$
-
-`Step2` 가능도: 자료 $x_1,\dots,x_n$ 이 나올 밀도다. (아래에서 $\sum x_i$ 는 $\sum_{i=1}^{n}x_i$, $\sum x_i^2$ 은 $\sum_{i=1}^{n}x_i^2$ 이다.)
-
-$$L(\theta)=\prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{(x_i-\theta)^2}{2}\right)=\frac{1}{(2\pi)^{n/2}}\exp\left(-\frac{\sum x_i^2-2\theta\sum x_i+n\theta^2}{2}\right)\qquad(-\infty<\theta<\infty)$$
-
-`Step3` 곱:
-
-$$\pi(\theta)\times L(\theta)=\frac{2}{(2\pi)^{(n+1)/2}}\exp\left(-\frac{(n+4)\theta^2-2\theta\sum x_i+\sum x_i^2}{2}\right)$$
-
-`Step4` 정규화상수: 연속형이라 ② 의 적분이다. 지수를 $\theta$ 에 대해 완전제곱으로 바꾼다.
-
-$$(n+4)\theta^2-2\theta\sum x_i+\sum x_i^2=(n+4)\Big(\theta-\frac{\sum x_i}{n+4}\Big)^2+\sum x_i^2-\frac{(\sum x_i)^2}{n+4}$$
-
-$$
-\begin{align*}
-\MoveEqLeft[2] \int_{-\infty}^{\infty}\pi(\theta)\,L(\theta)\,d\theta \\
-&=\frac{2}{(2\pi)^{(n+1)/2}}\exp\left(-\frac{1}{2}\Big(\sum x_i^2-\frac{(\sum x_i)^2}{n+4}\Big)\right)\int_{-\infty}^{\infty}\exp\left(-\frac{n+4}{2}\Big(\theta-\frac{\sum x_i}{n+4}\Big)^2\right)d\theta \quad (\because\ \text{완전제곱}) \\
-&=\frac{2}{(2\pi)^{(n+1)/2}}\exp\left(-\frac{1}{2}\Big(\sum x_i^2-\frac{(\sum x_i)^2}{n+4}\Big)\right)\sqrt{\frac{2\pi}{n+4}} \quad (\because\ \text{정규분포 밀도의 넓이는 }1)
-\end{align*}
-$$
-
-`Step5` 사후분포: 사후분포도 연속형이라 $\pi(\theta\mid\text{data})$ 는 밀도다. Step3 을 Step4 로 나눈다. $\theta$ 가 없는 부분은 모두 약분된다.
-
-$$\pi(\theta\mid\text{data})=\sqrt{\frac{n+4}{2\pi}}\exp\left(-\frac{n+4}{2}\Big(\theta-\frac{\sum x_i}{n+4}\Big)^2\right),\quad\text{곧 } N\Big(\frac{\sum x_i}{n+4},\ \frac{1}{n+4}\Big)$$
-
-<iframe src="attachments/261111-강민-정규예제13-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-
-[그림25: 예제13(참값 $\theta=0$). 왼쪽부터 가능도 × 사전분포 $\propto$ 사후분포다. 가능도는 꼭대기를 1 로 맞춘 모양이고, 사후분포 칸의 빨간 점이 사후평균, 점선이 참값이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`Step6` 사후평균: 정규분포 $N(m,v)$ 의 평균은 $m$ 이다.
-
-$$
-\begin{align*}
-\MoveEqLeft[2] \int_{-\infty}^{\infty}\theta\,\pi(\theta\mid\text{data})\,d\theta \\
-&=\frac{\sum x_i}{n+4} \quad (\because\ \text{정규분포의 평균}) \\
-&=\frac{n}{n+4}\times\frac{\sum x_i}{n}+\frac{4}{n+4}\times0
-\end{align*}
-$$
-
-자료의 평균 $\frac{\sum x_i}{n}$ 과 믿음 $0$ 을 $n:4$ 로 섞은 값이다. 평균이 $0$ 인 자료 4개를 미리 본 셈이다.
-
-<iframe src="attachments/261111-강민-정규예제13-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
-
-[그림26: 예제13(참값 $\theta=0$). 왼쪽은 빈도주의의 최대가능도 $\frac{\sum x_i}{n}$, 오른쪽은 베이지안의 사후평균이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`#`
-
-`# 예제14` -- 정규 사전분포 (참값 $\theta=1$)
-
-예제13 과 같은 사전분포다. $\theta$ 는 $0$ 근처일 거라고 믿고, 멀어 봐야 $1$ 정도다. 사전분포 $N(0,\,0.5^2)$ 으로 두고 $\theta$ 를 추정하라. 그런데 진짜 $\theta=1$ 이다.
-
-(풀이)
-
-`Step1` 사전분포: 연속형이다. $\pi(\theta)$ 는 $N(0,\,0.5^2)$ 의 밀도다. 이 분포는 95% 가 $-0.98$ 과 $0.98$ 사이에 있다.
-
-$$\pi(\theta)=\frac{1}{\sqrt{2\pi\times0.5^2}}\exp\left(-\frac{\theta^2}{2\times0.5^2}\right)=\frac{2}{\sqrt{2\pi}}\exp\left(-2\theta^2\right)\qquad(-\infty<\theta<\infty)$$
-
-`Step2` 가능도: 자료 $x_1,\dots,x_n$ 이 나올 밀도다.
-
-$$L(\theta)=\prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{(x_i-\theta)^2}{2}\right)=\frac{1}{(2\pi)^{n/2}}\exp\left(-\frac{\sum x_i^2-2\theta\sum x_i+n\theta^2}{2}\right)\qquad(-\infty<\theta<\infty)$$
-
-`Step3` 곱:
-
-$$\pi(\theta)\times L(\theta)=\frac{2}{(2\pi)^{(n+1)/2}}\exp\left(-\frac{(n+4)\theta^2-2\theta\sum x_i+\sum x_i^2}{2}\right)$$
-
-`Step4` 정규화상수: 연속형이라 ② 의 적분이다. 지수를 $\theta$ 에 대해 완전제곱으로 바꾼다.
-
-$$(n+4)\theta^2-2\theta\sum x_i+\sum x_i^2=(n+4)\Big(\theta-\frac{\sum x_i}{n+4}\Big)^2+\sum x_i^2-\frac{(\sum x_i)^2}{n+4}$$
-
-$$
-\begin{align*}
-\MoveEqLeft[2] \int_{-\infty}^{\infty}\pi(\theta)\,L(\theta)\,d\theta \\
-&=\frac{2}{(2\pi)^{(n+1)/2}}\exp\left(-\frac{1}{2}\Big(\sum x_i^2-\frac{(\sum x_i)^2}{n+4}\Big)\right)\int_{-\infty}^{\infty}\exp\left(-\frac{n+4}{2}\Big(\theta-\frac{\sum x_i}{n+4}\Big)^2\right)d\theta \quad (\because\ \text{완전제곱}) \\
-&=\frac{2}{(2\pi)^{(n+1)/2}}\exp\left(-\frac{1}{2}\Big(\sum x_i^2-\frac{(\sum x_i)^2}{n+4}\Big)\right)\sqrt{\frac{2\pi}{n+4}} \quad (\because\ \text{정규분포 밀도의 넓이는 }1)
-\end{align*}
-$$
-
-`Step5` 사후분포: 사후분포도 연속형이라 $\pi(\theta\mid\text{data})$ 는 밀도다. Step3 을 Step4 로 나눈다. $\theta$ 가 없는 부분은 모두 약분된다.
-
-$$\pi(\theta\mid\text{data})=\sqrt{\frac{n+4}{2\pi}}\exp\left(-\frac{n+4}{2}\Big(\theta-\frac{\sum x_i}{n+4}\Big)^2\right),\quad\text{곧 } N\Big(\frac{\sum x_i}{n+4},\ \frac{1}{n+4}\Big)$$
-
-<iframe src="attachments/261111-강민-정규예제14-사전분포가능도사후분포-애니메이션.html" width="100%" height="440" style="border:none;"></iframe>
-
-[그림27: 예제14(참값 $\theta=1$). 왼쪽부터 가능도 × 사전분포 $\propto$ 사후분포다. 가능도는 꼭대기를 1 로 맞춘 모양이고, 사후분포 칸의 빨간 점이 사후평균, 점선이 참값이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
-
-`Step6` 사후평균: 정규분포 $N(m,v)$ 의 평균은 $m$ 이다.
-
-$$
-\begin{align*}
-\MoveEqLeft[2] \int_{-\infty}^{\infty}\theta\,\pi(\theta\mid\text{data})\,d\theta \\
-&=\frac{\sum x_i}{n+4} \quad (\because\ \text{정규분포의 평균}) \\
-&=\frac{n}{n+4}\times\frac{\sum x_i}{n}+\frac{4}{n+4}\times0
-\end{align*}
-$$
-
-자료의 평균 $\frac{\sum x_i}{n}$ 과 믿음 $0$ 을 $n:4$ 로 섞은 값이다. 평균이 $0$ 인 자료 4개를 미리 본 셈이다.
-
-처음에는 믿음 $0$ 쪽으로 끌려 $1$ 보다 작게 나오고, 자료가 쌓이면 $\frac{n}{n+4}$ 가 $1$ 로 가서 자료의 평균을 따라간다.
-
-<iframe src="attachments/261111-강민-정규예제14-n추정값-애니메이션.html" width="100%" height="530" style="border:none;"></iframe>
-
-[그림28: 예제14(참값 $\theta=1$). 왼쪽은 빈도주의의 최대가능도 $\frac{\sum x_i}{n}$, 오른쪽은 베이지안의 사후평균이다.]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+[애니메이션들 (상황은 참값 $\theta=0.6$이고 프라이어는 $Beta(50,50)$)]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
 
 `#`
