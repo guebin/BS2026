@@ -1,0 +1,90 @@
+---
+title: "**11wk-2**: 퀴즈3"
+author: 최규빈
+date: "11/16/2026 09:00"
+draft: false
+format:
+  html:
+    toc: false
+    header-includes: |
+      <style>
+      #quarto-document-content p, #quarto-document-content li { line-height: 1.85; }
+      #quarto-document-content p { margin-bottom: 1.1em; }
+      body #quarto-document-content h3 { margin-top: 3em; padding-top: 1.2em; border-top: 1px solid #e2e2e2; margin-bottom: 1.1em; }
+      table { width: auto !important; margin-left: auto !important; margin-right: auto !important; margin-top: 1.2em !important; margin-bottom: 1.4em !important; }
+      #quarto-document-content table td, #quarto-document-content table th { padding: 0.5em 0.9em; }
+      body #quarto-document-content .math.display { margin: 1.3em 0 !important; }
+      </style>
+---
+
+※ “모두 고르라”는 문항은 올바른 것이 하나도 없을 수도 있다. 그때는 “없음”이라고 쓴다.
+
+### 문제1
+
+$\Omega=\{a,b,c,d\}$ 라고 하자. 다음 중 ${\cal F}$ 가 $\Omega$ 에 대한 시그마필드인 것을 모두 고르라.
+
+① ${\cal F}=\big\{\{a\},\{b,c,d\}\big\}$ \
+② ${\cal F}=\big\{\emptyset,\{a,d\},\{b,c\},\Omega\big\}$ \
+③ ${\cal F}=\big\{\emptyset,\{a,b,c\},\{b,c,d\},\Omega\big\}$ \
+④ ${\cal F}=\big\{\emptyset,\{a\},\{d\},\{a,b,c\},\{b,c,d\},\Omega\big\}$
+
+::: {.callout-note collapse="true" title="정답보기"}
+**②**
+
+`(풀이)` 시그마필드는 (1) 전체집합을 포함하고 (2) 여집합에 닫혀 있고 (3) 가산합집합에 닫혀 있어야 한다. 네 보기 모두 ${\cal F}$ 의 원소가 유한개이므로 가산합집합도 결국 몇 개의 원소를 합한 것이다. 그래서 (3)은 원소를 둘씩 합해 보는 것으로 확인할 수 있다.
+
+- ① $\Omega\notin{\cal F}$ 이다. 전체집합을 포함하지 않으므로 시그마필드가 아니다. ($\{a\}\cup\{b,c,d\}=\Omega\notin{\cal F}$ 이므로 합집합에도 닫혀 있지 않다.)
+- ② $\Omega\in{\cal F}$ 이다. 여집합은 $\{a,d\}^c=\{b,c\}$, $\{b,c\}^c=\{a,d\}$, $\emptyset^c=\Omega$, $\Omega^c=\emptyset$ 으로 모두 ${\cal F}$ 에 있다. 합집합은 $\{a,d\}\cup\{b,c\}=\Omega$ 이고, $\emptyset$ 과 합하면 그대로, $\Omega$ 와 합하면 $\Omega$ 이므로 모두 ${\cal F}$ 에 있다. 시그마필드이다.
+- ③ $\{a,b,c\}^c=\{d\}\notin{\cal F}$ 이다. 여집합에 닫혀 있지 않으므로 시그마필드가 아니다.
+- ④ 여집합에는 닫혀 있다($\{a\}^c=\{b,c,d\}$, $\{d\}^c=\{a,b,c\}$). 그러나 $\{a\}\cup\{d\}=\{a,d\}\notin{\cal F}$ 이다. 합집합에 닫혀 있지 않으므로 시그마필드가 아니다.
+:::
+
+### 문제2
+
+$\Omega=\{a,b,c,d\}$ 라고 하자. 다음 중 $P$ 가 $(\Omega,{\cal F})$ 에서의 확률인 것을 모두 고르라.
+
+① ${\cal F}=\big\{\emptyset,\{a\},\{b,c,d\},\Omega\big\}$ 이고 $P(\emptyset)=0,~ P(\{a\})=\frac{1}{4},~ P(\{b,c,d\})=\frac{1}{4},~ P(\Omega)=1$ \
+② ${\cal F}=\big\{\emptyset,\{a\},\Omega\big\}$ 이고 $P(\emptyset)=0,~ P(\{a\})=\frac{1}{4},~ P(\Omega)=1$ \
+③ ${\cal F}=\big\{\emptyset,\{a\},\{b,c,d\},\Omega\big\}$ 이고 $P(\emptyset)=0,~ P(\{a\})=\frac{1}{4},~ P(\{b,c,d\})=\frac{3}{4},~ P(\Omega)=1$ \
+④ ${\cal F}=\big\{\emptyset,\{a\},\{b,c,d\},\Omega\big\}$ 이고 $P(\emptyset)=0,~ P(\{a\})=\frac{1}{8},~ P(\{b,c,d\})=\frac{3}{8},~ P(\Omega)=\frac{1}{2}$
+
+::: {.callout-note collapse="true" title="정답보기"}
+**③**
+
+`(풀이)` 확률은 정의역이 시그마필드이고 공리1, 2, 3을 만족하는 함수이다.
+
+- ① $\{a\}$ 와 $\{b,c,d\}$ 는 서로소이고 $\{a\}\cup\{b,c,d\}=\Omega$ 인데, $P(\{a\})+P(\{b,c,d\})=\frac{1}{4}+\frac{1}{4}=\frac{1}{2}\neq 1=P(\Omega)$ 이다. 공리3을 만족하지 않으므로 확률이 아니다.
+- ② $\{a\}^c=\{b,c,d\}\notin{\cal F}$ 이므로 ${\cal F}$ 는 시그마필드가 아니다. 정의역이 시그마필드가 아니므로 확률이 아니다.
+- ③ ${\cal F}$ 는 시그마필드이다(전체집합을 포함하고, $\{a\}$ 와 $\{b,c,d\}$, $\emptyset$ 과 $\Omega$ 가 서로의 여집합이며, 어떻게 합해도 네 집합 가운데 하나가 된다). 값이 모두 $0$ 이상이고(공리1), $P(\Omega)=1$ 이다(공리2). 공집합은 확률이 $0$ 이라 끼워 넣어도 합이 그대로이므로, 공리3에서 따질 것은 서로소인 $\{a\}$ 와 $\{b,c,d\}$ 이고 $P(\{a\})+P(\{b,c,d\})=\frac{1}{4}+\frac{3}{4}=1=P(\Omega)$ 이다. 확률이다.
+- ④ $P(\Omega)=\frac{1}{2}\neq 1$ 이다. 공리2를 만족하지 않으므로 확률이 아니다.
+:::
+
+### 문제3
+
+$\Omega=\{a,b,c,d\}$, ${\cal F}=\big\{\emptyset,\{a,b\},\{c,d\},\Omega\big\}$ 라 하고, $(\Omega,{\cal F})$ 에서의 확률 $P$ 를
+
+$$P(\emptyset)=0,\quad P(\{a,b\})=\frac{1}{2},\quad P(\{c,d\})=\frac{1}{2},\quad P(\Omega)=1$$
+
+로 정하자. 또 $S=\{0,1\}$ 이고 ${\cal S}=\big\{\emptyset,\{0\},\{1\},S\big\}$ ($S$ 의 모든 부분집합의 모임) 라 하자. 함수 $X,Y,Z,W:\Omega\to S$ 가 아래 표와 같을 때, 다음 중 확률변수인 것을 모두 골라라.
+
+| $\omega$ | $a$ | $b$ | $c$ | $d$ |
+|:---:|:---:|:---:|:---:|:---:|
+| $X(\omega)$ | $0$ | $0$ | $1$ | $1$ |
+| $Y(\omega)$ | $0$ | $1$ | $0$ | $1$ |
+| $Z(\omega)$ | $1$ | $0$ | $0$ | $0$ |
+| $W(\omega)$ | $1$ | $1$ | $0$ | $0$ |
+
+::: {.callout-note collapse="true" title="정답보기"}
+**$X$ · $W$**
+
+`(풀이)` 확률변수는 ${\cal S}$ 의 모든 원소 $B$ 에 대하여 $X^{-1}(B)=\{\omega:X(\omega)\in B\}\in{\cal F}$ 를 만족하는 함수이다. $\emptyset$ 의 역상은 언제나 $\emptyset$ 이고 $S$ 의 역상은 언제나 $\Omega$ 이므로, $\{0\}$ 과 $\{1\}$ 의 역상만 보면 된다.
+
+| 함수 | $\{0\}$ 의 역상 | $\{1\}$ 의 역상 | 판정 |
+|:---:|:---:|:---:|:---:|
+| $X$ | $\{a,b\}\in{\cal F}$ | $\{c,d\}\in{\cal F}$ | 확률변수 |
+| $Y$ | $\{a,c\}\notin{\cal F}$ | $\{b,d\}\notin{\cal F}$ | 확률변수 아님 |
+| $Z$ | $\{b,c,d\}\notin{\cal F}$ | $\{a\}\notin{\cal F}$ | 확률변수 아님 |
+| $W$ | $\{c,d\}\in{\cal F}$ | $\{a,b\}\in{\cal F}$ | 확률변수 |
+
+예를 들어 ${\cal F}$ 로는 $\{a,c\}$ 를 잴 수 없으므로 $P(Y=0)$ 을 정의할 수 없다. 확률변수인지는 ${\cal F}$ 와 ${\cal S}$ 만 보고 정해진다. 문제에 주어진 $P$ 의 값은 판단에 쓰이지 않는다.
+:::
