@@ -531,7 +531,7 @@ $$
 
 `# 예제9`
 
-$\theta=0.5$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.5)$ 를 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0.5$ 근처일 거라고 약하게 생각한다(앞면 5번, 뒷면 5번을 본 것만큼). 즉 $\pi(\theta)=\frac{\theta^{4}(1-\theta)^{4}}{B(5,5)}\ (0<\theta<1)$, 곧 $Beta(5,5)$ 인 사전분포를 이용한다)
+$\theta=0.5$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.5)$ 를 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0.5$ 근처일 거라고 약하게 생각한다. 즉 $\pi(\theta)=\frac{\theta^{4}(1-\theta)^{4}}{B(5,5)}\ (0<\theta<1)$, 곧 $Beta(5,5)$ 인 사전분포를 이용한다)
 
 <details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
 <summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>
@@ -591,7 +591,7 @@ $$
 
 `# 예제10`
 
-$\theta=0.6$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.6)$ 을 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0.5$ 근처일 거라고 약하게 생각한다(앞면 5번, 뒷면 5번을 본 것만큼). 즉 $\pi(\theta)=\frac{\theta^{4}(1-\theta)^{4}}{B(5,5)}\ (0<\theta<1)$, 곧 $Beta(5,5)$ 인 사전분포를 이용한다)
+$\theta=0.6$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.6)$ 을 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0.5$ 근처일 거라고 약하게 생각한다. 즉 $\pi(\theta)=\frac{\theta^{4}(1-\theta)^{4}}{B(5,5)}\ (0<\theta<1)$, 곧 $Beta(5,5)$ 인 사전분포를 이용한다)
 
 <details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
 <summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>
@@ -651,7 +651,7 @@ $$
 
 `# 예제11`
 
-$\theta=0.5$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.5)$ 를 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0.5$ 근처일 거라고 강하게 생각한다(앞면 50번, 뒷면 50번을 본 것만큼). 즉 $\pi(\theta)=\frac{\theta^{49}(1-\theta)^{49}}{B(50,50)}\ (0<\theta<1)$, 곧 $Beta(50,50)$ 인 사전분포를 이용한다)
+$\theta=0.5$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.5)$ 를 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0.5$ 근처일 거라고 강하게 생각한다. 즉 $\pi(\theta)=\frac{\theta^{49}(1-\theta)^{49}}{B(50,50)}\ (0<\theta<1)$, 곧 $Beta(50,50)$ 인 사전분포를 이용한다)
 
 <details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
 <summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>
@@ -709,7 +709,7 @@ $$
 
 `# 예제12`
 
-$\theta=0.6$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.6)$ 을 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0.5$ 근처일 거라고 강하게 생각한다(앞면 50번, 뒷면 50번을 본 것만큼). 즉 $\pi(\theta)=\frac{\theta^{49}(1-\theta)^{49}}{B(50,50)}\ (0<\theta<1)$, 곧 $Beta(50,50)$ 인 사전분포를 이용한다)
+$\theta=0.6$ 인 동전을 던진다고 하자. 곧 $X_1,\dots,X_n$ 은 서로 독립이고 모두 $Ber(0.6)$ 을 따른다. 빈도주의와 베이지안의 추정법을 비교하라. (베이지안은 $\theta$ 가 $0.5$ 근처일 거라고 강하게 생각한다. 즉 $\pi(\theta)=\frac{\theta^{49}(1-\theta)^{49}}{B(50,50)}\ (0<\theta<1)$, 곧 $Beta(50,50)$ 인 사전분포를 이용한다)
 
 <details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
 <summary style="cursor:pointer; color:#888;">풀이 (Step1~Step6)</summary>

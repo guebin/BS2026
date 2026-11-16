@@ -1,0 +1,155 @@
+---
+title: "**11wk-2**: 베이지안식 해석 (2)"
+author: 최규빈
+date: "11/11/2026"
+draft: false
+resources:
+  - attachments/261111-강민-*예제*-애니메이션.html
+  - attachments/261116-베이지안하니-*-위젯.html
+format:
+  html:
+    header-includes: |
+      <style>
+      table { width: auto !important; margin-left: auto !important; margin-right: auto !important; }
+      </style>
+---
+
+# 1. 강의영상
+
+
+# 2. 켤레 사전분포 
+
+`-` 11wk-1의 예제 7,8,9,10,11,12 의 사전분포를 다시 관찰하자. 
+
+![](attachments/261116-베이지안하니-11wk1사전분포셋.png){fig-align="center" width="600px"}
+
+`-` 사실 $U(0,1)$은 $Beta(1,1)$로 해석할 수 있으므로 위의 사전분포는 모두 $Beta(a,b)$를 쓴 것이다. 
+
+<iframe src="attachments/261116-베이지안하니-베타분포-위젯.html?v=261116-0736" width="100%" height="405" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
+
+[$Beta(a,b)$ 위젯 — $a$, $b$ 를 움직여 보자]{style="display:block; text-align:center; font-size:0.9em; color:#555;"}
+
+`-` 생각해보니까 $Beta(a,b)$는 $Ber(\theta)$에서 $\theta$의 사전분포로 너무 찰떡이다. 
+
+1. 마침 $Beta(a,b)$를 따르는 확률변수는 0~1사이의 값을 가지는데 이게 $\theta$가 가지는 범위와 정확하게 같다. 
+2. $\theta$에 대한 주관적인 믿음정도를 $a,b$를 이용하여 조정할 수 있다. 
+3. (비워둠) 
+
+`-` 더 찰떡인 사실: 사전분포와 사후분포가 모두 베타임!! 
+
+::::: {style="border:1.5px solid #999; border-radius:6px; padding:0.8em 1.2em; margin:1em 0;"}
+
+11wk-1 예제12 (사전분포 $Beta(50,50)$) Before · After 
+
+*베타분포 $Beta(a,b)$ 의 pdf*
+
+$$\pi(\theta)=\frac{\theta^{a-1}(1-\theta)^{b-1}}{B(a,b)}\quad(0<\theta<1),\qquad B(a,b)=\int_0^1\theta^{a-1}(1-\theta)^{b-1}\,d\theta$$
+
+:::: {.columns}
+
+::: {.column width="50%" style="font-size:80%;"}
+**Before** — 11wk-1 예제12 그대로
+
+`Step1` -- 사전분포(연속형)
+
+$$\pi(\theta)=\begin{cases}\frac{\theta^{49}(1-\theta)^{49}}{B(50,50)} & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
+
+`Step2` -- 가능도
+
+$$L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)$$
+
+`Step3` -- 사전분포 $\times$ 가능도
+
+$$\pi(\theta)\times L(\theta)=\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(50,50)}$$
+
+`Step4` -- 정규화상수
+
+$$
+\begin{align*}
+\MoveEqLeft[2] \int_0^1\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(50,50)}\,d\theta \\
+&=\frac{1}{B(50,50)}\cdot\frac{(\sum x_i+49)!\,(n-\sum x_i+49)!}{(n+99)!} \\
+&=\frac{B(\sum x_i+50,\ n-\sum x_i+50)}{B(50,50)}
+\end{align*}
+$$
+
+(둘째 줄은 11wk-1 예제5 Step4 의 식)
+
+`Step5` -- 사후분포(연속형)
+
+$$
+\begin{align*}
+\MoveEqLeft[2] \pi(\theta\mid\text{data})=\frac{\pi(\theta)\times L(\theta)}{\int\pi(\theta)L(\theta)\,d\theta} \\
+&=\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(\sum x_i+50,\ n-\sum x_i+50)}
+\end{align*}
+$$
+:::
+
+::: {.column width="50%" style="font-size:80%;"}
+**After** — Step5 에서 베타를 드러내면
+
+`Step1` -- 사전분포(연속형)
+
+$$\pi(\theta)=\begin{cases}\frac{\theta^{49}(1-\theta)^{49}}{B(50,50)} & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
+
+`Step2` -- 가능도
+
+$$L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}\qquad(0\le\theta\le1)$$
+
+`Step3` -- 사전분포 $\times$ 가능도
+
+$$\pi(\theta)\times L(\theta)=\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(50,50)}$$
+
+`Step4` -- 정규화상수
+
+$$
+\begin{align*}
+\MoveEqLeft[2] \int_0^1\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(50,50)}\,d\theta \\
+&=\frac{1}{B(50,50)}\cdot\frac{(\sum x_i+49)!\,(n-\sum x_i+49)!}{(n+99)!} \\
+&=\frac{B(\sum x_i+50,\ n-\sum x_i+50)}{B(50,50)}
+\end{align*}
+$$
+
+(둘째 줄은 11wk-1 예제5 Step4 의 식)
+
+`Step5` -- 사후분포(연속형)
+
+$$
+\begin{align*}
+\MoveEqLeft[2] \pi(\theta\mid\text{data})=\frac{\pi(\theta)\times L(\theta)}{\int\pi(\theta)L(\theta)\,d\theta} \\
+&=\frac{\theta^{\sum x_i+49}(1-\theta)^{n-\sum x_i+49}}{B(\sum x_i+50,\ n-\sum x_i+50)} \\
+&=\color{red}{\frac{\theta^{(\sum x_i+50)-1}(1-\theta)^{(n-\sum x_i+50)-1}}{B(\sum x_i+50,\ n-\sum x_i+50)}}
+\end{align*}
+$$
+
+$$\color{red}{\therefore\ \theta\mid\text{data}\sim Beta(\textstyle\sum x_i+50,\ n-\sum x_i+50)}$$
+:::
+
+::::
+
+**요약:** $X_1,\dots,X_n \sim Ber(\theta)$의 사전분포가 $\theta \sim Beta(a,b)$ 이면 사후분포는 늘 아래와 같다.
+
+$$\theta\mid x_1,\dots,x_n \sim Beta\Big(a+\sum x_i,\ b+n-\sum x_i\Big)$$
+
+*앞선 다른예제상황*
+
+| 11wk-1 | 참값 | 사전분포 | 사후분포 | 사후평균 |
+|---|---|---|---|---|
+| 예제7 | $\theta=0.5$ | $U(0,1)=Beta(1,1)$ | $Beta(\sum x_i+1,\ n-\sum x_i+1)$ | $\frac{\sum x_i+1}{n+2}$ |
+| 예제8 | $\theta=0.6$ | $U(0,1)=Beta(1,1)$ | $Beta(\sum x_i+1,\ n-\sum x_i+1)$ | $\frac{\sum x_i+1}{n+2}$ |
+| 예제9 | $\theta=0.5$ | $Beta(5,5)$ | $Beta(\sum x_i+5,\ n-\sum x_i+5)$ | $\frac{\sum x_i+5}{n+10}$ |
+| 예제10 | $\theta=0.6$ | $Beta(5,5)$ | $Beta(\sum x_i+5,\ n-\sum x_i+5)$ | $\frac{\sum x_i+5}{n+10}$ |
+| 예제11 | $\theta=0.5$ | $Beta(50,50)$ | $Beta(\sum x_i+50,\ n-\sum x_i+50)$ | $\frac{\sum x_i+50}{n+100}$ |
+| 예제12 | $\theta=0.6$ | $Beta(50,50)$ | $Beta(\sum x_i+50,\ n-\sum x_i+50)$ | $\frac{\sum x_i+50}{n+100}$ |
+
+<!-- colwidths: 10 12 22 32 16 -->
+
+:::::
+
+`-` 아무튼 아래가 주는 이득이 무엇인가? 
+
+>  더 찰떡인 사실: 사전분포와 사후분포가 모두 베타임!! 
+
+1. 사전분포를 찰떡으로 주면, 사후분포 계산이 사라진다. (이미 계산된걸 활용) 
+2. 계산만 편해지는게 아니라 주관적인 믿음 정도를 어느정도 자유롭게 조정 가능하다. 
+
+`-` 사전분포와 사후분포가 같은 분포족(같은 꼴의 분포)을 따르는 경우, 그 사전분포를 (그 가능도에 대한) 켤레 사전분포, 줄여서 켤레분포라 한다. 예를 들어 $Beta(a,b)$ 는 $Ber(\theta)$ 의 켤레 사전분포다. 
