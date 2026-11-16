@@ -507,15 +507,15 @@ window.Quarto = {
 <li><span class="math inline">\(X\mid\Theta=\theta\sim Ber(\theta)\)</span></li>
 </ol>
 <p><span class="math inline">\(n\)</span> 이 증가함에 따라서 사전분포, 가능도, 사후분포가 어떻게 바뀌는지 살펴보라. 그리고 <span class="math inline">\(\theta\)</span> 의 추정값이 어떻게 바뀌는지 빈도주의와 베이지안을 비교하라. (단, <span class="math inline">\(\theta\)</span>는 사후분포의 평균으로 추정한다)</p>
-<p>(풀이) @@@ <code>Step5</code> – 사후분포 (켤레 공식으로 바로)</p>
+<p>(풀이)</p>
+<p><code>Step5</code> – 사후분포 (켤레 공식으로 바로)</p>
 <p><span class="math display">\[\begin{gathered}\Theta\sim Beta(5,5),\ \ X\mid\Theta=\theta\sim Ber(\theta)\\ \overset{\text{켤레}}{\Longrightarrow}\ \Theta\mid X=x\sim Beta\Big(5+\sum x_i,\ 5+n-\sum x_i\Big)\end{gathered}\]</span></p>
 <p><code>Step6</code> – 사후분포의 평균 (베타분포의 평균 <span class="math inline">\(\frac{a}{a+b}\)</span> 로 바로)</p>
 <p><span class="math display">\[E(\Theta\mid X=x)=\frac{5+\sum x_i}{10+n}\]</span></p>
 <p><code>-</code> 시각화</p>
 <iframe src="attachments/261116-몽상가-사후밀도-Beta55-합친-애니메이션.html" width="100%" height="610" scrolling="no" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
-<p>@@@</p>
-<p><code>-</code> 정규분포의 평균 (분산은 앎)</p>
+<p><code>-</code> 정규분포의 평균 (분산은 알고 있음)</p>
 <div style="border:1.5px solid #999; border-radius:6px; padding:0.8em 1.2em; margin:1em 0;">
 <p><strong>켤레 공식:</strong> <span class="math inline">\(X_1,\dots,X_n\overset{i.i.d.}{\sim}N(\theta,\sigma^2)\)</span> 이고(<span class="math inline">\(\sigma^2\)</span> 은 앎) 사전분포가 <span class="math inline">\(\theta\sim N(\mu_0,\tau^2)\)</span> 이면</p>
 <p><span class="math display">\[\theta\mid\text{data}\sim N\Big(\frac{\mu_0/\tau^2+\sum x_i/\sigma^2}{1/\tau^2+n/\sigma^2},\ \frac{1}{1/\tau^2+n/\sigma^2}\Big)\]</span></p>
@@ -551,7 +551,7 @@ window.Quarto = {
 <iframe src="attachments/261116-몽상가-사후밀도-정규평균N061-합친-애니메이션.html" width="100%" height="610" scrolling="no" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;">
 </iframe>
 <p><code>#</code></p>
-<p><code>-</code> 정규분포의 분산 (평균은 앎)</p>
+<p><code>-</code> 정규분포의 분산 (평균은 알고 있음)</p>
 <div style="border:1.5px solid #999; border-radius:6px; padding:0.8em 1.2em; margin:1em 0;">
 <p><strong>켤레 공식:</strong> <span class="math inline">\(X_1,\dots,X_n\overset{i.i.d.}{\sim}N(\mu,\sigma^2)\)</span> 이고(<span class="math inline">\(\mu\)</span> 는 앎) 사전분포가 <span class="math inline">\(\sigma^2\sim IG(\alpha,\beta)\)</span> 이면</p>
 <p><span class="math display">\[\sigma^2\mid\text{data}\sim IG\Big(\alpha+\frac{n}{2},\ \beta+\frac{1}{2}\sum(x_i-\mu)^2\Big)\]</span></p>

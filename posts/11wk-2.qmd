@@ -297,7 +297,7 @@ $$E(\Theta\mid X=x)=\frac{1+\sum x_i}{2+n}$$
 $n$ 이 증가함에 따라서 사전분포, 가능도, 사후분포가 어떻게 바뀌는지 살펴보라. 그리고 $\theta$ 의 추정값이 어떻게 바뀌는지 빈도주의와 베이지안을 비교하라. (단, $\theta$는 사후분포의 평균으로 추정한다) 
 
 (풀이)
-@@@
+
 `Step5` -- 사후분포 (켤레 공식으로 바로)
 
 $$\begin{gathered}\Theta\sim Beta(5,5),\ \ X\mid\Theta=\theta\sim Ber(\theta)\\ \overset{\text{켤레}}{\Longrightarrow}\ \Theta\mid X=x\sim Beta\Big(5+\sum x_i,\ 5+n-\sum x_i\Big)\end{gathered}$$
@@ -309,9 +309,9 @@ $$E(\Theta\mid X=x)=\frac{5+\sum x_i}{10+n}$$
 `-` 시각화
 
 <iframe src="attachments/261116-몽상가-사후밀도-Beta55-합친-애니메이션.html" width="100%" height="610" scrolling="no" style="border:none; display:block; width:100%; max-width:600px; margin:0 auto;"></iframe>
-@@@
 
-`-` 정규분포의 평균 (분산은 앎)
+
+`-` 정규분포의 평균 (분산은 알고 있음)
 
 ::::: {style="border:1.5px solid #999; border-radius:6px; padding:0.8em 1.2em; margin:1em 0;"}
 **켤레 공식:** $X_1,\dots,X_n\overset{i.i.d.}{\sim}N(\theta,\sigma^2)$ 이고($\sigma^2$ 은 앎) 사전분포가 $\theta\sim N(\mu_0,\tau^2)$ 이면
@@ -347,7 +347,7 @@ $$E(\Theta\mid X=x)=\frac{0.6+\sum x_i}{n+1}$$
 
 `#`
 
-`-` 정규분포의 분산 (평균은 앎)
+`-` 정규분포의 분산 (평균은 알고 있음)
 
 ::::: {style="border:1.5px solid #999; border-radius:6px; padding:0.8em 1.2em; margin:1em 0;"}
 **켤레 공식:** $X_1,\dots,X_n\overset{i.i.d.}{\sim}N(\mu,\sigma^2)$ 이고($\mu$ 는 앎) 사전분포가 $\sigma^2\sim IG(\alpha,\beta)$ 이면
