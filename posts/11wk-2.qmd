@@ -26,6 +26,8 @@ format:
 
 # 1. 강의영상
 
+{{<video https://youtu.be/playlist?list=PLduYTBfT482A&si=1x6517NnudCs08AL>}}
+
 # 2. 켤레 사전분포 
 
 ## A. 개념 
@@ -319,6 +321,8 @@ $$E(\Theta\mid X=x)=\frac{5+\sum x_i}{10+n}$$
 $$\theta\mid\text{data}\sim N\Big(\frac{\mu_0/\tau^2+\sum x_i/\sigma^2}{1/\tau^2+n/\sigma^2},\ \frac{1}{1/\tau^2+n/\sigma^2}\Big)$$
 
 이다.
+
+자료로 읽으면 $N(\mu_0,\tau^2)$ 는 값이 $\mu_0$ 인 자료를 $\frac{\sigma^2}{\tau^2}$ 개 본 셈이다. 사후평균이 $\frac{\frac{\sigma^2}{\tau^2}\mu_0+\sum x_i}{\frac{\sigma^2}{\tau^2}+n}$ 으로, 그 가상의 자료와 실제 자료를 함께 평균낸 꼴이기 때문이다(Gelman et al., 2013, p. 42). 예제3 의 $N(0.6,1)$ 은 $\sigma^2=1$ 이라 $0.6$ 을 한 번 본 셈이다.
 :::::
 
 `# 예제3` -- 정규분포(분산을 앎), 사전분포가 $N(0.6,1)$
@@ -355,6 +359,8 @@ $$E(\Theta\mid X=x)=\frac{0.6+\sum x_i}{n+1}$$
 $$\sigma^2\mid\text{data}\sim IG\Big(\alpha+\frac{n}{2},\ \beta+\frac{1}{2}\sum(x_i-\mu)^2\Big)$$
 
 이다. 여기서 $IG(\alpha,\beta)$ 는 밀도가 $\frac{\beta^{\alpha}}{\Gamma(\alpha)}(\sigma^2)^{-\alpha-1}e^{-\beta/\sigma^2}\ (\sigma^2>0)$ 인 분포다.
+
+자료로 읽으면 $IG(\alpha,\beta)$ 는 자료를 $2\alpha$ 개 보았고 그 $\sum(x_i-\mu)^2$ 이 $2\beta$ 였던 셈이다. 자료 $n$ 개가 오면 $2\alpha\to2\alpha+n$, $2\beta\to2\beta+\sum(x_i-\mu)^2$ 으로 그대로 더해지기 때문이다(Gelman et al., 2013, p. 43 의 “$\nu_0$ observations”, $\nu_0=2\alpha$). 예제4 의 $IG(2,1)$ 은 자료 $4$ 개, 제곱합 $2$ 를 본 셈이다.
 :::::
 
 `# 예제4` -- 정규분포(평균을 앎), 사전분포가 $IG(2,1)$
@@ -391,6 +397,8 @@ $$E(\Theta\mid X=x)=\frac{1+\frac{1}{2}\sum x_i^2}{1+\frac{n}{2}}=\frac{2+\sum x
 $$\theta\mid\text{data}\sim Pareto\big(a+n,\ \max(b,\max_i x_i)\big)$$
 
 이다. 여기서 $Pareto(a,b)$ 는 밀도가 $\frac{a\,b^{a}}{\theta^{a+1}}\ (\theta\ge b)$ 인 분포다. 곧 $b$ 는 $\theta$ 가 가질 수 있는 가장 작은 값이다.
+
+자료로 읽으면 $Pareto(a,b)$ 는 $U(0,\theta)$ 에서 자료를 $a$ 개 보았고 그 가운데 가장 큰 값이 $b$ 였던 셈이다. 자료 $n$ 개가 오면 $a\to a+n$ 으로 개수가 더해지고, $b\to\max(b,\max_i x_i)$ 로 지금까지 본 가장 큰 값으로 바뀌기 때문이다. 예제5 의 $Pareto(2,0.5)$ 는 자료 $2$ 개를 봤고 그 최댓값이 $0.5$ 였던 셈이다.
 :::::
 
 `# 예제5` -- 균등분포, 사전분포가 $Pareto(2,0.5)$

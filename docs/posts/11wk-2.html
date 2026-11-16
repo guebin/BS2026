@@ -236,6 +236,7 @@ window.Quarto = {
 
 <section id="강의영상" class="level1">
 <h1>1. 강의영상</h1>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLduYTBfT482A&amp;si=1x6517NnudCs08AL" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="켤레-사전분포" class="level1">
 <h1>2. 켤레 사전분포</h1>
@@ -520,6 +521,7 @@ window.Quarto = {
 <p><strong>켤레 공식:</strong> <span class="math inline">\(X_1,\dots,X_n\overset{i.i.d.}{\sim}N(\theta,\sigma^2)\)</span> 이고(<span class="math inline">\(\sigma^2\)</span> 은 앎) 사전분포가 <span class="math inline">\(\theta\sim N(\mu_0,\tau^2)\)</span> 이면</p>
 <p><span class="math display">\[\theta\mid\text{data}\sim N\Big(\frac{\mu_0/\tau^2+\sum x_i/\sigma^2}{1/\tau^2+n/\sigma^2},\ \frac{1}{1/\tau^2+n/\sigma^2}\Big)\]</span></p>
 <p>이다.</p>
+<p>자료로 읽으면 <span class="math inline">\(N(\mu_0,\tau^2)\)</span> 는 값이 <span class="math inline">\(\mu_0\)</span> 인 자료를 <span class="math inline">\(\frac{\sigma^2}{\tau^2}\)</span> 개 본 셈이다. 사후평균이 <span class="math inline">\(\frac{\frac{\sigma^2}{\tau^2}\mu_0+\sum x_i}{\frac{\sigma^2}{\tau^2}+n}\)</span> 으로, 그 가상의 자료와 실제 자료를 함께 평균낸 꼴이기 때문이다(Gelman et al., 2013, p.&nbsp;42). 예제3 의 <span class="math inline">\(N(0.6,1)\)</span> 은 <span class="math inline">\(\sigma^2=1\)</span> 이라 <span class="math inline">\(0.6\)</span> 을 한 번 본 셈이다.</p>
 </div>
 <p><code># 예제3</code> – 정규분포(분산을 앎), 사전분포가 <span class="math inline">\(N(0.6,1)\)</span></p>
 <p>평균이 <span class="math inline">\(0.6\)</span> 이고 분산이 <span class="math inline">\(1\)</span> 인 정규분포에서 <span class="math inline">\(X_1,\dots,X_n\)</span> 을 얻었다고 하자. 분산이 <span class="math inline">\(1\)</span> 인 것은 알지만 평균은 모른다. 모르는 평균을 <span class="math inline">\(\theta\)</span> 로 두고 사전분포와 자료의 분포를 아래처럼 둔다.</p>
@@ -556,6 +558,7 @@ window.Quarto = {
 <p><strong>켤레 공식:</strong> <span class="math inline">\(X_1,\dots,X_n\overset{i.i.d.}{\sim}N(\mu,\sigma^2)\)</span> 이고(<span class="math inline">\(\mu\)</span> 는 앎) 사전분포가 <span class="math inline">\(\sigma^2\sim IG(\alpha,\beta)\)</span> 이면</p>
 <p><span class="math display">\[\sigma^2\mid\text{data}\sim IG\Big(\alpha+\frac{n}{2},\ \beta+\frac{1}{2}\sum(x_i-\mu)^2\Big)\]</span></p>
 <p>이다. 여기서 <span class="math inline">\(IG(\alpha,\beta)\)</span> 는 밀도가 <span class="math inline">\(\frac{\beta^{\alpha}}{\Gamma(\alpha)}(\sigma^2)^{-\alpha-1}e^{-\beta/\sigma^2}\ (\sigma^2&gt;0)\)</span> 인 분포다.</p>
+<p>자료로 읽으면 <span class="math inline">\(IG(\alpha,\beta)\)</span> 는 자료를 <span class="math inline">\(2\alpha\)</span> 개 보았고 그 <span class="math inline">\(\sum(x_i-\mu)^2\)</span> 이 <span class="math inline">\(2\beta\)</span> 였던 셈이다. 자료 <span class="math inline">\(n\)</span> 개가 오면 <span class="math inline">\(2\alpha\to2\alpha+n\)</span>, <span class="math inline">\(2\beta\to2\beta+\sum(x_i-\mu)^2\)</span> 으로 그대로 더해지기 때문이다(Gelman et al., 2013, p.&nbsp;43 의 “<span class="math inline">\(\nu_0\)</span> observations”, <span class="math inline">\(\nu_0=2\alpha\)</span>). 예제4 의 <span class="math inline">\(IG(2,1)\)</span> 은 자료 <span class="math inline">\(4\)</span> 개, 제곱합 <span class="math inline">\(2\)</span> 를 본 셈이다.</p>
 </div>
 <p><code># 예제4</code> – 정규분포(평균을 앎), 사전분포가 <span class="math inline">\(IG(2,1)\)</span></p>
 <p>평균이 <span class="math inline">\(0\)</span> 이고 분산이 <span class="math inline">\(1\)</span> 인 정규분포에서 <span class="math inline">\(X_1,\dots,X_n\)</span> 을 얻었다고 하자. 평균이 <span class="math inline">\(0\)</span> 인 것은 알지만 분산은 모른다. 모르는 분산을 <span class="math inline">\(\theta\)</span> 로 두고 사전분포와 자료의 분포를 아래처럼 둔다.</p>
@@ -592,6 +595,7 @@ window.Quarto = {
 <p><strong>켤레 공식:</strong> <span class="math inline">\(X_1,\dots,X_n\overset{i.i.d.}{\sim}U(0,\theta)\)</span> 이고 사전분포가 <span class="math inline">\(\theta\sim Pareto(a,b)\)</span> 이면</p>
 <p><span class="math display">\[\theta\mid\text{data}\sim Pareto\big(a+n,\ \max(b,\max_i x_i)\big)\]</span></p>
 <p>이다. 여기서 <span class="math inline">\(Pareto(a,b)\)</span> 는 밀도가 <span class="math inline">\(\frac{a\,b^{a}}{\theta^{a+1}}\ (\theta\ge b)\)</span> 인 분포다. 곧 <span class="math inline">\(b\)</span> 는 <span class="math inline">\(\theta\)</span> 가 가질 수 있는 가장 작은 값이다.</p>
+<p>자료로 읽으면 <span class="math inline">\(Pareto(a,b)\)</span> 는 <span class="math inline">\(U(0,\theta)\)</span> 에서 자료를 <span class="math inline">\(a\)</span> 개 보았고 그 가운데 가장 큰 값이 <span class="math inline">\(b\)</span> 였던 셈이다. 자료 <span class="math inline">\(n\)</span> 개가 오면 <span class="math inline">\(a\to a+n\)</span> 으로 개수가 더해지고, <span class="math inline">\(b\to\max(b,\max_i x_i)\)</span> 로 지금까지 본 가장 큰 값으로 바뀌기 때문이다. 예제5 의 <span class="math inline">\(Pareto(2,0.5)\)</span> 는 자료 <span class="math inline">\(2\)</span> 개를 봤고 그 최댓값이 <span class="math inline">\(0.5\)</span> 였던 셈이다.</p>
 </div>
 <p><code># 예제5</code> – 균등분포, 사전분포가 <span class="math inline">\(Pareto(2,0.5)\)</span></p>
 <p>균등분포 <span class="math inline">\(U(0,1)\)</span> 에서 <span class="math inline">\(X_1,\dots,X_n\)</span> 을 얻었다고 하자. 왼쪽 끝이 <span class="math inline">\(0\)</span> 인 것은 알지만 오른쪽 끝은 모른다. 모르는 오른쪽 끝을 <span class="math inline">\(\theta\)</span> 로 두고 사전분포와 자료의 분포를 아래처럼 둔다.</p>
