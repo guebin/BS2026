@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- 미니 스프레드시트 로더 — Univer(Apache-2.0) bundle 분리(캐시 공유). ?data=이름 자동로드 + importData + 필터/정렬.
+     외부 CDN 0(B1), 오프라인. 넥서스(컨트롤타워) 2026-06-24 -->
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>미니 스프레드시트</title>
+<link rel="stylesheet" href="spreadsheet.bundle.css">
+<style>html,body{margin:0;padding:0;height:100%}#app{width:100%;height:100vh}</style>
+</head><body><div id="app"></div>
+<script src="spreadsheet.bundle.js"></script>
+<script>
+/* BS2026 11wk-2 사본 — 노트 안에서는 시트가 스스로 스크롤하지 않는다(이중 스크롤 막기 · 대표 2026-11-16 17:38).
+   휠은 시트가 받기 전에 가로채 바깥 페이지를 대신 내린다. 원본(08-prj/enook2/sims)은 그대로. 강민(AI) */
+window.addEventListener('wheel', function (e) {
+  e.preventDefault(); e.stopPropagation();
+  var k = e.deltaMode === 1 ? 16 : (e.deltaMode === 2 ? window.innerHeight : 1);
+  try { window.parent.scrollBy(0, e.deltaY * k); } catch (_) {}
+}, { capture: true, passive: false });
+</script>
+<script>
+/* BS2026 사본 — ?raw=이름1,이름2,… 이면 Sheet2, Sheet3, … 에 ../data/<이름>.csv 원자료를 넣는다(대표 2026-11-16 17:39).
+   Sheet1(?data=) 이 채워진 뒤에 넣고, 끝나면 Sheet1 로 돌아온다. 강민(AI) */
+(function () {
+  var q = new URLSearchParams(location.search);
+  var names = (q.get('raw') || '').split(',').filter(Boolean);
+  var titles = (q.get('names') || '').split(',');   /* 시트 이름: Sheet1, Sheet2, … 차례 (대표 2026-11-16 17:51 “시트에 제목도좀써줘”) */
+  if (!names.length && !titles[0]) return;
+  function parse(t) {
+    return t.replace(/\r/g, '').split('\n').filter(function (l) { return l.length; }).map(function (l) {
+      return l.split(',').map(function (c) { var v = Number(c); return c !== '' && !isNaN(v) ? v : c; });
+    });
+  }
+  function filled(ws) {
+    try { var v = ws.getRange(0, 0, 1, 1).getValue(); if (v !== undefined && v !== null && v !== '') return true; } catch (e) {}
+    try { var d = ws.getRange(0, 0, 1, 1).getCellData(); return !!(d && d.v !== undefined && d.v !== ''); } catch (e) {}
+    return false;
+  }
+  Promise.all(names.map(function (n) {
+    return fetch('../data/' + n + '.csv').then(function (r) { return r.ok ? r.text() : Promise.reject(n); }).then(parse);
+  })).then(function (tables) {
+    var tries = 0;
+    (function go() {
+      try {
+        var wb = window.univerAPI && window.univerAPI.getActiveWorkbook(), s1 = wb && wb.getActiveSheet();
+        if (s1 && filled(s1)) {
+          tables.forEach(function (t, k) {
+            var nm = titles[k + 1] || ('Sheet' + (k + 2));
+            var ws = wb.insertSheet(nm, { sheet: { rowCount: Math.max(t.length + 50, 100), columnCount: 26 } });
+            ws = wb.getSheetByName(nm) || ws;
+            ws.getRange(0, 0, t.length, t[0].length).setValues(t);
+          });
+          if (titles[0]) { try { s1.setName(titles[0]); } catch (e) {} }
+          wb.setActiveSheet(s1);
+          return;
+        }
+      } catch (e) {}
+      if (tries++ < 150) setTimeout(go, 100);
+    })();
+  }).catch(function () {});
+})();
+</script>
+</body></html>
