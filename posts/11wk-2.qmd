@@ -6,6 +6,7 @@ draft: false
 resources:
   - attachments/261111-강민-*예제*-애니메이션.html
   - attachments/261116-베이지안하니-*-위젯.html
+  - attachments/261116-베이지안하니-베타분포-위젯.html
 format:
   html:
     header-includes: |

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>베타분포 위젯</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body { font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; color: #222; }
+  .wrap { max-width: 600px; margin: 0 auto; padding: 6px 8px 4px; box-sizing: border-box; }
+  canvas { width: 100%; height: 290px; display: block; }
+  .row { display: flex; align-items: center; gap: 10px; margin: 6px 2px; }
+  .row label { width: 18px; font-family: "Times New Roman", serif; font-style: italic; font-size: 20px; text-align: center; }
+  .row input[type=range] { flex: 1; accent-color: #c0392b; height: 24px; }
+  .row output { width: 52px; text-align: right; font-size: 16px; font-variant-numeric: tabular-nums; }
+  .mean { margin: 2px 2px 0; font-size: 14px; color: #333; } .mean i { font-family: "Times New Roman", serif; font-size: 16px; } .mean .dot { color: #222; font-size: 11px; margin-left: 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <canvas id="cv"></canvas>
+  <div class="row"><label for="sa">a</label><input id="sa" type="range" min="0.1" max="30" step="0.1"><output id="oa"></output></div>
+  <div class="row"><label for="sb">b</label><input id="sb" type="range" min="0.1" max="30" step="0.1"><output id="ob"></output></div>
+  <div class="mean">평균 <i>a</i>/(<i>a</i>+<i>b</i>) = <span id="om"></span> <span class="dot">●</span> 가로축 위 검은 점</div>
+</div>
+<script>
+(function () {
+  // a, b 는 0.1 ~ 30, 0.1 간격
+  const r1 = v => Math.round(v * 10) / 10;
+  const show = v => String(parseFloat(v.toFixed(1)));
+
+  function lgamma(z) {             // 란초스 근사, z > 0
+    const c = [0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313,
+      -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
+    if (z < 0.5) return Math.log(Math.PI / Math.sin(Math.PI * z)) - lgamma(1 - z);
+    z -= 1; let x = c[0];
+    for (let i = 1; i < 9; i++) x += c[i] / (z + i);
+    const t = z + 7.5;
+    return 0.5 * Math.log(2 * Math.PI) + (z + 0.5) * Math.log(t) - t + Math.log(x);
+  }
+  const pdf = (t, a, b, lb) => Math.exp((a - 1) * Math.log(t) + (b - 1) * Math.log(1 - t) - lb);
+
+  const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+  const sa = document.getElementById("sa"), sb = document.getElementById("sb");
+  const oa = document.getElementById("oa"), ob = document.getElementById("ob");
+  let A = 5, B = 5;
+
+  function draw() {
+    const dpr = window.devicePixelRatio || 1, W = cv.clientWidth, H = cv.clientHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+    const L = 44, R = 14, T = 42, Bm = 40, pw = W - L - R, ph = H - T - Bm;
+    const lb = lgamma(A) + lgamma(B) - lgamma(A + B);
+    const N = 600, xs = [], ys = [];
+    let ymax = 0;
+    for (let i = 0; i <= N; i++) {
+      const t = 0.002 + 0.996 * i / N, y = pdf(t, A, B, lb);
+      xs.push(t); ys.push(y); if (isFinite(y)) ymax = Math.max(ymax, y);
+    }
+    ymax = Math.max(1.2, Math.min(ymax, 14) * 1.12);
+    const X = t => L + pw * t, Y = y => T + ph * (1 - Math.min(y, ymax) / ymax);
+    // 축
+    ctx.strokeStyle = "#222"; ctx.lineWidth = 1.2; ctx.beginPath();
+    ctx.moveTo(L, T); ctx.lineTo(L, T + ph); ctx.lineTo(L + pw, T + ph); ctx.stroke();
+    ctx.fillStyle = "#222"; ctx.font = "13px 'Times New Roman', serif"; ctx.textAlign = "center"; ctx.textBaseline = "top";
+    for (let k = 0; k <= 5; k++) { const t = k / 5; ctx.beginPath(); ctx.moveTo(X(t), T + ph); ctx.lineTo(X(t), T + ph + 5); ctx.stroke(); ctx.fillText(t.toFixed(1), X(t), T + ph + 7); }
+    ctx.font = "italic 16px 'Times New Roman', serif"; ctx.fillText("θ", L + pw / 2, T + ph + 22);
+    const step = ymax > 8 ? 2 : ymax > 4 ? 1 : ymax > 2 ? 0.5 : 0.25;
+    ctx.font = "13px 'Times New Roman', serif"; ctx.textAlign = "right"; ctx.textBaseline = "middle";
+    for (let y = 0; y <= ymax + 1e-9; y += step) { ctx.beginPath(); ctx.moveTo(L - 5, Y(y)); ctx.lineTo(L, Y(y)); ctx.stroke(); ctx.fillText(String(Math.round(y * 100) / 100), L - 8, Y(y)); }
+    // 밀도
+    ctx.beginPath(); ctx.moveTo(X(xs[0]), Y(0));
+    for (let i = 0; i <= N; i++) ctx.lineTo(X(xs[i]), Y(isFinite(ys[i]) ? ys[i] : ymax));
+    ctx.lineTo(X(xs[N]), Y(0)); ctx.closePath(); ctx.fillStyle = "rgba(192,57,43,0.18)"; ctx.fill();
+    ctx.save(); ctx.beginPath(); ctx.rect(L, T - 2, pw, ph + 2); ctx.clip();
+    ctx.beginPath(); for (let i = 0; i <= N; i++) { const p = [X(xs[i]), Y(isFinite(ys[i]) ? ys[i] : ymax)]; i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }
+    ctx.strokeStyle = "#c0392b"; ctx.lineWidth = 2.4; ctx.stroke(); ctx.restore();
+    // 평균
+    const m = A / (A + B);
+    ctx.fillStyle = "#222"; ctx.beginPath(); ctx.arc(X(m), T + ph, 5.5, 0, 2 * Math.PI); ctx.fill();
+    document.getElementById("om").textContent = m.toFixed(3);
+    // 제목
+    ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillStyle = "#222";
+    ctx.font = "italic 19px 'Times New Roman', serif";
+    ctx.fillText("Beta(" + show(A) + ", " + show(B) + ")", L + pw / 2, 8);
+    oa.textContent = show(A); ob.textContent = show(B);
+  }
+  function setAB(a, b) { A = a; B = b; sa.value = a; sb.value = b; draw(); }
+  sa.addEventListener("input", () => { A = r1(+sa.value); draw(); });
+  sb.addEventListener("input", () => { B = r1(+sb.value); draw(); });
+  window.addEventListener("resize", draw);
+  setAB(5, 5);
+})();
+</script>
+</body>
+</html>
