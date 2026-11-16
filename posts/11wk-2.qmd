@@ -1,7 +1,7 @@
 ---
 title: "**11wk-2**: 베이지안식 해석 (2)"
 author: 최규빈
-date: "11/11/2026"
+date: "11/16/2026"
 draft: false
 resources:
   - attachments/261111-강민-*예제*-애니메이션.html
