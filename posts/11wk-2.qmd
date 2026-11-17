@@ -209,8 +209,8 @@ $$\theta\mid\text{data}\sim Beta\Big(a+\sum x_i,\ b+n-\sum x_i\Big)$$
 
 `-` 표기 — 모수를 확률변수로 볼 때 쓰는 기호에는 두 관례가 있다.
 
-1. 확률변수인 모수를 대문자 $\Theta$, 그 값을 소문자 $\theta$ 로 가려 쓴다(Lehmann & Casella, 1998, p. 225; Keener, 2010, p. 115; Bertsekas & Tsitsiklis, 2008, 8장). 이렇게 쓰면 사전분포는 $\Theta\sim Beta(1,1)$, 자료의 분포는 $X\mid\Theta=\theta\sim Ber(\theta)$, 사후평균은 $E(\Theta\mid X=x)$ 다. 여기서 $X=x$ 는 $X_1=x_1,\dots,X_n=x_n$ 을 줄인 것이다.
-2. 가리지 않고 소문자 $\theta$ 하나로 쓴다(Gelman et al., 2013, p. 4; Murphy, 2022, p. 777). 이 관례에서는 대문자 $\Theta$ 를 흔히 모수가 가질 수 있는 값들의 모임(모수공간)에 쓴다.
+1. 확률변수인 모수를 대문자 $\Theta$, 그 값을 소문자 $\theta$ 로 가려 쓴다(Lehmann & Casella, 1998, p. 225; Keener, 2010, p. 115; Bertsekas & Tsitsiklis, 2008, 8장). 
+2. 가리지 않고 소문자 $\theta$ 하나로 쓴다(Gelman et al., 2013, p. 4; Murphy, 2022, p. 777). 
 
 지난강의노트에서는 관례2로 썼으나 이번에는 관례1로 쓰겠다. 
 
