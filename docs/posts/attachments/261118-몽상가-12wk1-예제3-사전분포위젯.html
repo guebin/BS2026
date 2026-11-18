@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>사전분포 위젯</title>
+<!--
+  12wk-1 예제3 “주관은 언제 이기나” — 사전분포 Beta(a, b) 위젯 (몽상가 · 2026-11-18 · Claude Code Opus 5.5 가 작성)
+  부탁: 강민 우편 …0033_사전분포위젯 · 0042_수식빼기 · 0043_승리낱말_땅넓이 · 0043_정사각_축규격 · 0044_n로그눈금 · 0046_사전분포칸은_베타위젯꼴로
+        대표 00:32 “프라이어 a,b를 위젯으로 … 와이가 n 엑스가 트루세타” · 00:42 “수식은 빼고” · “베이지안 승리, 빈도주의 승리정도로하고..”
+        · “영역이 누구땅이많냐.. 이런거 따져보자... 시각화에” · “좀더 정사각모양으로” · “n이랑 참값은 규격에 맞게” · 00:44 “n은 로그스케일로 … 5000정도까지”
+        · 00:45 (11wk-2 베타분포 위젯 캡처) “프라이어위젯은 이거로 하라니까?”
+  위   = 11wk-2 베타분포 위젯(LECTURE/posts/attachments/261116-베이지안하니-베타분포-위젯.html) 꼴 · 코드 그대로 가져옴(본보기 파일은 안 고침)
+         — 처음 값만 a = b = 10 · 슬라이더가 아래 승리 그림도 함께 움직인다
+  아래 = 승리 그림 — 가로축 θ 를 위 그림과 같은 여백(왼 44 · 오른 14)과 눈금(0.0 ~ 1.0)으로 맞춤 · 세로 n 로그 1 ~ 5000 · 축 글꼴도 위와 같은 Times 세리프
+  모형: θ ~ Beta(a,b) · X1..Xn | θ ~iid Ber(θ)
+        빈도주의 E[(θ̂F−θ)²] = θ(1−θ)/n · 베이지안 θ̂B = (Σx+a)/(n+a+b) → E[(θ̂B−θ)²] = [nθ(1−θ) + (a−(a+b)θ)²]/(a+b+n)²
+  칸: θ 500칸(칸 가운데 (i+0.5)/500) × n 500줄(log n 으로 고르게 1~5000 · 줄 가운데 n = 5000^((j+0.5)/500)) — 그림 · 땅 몫이 같은 칸
+  색 = log10(빈도주의 ÷ 베이지안) — 주황(베이지안 승리) · 파랑(빈도주의 승리) · 0 흰색 · |log10| ≥ 1 에서 가장 진함
+  땅 몫: 25만 칸 가운데 빈도주의 ÷ 베이지안 ≥ 1 인 칸(베이지안) 과 < 1 인 칸(빈도주의)의 몫 — 같은 칸(=1)은 베이지안 쪽에 셈
+  경계(같음): n 을 고정하면 θ 의 이차식 (nm²+2nm+m²)θ² − (2nam+2nm+m²)θ + na² = 0 (m = a+b) — 두 근 사이에서 베이지안 승리
+  바깥 CDN 없음 · 바닐라 JS · canvas
+-->
+<style>
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body { font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; color: #222; }
+  .wrap { max-width: 600px; margin: 0 auto; padding: 6px 8px 4px; box-sizing: border-box; }
+  /* ── 위: 11wk-2 베타분포 위젯 그대로 ── */
+  canvas#cv { width: 100%; height: 290px; display: block; }
+  .row { display: flex; align-items: center; gap: 10px; margin: 6px 2px; }
+  .row label { width: 18px; font-family: "Times New Roman", serif; font-style: italic; font-size: 20px; text-align: center; }
+  .row input[type=range] { flex: 1; accent-color: #c0392b; height: 24px; }
+  .row output { width: 52px; text-align: right; font-size: 16px; font-variant-numeric: tabular-nums; }
+  .mean { margin: 2px 2px 0; font-size: 14px; color: #333; } .mean i { font-family: "Times New Roman", serif; font-size: 16px; } .mean .dot { color: #222; font-size: 11px; margin-left: 6px; }
+  /* ── 아래: 승리 그림 ── */
+  .key { font-size: 13px; color: #444; margin: 16px 2px 6px; }
+  .chip { display: inline-block; width: 11px; height: 11px; border-radius: 2px; vertical-align: -1px; margin-right: 4px; }
+  .share { margin: 0 14px 4px 44px; }
+  .slab { display: flex; justify-content: space-between; font-size: 13px; color: #222; font-variant-numeric: tabular-nums; margin-bottom: 2px; }
+  .sbar { display: flex; gap: 2px; height: 10px; }
+  .seg { height: 100%; border-radius: 2px; }
+  .plotbox { position: relative; }
+  canvas#cw { width: 100%; display: block; touch-action: pan-y; cursor: crosshair; }
+  .tip { position: absolute; pointer-events: none; background: #fff; border: 1px solid #cfcfcf; border-radius: 6px;
+         box-shadow: 0 2px 8px rgba(0,0,0,.12); padding: 5px 8px; font-size: 12.5px; line-height: 1.45; white-space: nowrap; display: none;
+         font-variant-numeric: tabular-nums; color: #222; }
+  .tip .w { font-weight: 600; }
+  sup { font-size: 72%; line-height: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <canvas id="cv"></canvas>
+  <div class="row"><label for="sa">a</label><input id="sa" type="range" min="0.1" max="50" step="0.1"><output id="oa"></output></div>
+  <div class="row"><label for="sb">b</label><input id="sb" type="range" min="0.1" max="50" step="0.1"><output id="ob"></output></div>
+  <div class="mean">평균 <i>a</i>/(<i>a</i>+<i>b</i>) = <span id="om"></span> <span class="dot">●</span> 가로축 위 검은 점</div>
+
+  <div class="key">
+    <span class="chip" style="background:#D55E00"></span>베이지안 승리 ·
+    <span class="chip" style="background:#1F5FA8"></span>빈도주의 승리 · 진할수록 차이가 큼
+  </div>
+  <div class="share">
+    <div class="slab"><span id="sbw">베이지안 땅 –%</span><span id="sfw">빈도주의 땅 –%</span></div>
+    <div class="sbar"><div class="seg" id="bbw" style="background:#D55E00"></div><div class="seg" id="bfw" style="background:#1F5FA8"></div></div>
+  </div>
+  <div class="plotbox" id="box">
+    <canvas id="cw" role="img" aria-label="가로 참값 θ, 세로 n(로그 눈금 1~5000) — 칸마다 베이지안과 빈도주의 중 오차가 작은 쪽의 색"></canvas>
+    <div class="tip" id="tip"></div>
+  </div>
+</div>
+<script>
+(function () {
+  // ════ 위: 11wk-2 베타분포 위젯 코드 그대로 (처음 값만 10, 10 · draw 끝에서 아래 그림도 다시 그림) ════
+  // a, b 는 0.1 ~ 50, 0.1 간격 (본보기 30 → 50 · 강민 00:48)
+  const r1 = v => Math.round(v * 10) / 10;
+  const show = v => String(parseFloat(v.toFixed(1)));
+
+  function lgamma(z) {             // 란초스 근사, z > 0
+    const c = [0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313,
+      -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
+    if (z < 0.5) return Math.log(Math.PI / Math.sin(Math.PI * z)) - lgamma(1 - z);
+    z -= 1; let x = c[0];
+    for (let i = 1; i < 9; i++) x += c[i] / (z + i);
+    const t = z + 7.5;
+    return 0.5 * Math.log(2 * Math.PI) + (z + 0.5) * Math.log(t) - t + Math.log(x);
+  }
+  const pdf = (t, a, b, lb) => Math.exp((a - 1) * Math.log(t) + (b - 1) * Math.log(1 - t) - lb);
+
+  const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+  const sa = document.getElementById("sa"), sb = document.getElementById("sb");
+  const oa = document.getElementById("oa"), ob = document.getElementById("ob");
+  let A = 10, B = 10;
+  const L = 44, R = 14;              // ★ 아래 승리 그림도 같은 왼 · 오른 여백 — 가로축 θ 를 위아래로 맞춤
+
+  function draw() {
+    const dpr = window.devicePixelRatio || 1, W = cv.clientWidth, H = cv.clientHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+    const T = 42, Bm = 40, pw = W - L - R, ph = H - T - Bm;
+    const lb = lgamma(A) + lgamma(B) - lgamma(A + B);
+    const N = 600, xs = [], ys = [];
+    let ymax = 0;
+    for (let i = 0; i <= N; i++) {
+      const t = 0.002 + 0.996 * i / N, y = pdf(t, A, B, lb);
+      xs.push(t); ys.push(y); if (isFinite(y)) ymax = Math.max(ymax, y);
+    }
+    // ★ 강민 00:48 (대표 “a,b를 한 50정도까지”) — 본보기는 14 에서 잘랐다. a, b ≥ 1 이면 밀도가 유한하니 꼭대기까지(Beta(50,1) 끝 ≈ 45 · 그려진 0.998 에서) ·
+    //   a 나 b 가 1 아래면 끝이 무한히 솟으니 본보기처럼 14 에서 자른다
+    ymax = Math.max(1.2, Math.min(ymax, (A >= 1 && B >= 1) ? 60 : 14) * 1.12);
+    const X = t => L + pw * t, Y = y => T + ph * (1 - Math.min(y, ymax) / ymax);
+    // 축
+    ctx.strokeStyle = "#222"; ctx.lineWidth = 1.2; ctx.beginPath();
+    ctx.moveTo(L, T); ctx.lineTo(L, T + ph); ctx.lineTo(L + pw, T + ph); ctx.stroke();
+    ctx.fillStyle = "#222"; ctx.font = "13px 'Times New Roman', serif"; ctx.textAlign = "center"; ctx.textBaseline = "top";
+    for (let k = 0; k <= 5; k++) { const t = k / 5; ctx.beginPath(); ctx.moveTo(X(t), T + ph); ctx.lineTo(X(t), T + ph + 5); ctx.stroke(); ctx.fillText(t.toFixed(1), X(t), T + ph + 7); }
+    ctx.font = "italic 16px 'Times New Roman', serif"; ctx.fillText("θ", L + pw / 2, T + ph + 22);
+    const step = ymax > 40 ? 10 : ymax > 20 ? 5 : ymax > 8 ? 2 : ymax > 4 ? 1 : ymax > 2 ? 0.5 : 0.25;   // 위 두 칸(10 · 5)은 세로가 커져서 더함
+    ctx.font = "13px 'Times New Roman', serif"; ctx.textAlign = "right"; ctx.textBaseline = "middle";
+    for (let y = 0; y <= ymax + 1e-9; y += step) { ctx.beginPath(); ctx.moveTo(L - 5, Y(y)); ctx.lineTo(L, Y(y)); ctx.stroke(); ctx.fillText(String(Math.round(y * 100) / 100), L - 8, Y(y)); }
+    // 밀도
+    ctx.beginPath(); ctx.moveTo(X(xs[0]), Y(0));
+    for (let i = 0; i <= N; i++) ctx.lineTo(X(xs[i]), Y(isFinite(ys[i]) ? ys[i] : ymax));
+    ctx.lineTo(X(xs[N]), Y(0)); ctx.closePath(); ctx.fillStyle = "rgba(192,57,43,0.18)"; ctx.fill();
+    ctx.save(); ctx.beginPath(); ctx.rect(L, T - 2, pw, ph + 2); ctx.clip();
+    ctx.beginPath(); for (let i = 0; i <= N; i++) { const p = [X(xs[i]), Y(isFinite(ys[i]) ? ys[i] : ymax)]; i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }
+    ctx.strokeStyle = "#c0392b"; ctx.lineWidth = 2.4; ctx.stroke(); ctx.restore();
+    // 평균
+    const m = A / (A + B);
+    ctx.fillStyle = "#222"; ctx.beginPath(); ctx.arc(X(m), T + ph, 5.5, 0, 2 * Math.PI); ctx.fill();
+    document.getElementById("om").textContent = m.toFixed(3);
+    // 제목
+    ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillStyle = "#222";
+    ctx.font = "italic 19px 'Times New Roman', serif";
+    ctx.fillText("Beta(" + show(A) + ", " + show(B) + ")", L + pw / 2, 8);
+    oa.textContent = show(A); ob.textContent = show(B);
+    win.update(A, B);
+  }
+  function setAB(a, b) { A = a; B = b; sa.value = a; sb.value = b; draw(); }
+  sa.addEventListener("input", () => { A = r1(+sa.value); draw(); });
+  sb.addEventListener("input", () => { B = r1(+sb.value); draw(); });
+  window.addEventListener("resize", () => { win.layout(); draw(); });
+
+  // ════ 아래: 승리 그림 ════
+  const win = (function () {
+    const ORANGE = [0xD5, 0x5E, 0x00], BLUE = [0x1F, 0x5F, 0xA8];
+    const GT = 500, GN = 500, NMIN = 1, NMAX = 5000, LMAX = Math.log(NMAX);
+    const T = 10, Bm = 44;
+    const cw = document.getElementById("cw"), c2 = cw.getContext("2d");
+    const box = document.getElementById("box"), tip = document.getElementById("tip");
+    const off = document.createElement("canvas"), octx = off.getContext("2d");
+    off.width = GT; off.height = GN;
+    let a = NaN, b = NaN, W = 0, H = 0, pw = 0, ph = 0, dpr = 1, hover = null;   // NaN — 첫 update 에서 반드시 칠하게(10, 10 으로 두면 첫 판에 칸이 비었다)
+
+    const mseF = (t, n) => t * (1 - t) / n;
+    const mseB = (t, n, a, b) => { const m = a + b, c = a - m * t; return (n * t * (1 - t) + c * c) / ((m + n) * (m + n)); };
+    function roots(n, a, b) {
+      const m = a + b, qa = n * m * m + 2 * n * m + m * m, qb = -(2 * n * a * m + 2 * n * m + m * m), qc = n * a * a, D = qb * qb - 4 * qa * qc;
+      if (D < 0) return null;
+      const s = Math.sqrt(D); return [(-qb - s) / (2 * qa), (-qb + s) / (2 * qa)];
+    }
+    const rowN = j => Math.exp((j + 0.5) / GN * LMAX);              // 줄 j (0 = 아래) 의 가운데 n
+    function shareOf(a, b) {
+      let w = 0;
+      for (let j = 0; j < GN; j++) { const n = rowN(j); for (let i = 0; i < GT; i++) { const t = (i + 0.5) / GT; if (mseF(t, n) >= mseB(t, n, a, b)) w++; } }
+      return [w / (GT * GN), w];
+    }
+    window.__widget = { mseF, mseB, roots, rowN, shareOf, GT, GN };     // 검산용
+
+    function layout() {
+      W = cw.clientWidth; pw = W - L - R;
+      ph = Math.round(Math.min(420, Math.max(180, pw * 0.82)));        // 정사각에 가깝게 (600px 폭에서 526 × 420)
+      H = ph + T + Bm; dpr = window.devicePixelRatio || 1;
+      cw.style.height = H + "px"; cw.width = Math.round(W * dpr); cw.height = Math.round(H * dpr);
+    }
+    const X = t => L + t * pw, Y = n => T + (1 - Math.log(n) / LMAX) * ph;
+
+    function heat() {
+      const img = octx.createImageData(GT, GN), d = img.data; let w = 0;
+      for (let j = 0; j < GN; j++) {
+        const n = rowN(j), row = GN - 1 - j;
+        for (let i = 0; i < GT; i++) {
+          const t = (i + 0.5) / GT, f = mseF(t, n), bb = mseB(t, n, a, b);
+          if (f >= bb) w++;
+          const l = Math.log(f / bb) / Math.LN10, s = Math.min(1, Math.abs(l)), C = l >= 0 ? ORANGE : BLUE, k = (row * GT + i) * 4;
+          d[k] = 255 + (C[0] - 255) * s; d[k + 1] = 255 + (C[1] - 255) * s; d[k + 2] = 255 + (C[2] - 255) * s; d[k + 3] = 255;
+        }
+      }
+      octx.putImageData(img, 0, 0);
+      const sB = w / (GT * GN), sF = 1 - sB;
+      document.getElementById("sbw").textContent = "베이지안 땅 " + Math.round(sB * 100) + "%";
+      document.getElementById("sfw").textContent = "빈도주의 땅 " + Math.round(sF * 100) + "%";
+      const bbw = document.getElementById("bbw"), bfw = document.getElementById("bfw");
+      bbw.style.flex = sB + " 0 0"; bfw.style.flex = sF + " 0 0";
+      bbw.style.display = sB > 0 ? "" : "none"; bfw.style.display = sF > 0 ? "" : "none";
+    }
+
+    function draw() {
+      c2.setTransform(dpr, 0, 0, dpr, 0, 0);
+      c2.fillStyle = "#fff"; c2.fillRect(0, 0, W, H);
+      c2.imageSmoothingEnabled = true;
+      c2.drawImage(off, L, T, pw, ph);
+      c2.save(); c2.beginPath(); c2.rect(L, T, pw, ph); c2.clip();
+      c2.strokeStyle = "rgba(30,30,30,0.75)"; c2.lineWidth = 1.1; c2.setLineDash([]);
+      [0, 1].forEach(k => {
+        c2.beginPath(); let on = false;
+        for (let j = 0; j <= 1500; j++) {
+          const n = Math.exp(j / 1500 * LMAX), rt = roots(n, a, b);
+          if (rt) { const t = rt[k]; if (on) c2.lineTo(X(t), Y(n)); else { c2.moveTo(X(t), Y(n)); on = true; } } else on = false;
+        }
+        c2.stroke();
+      });
+      const pm = a / (a + b);                                             // 사전평균 — 위 그림의 검은 점과 같은 θ
+      c2.strokeStyle = "#333"; c2.lineWidth = 1.3; c2.setLineDash([4, 3]);
+      c2.beginPath(); c2.moveTo(X(pm), T); c2.lineTo(X(pm), T + ph); c2.stroke(); c2.setLineDash([]);
+      if (hover) {
+        c2.strokeStyle = "#111"; c2.lineWidth = 1.5; c2.fillStyle = "rgba(255,255,255,0.9)";
+        c2.beginPath(); c2.arc(hover.x, hover.y, 4.5, 0, 2 * Math.PI); c2.fill(); c2.stroke();
+      }
+      c2.restore();
+      // 축 — 위 베타분포 그림과 같은 선 · 글꼴(Times 세리프 · θ · n 이탤릭)
+      c2.strokeStyle = "#222"; c2.lineWidth = 1.2; c2.beginPath();
+      c2.moveTo(L, T); c2.lineTo(L, T + ph); c2.lineTo(L + pw, T + ph); c2.stroke();
+      c2.fillStyle = "#222"; c2.font = "13px 'Times New Roman', serif"; c2.textAlign = "center"; c2.textBaseline = "top";
+      for (let k = 0; k <= 5; k++) { const t = k / 5; c2.beginPath(); c2.moveTo(X(t), T + ph); c2.lineTo(X(t), T + ph + 5); c2.stroke(); c2.fillText(t.toFixed(1), X(t), T + ph + 7); }
+      // ★ 강민 01:05 (대표 01:05 “이거는 true theta라는 뜻을 좀 쓰고싶은뎅”) — 아래 가로축 이름 “참값 θ” (“참값” 은 본문 글꼴 · θ 는 Times 이탤릭) · 위 사전분포 칸 θ 는 그대로
+      {
+        const fK = "14px " + getComputedStyle(document.body).fontFamily, fT = "italic 16px 'Times New Roman', serif";
+        c2.font = fK; const w1 = c2.measureText("참값 ").width; c2.font = fT; const w2 = c2.measureText("θ").width;
+        const x0 = L + pw / 2 - (w1 + w2) / 2;
+        c2.textAlign = "left"; c2.font = fK; c2.fillText("참값 ", x0, T + ph + 23);
+        c2.font = fT; c2.fillText("θ", x0 + w1, T + ph + 22);
+      }
+      c2.font = "13px 'Times New Roman', serif"; c2.textAlign = "right"; c2.textBaseline = "middle";
+      [1, 10, 100, 1000, 5000].forEach(n => { c2.beginPath(); c2.moveTo(L - 5, Y(n)); c2.lineTo(L, Y(n)); c2.stroke(); c2.fillText(String(n), L - 8, Y(n)); });
+      c2.font = "italic 16px 'Times New Roman', serif"; c2.textAlign = "center";
+      c2.fillText("n", 8, T + ph / 2);
+    }
+
+    function showTip(ev) {
+      const r = cw.getBoundingClientRect(), x = ev.clientX - r.left, y = ev.clientY - r.top;
+      if (x < L || x > L + pw || y < T || y > T + ph) { hideTip(); return; }
+      const t = Math.min(0.999, Math.max(0.001, Math.round((x - L) / pw * 1000) / 1000));
+      const n = Math.min(NMAX, Math.max(NMIN, Math.round(Math.exp((1 - (y - T) / ph) * LMAX))));
+      const f = mseF(t, n), bb = mseB(t, n, a, b), q = f / bb;
+      const who = q >= 1 ? '<span class="w" style="color:#D55E00">베이지안 승리</span> · ' + q.toFixed(2) + "배"
+                         : '<span class="w" style="color:#1F5FA8">빈도주의 승리</span> · ' + (1 / q).toFixed(2) + "배";
+      tip.innerHTML = "참값 θ = " + t.toFixed(3) + " · n = " + n + "<br>" +
+        "빈도주의 E[(θ̂<sup>F</sup>−θ)<sup>2</sup>] = " + f.toPrecision(3) + "<br>" +
+        "베이지안 E[(θ̂<sup>B</sup>−θ)<sup>2</sup>] = " + bb.toPrecision(3) + "<br>" + who;
+      tip.style.display = "block";
+      const tw = tip.offsetWidth, th = tip.offsetHeight;
+      let lx = x + 14, ly = y + 14;
+      if (lx + tw > W - 2) lx = x - tw - 14;
+      if (lx < 2) lx = 2;
+      if (ly + th > H - 2) ly = y - th - 14;
+      if (ly < 2) ly = 2;
+      tip.style.left = lx + "px"; tip.style.top = ly + "px";
+      hover = { x: X(t), y: Y(n) }; draw();
+    }
+    function hideTip() { tip.style.display = "none"; if (hover) { hover = null; draw(); } }
+    cw.addEventListener("pointermove", showTip);
+    cw.addEventListener("pointerdown", showTip);
+    cw.addEventListener("pointerleave", hideTip);
+    cw.addEventListener("pointercancel", hideTip);
+
+    function update(na, nb) {
+      if (na === a && nb === b && pw === cw.clientWidth - L - R) { draw(); return; }
+      a = na; b = nb; tip.style.display = "none"; hover = null; heat(); draw();
+    }
+    layout();
+    return { update, layout: () => { layout(); } };
+  })();
+
+  setAB(10, 10);
+})();
+</script>
+</body>
+</html>
