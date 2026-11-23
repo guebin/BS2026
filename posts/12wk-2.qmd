@@ -15,6 +15,8 @@ format:
 
 # 1. 강의영상
 
+{{< video https://youtu.be/playlist?list=PLJbz-Zc78AZw&si=vmiKqkp8p1sfmQBz >}}
+
 # 2. 장점3: 검은 백조 (이어서)
 
 `# 예제1` -- 스팸메일 분류 알고리즘
@@ -129,20 +131,23 @@ $$\begin{aligned}\text{빈도주의}&:\ \frac{\frac{60}{100}\cdot\frac{30}{100}\
 
 `# 예제2`
 
-1이 나올 확률이 $\theta$ 인 동전을 5번 던져서 $0,\ 0,\ 0,\ 0,\ 0$ 을 얻었다. 이 동전이 공평한 동전인지 빈도주의와 베이지안으로 각각 검정하라. (베이지안은 50% 는 $\theta=0.5$ 라고 확신하고, 나머지 50% 는 $0$ 과 $1$ 사이 어디든 같다고 생각한다. 즉 $\pi_1(0.5)=0.5$ 와 $\pi_2(\theta)=0.5\ (0<\theta<1)$ 인 사전분포를 이용한다)
+1이 나올 확률이 $\theta$ 인 동전을 5번 던져서 $0,\ 0,\ 0,\ 0,\ 0$ 을 얻었다. 이 동전이 공평한 동전인지 빈도주의와 베이지안으로 각각 검정하라. (베이지안은 50% 는 $\theta=0.5$ 라고 확신하고, 나머지 50% 는 $0$ 과 $1$ 사이 어디든 같다고 생각한다. 즉 아래와 같다)
+
+$$\begin{cases}H_0:\theta=0.5, & P(H_0)=0.5\\ H_1:\theta\neq0.5, & P(H_1)=0.5,\quad \theta\mid H_1\sim U(0,1)\end{cases}$$
 
 ![](attachments/261123-강민-12wk2-예제2-사전분포.png){fig-align="center" width="420px"}
 
 (빈도주의)
 
 동전을 다섯 번 던져서 얻을 수 있는 경우는 아래와 같다. 
-
+ 
+// 가운데 정렬할수 있어? 
 0 0 0 0 0\
 0 0 0 0 1\
 0 0 0 1 0\
 ...\
 1 1 1 1 0\
-1 1 1 1 1 (모두 $2^5=32$가지)
+1 1 1 1 1
 
 이때 우리가 얻은 자료는 이 중에서 0, 0, 0, 0, 0 이다. 데이터 0, 0, 0, 0, 0 을 보고 $H_0$를 리젝한다면 아마 1,1,1,1,1 을 보고도 $H_0$를 리젝할 것이다. $H_0$가 참이면 이 자료와 우리 자료 0, 0, 0, 0, 0 은 각각 확률 $\left(\frac12\right)^5=\frac{1}{32}$ 로 나온다.
 
@@ -154,89 +159,42 @@ $$\begin{aligned}\text{빈도주의}&:\ \frac{\frac{60}{100}\cdot\frac{30}{100}\
 
 > 정리하면 $p$-value는 $H_0$가 참일 경우 지금 자료만큼 또는 그보다 더 극단적인 데이터가 나올 확률을 의미한다. 
 
-이 확률은 $H_0$가 참일 확률을 의미하지 않음을 주의하자. 
+$H_0$가 참일 확률을 의미하지 않음을 주의하자. 
 
 (베이지안)
 
-<details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
-<summary style="cursor:pointer; color:#888;">풀이 (Step1~Step5)</summary>
+$$P(\text{data}\mid H_0)=0.5^5=\frac{1}{32},\qquad P(\text{data}\mid H_1)=\int_0^1(1-\theta)^5\cdot1\,d\theta=\frac{1}{6}$$
 
-`Step1` -- 사전분포(혼합형)
+$$
+\begin{align*}
+P(H_0\mid\text{data})&=\frac{P(\text{data}\mid H_0)\,P(H_0)}{P(\text{data}\mid H_0)\,P(H_0)+P(\text{data}\mid H_1)\,P(H_1)}\\
+&=\frac{\frac{1}{32}\cdot0.5}{\frac{1}{32}\cdot0.5+\frac{1}{6}\cdot0.5}=\frac{3}{19}
+\end{align*}
+$$
 
-$$\pi_1(\theta)=\begin{cases}0.5 & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}\qquad\pi_2(\theta)=\begin{cases}0.5 & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
+곧 이 동전이 공평할 확률은 $P(H_0\mid\text{data})=\frac{3}{19}\approx0.16$ 이다. 따라서 $H_0$을 리젝하면 0.16의 확률로 틀린결정임. 
 
-`Step2` -- 가능도
+`# 예제3`
 
-$$L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}=(1-\theta)^5\qquad(0\le\theta\le1)$$
+1이 나올 확률이 $\theta$인 동전을 5번 던져서 $0,\ 0,\ 0,\ 0,\ 0$ 을 얻었다. 베이지안은 95% 는 $\theta=0.5$ 라고 확신하고, 나머지 5% 는 $0$ 과 $1$ 사이 어디든 같다고 생각한다. 즉 $P(H_0)=0.95$ 이다.
 
-`Step3` -- 사전분포 $\times$ 가능도
-
-$$\pi_1(\theta)\times L(\theta)=\begin{cases}0.5\times0.5^5=\frac{1}{64} & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}$$
-
-$$\pi_2(\theta)\times L(\theta)=\begin{cases}0.5\,(1-\theta)^5 & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
-
-`Step4` -- 정규화상수
-
-$$\sum_{\theta}\pi_1(\theta)\,L(\theta)+\int_0^1\pi_2(\theta)\,L(\theta)\,d\theta=\frac{1}{64}+0.5\int_0^1(1-\theta)^5\,d\theta=\frac{1}{64}+\frac{1}{12}=\frac{19}{192}$$
-
-`Step5` -- 사후분포(혼합형)
-
-$$\pi_1(\theta\mid\text{data})=\begin{cases}\frac{1/64}{19/192}=\frac{3}{19} & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}$$
-
-$$\pi_2(\theta\mid\text{data})=\begin{cases}\frac{0.5\,(1-\theta)^5}{19/192}=\frac{96}{19}(1-\theta)^5 & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
-
-</details>
-
-곧 이 동전이 공평할 확률은 $P(\theta=0.5\mid\text{data})=\frac{3}{19}\approx0.16$ 이다.
-
-`# 예제3` -- 유의수준 0.05 를 사전확률로 주면?
-
-1이 나올 확률이 $\theta$ 인 동전을 5번 던져서 $0,\ 0,\ 0,\ 0,\ 0$ 을 얻었다. 베이지안은 $H_0:\theta=0.5$ 에 사전확률 $\pi_0$ 를 주고, 나머지 $1-\pi_0$ 는 $0$ 과 $1$ 사이 어디든 같다고 생각한다.
-
-1. $\pi_1(0.5)=\pi_0$, $\pi_2(\theta)=1-\pi_0\ (0<\theta<1)$
+1. $\begin{cases}H_0:\theta=0.5, & P(H_0)=0.95\\ H_1:\theta\neq0.5, & P(H_1)=0.05,\quad \theta\mid H_1\sim U(0,1)\end{cases}$
 2. $X_1,\dots,X_5\mid\theta\overset{i.i.d.}{\sim}Ber(\theta)$
 
-$\pi_0=0.95$ 일 때와 $\pi_0=0.05$ 일 때 $P(H_0\mid\text{data})$ 를 각각 구하고, 빈도주의 p값 $\frac{1}{16}$ 과 견주어라.
+$P(H_0\mid\text{data})$ 를 구하고, 빈도주의 $p$-value $\frac{1}{16}$ 와 비교하라.
 
 (풀이)
 
-<details style="color:#555; border-left:3px solid #ddd; padding:0.2em 0 0.2em 0.9em; margin:0.8em 0;">
-<summary style="cursor:pointer; color:#888;">풀이 (Step1~Step5)</summary>
+혹시 유의수준과 가설의 사전확률이 관련이 있지 않을까? 
+$$P(\text{data}\mid H_0)=0.5^5=\frac{1}{32},\qquad P(\text{data}\mid H_1)=\int_0^1(1-\theta)^5\cdot1\,d\theta=\frac{1}{6}$$
 
-`Step1` -- 사전분포(혼합형)
+$$P(H_0\mid\text{data})=\frac{\frac{1}{32}\cdot0.95}{\frac{1}{32}\cdot0.95+\frac{1}{6}\cdot0.05}=\frac{57}{73}$$
 
-$$\pi_1(\theta)=\begin{cases}\pi_0 & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}\qquad\pi_2(\theta)=\begin{cases}1-\pi_0 & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
-
-`Step2` -- 가능도
-
-$$L(\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}=(1-\theta)^5\qquad(0\le\theta\le1)$$
-
-`Step3` -- 사전분포 $\times$ 가능도
-
-$$\pi_1(\theta)\times L(\theta)=\begin{cases}\pi_0\times0.5^5=\frac{\pi_0}{32} & (\theta=0.5)\\ 0 & (\text{그 외})\end{cases}$$
-
-$$\pi_2(\theta)\times L(\theta)=\begin{cases}(1-\pi_0)(1-\theta)^5 & (0<\theta<1)\\ 0 & (\text{그 외})\end{cases}$$
-
-`Step4` -- 정규화상수
-
-$$\frac{\pi_0}{32}+(1-\pi_0)\int_0^1(1-\theta)^5\,d\theta=\frac{\pi_0}{32}+\frac{1-\pi_0}{6}$$
-
-`Step5` -- 사후분포(혼합형)
-
-$$P(H_0\mid\text{data})=\pi_1(0.5\mid\text{data})=\frac{\pi_0/32}{\pi_0/32+(1-\pi_0)/6}$$
-
-</details>
-
-위 Step5 식 $P(H_0\mid\text{data})=\frac{\pi_0/32}{\pi_0/32+(1-\pi_0)/6}$ 에 넣는다.
-
-- $\pi_0=0.95$: $P(H_0\mid\text{data})=\frac{0.95/32}{0.95/32+0.05/6}=\frac{57}{73}\approx0.78$
-- $\pi_0=0.05$: $P(H_0\mid\text{data})=\frac{0.05/32}{0.05/32+0.95/6}=\frac{3}{307}\approx0.01$
-
-둘 다 p값 $\frac{1}{16}=0.0625$ 와 다르다. 유의수준 $0.05$ 는 가설의 사전확률이 아니다.
+곧 $P(H_0\mid\text{data})=\frac{57}{73}\approx0.78$ 이다. (사전 확률 $0.95$보다는 많이 떨어지긴 했지만 그래도 높다) $p$-value $\frac{1}{16}=0.0625$ 와는 많은 차이가 있다. 유의수준 $0.05$ 는 귀무가설을 사전에 95%정도 지지한다는 느낌이 아니다. 
 
 `# 예제4` -- 태양이 폭발했다 (xkcd 1132; Murphy, 2022, 그림 5.11)
 
-![원문: Murphy (2022), p. 203 (만화: xkcd 1132, Randall Munroe)](attachments/261122-강민-12wk2-원문-Murphy-p203-xkcd1132.png){fig-align="center" width="663px"}
+![xkcd 1132: Frequentists vs. Bayesians (Randall Munroe, <https://xkcd.com/1132>, CC BY-NC 2.5)](attachments/261123-강민-12wk2-xkcd1132-원본.png){fig-align="center" width="100%"}
 
 > 태양이 방금 폭발했나? (밤이라서 확실하지 않다.)
 >
@@ -251,7 +209,6 @@ $$P(H_0\mid\text{data})=\pi_1(0.5\mid\text{data})=\frac{\pi_0/32}{\pi_0/32+(1-\p
 (풀이)
 
 숙제 
-
 
 (참고) 
 
