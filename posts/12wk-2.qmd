@@ -122,8 +122,9 @@ $$\begin{aligned}\text{빈도주의}&:\ \frac{\frac{60}{100}\cdot\frac{30}{100}\
 
 `-` 가설검정의 논리 (빈도주의)
 
-- 논리1: $H_0$를 설정 $\Rightarrow$ $p$-value 계산
-- 논리2: $H_0$와 $H_1$을 설정 $\Rightarrow$ 유의수준 $\alpha$와 파워를 정해 기각역을 설정 $\Rightarrow$ 의사결정
+- 논리1: $H_0$를 설정 $\Rightarrow$ $p$-value 계산 
+- 논리2: $H_0$와 $H_1$을 설정 $\Rightarrow$ 유의수준 $\alpha$와 파워를 정해 기각역을 설정 $\Rightarrow$ 의사결정 
+- 논리3: $H_0$와 $H_1$을 설정 $\Rightarrow$ 유의수준 $\alpha$를 정하고 $p$-value를 계산 $\Rightarrow$ 의사결정 (주류) 
 
 `-` 가설검정의 논리 (베이지안)
 
