@@ -17,6 +17,8 @@ format:
 
 # 1. 강의영상
 
+{{< video https://youtu.be/playlist?list=PLQ_lYYewubQE&si=jFRgfimUcKTYQQsq >}}
+
 # 2. 가설검정 (2)
 
 pass (숙제이후에 설명) 
